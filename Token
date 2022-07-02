@@ -11,7 +11,7 @@ contract Plata {
     mapping(address => mapping(address => uint)) public allowance;
     string public name = "Plata";
     string public symbol = "PLT";
-    uint public decimals = 0; // Needs to be changed
+    uint public decimals = 4;
 
     constructor() {
         minter = msg.sender;
