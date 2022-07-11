@@ -1,5 +1,6 @@
 //<input type="text" value="Hello World" id="myInput">
-//<button onclick="copyContract()">Copy text</button>
+//<button onclick = "copyContract()">Copy text</button>
+// image style="cursor: pointer;"
 
 
 function copyContract() {
