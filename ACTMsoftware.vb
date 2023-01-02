@@ -46,7 +46,7 @@ Public Class FRMbackground
 
         LB_Welcome.Visible = boxWelcome.Visible
 
-        LBcompleted.Visible = boxCompleted.Visible
+        LBcompleted.Visible = boxCompleted.Visible 
 
         Return 0
 
