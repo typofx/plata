@@ -46,15 +46,13 @@ Public Class FRMbackground
 
         LB_Welcome.Visible = boxWelcome.Visible
 
-        LBcompleted.Visible = boxCompleted.Visible 
+        LBcompleted.Visible = boxCompleted.Visible
 
         Return 0
 
     End Function
 
     Private Sub FRMbackground_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
 
         'Full Screen Mode -> Animation
 
@@ -63,6 +61,7 @@ Public Class FRMbackground
         SreenWidth = Screen.PrimaryScreen.Bounds.Width
         ScreenHeight = Screen.PrimaryScreen.Bounds.Height
 
+        boxScreenSaver.BackColor = Color.Black
         LB_Animation.Location = New Point((SreenWidth - LB_Animation.Width) / 2, (ScreenHeight - LB_Animation.Height) / 2)
         boxScreenSaver.Size = New Point(SreenWidth, ScreenHeight)
         boxScreenSaver.Location = New Point((SreenWidth - boxScreenSaver.Width) / 2, (ScreenHeight - boxScreenSaver.Height) / 2)
@@ -71,10 +70,38 @@ Public Class FRMbackground
 
         LB_Welcome.Font = New Font("Montserrat", 50, FontStyle.Bold)
 
+        boxWelcome.BackColor = Color.Black
         LB_Welcome.Location = New Point((SreenWidth - LB_Welcome.Width) / 2, (ScreenHeight - LB_Welcome.Height) / 2)
         boxWelcome.Size = New Point(SreenWidth, ScreenHeight)
         boxWelcome.Location = New Point((SreenWidth - boxScreenSaver.Width) / 2, (ScreenHeight - boxScreenSaver.Height) / 2)
 
+        'Full Screen Mode -> Select Language
+
+        boxSelectLanguage.BackColor = Color.Black
+        boxSelectLanguage.Size = New Point(SreenWidth, ScreenHeight)
+        boxSelectLanguage.Location = New Point((SreenWidth - boxSelectLanguage.Width) / 2, (ScreenHeight - boxSelectLanguage.Height) / 2)
+
+        LB_SelectLanguage.Font = New Font("Montserrat", 35, FontStyle.Bold)
+        LB_SelectLanguage.Location = New Point((SreenWidth - LB_SelectLanguage.Width) / 2, (ScreenHeight - LB_SelectLanguage.Height) / 10)
+
+        LB_English.Font = New Font("Montserrat", 25, FontStyle.Bold)
+        LB_English.Location = New Point((SreenWidth - LB_English.Width) * 0.1, (ScreenHeight - LB_English.Height) * 0.3)
+
+        LB_Espanol.Font = New Font("Montserrat", 25, FontStyle.Bold)
+        LB_Espanol.Location = New Point((SreenWidth - LB_Espanol.Width) * 0.1, (ScreenHeight - LB_Espanol.Height) * 0.5)
+
+        LB_Portugues.Font = New Font("Montserrat", 25, FontStyle.Bold)
+        LB_Portugues.Location = New Point((SreenWidth - LB_Portugues.Width) * 0.1, (ScreenHeight - LB_Portugues.Height) * 0.7)
+
+
+        LB_Francais.Font = New Font("Montserrat", 25, FontStyle.Bold)
+        LB_Francais.Location = New Point((SreenWidth - LB_Francais.Width) * 0.9, (ScreenHeight - LB_Francais.Height) * 0.3)
+
+        LB_Deutsch.Font = New Font("Montserrat", 25, FontStyle.Bold)
+        LB_Deutsch.Location = New Point((SreenWidth - LB_Deutsch.Width) * 0.9, (ScreenHeight - LB_Deutsch.Height) * 0.5)
+
+        LB_Italiano.Font = New Font("Montserrat", 25, FontStyle.Bold)
+        LB_Italiano.Location = New Point((SreenWidth - LB_Italiano.Width) * 0.9, (ScreenHeight - LB_Italiano.Height) * 0.7)
 
 
         '**********
@@ -145,6 +172,19 @@ Public Class FRMbackground
         Return 0
 
     End Function
+
+    Function OpenBoxWelcome()
+
+        boxScreenSaver.Visible = False
+        LB_Animation.Visible = False
+        boxWelcome.Visible = True
+        CheckVisibleItems()
+        countSec = 0
+
+        Return 0
+
+    End Function
+
     Private Sub LB_5eur_Click(sender As Object, e As EventArgs) Handles LB5eur.Click
 
         txtTypeService.Text = "5 EUR"
@@ -167,11 +207,7 @@ Public Class FRMbackground
     End Sub
 
     Private Sub LB_Animation_Click(sender As Object, e As EventArgs) Handles LB_Animation.Click
-        boxScreenSaver.Visible = False
-        LB_Animation.Visible = False
-        boxWelcome.Visible = True
-        CheckVisibleItems()
-        countSec = 0
+        OpenBoxWelcome()
     End Sub
 
     Private Sub LB10eur_Click(sender As Object, e As EventArgs) Handles LB10eur.Click
@@ -212,6 +248,10 @@ Public Class FRMbackground
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         e.Graphics.DrawString(txtTypeService.Text, New Font("Segoe Ui", 16, FontStyle.Bold), Brushes.Black, New PointF(100, 100))
+    End Sub
+
+    Private Sub boxScreenSaver_Click(sender As Object, e As EventArgs) Handles boxScreenSaver.Click
+        OpenBoxWelcome()
     End Sub
 
     Private Sub FRMbackground_Activated(sender As Object, e As EventArgs) Handles Me.Activated
