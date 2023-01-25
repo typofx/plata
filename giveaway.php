@@ -12,15 +12,19 @@
   <link rel="stylesheet" href="giveawaystyle.css">
 </head>
 <body>
+  <div align="right">
 
-  <button id= "btnConnect" class="button" onclick="showModal()">Connect Wallet</button>
+  <button id= "btnConnect" class="btn1" onclick="showModal()">Connect Wallet</button></a>
+  <br>
   <button id= "btnDisconnect" class="button" onclick="disconnect()">Disconnect</button>
   <br>
   <br>
   <button id= "btnMetaPolygonChain" class= "button" onclick= "changeNetworkToPolygon()">Polygon Chain</button>
-  <button id= "btnMetaListPlata"    class= "button" onclick= "listPlataMetamaskPC()">List Plata (PLT)</button><br>
-  <button id= "btnMetaClaimPlata"   class= "button" onclick= "requestEtherWORKING()">Claim Plata MM</button>
-  <button id= "btnWallClaimPlata"   class= "button" onclick= "requestPlataWalletConnect()">Claim Plata WC</button><br>
+  <button id= "btnMetaListPlata"  class= "button" onclick= "listPlataMetamaskPC()">List Plata (PLT)</button><br>
+  <button id= "btnMetaClaimPlata" class= "button" onclick= "requestEtherWORKING()">Claim Plata MM</button>
+  <button id= "btnWallClaimPlata" class= "button" onclick= "requestPlataWalletConnect()">Claim Plata WC</button><br>
+  
+  </div>
   <script>
   //<button onclick="sign-message()">Contract Test</button><br>
   </script>
@@ -66,6 +70,7 @@
 <script>
 
     var account;
+    var MetaAccount;
     const accounts = [];
 
     // https://docs.walletconnect.com/quick-start/dapps/web3-provider
@@ -121,7 +126,7 @@
                 getAccounts(function(result) {
                     const Faucet = new web3.eth.Contract(abiGiveAway, addressGiveAway);
                     
-                    Faucet.methods.giveAwayERC20("0xc298812164bd558268f51cc6e3b8b5daaf0b6341" , ConnectedWallet() ).send({from:result[0]},function (error, result){
+                    Faucet.methods.giveAwayERC20("0xc298812164bd558268f51cc6e3b8b5daaf0b6341" , ConnectedWallet(MetaAccount) ).send({from:result[0]},function (error, result){
                         if(!error){
                             console.log(result);
                         }else{
@@ -248,7 +253,7 @@
         document.getElementById("btnWallClaimPlata").style.visibility = "hidden";
         document.getElementById("btnDisconnect").style.visibility = "hidden";
         
-    } hideAllConnectedButtons()
+    } hideAllConnectedButtons();
 
     function showConnectedMenuMetamask(){
         document.getElementById("btnConnect").style.visibility = "hidden";
@@ -259,19 +264,26 @@
         document.getElementById("btnDisconnect").style.visibility = "visible";
     } 
 
+    function showConnectedWalletConnect(){
+        document.getElementById("btnConnect").style.visibility = "hidden";
+        
+        document.getElementById("btnWallClaimPlata").style.visibility = "visible";
+        document.getElementById("btnDisconnect").style.visibility = "visible";
+        
+    }
 
     const connectMetamaskPC = async() => {
         
-        let MetaAccounts = await window.ethereum.request ( {method : 'eth_requestAccounts'}).catch((err) => {} )
+        let accounts = await window.ethereum.request ( {method : 'eth_requestAccounts'}).catch((err) => {} )
         
         changeNetworkToPolygon();
         
-        let MKaccount = accounts[0];
+        MetaAccount = accounts[0];
 
-        console.log("ConnectedWallet " + MetaAccounts);
-        console.log( "ReducedConnectedWallet " + ReducedStringNameWalletAddress(MetaAccounts) );
+        console.log("ConnectedWallet " + MetaAccount);
+        console.log( "ReducedConnectedWallet " + ReducedStringNameWalletAddress(MetaAccount) );
         
-        document.getElementById("ConnectedWallet").innerText = ReducedStringNameWalletAddress(MetaAccounts) + " Connected";
+        document.getElementById("ConnectedWallet").innerText = ReducedStringNameWalletAddress(MetaAccount) + " Connected";
         
         showConnectedMenuMetamask();
         document.getElementById("btnDisconnect").style.display = "visible";
@@ -313,7 +325,7 @@
         document.getElementById("ConnectedWallet").innerText = ReducedStringNameWalletAddress(account) + " Connected";
         document.getElementById("NetNetWork").innerText = "Polygon Network: 137";
         
-        showConnectedMenuWallConnect();
+        showConnectedWalletConnect();
         
         }
         
