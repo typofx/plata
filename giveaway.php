@@ -12,19 +12,27 @@
   <link rel="stylesheet" href="giveawaystyle.css">
 </head>
 <body>
-  <div align="right">
+    
+  <div align="right" id="WalletInject">
 
-  <button id= "btnConnect" class="btn1" onclick="showModal()">Connect Wallet</button></a>
-  <br>
-  <button id= "btnDisconnect" class="button" onclick="disconnect()">Disconnect</button>
-  <br>
-  <br>
-  <button id= "btnMetaPolygonChain" class= "button" onclick= "changeNetworkToPolygon()">Polygon Chain</button>
-  <button id= "btnMetaListPlata"  class= "button" onclick= "listPlataMetamaskPC()">List Plata (PLT)</button><br>
-  <button id= "btnMetaClaimPlata" class= "button" onclick= "requestEtherWORKING()">Claim Plata MM</button>
-  <button id= "btnWallClaimPlata" class= "button" onclick= "requestPlataWalletConnect()">Claim Plata WC</button><br>
-  
+  <button id= "btnChain" class="btnChain" onclick="changeNetworkToPolygon()">​</button></a>
+  <button id= "btnConnectButton" class="btnConnectWallet" onclick="changeNetworkToPolygon(),showModal()">Connect Wallet</button></a>
+
   </div>
+    
+    <div align="center">
+        <div id="box" class="box">
+	        <br>
+            <button id= "btnDisconnect" class="button" onclick="disconnect()">Disconnect</button>
+            <br>
+            <br>
+            <button id= "btnMetaPolygonChain" class= "button" onclick= "changeNetworkToPolygon()">Polygon Chain</button>
+            <button id= "btnMetaListPlata"  class= "button" onclick= "listPlataMetamaskPC()">List Plata (PLT)</button><br>
+            <button id= "btnMetaClaimPlata" class= "button" onclick= "requestEtherWORKING()">Claim Plata MM</button>
+            <button id= "btnWallClaimPlata" class= "button" onclick= "requestPlataWalletConnect()">Claim Plata WC</button><br>
+        </div>
+    </div>
+  
   <script>
   //<button onclick="sign-message()">Contract Test</button><br>
   </script>
@@ -186,11 +194,17 @@
         
         let networkVer = parseInt(window.ethereum.networkVersion);
         
-        if(networkVer == 137) document.getElementById("NetNetWork").innerText = "Polygon Network: 137";
+        if(networkVer == 137) {
+            document.getElementById("NetNetWork").innerText = "Polygon Network: 137";
+            document.getElementById("btnChain").className = "btnChain";
+            //document.getElementById("btnConnect").disabled = true;
+        }
         else
         {
             disconnect();
             document.getElementById("NetNetWork").innerText = "Unknown Network";
+            document.getElementById("btnChain").className = "btnWrongChain";
+            //document.getElementById("btnConnect").disabled = false;
         }
     }
     
@@ -245,19 +259,20 @@
     
     function hideAllConnectedButtons(){
         
-        document.getElementById("btnConnect").style.visibility = "visible";
-        
+
         document.getElementById("btnMetaPolygonChain").style.visibility = "hidden";
         document.getElementById("btnMetaListPlata").style.visibility = "hidden";
         document.getElementById("btnMetaClaimPlata").style.visibility = "hidden";
         document.getElementById("btnWallClaimPlata").style.visibility = "hidden";
         document.getElementById("btnDisconnect").style.visibility = "hidden";
         
+        document.getElementById("btnConnectButton").innerText = "Connect Wallet";
+        
+        
     } hideAllConnectedButtons();
 
     function showConnectedMenuMetamask(){
-        document.getElementById("btnConnect").style.visibility = "hidden";
-        
+
         document.getElementById("btnMetaPolygonChain").style.visibility = "visible";
         document.getElementById("btnMetaListPlata").style.visibility = "visible";
         document.getElementById("btnMetaClaimPlata").style.visibility = "visible";
@@ -265,8 +280,7 @@
     } 
 
     function showConnectedWalletConnect(){
-        document.getElementById("btnConnect").style.visibility = "hidden";
-        
+
         document.getElementById("btnWallClaimPlata").style.visibility = "visible";
         document.getElementById("btnDisconnect").style.visibility = "visible";
         
@@ -284,6 +298,8 @@
         console.log( "ReducedConnectedWallet " + ReducedStringNameWalletAddress(MetaAccount) );
         
         document.getElementById("ConnectedWallet").innerText = ReducedStringNameWalletAddress(MetaAccount) + " Connected";
+        document.getElementById("btnConnectButton").innerText = ReducedStringNameWalletAddress(MetaAccount);
+        
         
         showConnectedMenuMetamask();
         document.getElementById("btnDisconnect").style.display = "visible";
@@ -375,7 +391,7 @@
                                     browserName = "Opera";
                                 } else if(userAgent.match(/edg/i)){
                                             browserName = "Edge";
-                                        } else { browserName="Uknown Browser";
+                                        } else { browserName="Unknown Browser";
            }
          
     //console.log(browserName);
@@ -399,6 +415,10 @@
         if (event.target == modal) {
             modal.style.display = "none";
         }
+    }
+    
+    function AlertBox(){
+        alert("I am an alert box!");
     }
     
 </script>
