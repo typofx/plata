@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+    <html lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
     <html onmouseover="checkNetworkVer()" onmouseout="checkNetworkVer()" >
-<head itemscope itemtype="http://schema.org/WebSite">
+    <head itemscope itemtype="http://schema.org/WebSite">
     <title>Buying Plata Token with Credit Card & Debit Card</title>
-    <link rel="canonical" href="https://platatoken.sumupstore.com/product/plata-token" />
+    <link rel="canonical" href="https://www.plata.ie/card/" />
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta property="og:title" itemprop="name" content="Plata Token"/>
+    <meta property="og:title" itemprop="name" content="Buying Plata Token with Credit Card & Debit Card"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" itemprop="url" content="https://platatoken.sumupstore.com/product/plata-token"/>
+    <meta property="og:url" itemprop="url" content="https://www.plata.ie/card/"/>
     <meta property="og:image" content="https://cdn.sumup.store/2/th640/60bf37bd24c9ee5915eee434b6679291/520c9b05-cb28-439b-a509-27f3a1aef2ba.jpeg" alt="Plata Token"/>
     <meta property="og:description" content=""/>
     <meta property="og:site_name" content="Typo FX"/>
@@ -62,9 +62,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<div data-selector="os-theme-notification"
-  class="os-theme-notification">
-  </div>
+<div data-selector="os-theme-notification" class="os-theme-notification"> </div>
 
 
 <!-- OS Theme - Header section -->
@@ -83,12 +81,29 @@
       </div>
     </div>
 
+<!--
+<style>
+table, th, td {
+  border:0px solid black;
+  align:right;
+}
+</style>
+-->
+
 <div align="right" id="walletInjectBar">
+<table style="width:100%">
+  <tr>
+    <td><span><a href="https://www.plata.ie/"><img height="55" src="https://www.plata.ie/card/plata-token.svg" /></a><span></td>
+    <td><div align="right"><div>
+        <table>
+            <td><button id= "btnChain" class="btnChain" onclick="">​</button></td>
+            <td><button id= "btnConnectButton" class="btnConnectWallet" onclick="changeNetworkToPolygon(),showModal()">Connect Wallet</button></td>
+        </table>        
+  </tr>
+</table>
 
-  <span><button id= "btnChain" class="btnChain" onclick="">​</button></span>
-  <span><button id= "btnConnectButton" class="btnConnectWallet" onclick="changeNetworkToPolygon(),showModal()">Connect Wallet</button></span>
 
-  </div>
+    </div>
 
     <script>
         function CopyVcartMessage() {
@@ -136,18 +151,18 @@
             </div>
         </div id="box_">
     </div id="boxApp_">
+    <br>
+    <center><a id="dappVersion">PlataByCard dApp Version 0.2.0</a></center>
 
     </div>
     </div>
     </div>
     </div>
+    
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+    <center><div class="nomics-ticker-widget" data-name="Plata V2" data-base="PLT9" data-quote="EUR"></div><script src="https://widget.nomics.com/embed.js"></script></center>
+    
 
 <table class="table-footer">
   <tr>
