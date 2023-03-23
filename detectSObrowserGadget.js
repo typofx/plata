@@ -1,4 +1,5 @@
 function getOS() {
+        
         var OS = "Unknown";
         var _isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
         var isMobile = "PC";
@@ -8,7 +9,15 @@ function getOS() {
                 else if (navigator.appVersion.indexOf("X11")!=-1) OS="UNIX";
                     else if (navigator.appVersion.indexOf("Linux")!=-1) OS="Linux";
 
-    if (_isMobile == "mobile") isMobile = "mobile"
+    if (_isMobile == "mobile") {
+        
+        window.location.replace("https://www.plata.ie/en/mobile/");
+    } else
+    {
+        window.location.replace("https://www.plata.ie/en/");
+    }
+    
+    //isMobile = "mobile";
 
     //console.log(navigator.userAgent);
 
@@ -25,11 +34,9 @@ function getOS() {
                                     browserName = "Opera";
                                 } else if(userAgent.match(/edg/i)){
                                             browserName = "Edge";
-                                        } else { browserName="Uknown Browser";
+                                        } else { browserName="Unknown Browser";
            }
-         
-    //console.log(browserName);
-    
-          document.getElementById("OperatingSystem").innerText = "Operating System: " + OS + " " + isMobile + " " + browserName;
+
+    console.log("Operating System: " + OS + " " + isMobile + " " + browserName);
 
     } getOS();
