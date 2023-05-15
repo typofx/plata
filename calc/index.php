@@ -12,23 +12,21 @@
     
     <title>Token Price Converter</title>
 
-    <link rel="stylesheet" href="https://www.plata.ie/en/mobile/mobile-index-style.css" media="screen">
-    <link rel="stylesheet" href="https://www.plata.ie/en/mobile/mobile-header-style.css" media="screen">
-    <link rel="stylesheet" href="https://www.plata.ie/en/mobile/mobile-sand-menu.css" media="screen">
-    
-    <link rel="stylesheet" href="https://www.plata.ie/en/mobile/mobile-main-style.css" media="screen">
-    <link rel="stylesheet" href="https://www.plata.ie/en/mobile/mobile-button-style.css" media="screen">
+    <link rel="stylesheet" href="calc-style.css" media="screen">
 
-    <link rel="stylesheet" href="https://www.plata.ie/en/mobile/mobile-listing-style.css" media="screen">
 
     <script class="u-script" type="text/javascript" src="https://www.plata.ie/copyContract.js"></script> 
 </head>
 
 <body>
 
-<body>
 <br>
+
+<div id="boxApp" align="center">
+<div id="box" class="box">
 <center><h3>Token Price Converter</h3></center>
+
+<div id="forml">
 
 <div id="form" class="card-body">
 
@@ -86,17 +84,17 @@
 
 <script>
 
-    let qtdUSD = 0;
+    let qtdUSD = 0, qtdPLT = 0, qtdBTC = 0, qtdETH = 0, qtdMATIC = 0, qtdEUR = 0, qtdBRL = 0;
 
     function atrAssets() {
         
-        qtdUSD = document.getElementById("USDvalue").value;
-        _PLTUSD = document.getElementById("PLTvalue").value;
-        _USDBTC = document.getElementById("BTCvalue").value;
-        _USDETH = document.getElementById("ETHvalue").value;
-        _USDMATIC = document.getElementById("MATICvalue").value;
-        _USDEUR = document.getElementById("EURvalue").value;
-        _USDBRL = document.getElementById("BRLvalue").value;
+        _USDPLT = <?php echo number_format($USDPLT, 8, '.' , ''); ?>;
+        _PLTUSD = <?php echo number_format($PLTUSD, 8, '.' , ''); ?>;
+        _USDBTC = <?php echo number_format($USDBTC, 8, '.' , ''); ?>;
+        _USDETH = <?php echo number_format($USDETH, 8, '.' , ''); ?>;
+        _USDMATIC = <?php echo number_format($USDMATIC, 8, '.' , ''); ?>;
+        _USDEUR = <?php echo number_format($USDEUR, 8, '.' , ''); ?>;
+        _USDBRL = <?php echo number_format($USDBRL, 8, '.' , ''); ?>;
         
         console.log("qtdUSD : " + qtdUSD);
         console.log("_PLTUSD : " + _PLTUSD);
@@ -105,60 +103,88 @@
         console.log("_USDMATIC : " + _USDMATIC);
         console.log("_USDEUR : " + _USDEUR);
         console.log("_USDBRL : " + _USDBRL);
+        
+        qtdUSD = 0;
+        qtdPLT = 0;
+        qtdBTC = 0;
+        qtdETH = 0;
+        qtdMATIC = 0;
+        qtdEUR = 0;
+        qtdBRL = 0;
+        
+        
     }
     
     function calcFromUSD() {
     
         <?php echo 'document.getElementById("messager").innerText ="From USD";'; ?>
     
-        qtdUSD = document.getElementById("USDvalue").value;
+        atrAssets();
         
-        _PLTUSD = <?php echo number_format($PLTUSD, 8, '.' , ''); ?>;
-        _USDBTC = <?php echo number_format($USDBTC, 8, '.' , ''); ?>;
-        _USDETH = <?php echo number_format($USDETH, 8, '.' , ''); ?>;
-        _USDMATIC = <?php echo number_format($USDMATIC, 8, '.' , ''); ?>;
-        _USDEUR = <?php echo number_format($USDEUR, 8, '.' , ''); ?>;
-        _USDBRL = <?php echo number_format($USDBRL, 8, '.' , ''); ?>;
-    
+        qtdUSD = Number(document.getElementById("USDvalue").value);
         
-        document.getElementById("PLTvalue").value = Number(qtdUSD / _PLTUSD).toFixed(4);
+        if (qtdUSD == 0) document.getElementById("USDvalue").value = Number( _PLTUSD * qtdPLT ).toFixed(3);
+        if (qtdPLT == 0) document.getElementById("PLTvalue").value = Number(qtdUSD / _PLTUSD).toFixed(4);
+        
+        if (qtdBTC == 0 && qtdUSD != 0) document.getElementById("BTCvalue").value = Number(qtdUSD * _USDBTC).toFixed(8);
+        if (qtdETH == 0 && qtdUSD != 0) document.getElementById("ETHvalue").value = Number(qtdUSD * _USDETH).toFixed(8);
+        if (qtdMATIC == 0 && qtdUSD != 0) document.getElementById("MATICvalue").value = Number(qtdUSD * _USDMATIC).toFixed(5);
+        if (qtdEUR == 0 && qtdUSD != 0) document.getElementById("EURvalue").value = Number(qtdUSD * _USDEUR).toFixed(3);
+        if (qtdBRL == 0 && qtdUSD != 0) document.getElementById("BRLvalue").value = Number(qtdUSD * _USDBRL).toFixed(3);
 
-        document.getElementById("BTCvalue").value = Number(qtdUSD * _USDBTC).toFixed(8);
-        document.getElementById("ETHvalue").value = Number(qtdUSD * _USDETH).toFixed(8);
-        document.getElementById("MATICvalue").value = Number(qtdUSD * _USDMATIC).toFixed(5);
-        document.getElementById("EURvalue").value = Number(qtdUSD * _USDEUR).toFixed(3);
-        document.getElementById("BRLvalue").value = Number(qtdUSD * _USDBRL).toFixed(3);
     }
     
     function calcFromPLT() {
     
         <?php echo 'document.getElementById("messager").innerText ="From PLT";'; ?>
         
+        atrAssets();
+        
         qtdPLT = document.getElementById("PLTvalue").value;
-    
-        _USDPLT = <?php echo number_format($USDPLT, 8, '.' , ''); ?>;
-        _PLTUSD = <?php echo number_format($PLTUSD, 8, '.' , ''); ?>;
-        _USDBTC = <?php echo number_format($USDBTC, 8, '.' , ''); ?>;
-        _USDETH = <?php echo number_format($USDETH, 8, '.' , ''); ?>;
-        _USDMATIC = <?php echo number_format($USDMATIC, 8, '.' , ''); ?>;
-        _USDEUR = <?php echo number_format($USDEUR, 8, '.' , ''); ?>;
-        _USDBRL = <?php echo number_format($USDBRL, 8, '.' , ''); ?>;
-    
         
-        document.getElementById("USDvalue").value = Number(_USDPLT / qtdPLT).toFixed(4);
+        if (qtdPLT == 0) document.getElementById("PLTvalue").value = Number(qtdUSD / _PLTUSD).toFixed(4);
         
-        qtdUSD = document.getElementById("USDvalue").value;
+        if (qtdUSD == 0) {
+            document.getElementById("USDvalue").value = Number( _PLTUSD * qtdPLT ).toFixed(3);
+            qtdUSD = document.getElementById("USDvalue").value;
+        }
         
-        document.getElementById("BTCvalue").value = Number(qtdUSD * _USDBTC).toFixed(8);
-        document.getElementById("ETHvalue").value = Number(qtdUSD * _USDETH).toFixed(8);
-        document.getElementById("MATICvalue").value = Number(qtdUSD * _USDMATIC).toFixed(5);
-        document.getElementById("EURvalue").value = Number(qtdUSD * _USDEUR).toFixed(3);
-        document.getElementById("BRLvalue").value = Number(qtdUSD * _USDBRL).toFixed(3);
+        if (qtdBTC == 0 && qtdUSD != 0) document.getElementById("BTCvalue").value = Number(qtdUSD * _USDBTC).toFixed(8);
+        if (qtdETH == 0 && qtdUSD != 0) document.getElementById("ETHvalue").value = Number(qtdUSD * _USDETH).toFixed(8);
+        if (qtdMATIC == 0 && qtdUSD != 0) document.getElementById("MATICvalue").value = Number(qtdUSD * _USDMATIC).toFixed(5);
+        if (qtdEUR == 0 && qtdUSD != 0) document.getElementById("EURvalue").value = Number(qtdUSD * _USDEUR).toFixed(3);
+        if (qtdBRL == 0 && qtdUSD != 0) document.getElementById("BRLvalue").value = Number(qtdUSD * _USDBRL).toFixed(3);
+        
     }
+
+    function calcFromBTC() {
+    
+        <?php echo 'document.getElementById("messager").innerText ="From BTC";'; ?>
+        
+        atrAssets();
+        
+        qtdBTC = document.getElementById("BTCvalue").value;
+        
+        if (qtdPLT == 0  && qtdUSD != 0) document.getElementById("PLTvalue").value = Number(qtdUSD / _PLTUSD).toFixed(4);
+        
+        if (qtdUSD == 0) {
+            document.getElementById("USDvalue").value = Number( _PLTUSD * qtdPLT ).toFixed(3);
+            qtdUSD = document.getElementById("USDvalue").value;
+        }
+        
+        if (qtdBTC == 0 && qtdUSD != 0) document.getElementById("BTCvalue").value = Number(qtdUSD * _USDBTC).toFixed(8);
+        if (qtdETH == 0 && qtdUSD != 0) document.getElementById("ETHvalue").value = Number(qtdUSD * _USDETH).toFixed(8);
+        if (qtdMATIC == 0 && qtdUSD != 0) document.getElementById("MATICvalue").value = Number(qtdUSD * _USDMATIC).toFixed(5);
+        if (qtdEUR == 0 && qtdUSD != 0) document.getElementById("EURvalue").value = Number(qtdUSD * _USDEUR).toFixed(3);
+        if (qtdBRL == 0 && qtdUSD != 0) document.getElementById("BRLvalue").value = Number(qtdUSD * _USDBRL).toFixed(3);
+        
+    }
+
 
 </script>
 
 <button type="button" onclick="calcFromUSD()">Click Me!</button>
+<button type="button" onclick="calcFromPLT()">Click Me!</button>
 
 <a id="messager"/>
 
