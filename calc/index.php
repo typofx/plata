@@ -32,38 +32,38 @@
 
     <div>
         <label for="PLTvalue" class="form-label">Plata (PLT)</label>
-        <input type="number" id="PLTvalue" name="PLTvalue" size="15" maxlength="13" min="0.000001" onfocusout="calcFromPLT()" required>
+        <input type="number" id="PLTvalue" name="PLTvalue" maxlength="20" min="0.0001" onfocusout="calcFromPLT()" onclick="select()" required>
         <!--  onkeyup="PLTexec()"  onkeypress="PLTexec()" onclick="this.select();" onkeypress="mascara(this,reais);PLTexec()"   -->
     </div>
 
     <div>
         <label for="USDvalue" class="form-label">US Dollar (USD)</label>
-        <input type="number" id="USDvalue" name="USDvalue" value ="1.00" size="15" maxlength="13" min="0.01" onfocusout="calcFromUSD()" required>
+        <input type="number" id="USDvalue" name="USDvalue" value ="1.00" maxlength="12" min="0.01" onfocusout="calcFromUSD()" onclick="select()" required>
 
     </div>
     
     <div>
         <label for="MATICvalue" class="form-label">MATIC</label>
-        <input type="number" id="MATICvalue" name="MATICvalue" size="15" maxlength="13" min="0.00001"  onfocusout="calcFromMATIC()" required>
+        <input type="number" id="MATICvalue" name="MATICvalue" maxlength="12" min="0.00001"  onfocusout="calcFromMATIC()" onclick="select()" required>
     </div>
 
     <div>
         <label for="ETHvalue" class="form-label">Ethereum (ETH)</label>
-        <input type="number" id="ETHvalue" name="ETHvalue" size="15" maxlength="13" min="0.000000001" required>
+        <input type="number" id="ETHvalue" name="ETHvalue" maxlength="12" min="0.000000001" onfocusout="calcFromETH()" onclick="select()" required>
     </div>
 
     <div>
         <label for="BTCvalue" class="form-label">Bitcoin (BTC)</label>
-        <input type="number" id="BTCvalue" name="BTCvalue" size="15" maxlength="13" min="0.000000001"  onfocusout="calcFromBTC()" required>
+        <input type="number" id="BTCvalue" name="BTCvalue" maxlength="12" min="0.000000001" onfocusout="calcFromBTC()" onclick="select()" required>
     </div>
    
     <div>
       <label for="EURvalue" class="form-label">Euro (EUR)</label>
-      <input type="number" id="EURvalue" name="EURvalue" size="15" maxlength="13" min="0.01" required>
+      <input type="number" id="EURvalue" name="EURvalue" maxlength="12" min="0.01" onfocusout="calcFromEUR()" onclick="select()" required>
    </div>
    <div>
       <label for="BRLvalue" class="form-label">Brazilian Real (BRL)</label>
-      <input type="number" id="BRLvalue" name="BRLvalue" size="15" maxlength="13" min="0.01" required>
+      <input type="number" id="BRLvalue" name="BRLvalue" maxlength="12" min="0.01" onfocusout="calcFromBRL()" onclick="select()" required>
    </div>
 
    <br>
@@ -164,43 +164,59 @@
         
         qtdBTC = document.getElementById("BTCvalue").value;
         
-        if (qtdUSD == 0) {
-            document.getElementById("USDvalue").value = Number( qtdBTC / _USDBTC  ).toFixed(3);
-            qtdUSD = document.getElementById("USDvalue").value;
-        }
-        
+        document.getElementById("USDvalue").value = Number( qtdBTC / _USDBTC  ).toFixed(3);
+
         calcAllAssets();
 
     }
     
     function calcFromMATIC() {
-    
+        
         atrAssets();
         
         qtdMATIC = document.getElementById("MATICvalue").value;
-        
-        if (qtdUSD == 0) {
-            document.getElementById("USDvalue").value = Number( qtdMATIC / _USDMATIC  ).toFixed(3);
-            qtdUSD = document.getElementById("USDvalue").value;
-        }
-        
+    
+        document.getElementById("USDvalue").value = Number( qtdMATIC / _USDMATIC  ).toFixed(3);
+
         calcAllAssets();
 
     }
     
-    function calcFromETHC() {
+    function calcFromETH() {
     
         atrAssets();
         
         qtdETH = document.getElementById("ETHvalue").value;
 
         document.getElementById("USDvalue").value = Number( qtdETH / _USDETH  ).toFixed(3);
+
+        calcAllAssets();
+
+    }
+    
+    function calcFromEUR() {
+    
+        atrAssets();
         
+        qtdEUR = document.getElementById("EURvalue").value;
+
+        document.getElementById("USDvalue").value = Number( qtdEUR / _USDEUR  ).toFixed(3);
 
         calcAllAssets();
 
     }
 
+    function calcFromBRL() {
+    
+        atrAssets();
+        
+        qtdBRL = document.getElementById("BRLvalue").value;
+
+        document.getElementById("USDvalue").value = Number( qtdBRL / _USDBRL  ).toFixed(3);
+
+        calcAllAssets();
+
+    }
 
 </script>
 
