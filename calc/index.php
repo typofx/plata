@@ -44,7 +44,7 @@
     
     <div>
         <label for="MATICvalue" class="form-label">MATIC</label>
-        <input type="number" id="MATICvalue" name="MATICvalue" size="15" maxlength="13" min="0.00001" required>
+        <input type="number" id="MATICvalue" name="MATICvalue" size="15" maxlength="13" min="0.00001"  onfocusout="calcFromMATIC()" required>
     </div>
 
     <div>
@@ -112,10 +112,12 @@
         qtdEUR = 0;
         qtdBRL = 0;
         
-        
     }
     
     function calcAllAssets() {
+        
+        qtdUSD = document.getElementById("USDvalue").value;
+        
         if (qtdPLT == 0) document.getElementById("PLTvalue").value = Number(qtdUSD / _PLTUSD).toFixed(4);
         if (qtdBTC == 0) document.getElementById("BTCvalue").value = Number(qtdUSD * _USDBTC).toFixed(8);
         if (qtdETH == 0) document.getElementById("ETHvalue").value = Number(qtdUSD * _USDETH).toFixed(8);
@@ -130,11 +132,6 @@
         
         qtdUSD = Number(document.getElementById("USDvalue").value);
         
-        if (qtdUSD == 0) {
-            document.getElementById("USDvalue").value = Number( _PLTUSD * qtdPLT ).toFixed(3);
-            qtdUSD = document.getElementById("USDvalue").value;
-        }
-        
         calcAllAssets();
     }
     
@@ -143,13 +140,21 @@
         atrAssets();
         
         qtdPLT = document.getElementById("PLTvalue").value;
-        
-        if (qtdUSD == 0) {
-            document.getElementById("USDvalue").value = Number( _PLTUSD * qtdPLT ).toFixed(3);
-            qtdUSD = document.getElementById("USDvalue").value;
-        }
+        document.getElementById("USDvalue").value = Number( _PLTUSD * qtdPLT ).toFixed(8);
 
-        calcAllAssets();
+        console.log("qtdPLT: " + qtdPLT);
+        
+        if (Number(qtdPLT) < 100000) {
+            qtdUSD = document.getElementById("USDvalue").value;
+            document.getElementById("BTCvalue").value = Number(qtdUSD * _USDBTC).toFixed(12);
+            document.getElementById("ETHvalue").value = Number(qtdUSD * _USDETH).toFixed(10);
+            document.getElementById("MATICvalue").value = Number(qtdUSD * _USDMATIC).toFixed(10);
+            document.getElementById("EURvalue").value = Number(qtdUSD * _USDEUR).toFixed(8);
+            document.getElementById("BRLvalue").value = Number(qtdUSD * _USDBRL).toFixed(10);
+        } else {
+            document.getElementById("USDvalue").value = Number( _PLTUSD * qtdPLT ).toFixed(3);
+            calcAllAssets();
+        }
         
     }
 
@@ -175,10 +180,23 @@
         qtdMATIC = document.getElementById("MATICvalue").value;
         
         if (qtdUSD == 0) {
-            document.getElementById("USDvalue").value = Number( qtdMATIC / _USDBTC  ).toFixed(3);
+            document.getElementById("USDvalue").value = Number( qtdMATIC / _USDMATIC  ).toFixed(3);
             qtdUSD = document.getElementById("USDvalue").value;
         }
         
+        calcAllAssets();
+
+    }
+    
+    function calcFromETHC() {
+    
+        atrAssets();
+        
+        qtdETH = document.getElementById("ETHvalue").value;
+
+        document.getElementById("USDvalue").value = Number( qtdETH / _USDETH  ).toFixed(3);
+        
+
         calcAllAssets();
 
     }
