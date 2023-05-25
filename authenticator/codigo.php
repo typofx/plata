@@ -22,20 +22,10 @@ $g = new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 
 $secret = 'XVQ2UIGO75XRUKJO';
 
-//autenticar
 
-if(isset($_POST['token'])){
-   $token = $_POST['token'];
-   if($g->checkCode($secret, $token)){
-    echo 'autenticação liberada!';
-   }else{
-    echo 'token invalido';
-   }
-   die();
-}
 
+//sem o getUrl ele não funciona
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,10 +35,9 @@ if(isset($_POST['token'])){
     <title>Google Auth</title>
 </head>
 <body>
-    <h1>Informe o token </h1>
-    <form action="" method="post">
-        <input type="text" name="token" id="">
-        <button type="submit">Autenticar</button>
-    </form>
+    <h1>registre a autenticação em 2 fatores</h1>
+    <img src="<?php echo $g->getUrl('Plata.ie','plata.ie',$secret)?>">
+
+
 </body>
 </html>
