@@ -38,17 +38,19 @@
 
 .button-year {
     width: 95%;
-    height: 40px;
+    height: 50px;
     display: block;
     background-color: #6E46AE;
     border-radius: 6px; 
     border: 0px solid #3D3D3D;
     color: white; 
-    font-size: 15px; 
+    font-size: 18px; 
     cursor: pointer; 
     transition: 0.3s; 
     font-family: 'Montserrat';
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .button-year:hover {
@@ -59,7 +61,13 @@
 }
 
 .inative {
-    background-color: #3a3b3c;
+    background-color: #EBECF0;
+    color: black;
+}
+
+.inative-darkmode {
+    background-color: #3A3B3C;
+    color: white;
 }
 
 </style>
@@ -69,18 +77,18 @@
         document.getElementById("txtSplit").innerText = "<?php echo $txtInitialSplit?>";
         document.getElementById("tbInitialSplit").classList.remove('invisibled');
         document.getElementById("tbAllocation2023").classList.add('invisibled');
-        document.getElementById("btnSplit2022").classList.remove('inative');
-        document.getElementById("btnSplit2023").classList.add('inative');
-        document.getElementById("btnSplitNFT").classList.add('inative');
+        document.getElementById("btnSplit2022").classList.remove('<?php echo $classInativeButton?>');
+        document.getElementById("btnSplit2023").classList.add('<?php echo $classInativeButton?>');
+        document.getElementById("btnSplitNFT").classList.add('<?php echo $classInativeButton?>');
     }
 
     function show2023(){
         document.getElementById("txtSplit").innerText = "Token Allocation (2023)";
         document.getElementById("tbAllocation2023").classList.remove('invisibled');
         document.getElementById("tbInitialSplit").classList.add('invisibled');
-        document.getElementById("btnSplit2023").classList.remove('inative');
-        document.getElementById("btnSplit2022").classList.add('inative');
-        document.getElementById("btnSplitNFT").classList.add('inative');
+        document.getElementById("btnSplit2023").classList.remove('<?php echo $classInativeButton?>');
+        document.getElementById("btnSplit2022").classList.add('<?php echo $classInativeButton?>');
+        document.getElementById("btnSplitNFT").classList.add('<?php echo $classInativeButton?>');
     }
     
 </script>
@@ -121,28 +129,28 @@
 
 <table id="tbAllocation2023" class="split-table invisibled">
   <tr>
-    <td><img class="center-img" src="https://www.plata.ie/images/token-split-chart-2022.svg"><br></td>
+    <td><img class="center-img" src="https://www.plata.ie/images/token-split-chart-2023.svg"><br></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq01.svg">  Null: 0x00...dEaD ( 49% )</td>
+    <td><img src="https://www.plata.ie/images/sq07.svg">  Null: 0x00...dEaD ( 49% )</td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq02.svg">  Typo FX: Wallets ( 26% )</td>
+    <td><img src="https://www.plata.ie/images/sq05.svg">  Typo FX: Wallets ( 26% )</td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq03.svg">  Uniswap V3 ( 5% )</td>
+    <td><img src="https://www.plata.ie/images/sq01.svg">  Uniswap V3 ( 5% )</td>
   </tr>
   <tr>
     <td><img src="https://www.plata.ie/images/sq04.svg">  Quickswap DEX ( 5% )</td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq05.svg">  SushiSwap V2 ( 5% )</td>
+    <td><img src="https://www.plata.ie/images/sq03.svg">  SushiSwap V2 ( 5% )</td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq06.svg">  Promotional Giveaway ( 5% )</td>
+    <td><img src="https://www.plata.ie/images/sq02.svg">  Promotional Giveaway ( 5% )</td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq06.svg">  AirDrop dApp ( 4% )</td>
+    <td><img src="https://www.plata.ie/images/sq10.svg">  AirDrop dApp ( 4% )</td>
   </tr>
     <tr>
     <td><br></td>
@@ -152,8 +160,8 @@
 <table class="split-table-buttons">
   <tr>
     <td class="tdwid"><button id="btnSplit2022" class="button-year" onclick="show2022()">2022</button></td>
-    <td class="tdwid"><button id="btnSplit2023" class="button-year inative" onclick="show2023()">2023</button></td>
-    <td class="tdwid"><button id="btnSplitNFT" class="button-year inative" onclick="">NFT</button></td>
+    <td class="tdwid"><button id="btnSplit2023" class="button-year <?php echo $classInativeButton?>" onclick="show2023()">2023</button></td>
+    <td class="tdwid"><button id="btnSplitNFT" class="button-year <?php echo $classInativeButton?>" onclick="">NFT</button></td>
   </tr>
 </table>
 
