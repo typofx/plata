@@ -77,6 +77,7 @@
         document.getElementById("txtSplit").innerText = "<?php echo $txtInitialSplit?>";
         document.getElementById("tbInitialSplit").classList.remove('invisibled');
         document.getElementById("tbAllocation2023").classList.add('invisibled');
+        document.getElementById("tbNFTsell").classList.add('invisibled');
         document.getElementById("btnSplit2022").classList.remove('<?php echo $classInativeButton?>');
         document.getElementById("btnSplit2023").classList.add('<?php echo $classInativeButton?>');
         document.getElementById("btnSplitNFT").classList.add('<?php echo $classInativeButton?>');
@@ -86,9 +87,21 @@
         document.getElementById("txtSplit").innerText = "Token Allocation (2023)";
         document.getElementById("tbAllocation2023").classList.remove('invisibled');
         document.getElementById("tbInitialSplit").classList.add('invisibled');
+        document.getElementById("tbNFTsell").classList.add('invisibled');
         document.getElementById("btnSplit2023").classList.remove('<?php echo $classInativeButton?>');
         document.getElementById("btnSplit2022").classList.add('<?php echo $classInativeButton?>');
         document.getElementById("btnSplitNFT").classList.add('<?php echo $classInativeButton?>');
+    }
+
+    function showNFT(){
+        document.getElementById("txtSplit").innerText = "NFT Marketplace";
+        document.getElementById("tbNFTsell").classList.remove('invisibled');
+        document.getElementById("tbInitialSplit").classList.add('invisibled');
+        document.getElementById("tbAllocation2023").classList.add('invisibled');
+        document.getElementById("btnSplitNFT").classList.remove('<?php echo $classInativeButton?>');
+        document.getElementById("btnSplit2023").classList.add('<?php echo $classInativeButton?>');
+        document.getElementById("btnSplit2022").classList.add('<?php echo $classInativeButton?>');
+        
     }
     
 </script>
@@ -157,11 +170,41 @@
   </tr>
 </table>
 
+<table id="tbNFTsell" class="split-table invisibled">
+  <tr>
+    <td><img class="center-img" src="https://www.plata.ie/images/token-split-chart-nft.svg"><br></td>
+  </tr>
+  <tr>
+    <td><img src="https://www.plata.ie/images/sq03.svg">  Artists who collaborated ( 20% )</td>
+  </tr>
+  <tr>
+    <td><img src="https://www.plata.ie/images/sq02.svg">  Liquidity for ACTM Project ( 30% )</td>
+  </tr>
+  <tr>
+    <td><img src="https://www.plata.ie/images/sq01.svg">  Intense Rainfall's Victims in Brazil ( 50% )</td>
+  </tr>
+  <tr>
+    <td><br></td>
+  </tr>
+  <tr>
+    <td><br></td>
+  </tr>
+  <tr>
+    <td><br></td>
+  </tr>
+  <tr>
+    <td><br></td>
+  </tr>
+    <tr>
+    <td><br></td>
+  </tr>
+</table>
+
 <table class="split-table-buttons">
   <tr>
     <td class="tdwid"><button id="btnSplit2022" class="button-year" onclick="show2022()">2022</button></td>
     <td class="tdwid"><button id="btnSplit2023" class="button-year <?php echo $classInativeButton?>" onclick="show2023()">2023</button></td>
-    <td class="tdwid"><button id="btnSplitNFT" class="button-year <?php echo $classInativeButton?>" onclick="">NFT</button></td>
+    <td class="tdwid"><button id="btnSplitNFT" class="button-year <?php echo $classInativeButton?>" onclick="showNFT()" onclick="">NFT</button></td>
   </tr>
 </table>
 
