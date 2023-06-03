@@ -84,7 +84,7 @@
     }
 
     function show2023(){
-        document.getElementById("txtSplit").innerText = "Token Allocation (2023)";
+        document.getElementById("txtSplit").innerText = "<?php echo $txtTokenAllocation23?>";
         document.getElementById("tbAllocation2023").classList.remove('invisibled');
         document.getElementById("tbInitialSplit").classList.add('invisibled');
         document.getElementById("tbNFTsell").classList.add('invisibled');
@@ -94,7 +94,7 @@
     }
 
     function showNFT(){
-        document.getElementById("txtSplit").innerText = "NFT Marketplace";
+        document.getElementById("txtSplit").innerText = "<?php echo $txtNFTmarketplace?>"; 
         document.getElementById("tbNFTsell").classList.remove('invisibled');
         document.getElementById("tbInitialSplit").classList.add('invisibled');
         document.getElementById("tbAllocation2023").classList.add('invisibled');
@@ -145,7 +145,7 @@
     <td><img class="center-img" src="https://www.plata.ie/images/token-split-chart-2023.svg"><br></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq07.svg">  Null: 0x00...dEaD ( 49% )</td>
+    <td><img src="https://www.plata.ie/images/sq07.svg">  Null Address: 0x00...dEaD ( 49% )</td>
   </tr>
   <tr>
     <td><img src="https://www.plata.ie/images/sq05.svg">  Typo FX: Wallets ( 26% )</td>
@@ -181,7 +181,7 @@
     <td><img src="https://www.plata.ie/images/sq02.svg">  Liquidity for ACTM Project ( 30% )</td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq01.svg">  Intense Rainfall's Victims in Brazil ( 50% )</td>
+    <td><img src="https://www.plata.ie/images/sq01.svg">  Rainfall's Victims in Brazil ( 50% )</td>
   </tr>
   <tr>
     <td><br></td>
