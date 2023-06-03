@@ -22,9 +22,14 @@
         </tr>
         <tr>
 
-          <td><a href="https://top100token.com/address/0xc298812164bd558268f51cc6e3b8b5daaf0b6341" alt="Top100Token" target="_blank"><img src="https://www.plata.ie/images/top100TokenLogo.svg" ></a></td>
+          <td><a href="https://top100token.com/address/0xc298812164bd558268f51cc6e3b8b5daaf0b6341" target="_blank"><img src="https://www.plata.ie/images/top100TokenLogo.svg" ></a></td>
 
-          <td><a href="https://gopluslabs.io/token-security/137/0xc298812164bd558268f51cc6e3b8b5daaf0b6341" alt="XXX" target="_blank"><img src="https://www.plata.ie/images/goplusLogo.svg"></a></td>
+          <td><a href="https://gopluslabs.io/token-security/137/0xc298812164bd558268f51cc6e3b8b5daaf0b6341" target="_blank"><img src="https://www.plata.ie/images/goplusLogo.svg"></a></td>
+        </tr>
+        <tr>
+          <td><a href="https://app.bubblemaps.io/poly/token/0xc298812164bd558268f51cc6e3b8b5daaf0b6341" target="_blank"><img src="https://www.plata.ie/images/listing-bubblemaps.svg" ></a></td>
+
+          <td><a href="https://www.cyberscope.io/cyberscan?network=MATIC&address=0xc298812164bd558268f51cc6e3b8b5daaf0b6341" target="_blank"><img src="https://www.plata.ie/images/listing-cyberscope.svg"></a></td>
         </tr>
         
 
