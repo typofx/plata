@@ -10,7 +10,7 @@
         </tr>
         <tr>
 
-          <td><a href="https://dexscreener.com/polygon/0x0e145c7637747cf9cffef81b6a0317ca3c9671a6" alt="DEX Screener" target="_blank"><img src="https://www.plata.ie/images/dexScreenerLogo.svg" ></a></td>
+          <td><a href="https://dexscreener.com/polygon/0x5d64b0ec81a0648f52be7a50267bf8d1d0ffb161" alt="DEX Screener" target="_blank"><img src="https://www.plata.ie/images/dexScreenerLogo.svg" ></a></td>
 
           <td><a href="https://www.dextools.io/app/en/polygon/pair-explorer/0x0e145c7637747cf9cffef81b6a0317ca3c9671a6" alt="DEXtools" target="_blank"><img src="https://www.plata.ie/images/dextoolsLogo.svg" ></a></td>
         </tr>
@@ -31,7 +31,16 @@
 
           <td><a href="https://www.cyberscope.io/cyberscan?network=MATIC&address=0xc298812164bd558268f51cc6e3b8b5daaf0b6341" target="_blank"><img src="https://www.plata.ie/images/listing-cyberscope.svg"></a></td>
         </tr>
-        
+        <tr>
+          <td><a href="https://explorer.bitquery.io/matic/token/0xc298812164bd558268f51cc6e3b8b5daaf0b6341?theme=dark" target="_blank"><img src="https://www.plata.ie/images/listing-bitquery.svg" ></a></td>
+
+          <td><a href="https://charts.bogged.finance/?page=chart&c=polygon&t=0xC298812164BD558268f51cc6E3B8b5daAf0b6341" target="_blank"><img src="https://www.plata.ie/images/listing-bogged.svg" ></a></td>
+        </tr>
+        <tr>
+          <td><a href="https://coinbrain.com/coins/poly-0xc298812164bd558268f51cc6e3b8b5daaf0b6341" target="_blank"><img src="https://www.plata.ie/images/listing-coinbrain.svg" ></a></td>
+
+          <td><br></td>
+        </tr>
 
       </table>
         <br>
