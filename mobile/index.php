@@ -1,9 +1,41 @@
 <?php
+
     $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
     if ($language != 'en') {
         $redirectLink = 'https://www.plata.ie/'.$language.'/mobile/';
         echo '<script type="text/javascript"> window.location.replace('.$redirectLink.'); </script>';
+    }
+
+if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
+
+    if (isset($_POST['change_appearance'])) {
+        $appearance = $_POST['change_appearance'];
+        setcookie('appearance', $appearance, time() + (86400 * 30), '/', '', true, true); // Definir cookie por 30 dias 
+    }
+
+    if ($appearance === 'off') {
+        $backgroundColor = "#222222";
+        $textColor = "white";
+        $plataFont = "https://www.plata.ie/images/plata-font-gray.svg";
+        $headerIconCalc = "https://www.plata.ie/images/header-icon-calc-gray.svg";
+        $headerIconTrolley = "https://www.plata.ie/images/header-icon-trolley-gray.svg";
+        $headerIconBurger = "https://www.plata.ie/images/header-icon-hamburger-gray.svg";
+        $adCard = "https://www.plata.ie/images/buy-card-dark.svg";
+        $txtSandMenuAtributte = "(Dark)";
+        $txtSandMenuFullTheme = $txtSandMenuTheme ." ". $txtSandMenuAtributte;
+        $classModal = "modaldark";
+        $classInativeButton = "inative-darkmode";
+    } else {
+        $plataFont = "https://www.plata.ie/images/plata-font-original.svg";
+        $headerIconCalc = "https://www.plata.ie/images/header-icon-calc.svg";
+        $headerIconTrolley = "https://www.plata.ie/images/header-icon-trolley.svg";
+        $headerIconBurger = "https://www.plata.ie/images/header-icon-hamburger.svg";
+        $adCard = "https://www.plata.ie/images/buy-card.svg";
+        $txtSandMenuAtributte = "(Light)";
+        $txtSandMenuFullTheme = $txtSandMenuTheme . " ". $txtSandMenuAtributte;
+        $classModal = "modalcontent";
+        $classInativeButton = "inative";
     }
 
 ?>
@@ -29,7 +61,7 @@
 
     <script class="u-script" type="text/javascript" src="https://www.plata.ie/copyContract.js"></script>
 
-<body>
+<body style="background-color: <?php echo $backgroundColor; ?>; color: <?php echo $textColor; ?>">
     
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/languages/languages.php';?>
     
@@ -40,13 +72,13 @@
     <?php include 'listing.php';?>
     <br>
     <?php include 'roadmap.php';?>
+    <?php include 'split.php';?>
     <?php include 'adcard.php';?>
     <?php include 'wallets.php';?>
-    
     <?php include 'footer.php';?>
-    
-    <div id="myModal" class="modal">
-    <div class="modal-contentt">
+
+    <div id="myModal" class="modalbackground">
+    <div id="ModalContent" class="<?php echo $classModal;?>">
         <center>
             <p id="modal-messageLine1"/>
             <!--<p id="modal-messageLine2"/>-->
@@ -55,6 +87,5 @@
     </div>
     </div>
 
-    
 <!--<div style="opacity:0;"><input type="text" name="mobile" id="mobile" value="0xc298812164bd558268f51cc6e3b8b5daaf0b6341" readonly/></div>-->
 </body>
