@@ -145,25 +145,25 @@
     <td><img class="center-img" src="https://www.plata.ie/images/token-split-chart-2023.svg"><br></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq07.svg">  Null Address: 0x00...dEaD ( 49% )</td>
+    <td><img src="https://www.plata.ie/images/sq07.svg">  <?php echo $txtNullAddress?></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq05.svg">  Typo FX: Wallets ( 26% )</td>
+    <td><img src="https://www.plata.ie/images/sq05.svg">  <?php echo $txtTypoFx?></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq01.svg">  Uniswap V3 ( 5% )</td>
+    <td><img src="https://www.plata.ie/images/sq01.svg">  <?php echo $txtUniswap?></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq04.svg">  Quickswap DEX ( 5% )</td>
+    <td><img src="https://www.plata.ie/images/sq04.svg">  <?php echo $txtQuickswap?></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq03.svg">  SushiSwap V2 ( 5% )</td>
+    <td><img src="https://www.plata.ie/images/sq03.svg">  <?php echo $txtSushiSwap?></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq02.svg">  Promotional Giveaway ( 5% )</td>
+    <td><img src="https://www.plata.ie/images/sq02.svg">  <?php echo $txtPromotionalGiveaway?></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq10.svg">  AirDrop dApp ( 4% )</td>
+    <td><img src="https://www.plata.ie/images/sq10.svg">  <?php echo $txtAirDrop?></td>
   </tr>
     <tr>
     <td><br></td>
@@ -175,13 +175,13 @@
     <td><img class="center-img" src="https://www.plata.ie/images/token-split-chart-nft.svg"><br></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq03.svg">  Artists who collaborated ( 20% )</td>
+    <td><img src="https://www.plata.ie/images/sq03.svg">  <?php echo $txtArtistsCollaboration?></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq02.svg">  Liquidity for ACTM Project ( 30% )</td>
+    <td><img src="https://www.plata.ie/images/sq02.svg">  <?php echo $txtLiquidityACTM?></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq01.svg">  Rainfall's Victims in Brazil ( 50% )</td>
+    <td><img src="https://www.plata.ie/images/sq01.svg">  <?php echo $txtRainfallVictims?></td>
   </tr>
   <tr>
     <td><br></td>

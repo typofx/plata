@@ -76,6 +76,7 @@ if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
     <?php include 'adcard.php';?>
     <?php include 'wallets.php';?>
     <?php include 'footer.php';?>
+    <?php include '../scripts/languages.php';?>
 
     <div id="myModal" class="modalbackground">
     <div id="ModalContent" class="<?php echo $classModal;?>">
