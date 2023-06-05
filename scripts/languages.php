@@ -100,7 +100,7 @@ $CurrentPageURL = "pt";
             $txtPlatform = "Operação da Plataforma ( 10% )";
             $txtLegalSupport = "Suporte Legal ( 20% )";
             $txtDecentralized = "Gerenciamento descentralizado ( 5% )";
-            $txtExpenses = "Mentores do Projeto ( 5% )";
+            $txtExpenses = "Mentores do Projeto ( 5% ) ";
             $txtMarketing = "Marketing e Promoções ( 20% )";
             $txtReserve = "Fundo de Reserva ( 40% )";
         

@@ -175,13 +175,13 @@
     <td><img class="center-img" src="https://www.plata.ie/images/token-split-chart-nft.svg"><br></td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq03.svg">  <?php echo $txtArtistsCollaboration?></td>
+    <td><img src="https://www.plata.ie/images/sq03.svg">  <?php echo $txtArtistsCollaboration?> </td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq02.svg">  <?php echo $txtLiquidityACTM?></td>
+    <td><img src="https://www.plata.ie/images/sq02.svg">  <?php echo $txtLiquidityACTM?> </td>
   </tr>
   <tr>
-    <td><img src="https://www.plata.ie/images/sq01.svg">  <?php echo $txtRainfallVictims?></td>
+    <td><img src="https://www.plata.ie/images/sq01.svg">  <?php echo $txtRainfallVictims?> </td>
   </tr>
   <tr>
     <td><br></td>
