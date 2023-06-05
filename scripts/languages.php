@@ -5,6 +5,8 @@
 $CurrentPageURL = substr($_SERVER['REQUEST_URI'], 1, 2);
 //$language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
+$CurrentPageURL = "pt";
+
             $txtUSD = " (USD)";
             $txtEUR = " (EUR)";
             $txtBRL = " (BRL)";
