@@ -65,7 +65,7 @@ if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
     
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/languages/languages.php';?>
     
-    <?php include 'header.php';?>
+    <?php include 'header.php'; ?>
     <?php include 'main.php';?>
     <?php include 'price.php';?>
     <?php include 'project.php';?>
@@ -76,6 +76,8 @@ if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
     <?php include 'adcard.php';?>
     <?php include 'wallets.php';?>
     <?php include 'footer.php';?>
+    <!-- Changed to test portuguese token split -->
+    <?php include '../scripts/languages.php';?>
 
     <div id="myModal" class="modalbackground">
     <div id="ModalContent" class="<?php echo $classModal;?>">
