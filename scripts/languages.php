@@ -5,9 +5,6 @@
 $CurrentPageURL = substr($_SERVER['REQUEST_URI'], 1, 2);
 //$language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
-// changed to test the portuguese token split 
-$CurrentPageURL = "pt";
-
             $txtUSD = " (USD)";
             $txtEUR = " (EUR)";
             $txtBRL = " (BRL)";
@@ -216,33 +213,32 @@ $CurrentPageURL = "pt";
                  $txtWorkshopL2 = "2º Taller";
                  $txtPIXPayment = "Pagos com PIX";
 
-        // Buy Plata Token offchain (Español)
+         // Buy Plata Token offchain (Español)
 
-        // Initial Split (Spanish)
-
-        $txtInitialSplit = "";
-            $txtPlatform = "";
-            $txtLegalSupport = "";
-            $txtDecentralized = "";
-            $txtExpenses = "";
-            $txtMarketing = "";
-            $txtReserve = "";
+        // Initial Split (Español)
+        $txtInitialSplit = "División inicial (2022)"; 
+            $txtPlatform = "Operación de la plataforma ( 10% )"; 
+            $txtLegalSupport = "Apoyo Legal ( 20% )"; 
+            $txtDecentralized = "Gestión Descentralizada ( 5% )"; 
+            $txtExpenses = "Mentores de Proyectos ( 5%)"; 
+            $txtMarketing = "Marketing y Promoción ( 20% )"; 
+            $txtReserve = "Fondo de Reserva ( 40% )";
         
-        // Token Allocation 2023 (Spanish)
-        $txtTokenAllocation23 = "";
-            $txtNullAddress = "";
-            $txtTypoFx = "";
-            $txtUniswap = "";
-            $txtQuickswap = "";
-            $txtSushiSwap = "";
-            $txtPromotionalGiveaway = "";
-            $txtAirDrop = "";
+        // Token Allocation 2023 (Español)
+        $txtTokenAllocation23 = "Asignación de fichas (2023)";
+            $txtNullAddress = "Null Address: 0x00...dEaD ( 49% )";
+            $txtTypoFx = "Typo FX: Carteras ( 26% )";
+            $txtUniswap = "Uniswap V3 ( 5% )";
+            $txtQuickswap = "Quickswap DEX ( 5% )";
+            $txtSushiSwap = "SushiSwap V2 ( 5% )";
+            $txtPromotionalGiveaway = "Giveaway Promocional ( 5% )";
+            $txtAirDrop = "AirDrop dApp ( 4% )";
 
-        // NFT Marketplace (Spanish)
-        $txtNFTmarketplace = "";
-            $txtArtistsCollaboration = "";
-            $txtLiquidityACTM = "";
-            $txtRainfallVictims = "";
+        // NFT Marketplace (Español)
+        $txtNFTmarketplace = "Mercado de NFT";
+            $txtArtistsCollaboration = "Colaboración de artistas ( 20% )";
+            $txtLiquidityACTM = "Liquidez para Proyecto ACTM ( 30% )";
+            $txtRainfallVictims = "Víctimas de lluvias en Brasil ( 50% )";
         
         $txtBuyPlataOffchain = "Compre Tokens de Plata<br>con herramientas Offchain";
 
