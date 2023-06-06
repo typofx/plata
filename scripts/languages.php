@@ -213,6 +213,7 @@ $CurrentPageURL = substr($_SERVER['REQUEST_URI'], 1, 2);
                  $txtWorkshopL2 = "2º Taller";
                  $txtPIXPayment = "Pagos com PIX";
 
+
          // Buy Plata Token offchain (Español)
 
         // Initial Split (Español)
@@ -239,6 +240,8 @@ $CurrentPageURL = substr($_SERVER['REQUEST_URI'], 1, 2);
             $txtArtistsCollaboration = "Colaboración de artistas ( 20% )";
             $txtLiquidityACTM = "Liquidez para Proyecto ACTM ( 30% )";
             $txtRainfallVictims = "Víctimas de lluvias en Brasil ( 50% )";
+
+         // Buy Plata Token offchain (Español)
         
         $txtBuyPlataOffchain = "Compre Tokens de Plata<br>con herramientas Offchain";
 
