@@ -89,4 +89,3 @@ if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
 
 <!--<div style="opacity:0;"><input type="text" name="mobile" id="mobile" value="0xc298812164bd558268f51cc6e3b8b5daaf0b6341" readonly/></div>-->
 </body>
-
