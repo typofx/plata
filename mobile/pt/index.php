@@ -22,7 +22,7 @@ if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
         $headerIconTrolley = "https://www.plata.ie/images/header-icon-trolley-gray.svg";
         $headerIconBurger = "https://www.plata.ie/images/header-icon-hamburger-gray.svg";
         $adCard = "https://www.plata.ie/images/buy-card-dark.svg";
-        $txtSandMenuAtributte = "(Escuro)";
+        $txtSandMenuAtributte = "(Dark)";
         $txtSandMenuFullTheme = $txtSandMenuTheme ." ". $txtSandMenuAtributte;
         $classModal = "modaldark";
         $classInativeButton = "inative-darkmode";
@@ -32,7 +32,7 @@ if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
         $headerIconTrolley = "https://www.plata.ie/images/header-icon-trolley.svg";
         $headerIconBurger = "https://www.plata.ie/images/header-icon-hamburger.svg";
         $adCard = "https://www.plata.ie/images/buy-card.svg";
-        $txtSandMenuAtributte = "(Claro)";
+        $txtSandMenuAtributte = "(Light)";
         $txtSandMenuFullTheme = $txtSandMenuTheme . " ". $txtSandMenuAtributte;
         $classModal = "modalcontent";
         $classInativeButton = "inative";
@@ -48,7 +48,7 @@ if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
     <meta name="keywords" content="Base Information, ​Countdown $PLT Airdrop ends in, The Project, Do you need more information?, The Roadmap, Meet The Team, ​Best Wallets For $PLT Plata">
     <meta name="description" content="">
     
-    <title>$PLT Token Plata para ACTM</title>
+    <title>$PLT Plata Token for ACTM</title>
 
     <link rel="stylesheet" href="https://www.plata.ie/en/mobile/mobile-index-style.css" media="screen">
     <link rel="stylesheet" href="https://www.plata.ie/en/mobile/mobile-header-style.css" media="screen">
@@ -63,8 +63,7 @@ if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
 
 <body style="background-color: <?php echo $backgroundColor; ?>; color: <?php echo $textColor; ?>">
     
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/languages/languages.php';?>
-
+    <?php include '../../languages/languages.php';?>
     <?php include '../../en/mobile/header.php';?>
     <?php include '../../en/mobile/main.php';?>
     <?php include '../../en/mobile/price.php';?>
@@ -75,10 +74,11 @@ if (isset($_COOKIE['appearance'])) $appearance = $_COOKIE['appearance'];
     <?php include '../../en/mobile/split.php';?>
     <?php include '../../en/mobile/adcard.php';?>
     <?php include '../../en/mobile/wallets.php';?>
+    
     <?php include '../../en/mobile/footer.php';?>
 
-    <div id="myModal" class="modalbackground">
-    <div id="ModalContent" class="<?php echo $classModal;?>">
+    <div id="myModal" class="modal">
+    <div class="modal-contentt">
         <center>
             <p id="modal-messageLine1"/>
             <!--<p id="modal-messageLine2"/>-->
