@@ -2,7 +2,7 @@
 
     $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
-    if ($language != 'es') {
+    if ($language != 'en') {
         $redirectLink = 'https://www.plata.ie/'.$language.'/mobile/';
         echo '<script type="text/javascript"> window.location.replace('.$redirectLink.'); </script>';
     }
