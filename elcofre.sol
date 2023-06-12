@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Version Number 03
+// ELCOFRE V1
 pragma solidity ^0.8.18;
 
 import "../SafeERC20.sol";
@@ -24,6 +24,7 @@ contract elcofre  {
         uint256 erc20balance = token.balanceOf(address(this));
         require(msg.sender == owner && amount <= erc20balance);
             amount = amount * 10000;
+            token.transfer(msg.sender, amount);
             emit TransferSent(msg.sender, msg.sender, amount);
     }
 
