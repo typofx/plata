@@ -21,7 +21,7 @@ contract elcofre  {
     }    
 
     function withdraw(IERC20 token, uint amount) public {
-        uint256 erc20balance = token.balanceOf(address(this));
+        uint erc20balance = token.balanceOf(address(this));
         require(msg.sender == owner && amount <= erc20balance);
             amount = amount * 10000;
             token.transfer(msg.sender, amount);
