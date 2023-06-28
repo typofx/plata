@@ -1,6 +1,6 @@
 <?php
 // Dados da sua conta na Coinbase
-$coinbaseApiKey = 'd683db11-168d-4e2e-adb9-e48e670d0f92';
+$coinbaseApiKey = 'KEY';
 
 // Valores padrão do pagamento
 $customerName = '';
