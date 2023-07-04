@@ -1,0 +1,39 @@
+a {
+    text-decoration: none;
+}
+
+.footer{
+    background: #000000;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font: white;
+    }
+
+.tb-footer {
+    width: 80%;
+    border-collapse: separate;
+    text-align: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-spacing: 5px;
+
+}
+
+.tb-info-footer {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-collapse: separate;
+    width: auto;
+    border-spacing: 5px;
+
+}
+
+.tb-info-th {
+    height: 100%;
+    border-collapse: separate;
+}
