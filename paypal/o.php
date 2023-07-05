@@ -1,6 +1,6 @@
 .<?php
-$clientID = 'AbtF9ClIC3pdm9VeYet4nSQ6PoINZs34GCwfPq8xz30Me-p84PaodnsDV4ZLPhtck1fB3xVTAtiMIU3H';
-$secret = 'EPPdZka2x7kx5AZVadtw5gJpqd0tYdhahynuKOjHa9xzKuK2VU_3nbZ1RwefOlRazNxyhiMQ8DWQvuFM';
+$clientID = '';
+$secret = '';
 
 $ch = curl_init();
 
