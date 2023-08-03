@@ -1,0 +1,11 @@
+function redirectToMobile() {
+    var userAgent = navigator.userAgent;
+
+    // Check for mobile devices
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)) {
+        window.location.replace("https://www.plata.ie/en/mobile/");
+    }
+}
+
+// Redirect to mobile if necessary
+redirectToMobile();
