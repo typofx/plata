@@ -1,0 +1,92 @@
+[07-Aug-2023 15:39:57 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 8
+[07-Aug-2023 15:39:58 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 8
+[07-Aug-2023 15:39:59 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 8
+[07-Aug-2023 15:39:59 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 8
+[07-Aug-2023 15:40:00 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 8
+[07-Aug-2023 15:40:01 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 8
+[07-Aug-2023 15:40:01 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 8
+[07-Aug-2023 15:40:41 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'granna80_adriel'@'localhost' (using password: YES) in /home2/granna80/public_html/listingplatform/conexao.php on line 7
+[07-Aug-2023 15:42:10 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'granna80_adriel'@'localhost' (using password: YES) in /home2/granna80/public_html/listingplatform/conexao.php on line 7
+[07-Aug-2023 15:42:11 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'granna80_adriel'@'localhost' (using password: YES) in /home2/granna80/public_html/listingplatform/conexao.php on line 7
+[07-Aug-2023 16:02:09 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/conexao.php:14) in /home2/granna80/public_html/listingplatform/update.php on line 57
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:01:16 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:02:05 America/Chicago] PHP Fatal error:  Uncaught TypeError: Illegal offset type in /home2/granna80/public_html/listingplatform/listar.php:61
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/index.php(10): include()
+#1 {main}
+  thrown in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:30 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:30 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: count() expects at least 1 argument, 0 given in /home2/granna80/public_html/listingplatform/listar.php:61
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/listar.php(61): count()
+#1 /home2/granna80/public_html/listingplatform/index.php(10): include('/home2/granna80...')
+#2 {main}
+  thrown in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:33 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:33 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: count() expects at least 1 argument, 0 given in /home2/granna80/public_html/listingplatform/listar.php:61
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/listar.php(61): count()
+#1 /home2/granna80/public_html/listingplatform/index.php(10): include('/home2/granna80...')
+#2 {main}
+  thrown in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61

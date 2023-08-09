@@ -1,0 +1,12 @@
+[08-Aug-2023 10:03:18 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/login_process.php on line 49
+[08-Aug-2023 10:03:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/login_process.php on line 49
+[08-Aug-2023 14:08:59 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/listingplatform/painel/painel.php on line 6
+[08-Aug-2023 14:08:59 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/painel.php:1) in /home2/granna80/public_html/listingplatform/painel/painel.php on line 9
+[08-Aug-2023 14:50:22 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/listingplatform/painel/edit.php on line 2
+[08-Aug-2023 14:50:22 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/listingplatform/painel/edit.php on line 2
+[08-Aug-2023 14:50:22 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/listingplatform/painel/edit.php on line 7
+[08-Aug-2023 14:50:22 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/listingplatform/painel/edit.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/listingplatform/painel/edit.php on line 7
+[08-Aug-2023 14:56:18 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/update.php on line 57
