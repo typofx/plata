@@ -90,3 +90,17 @@ Stack trace:
 [08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
 [08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
 [08-Aug-2023 17:03:43 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/listingplatform/listar.php on line 61
+[12-Aug-2023 11:33:07 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: array % int in /home2/granna80/public_html/listingplatform/listar.php:21
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/listar.php(82): BackgroundLine(Array)
+#1 /home2/granna80/public_html/listingplatform/index.php(10): include('/home2/granna80...')
+#2 {main}
+  thrown in /home2/granna80/public_html/listingplatform/listar.php on line 21
+[13-Aug-2023 02:02:45 America/Chicago] PHP Parse error:  syntax error, unexpected double-quoted string ">█</td>'; ", expecting "," or ";" in /home2/granna80/public_html/listingplatform/listar.php on line 123
+[13-Aug-2023 06:46:40 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 103
+[13-Aug-2023 06:47:04 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 103
+[13-Aug-2023 06:49:35 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 103
+[13-Aug-2023 06:50:14 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 104
+[13-Aug-2023 06:50:41 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 104
+[13-Aug-2023 06:52:47 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 105
+[13-Aug-2023 06:52:59 America/Chicago] PHP Warning:  Attempt to read property "num_rows" on bool in /home2/granna80/public_html/listingplatform/listar.php on line 105

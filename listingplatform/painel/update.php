@@ -1,4 +1,13 @@
 <?php
+
+session_start(); // Iniciar a sessão
+
+// Verificar se o usuário está autenticado
+if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
+    // O usuário não está autenticado, redirecionar de volta para a página de login
+    header("Location: index.php");
+    exit();
+}
 include '../conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
@@ -26,7 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
     $metamaskbutton = $_POST["metamaskbutton"];
     $obs1 = $_POST["obs1"];
     $obs2 = $_POST["obs2"];
-
+    $email = $_POST["zemail"];
+    $telegram = $_POST["telegram"];
+    
     $sql = "UPDATE granna80_bdlinks.links SET 
         Desktop = '$desktop',
         Mobile = '$mobile',
@@ -50,7 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
         SocialMedia = '$socialmedia',
         MetamaskButton = '$metamaskbutton',
         Obs1 = '$obs1',
-        Obs2 = '$obs2'
+        Obs2 = '$obs2',
+        Email = '$email',
+        Telegram = '$telegram'
         WHERE ID = $id";
 
     if ($conn->query($sql) === TRUE) {

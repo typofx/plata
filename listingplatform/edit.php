@@ -35,7 +35,15 @@ $conn->close();
         Country: <input type="text" name="country" value="<?php echo $row["Country"]; ?>"><br>
         Link: <input type="text" name="link" value="<?php echo $row["Link"]; ?>"><br>
         Rank: <input type="text" name="rank" value="<?php echo $row["Rank"]; ?>"><br>
-        Market Cap: <input type="text" name="marketcap" value="<?php echo $row["MarketCap"]; ?>"><br>
+
+        
+        <label for="marketcap">Market Cap:</label>
+            <select name="cars" id="cars">
+                <option value="<?php echo $row["MarketCap"]='K'; ?>">Okay</option>
+                <option value="W">Wrong</option>
+            </select>
+        
+        
         Liquidity: <input type="text" name="liquidity" value="<?php echo $row["Liquidity"]; ?>"><br>
         Fully Diluted MKC: <input type="text" name="fullydilutedmkc" value="<?php echo $row["FullyDilutedMKC"]; ?>"><br>
         Circulating Supply: <input type="text" name="circulatingsupply" value="<?php echo $row["CirculatingSupply"]; ?>"><br>

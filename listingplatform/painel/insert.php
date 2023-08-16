@@ -61,22 +61,41 @@ $conn->close();
 
 
     <script>
-        function generateAccessLink() {
+                   function generateAccessLink() {
+    var linkInput = document.getElementById("link");
+    var accessLink = document.getElementById("accessLink");
+
+    var linkValue = linkInput.value.trim();  // Remove leading/trailing whitespace
+    var formattedLink = linkValue.replace(/^https?:\/\/(?:www\.)?/i, "");
+
+    var fullAccessLink = "https://www.similarweb.com/website/" + formattedLink;
+
+    accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>SIMILARWEB</a>";
+}
+        document.addEventListener("DOMContentLoaded", function() {
             var linkInput = document.getElementById("link");
-            var accessLink = document.getElementById("accessLink");
+            linkInput.addEventListener("input", generateAccessLink);
+        });
+    </script>
+
+
+    <script>
+        function generateCountryLink() {
+            var linkInput = document.getElementById("link");
+            var accessLink = document.getElementById("accessCountry");
 
             var linkValue = linkInput.value;
             var formattedLink = linkValue.replace(/^https:\/\/www\./i, "");
 
-            var fullAccessLink = "https://www.similarweb.com/website/" + formattedLink;
+            var fullAccessLink = "https://who.is/whois/" + formattedLink;
 
 
-            accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>Access Link</a>";
+            accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>WHO.IS</a>";
         }
 
         document.addEventListener("DOMContentLoaded", function() {
             var linkInput = document.getElementById("link");
-            linkInput.addEventListener("input", generateAccessLink);
+            linkInput.addEventListener("input", generateCountryLink);
         });
     </script>
 </head>
@@ -101,7 +120,7 @@ $conn->close();
 
         <label for="type">Type:</label>
         <input type="text" name="type" required><br>
-
+        <br>
         <table>
             <tr>
                 <td>
@@ -109,7 +128,7 @@ $conn->close();
                     <input type="text" id="access" name="access" required>
                 </td>
                 <td>
-                    <label for="accessLink">Access Link:</label>
+                    <label for="accessLink">Views Analytics:</label>
                     <span id="accessLink"></span>
                 </td>
             </tr>
@@ -118,8 +137,18 @@ $conn->close();
 
         <br>
 
-        <label for="country">Country:</label>
-        <input type="text" name="country" required><br>
+        <table>
+            <tr>
+                <td>
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+                </td>
+                <td>
+                    <label for="accessCountry">Country info:</label>
+                    <span id="accessCountry"></span>
+                </td>
+            </tr>
+        </table>
 
         <!--<label for="rank">Rank:</label>
         <input type="text" name="rank" required><br>
