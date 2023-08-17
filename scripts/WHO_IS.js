@@ -2,8 +2,8 @@
             var linkInput = document.getElementById("link");
             var accessLink = document.getElementById("accessCountry");
 
-            var linkValue = linkInput.value;
-            var formattedLink = linkValue.replace(/^https:\/\/www\./i, "");
+            var linkValue = linkInput.value.trim(); // Remove leading/trailing whitespace
+            var formattedLink = linkValue.replace(/^https?:\/\/(?:www\.)?/i, "");
 
             var fullAccessLink = "https://who.is/whois/" + formattedLink;
 
@@ -15,4 +15,3 @@
             var linkInput = document.getElementById("link");
             linkInput.addEventListener("input", generateCountryLink);
         });
-    </script>
