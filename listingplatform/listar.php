@@ -1,21 +1,41 @@
+<script>
+        window.onload = function() {
+            var redirected = sessionStorage.getItem('redirected');
+            if (!redirected) {
+                sessionStorage.setItem('redirected', 'true');
+                window.location.href = 'https://www.plata.ie/listingplatform/?mode=full';
+            }
+        };
+    </script>
+
+
+
 <?php
 include 'conexao.php';
- 
-// Verificar se o modo de exibição completo está ativado
-$modoCompleto = isset($_GET['modo']) && $_GET['modo'] === 'completo';
 
-if ($modoCompleto) {
-    $sql = "SELECT * FROM granna80_bdlinks.links";
-} else {
+// Check if full view is enabled
+$fullMode = isset($_GET['mode']) && $_GET['mode'] === 'full';
+
+
+if ($fullMode) {
     $sql = "SELECT * FROM granna80_bdlinks.links WHERE (`Score` != 'NOT') ORDER BY `Score` DESC, Access DESC, Rank DESC";
+    
+} else {
+    $sql = "SELECT * FROM granna80_bdlinks.links";
 }
 
 $result = $conn->query($sql);
 ?>
 
-<style>
 
-    .table-listing-places, .th-listing-places, .td-listing-places {
+
+
+
+
+<style>
+    .table-listing-places,
+    .th-listing-places,
+    .td-listing-places {
         border: 0px solid;
         border-collapse: collapse;
     }
@@ -27,46 +47,70 @@ $result = $conn->query($sql);
         padding: 0;
     }
 
-.a-listing-places:link { font-weight: bold; color:#3A3B3C; text-decoration: none; }
-.a-listing-places:visited { color:#3A3B3C; text-decoration: none; }
-.a-listing-places:hover { color:gray; text-decoration: none; }
-.a-listing-places:active { color:gray; text-decoration: none; }
-.act-link { cursor:pointer;color:black;}
+    .a-listing-places:link {
+        font-weight: bold;
+        color: #3A3B3C;
+        text-decoration: none;
+    }
 
-.tb-bg-color-light-fortable {
-    font-size: 14px;
-    background-color:#EDEDED;
-}
+    .a-listing-places:visited {
+        color: #3A3B3C;
+        text-decoration: none;
+    }
 
-.tb-bg-color-dark-fortable {
-    font-size: 14px;
-    background-color:#FFFFFF;
-}
+    .a-listing-places:hover {
+        color: gray;
+        text-decoration: none;
+    }
 
-.tr-list {background-color:#B5B5B5; height:30px;}
+    .a-listing-places:active {
+        color: gray;
+        text-decoration: none;
+    }
 
-.button-container {
-    text-align: center;
-  }
+    .act-link {
+        cursor: pointer;
+        color: black;
+    }
 
-  .button {
-    background-color: purple;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    margin: 0 1.5px; /* 3px space divided by 2 */
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
+    .tb-bg-color-light-fortable {
+        font-size: 14px;
+        background-color: #EDEDED;
+    }
 
+    .tb-bg-color-dark-fortable {
+        font-size: 14px;
+        background-color: #FFFFFF;
+    }
+
+    .tr-list {
+        background-color: #B5B5B5;
+        height: 30px;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+
+    .button {
+        background-color: purple;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        margin: 0 1.5px;
+        /* 3px space divided by 2 */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
 </style>
 
 
 <?php
 
-function getTXTcolor($value) {
+function getTXTcolor($value)
+{
     if ($value == 'K' || $value == 'Y') {
         return 'color: green;';
     } elseif ($value == 'Z') {
@@ -78,7 +122,8 @@ function getTXTcolor($value) {
     }
 }
 
-function getTICKcolor($value) {
+function getTICKcolor($value)
+{
     if ($value == 'K' || $value == 'Y') {
         return 'green';
     } else {
@@ -86,20 +131,20 @@ function getTICKcolor($value) {
     }
 }
 
-function backgroundLine($number){
-    if($number % 2 == 0){
+function backgroundLine($number)
+{
+    if ($number % 2 == 0) {
         return 'tb-bg-color-light-fortable';
-    }
-    else{
+    } else {
         return 'tb-bg-color-dark-fortable';
     }
 }
 
-function tokenRanked($data){
-    if($data == '-'){
+function tokenRanked($data)
+{
+    if ($data == '-') {
         return 'color: gray;';
-    }
-    else{
+    } else {
         return 'color: green;';
     }
 }
@@ -123,70 +168,79 @@ if ($result->num_rows > 0) {
             <th>Edit</th>
             -->
           </tr>';
-          
+
     $i = 1;
 
     while ($row = $result->fetch_assoc()) {
         echo '<tr>';
-        echo '<td class="' . backgroundLine($i) .'"><center>  ' . $i . '  </center></td>'; 
+        echo '<td class="' . backgroundLine($i) . '"><center>  ' . $i . '  </center></td>';
         //echo '<td><center>' . $row["ID"] . '</center></td>';
-        echo '<td class="' . backgroundLine($i) .'"><center><img height="13px" src="https://www.plata.ie/images/listing-'.getTICKcolor($row["Desktop"]).'-tick.svg"></center></td>';
-        echo '<td class="' . backgroundLine($i) .'"><center><img height="13px" src="https://www.plata.ie/images/listing-'.getTICKcolor($row["Mobile"]).'-tick.svg"></center></td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["Platform"]) . '"><center> <a class="a-listing-places" href="' . $row["Link"] . '" target="_blank">' . $row["Platform"] . '</a> </center></td>';
-        echo '<td class="' . backgroundLine($i) .'"><center> ' . $row["Type"] . ' </center></td>';
-        echo '<td class="' . backgroundLine($i) .'"> <center><img src="https://www.plata.ie/images/flags/' . $row["Country"] . '.png" alt="'. $row["Country"] .'" height="15" width="15"></td><center>';
-        echo '<td class="' . backgroundLine($i) .'"><center> ' . $row["Access"] . ' </center></td>';
-        echo '<td class="' . backgroundLine($i) .'" <?php style="' . tokenRanked($row["Rank"]) . '"> █</td>';
-        echo '<td class="' . backgroundLine($i) .'" <?php style="' . getTXTcolor($row["MarketCap"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["Liquidity"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["FullyDilutedMKC"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["CirculatingSupply"]) . '">█</td>'; 
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["MaxSupply"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["TotalSupply"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["Price"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["Graph"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["Holders"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["TokenLogo"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["SocialMedia"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'" style="' . getTXTcolor($row["MetamaskButton"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) .'"><center> ' . $row["Score"] . '% </center></td>'; 
-       // echo '<td>' . $row["Obs1"] . '</td>';
-       //  echo '<td>' . $row["Obs2"] . '</td>';
+        echo '<td class="' . backgroundLine($i) . '"><center><img height="13px" src="https://www.plata.ie/images/listing-' . getTICKcolor($row["Desktop"]) . '-tick.svg"></center></td>';
+        echo '<td class="' . backgroundLine($i) . '"><center><img height="13px" src="https://www.plata.ie/images/listing-' . getTICKcolor($row["Mobile"]) . '-tick.svg"></center></td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Platform"]) . '"><center> <a class="a-listing-places" href="' . $row["Link"] . '" target="_blank">' . $row["Platform"] . '</a> </center></td>';
+        echo '<td class="' . backgroundLine($i) . '"><center> ' . $row["Type"] . ' </center></td>';
+        echo '<td class="' . backgroundLine($i) . '"> <center><img src="https://www.plata.ie/images/flags/' . $row["Country"] . '.png" alt="' . $row["Country"] . '" height="15" width="15"></td><center>';
+        echo '<td class="' . backgroundLine($i) . '"><center> ' . $row["Access"] . ' </center></td>';
+        echo '<td class="' . backgroundLine($i) . '" <?php style="' . tokenRanked($row["Rank"]) . '"> █</td>';
+        echo '<td class="' . backgroundLine($i) . '" <?php style="' . getTXTcolor($row["MarketCap"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Liquidity"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["FullyDilutedMKC"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["CirculatingSupply"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["MaxSupply"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["TotalSupply"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Price"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Graph"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Holders"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["TokenLogo"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["SocialMedia"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["MetamaskButton"]) . '">█</td>';
+        echo '<td class="' . backgroundLine($i) . '"><center> ' . $row["Score"] . '% </center></td>';
+        // echo '<td>' . $row["Obs1"] . '</td>';
+        //  echo '<td>' . $row["Obs2"] . '</td>';
         //echo '<td><a href="edit.php?id=' . $row["ID"] . '">Edit</a></td>';
         echo '</tr>';
         $i++;
     }
 
-    echo '</table></center><br><br>  <a href="https://plata.ie/listingplatform/painel/painel.php" target="_blank">edit</a>';
+    echo '</table></center><br><br>  '; //<a href="https://plata.ie/listingplatform/painel/painel.php" target="_blank">edit</a>
 } else {
-    echo "Nenhum resultado encontrado.";
+    echo "No results found.";
 }
 
 $conn->close();
 
+
+
 echo '<div class="button-container">';
-echo '<a href="?modo=completo" class="button">Exibir Todos</a>';
-echo '<a href="?modo=normal" class="button">Voltar à Exibição Original</a>';
+echo '<center><form action="" method="get">';
+echo '<input type="checkbox" id="platalisted" name="mode" value="full" onchange="this.form.submit()"';
+if ($fullMode) {
+    echo ' checked';
+}
+echo '>';
+echo '<label for="platalisted">Plata Token listed Platforms.</label>';
+echo '</form></center><br><br>';
 echo '<br>';
 echo '<br>';
 echo '</div>';
-
-
 ?>
 
 
 <script>
-function msgInfo() {
-  alert("Help\nWebsite Listed on Desktop Version;\nWebsite Listed on Mobile Version;");
-}
+    function msgInfo() {
+        alert("Help\nWebsite Listed on Desktop Version;\nWebsite Listed on Mobile Version;");
+    }
 </script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXYGWW7KHB"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-RXYGWW7KHB');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-RXYGWW7KHB');
 </script>
