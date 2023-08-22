@@ -1,74 +1,3 @@
-<script>
-        window.onload = function() {
-            var redirected = sessionStorage.getItem('redirected');
-            if (!redirected) {
-                sessionStorage.setItem('redirected', 'true');
-                window.location.href = 'https://www.plata.ie/listingplatform/?mode=full';
-            }
-        };
-    </script>
-
-
-
-<?php
-include 'conexao.php';
-
-// Check if full view is enabled
-$fullMode = isset($_GET['mode']) && $_GET['mode'] === 'full';
-
-
-if ($fullMode) {
-    $sql = "SELECT * FROM granna80_bdlinks.links WHERE (`Score` != 'NOT') ORDER BY `Score` DESC, Access DESC, Rank DESC";
-   //normal mode 
-} else {
-    $sql = "SELECT * FROM granna80_bdlinks.links ORDER BY Access DESC ";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $maxAccess = $row["Access"];
-        echo "The highest Access value is: " . $maxAccess ;
-    } else {
-        echo "No results found";
-    }
-    
-
-    $maxAccess;
-
-    $mediaGeral = ($maxAccess + 1) / 2;
-echo "<br>" . $mediaGeral;
-
-  
-function getAccessLetter($maxAccess, $mediaGeral) {
-    // Aplicar a fórmula para determinar a letra com base no valor
-    if ($maxAccess >= $mediaGeral * 2) {
-        return 'A+';
-    } elseif ($maxAccess >= $mediaGeral + $mediaGeral / 2) {
-        return 'A';
-    } elseif ($maxAccess >= $mediaGeral) {
-        return 'B';
-    } elseif ($maxAccess >= $mediaGeral / 2) {
-        return 'C';
-    } else {
-        return 'D';
-    }
-}
-
-
-
-
-
-    
-}
-
-$result = $conn->query($sql);
-?>
-
-
-
-
-
-
 <style>
     .table-listing-places,
     .th-listing-places,
@@ -143,8 +72,32 @@ $result = $conn->query($sql);
     }
 </style>
 
-
 <?php
+include 'conexao.php';
+
+// Check if full view is enabled
+$fullMode = isset($_GET['mode']) && $_GET['mode'] === 'full';
+
+
+if ($fullMode) {
+    $sql = "SELECT * FROM granna80_bdlinks.links WHERE (`Score` != 'NOT') ORDER BY `Score` DESC, Access DESC, Rank DESC";
+    
+} else {
+    $sql = "SELECT * FROM granna80_bdlinks.links ORDER BY `Score` DESC, Access DESC, Rank DESC";
+}
+
+$result = $conn->query($sql);
+
+$sqlScore = "SELECT * FROM granna80_bdlinks.links ORDER BY `Access` DESC LIMIT 1 OFFSET 5";
+$resultScore = $conn->query($sqlScore);
+
+if ($resultScore->num_rows > 0) {
+
+    while ($rowScore = $resultScore->fetch_assoc()) {
+        $avgScore = (float)($rowScore["Access"])/2;
+    }
+
+}
 
 function getTXTcolor($value)
 {
@@ -158,6 +111,14 @@ function getTXTcolor($value)
         return '';
     }
 }
+
+    function getAccessLetter($accessValue,$avgScore) {
+        if ( $accessValue >= ($avgScore*0.5) ) { return 'A+'; }
+        if ( $accessValue >= ($avgScore*0.25) ) { return 'A'; }
+        if ( $accessValue >= ($avgScore*0.125) ) { return 'B'; }
+        if ( $accessValue >= ($avgScore*0.03) ) { return 'C'; }
+        else { return 'D'; }
+    }
 
 function getTICKcolor($value)
 {
@@ -189,16 +150,16 @@ function tokenRanked($data)
 if ($result->num_rows > 0) {
     echo '<center><table class="table-listing-places">';
     echo '<tr class="tr-list">
-            <th> # </th>
-            <!--<th> ID </th>-->
-            <th><a class="act-link" onclick="msgInfo()">🖳</a></th>
-            <th><a class="act-link" onclick="msgInfo()">☎</a></th>
-            <th> Platform </th>
-            <th> Category </th>
-            <th>     </th>
-            <th> Metrics </th>
-            <th colspan="13"> Performance </th>
-            <th>  Score  </th>
+            <th>Â #Â </th>
+            <!--<th>Â IDÂ </th>-->
+            <th><a class="act-link" onclick="msgInfo()">ðŸ–³</a></th>
+            <th><a class="act-link" onclick="msgInfo()">â˜Ž</a></th>
+            <th>Â PlatformÂ </th>
+            <th>Â CategoryÂ </th>
+            <th>Â Â Â Â Â </th>
+            <th>Â MetricsÂ </th>
+            <th colspan="13">Â PerformanceÂ </th>
+            <th>Â Â ScoreÂ Â </th>
             <!--
             <th>Obs1</th>
             <th>Obs2</th>
@@ -209,37 +170,30 @@ if ($result->num_rows > 0) {
     $i = 1;
 
     while ($row = $result->fetch_assoc()) {
-
-       
-    
-        
-    
         echo '<tr>';
-        echo '<td class="' . backgroundLine($i) . '"><center>  ' . $i . '  </center></td>';
+        echo '<td class="' . backgroundLine($i) . '"><center>Â Â ' . $i . 'Â Â </center></td>';
         //echo '<td><center>' . $row["ID"] . '</center></td>';
         echo '<td class="' . backgroundLine($i) . '"><center><img height="13px" src="https://www.plata.ie/images/listing-' . getTICKcolor($row["Desktop"]) . '-tick.svg"></center></td>';
         echo '<td class="' . backgroundLine($i) . '"><center><img height="13px" src="https://www.plata.ie/images/listing-' . getTICKcolor($row["Mobile"]) . '-tick.svg"></center></td>';
-        
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Platform"]) . '"><center> <a class="a-listing-places" href="' . $row["Link"] . '" target="_blank">' . $row["Platform"] . '</a> </center></td>';
-        echo '<td class="' . backgroundLine($i) . '"><center> ' . $row["Type"] . ' </center></td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Platform"]) . '"><center>Â <a class="a-listing-places" href="' . $row["Link"] . '" target="_blank">' . $row["Platform"] . '</a>Â </center></td>';
+        echo '<td class="' . backgroundLine($i) . '"><center>Â ' . $row["Type"] . 'Â </center></td>';
         echo '<td class="' . backgroundLine($i) . '"> <center><img src="https://www.plata.ie/images/flags/' . $row["Country"] . '.png" alt="' . $row["Country"] . '" height="15" width="15"></td><center>';
-        echo '<td class="' . backgroundLine($i) . '"><center>' . getAccessLetter($row["Access"], $maxAccess, $mediaGeral) . '</center></td>';
-
-        echo '<td class="' . backgroundLine($i) . '"><center>' . $row["Access"] . '</center></td>';
-        echo '<td class="' . backgroundLine($i) . '" <?php style="' . tokenRanked($row["Rank"]) . '"> █</td>';
-        echo '<td class="' . backgroundLine($i) . '" <?php style="' . getTXTcolor($row["MarketCap"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Liquidity"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["FullyDilutedMKC"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["CirculatingSupply"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["MaxSupply"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["TotalSupply"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Price"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Graph"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Holders"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["TokenLogo"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["SocialMedia"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["MetamaskButton"]) . '">█</td>';
-        echo '<td class="' . backgroundLine($i) . '"><center> ' . $row["Score"] . '% </center></td>';
+        echo '<td class="' . backgroundLine($i) . '"><center>' . getAccessLetter($row["Access"],$avgScore) . '</center></td>';
+        //echo '<td class="' . backgroundLine($i) . '"><center>Â ' . $row["Access"] . 'Â </center></td>';
+        echo '<td class="' . backgroundLine($i) . '" <?php style="' . tokenRanked($row["Rank"]) . '">Â â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" <?php style="' . getTXTcolor($row["MarketCap"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Liquidity"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["FullyDilutedMKC"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["CirculatingSupply"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["MaxSupply"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["TotalSupply"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Price"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Graph"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Holders"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["TokenLogo"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["SocialMedia"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["MetamaskButton"]) . '">â–ˆ</td>';
+        echo '<td class="' . backgroundLine($i) . '"><center>Â ' . $row["Score"] . '%Â </center></td>';
         // echo '<td>' . $row["Obs1"] . '</td>';
         //  echo '<td>' . $row["Obs2"] . '</td>';
         //echo '<td><a href="edit.php?id=' . $row["ID"] . '">Edit</a></td>';
@@ -288,9 +242,4 @@ echo '</div>';
     gtag('js', new Date());
 
     gtag('config', 'G-RXYGWW7KHB');
-</script>
-<script>
-
-
-    
 </script>
