@@ -19,9 +19,46 @@ $fullMode = isset($_GET['mode']) && $_GET['mode'] === 'full';
 
 if ($fullMode) {
     $sql = "SELECT * FROM granna80_bdlinks.links WHERE (`Score` != 'NOT') ORDER BY `Score` DESC, Access DESC, Rank DESC";
-    
+   //normal mode 
 } else {
-    $sql = "SELECT * FROM granna80_bdlinks.links";
+    $sql = "SELECT * FROM granna80_bdlinks.links ORDER BY Access DESC ";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $maxAccess = $row["Access"];
+        echo "The highest Access value is: " . $maxAccess ;
+    } else {
+        echo "No results found";
+    }
+    
+
+    $maxAccess;
+
+    $mediaGeral = ($maxAccess + 1) / 2;
+echo "<br>" . $mediaGeral;
+
+  
+function getAccessLetter($maxAccess, $mediaGeral) {
+    // Aplicar a fórmula para determinar a letra com base no valor
+    if ($maxAccess >= $mediaGeral * 2) {
+        return 'A+';
+    } elseif ($maxAccess >= $mediaGeral + $mediaGeral / 2) {
+        return 'A';
+    } elseif ($maxAccess >= $mediaGeral) {
+        return 'B';
+    } elseif ($maxAccess >= $mediaGeral / 2) {
+        return 'C';
+    } else {
+        return 'D';
+    }
+}
+
+
+
+
+
+    
 }
 
 $result = $conn->query($sql);
@@ -172,15 +209,23 @@ if ($result->num_rows > 0) {
     $i = 1;
 
     while ($row = $result->fetch_assoc()) {
+
+       
+    
+        
+    
         echo '<tr>';
         echo '<td class="' . backgroundLine($i) . '"><center>  ' . $i . '  </center></td>';
         //echo '<td><center>' . $row["ID"] . '</center></td>';
         echo '<td class="' . backgroundLine($i) . '"><center><img height="13px" src="https://www.plata.ie/images/listing-' . getTICKcolor($row["Desktop"]) . '-tick.svg"></center></td>';
         echo '<td class="' . backgroundLine($i) . '"><center><img height="13px" src="https://www.plata.ie/images/listing-' . getTICKcolor($row["Mobile"]) . '-tick.svg"></center></td>';
+        
         echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Platform"]) . '"><center> <a class="a-listing-places" href="' . $row["Link"] . '" target="_blank">' . $row["Platform"] . '</a> </center></td>';
         echo '<td class="' . backgroundLine($i) . '"><center> ' . $row["Type"] . ' </center></td>';
         echo '<td class="' . backgroundLine($i) . '"> <center><img src="https://www.plata.ie/images/flags/' . $row["Country"] . '.png" alt="' . $row["Country"] . '" height="15" width="15"></td><center>';
-        echo '<td class="' . backgroundLine($i) . '"><center> ' . $row["Access"] . ' </center></td>';
+        echo '<td class="' . backgroundLine($i) . '"><center>' . getAccessLetter($row["Access"], $maxAccess, $mediaGeral) . '</center></td>';
+
+        echo '<td class="' . backgroundLine($i) . '"><center>' . $row["Access"] . '</center></td>';
         echo '<td class="' . backgroundLine($i) . '" <?php style="' . tokenRanked($row["Rank"]) . '"> █</td>';
         echo '<td class="' . backgroundLine($i) . '" <?php style="' . getTXTcolor($row["MarketCap"]) . '">█</td>';
         echo '<td class="' . backgroundLine($i) . '" style="' . getTXTcolor($row["Liquidity"]) . '">█</td>';
@@ -243,4 +288,9 @@ echo '</div>';
     gtag('js', new Date());
 
     gtag('config', 'G-RXYGWW7KHB');
+</script>
+<script>
+
+
+    
 </script>
