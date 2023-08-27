@@ -246,16 +246,5 @@ echo '</div>';
         alert("Help\nWebsite Listed on Desktop Version;\nWebsite Listed on Mobile Version;");
     }
 </script>
-
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RXYGWW7KHB"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-RXYGWW7KHB');
 </script>
