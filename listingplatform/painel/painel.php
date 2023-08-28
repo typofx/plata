@@ -1,14 +1,14 @@
 <?php
-session_start(); // Iniciar a sessão
+session_start();
 
-// Verificar se o usuário está autenticado
+
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    // O usuário não está autenticado, redirecionar de volta para a página de login
+
     header("Location: index.php"); // 
     exit();
 }
 
-// Se o usuário está autenticado, continue exibindo o conteúdo da página
+
 ?>
 
 
