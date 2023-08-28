@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br" data-bs-theme="auto">
+<html lang="en" data-bs-theme="auto">
 
 <head>
 
@@ -59,8 +59,8 @@
         <label for="floatingInput">E-mail</label>
       </div>
       <div>
-        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Digite sua senha">
-        <label for="floatingPassword">Senha</label>
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Type your password">
+        <label for="floatingPassword">password</label>
       </div>
 
       <div >
