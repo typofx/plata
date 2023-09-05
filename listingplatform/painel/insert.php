@@ -1,13 +1,19 @@
 <?php
-session_start(); 
+session_start(); // Start session
 
-
+// Check if the user is authenticated
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-   
+    // User is not authenticated, redirect back to login page
     header("Location: index.php");
     exit();
 }
+$userName = $_SESSION["user_email"];
 
+$utcZeroTimezone = new DateTimeZone('Etc/UTC');
+$currentDateTime = new DateTime('now', $utcZeroTimezone);
+$currentDateTimeFormatted = $currentDateTime->format('Y-m-d H:i:s');
+$currentDateTime = $currentDateTimeFormatted;
+echo $currentDateTime;
 
 
 
@@ -16,6 +22,7 @@ include '../conexao.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //$desktop = $_POST['desktop'];
     //$mobile = $_POST['mobile'];
+   
     $score = 'NOT';
     $platform = $_POST['platform'];
     $platform = $_POST['platform'];
@@ -38,11 +45,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //$metamaskButton = $_POST['metamaskButton'];
     $obs1 = $_POST['obs1'];
     $obs2 = $_POST['obs2'];
-    //$telegram = $_POST['telegram'];
-    //$email = $_POST['zemail'];
+    $telegram = $_POST['telegram'];
+    $email = $_POST['zemail'];
 
-    $sql = "INSERT INTO granna80_bdlinks.links (Desktop, Mobile, Score, Platform, Link, Type, Access, Country, Rank, MarketCap, Liquidity, FullyDilutedMKC, CirculatingSupply, MaxSupply, TotalSupply, Price, Graph, Holders, TokenLogo, SocialMedia, MetamaskButton, Obs1, Obs2, Telegram, Email)
-            VALUES ('$desktop', '$mobile', '$score', '$platform','$link', '$type', '$access', '$country', '$rank', '$marketCap', '$liquidity', '$fullyDilutedMKC', '$circulatingSupply', '$maxSupply', '$totalSupply', '$price', '$graph', '$holders', '$tokenLogo', '$socialMedia', '$metamaskButton', '$obs1', '$obs2', '$telegram', '$email')";
+    $utcZeroTimezone = new DateTimeZone('Etc/UTC');
+    $currentDateTime = new DateTime('now', $utcZeroTimezone);
+    $currentDateTimeFormatted = $currentDateTime->format('Y-m-d H:i:s');
+    $currentDateTime = $currentDateTimeFormatted;
+    echo $currentDateTime;
+
+
+    $sql = "INSERT INTO granna80_bdlinks.links (Desktop, Mobile, Score, Platform, Link, Type, Access, Country, Rank, MarketCap, Liquidity, FullyDilutedMKC, CirculatingSupply, MaxSupply, TotalSupply, Price, Graph, Holders, TokenLogo, SocialMedia, MetamaskButton, Obs1, Obs2, Telegram, Email, InsertDateTime, insertBy)
+    VALUES ('$desktop', '$mobile', '$score', '$platform','$link', '$type', '$access', '$country', '$rank', '$marketCap', '$liquidity', '$fullyDilutedMKC', '$circulatingSupply', '$maxSupply', '$totalSupply', '$price', '$graph', '$holders', '$tokenLogo', '$socialMedia', '$metamaskButton', '$obs1', '$obs2', '$telegram', '$email'  , '$currentDateTime', '$userName')";
+
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully.";
@@ -61,17 +76,19 @@ $conn->close();
 
 
     <script>
-                   function generateAccessLink() {
-    var linkInput = document.getElementById("link");
-    var accessLink = document.getElementById("accessLink");
+        function generateAccessLink() {
+            var linkInput = document.getElementById("link");
+            var accessLink = document.getElementById("accessLink");
 
-    var linkValue = linkInput.value.trim();  // Remove leading/trailing whitespace
-    var formattedLink = linkValue.replace(/^https?:\/\/(?:www\.)?/i, "");
+            var linkValue = linkInput.value.trim(); // Remove leading/trailing whitespace
+            var url = new URL(linkValue);
+            var formattedLink = url.hostname; // Extract the hostname (TLD)
 
-    var fullAccessLink = "https://www.similarweb.com/website/" + formattedLink;
+            var fullAccessLink = "https://www.similarweb.com/website/" + formattedLink;
 
-    accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>SIMILARWEB</a>";
-}
+            accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>SIMILARWEB</a>";
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             var linkInput = document.getElementById("link");
             linkInput.addEventListener("input", generateAccessLink);
@@ -79,16 +96,17 @@ $conn->close();
     </script>
 
 
+
     <script>
         function generateCountryLink() {
             var linkInput = document.getElementById("link");
             var accessLink = document.getElementById("accessCountry");
 
-            var linkValue = linkInput.value;
-            var formattedLink = linkValue.replace(/^https:\/\/www\./i, "");
+            var linkValue = linkInput.value.trim(); // Remove leading/trailing whitespace
+            var url = new URL(linkValue);
+            var formattedLink = url.hostname; // Extract the hostname (TLD)
 
             var fullAccessLink = "https://who.is/whois/" + formattedLink;
-
 
             accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>WHO.IS</a>";
         }
@@ -98,6 +116,7 @@ $conn->close();
             linkInput.addEventListener("input", generateCountryLink);
         });
     </script>
+
 </head>
 
 <body>
@@ -118,8 +137,22 @@ $conn->close();
         <label for="Link">Link:</label>
         <input type="text" id="link" name="link" required><br>
 
-        <label for="type">Type:</label>
-        <input type="text" name="type" required><br>
+        <br> <label for="type">Type:</label>
+        <select name="type" id="type">
+            <option value="Index">Index</option>
+            <option value="Bot">Bot</option>
+            <option value="Tool">Tool</option>
+            <option value="Dex">Dex</option>
+            <option value="Audity">Audity</option>
+            <option value="Nft">Nft</option>
+            <option value="Audity/KYC">Audity/KYC</option>
+            <option value="Cex">Cex</option>
+            <option value="Newspaper">Newspaper</option>
+            <option value="Kyc">Kyc</option>
+            <option value="Voting">Voting</option>
+            <option value="Funding">Funding</option>
+            <option value="Chart">Chart</option>
+        </select>
         <br>
         <table>
             <tr>
@@ -189,13 +222,11 @@ $conn->close();
         <label for="metamaskButton">Metamask Button:</label>
         <input type="text" name="metamaskButton" required>--><br>
 
-
-
         <label for="obs1">Obs1:</label>
-        <input type="text" name="obs1"><br>
+        <input type="text" name="obs1" onblur="validateInput(this)"><br>
 
         <label for="obs2">Obs2:</label>
-        <input type="text" name="obs2"><br>
+        <input type="text" name="obs2" onblur="validateInput(this)"><br>
 
         <label for="Telegram">Telegram:</label>
         <input type="text" name="telegram"><br>
@@ -213,6 +244,15 @@ $conn->close();
         // Your existing PHP code for displaying the table goes here
         ?>
     </div>
+    <script>
+        function validateInput(input) {
+            var regex = /^[a-zA-Z0-9]*$/;
+            if (!regex.test(input.value)) {
+                alert("Please enter only alphanumeric characters.");
+                input.value = '';
+            }
+        }
+    </script>
 </body>
 
 </html>

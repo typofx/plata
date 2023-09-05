@@ -1,13 +1,15 @@
 <?php
 
-session_start(); // Iniciar a sessão
+session_start(); // start session
 
-// Verificar se o usuário está autenticado
+// Check if the user is authenticated
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    // O usuário não está autenticado, redirecionar de volta para a página de login
+    // User is not authenticated, redirect back to login page
     header("Location: index.php");
     exit();
 }
+
+$userName = $_SESSION["user_email"];
 include '../conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
@@ -37,7 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
     $obs2 = $_POST["obs2"];
     $email = $_POST["zemail"];
     $telegram = $_POST["telegram"];
-    
+    $listed = $_POST["listed"];
+   
+    $utcZeroTimezone = new DateTimeZone('Etc/UTC');  
+$currentDateTime = new DateTime('now', $utcZeroTimezone);
+$currentDateTimeFormatted = $currentDateTime->format('Y-m-d H:i:s');
+$currentDateTime = $currentDateTimeFormatted; 
+
     $sql = "UPDATE granna80_bdlinks.links SET 
         Desktop = '$desktop',
         Mobile = '$mobile',
@@ -63,7 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
         Obs1 = '$obs1',
         Obs2 = '$obs2',
         Email = '$email',
-        Telegram = '$telegram'
+        Telegram = '$telegram',
+        Listed = '$listed',
+       last_updated = '$currentDateTime',
+       editedBy = '$userName'
         WHERE ID = $id";
 
     if ($conn->query($sql) === TRUE) {

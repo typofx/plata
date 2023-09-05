@@ -1,11 +1,11 @@
 <?php
-session_start(); // Iniciar a sessão
+session_start(); // start session
 
-// Encerrar a sessão (logout)
-session_unset(); // Limpar todas as variáveis de sessão
-session_destroy(); // Destruir a sessão
+// Terminate the session (logout)
+session_unset(); // Clear all session variables
+session_destroy(); // Destroy session
 
-// Redirecionar de volta para a página de login ou outra página de sua escolha
-header("Location: index.php"); // Substitua "index.php" pelo nome da página de login ou outra página
+// Redirect back to the login page or another page of your choice
+header("Location: index.php");
 exit();
 ?>

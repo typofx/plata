@@ -8,9 +8,9 @@ if (isset($_GET["id"])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        echo json_encode($row); // Returns record details in JSON format
+        echo json_encode($row); // Retorna os detalhes do registro em formato JSON
     } else {
-        echo json_encode(["error" => "Register not found."]);
+        echo json_encode(["error" => "Registro não encontrado"]);
     }
 
     $conn->close();

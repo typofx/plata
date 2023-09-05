@@ -1,12 +1,13 @@
 <?php
-session_start(); 
+session_start(); // Start session
 
-
+// Check if the user is authenticated
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-        
+        //User is not authenticated, redirect back to login page
         header("Location: index.php");
         exit();
 }
+$userName = $_SESSION["user_email"];
 
 include '../conexao.php';
 
@@ -33,18 +34,18 @@ $conn->close();
         <title>Editar</title>
 
         <script>
-            function generateAccessLink() {
-    var linkInput = document.getElementById("link");
-    var accessLink = document.getElementById("accessLink");
+                function generateAccessLink() {
+                        var linkInput = document.getElementById("link");
+                        var accessLink = document.getElementById("accessLink");
 
-    var linkValue = linkInput.value.trim();  // Remove leading/trailing whitespace
-    var formattedLink = linkValue.replace(/^https?:\/\/(?:www\.)?/i, "");
+                        var linkValue = linkInput.value.trim(); // Remove leading/trailing whitespace
+                        var url = new URL(linkValue);
+                        var formattedLink = url.hostname; // Extract the hostname (TLD)
 
-    var fullAccessLink = "https://www.similarweb.com/website/" + formattedLink;
+                        var fullAccessLink = "https://www.similarweb.com/website/" + formattedLink;
 
-    accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>Access Link</a>";
-}
-
+                        accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>SIMILARWEB</a>";
+                }
 
                 document.addEventListener("DOMContentLoaded", function() {
                         var linkInput = document.getElementById("link");
@@ -52,18 +53,20 @@ $conn->close();
                 });
         </script>
 
-<script>
+
+
+        <script>
                 function generateCountryLink() {
                         var linkInput = document.getElementById("link");
                         var accessLink = document.getElementById("accessCountry");
 
-                        var linkValue = linkInput.value;
-                        var formattedLink = linkValue.replace(/^https:\/\/www\./i, "");
+                        var linkValue = linkInput.value.trim(); // Remove leading/trailing whitespace
+                        var url = new URL(linkValue);
+                        var formattedLink = url.hostname; // Extract the hostname (TLD)
 
                         var fullAccessLink = "https://who.is/whois/" + formattedLink;
-                       
 
-                        accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>Access Link</a>";
+                        accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>WHO.IS</a>";
                 }
 
                 document.addEventListener("DOMContentLoaded", function() {
@@ -77,11 +80,63 @@ $conn->close();
         <h2>Edit: <?php echo $row["Platform"]; ?></h2>
         <form action="update.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
+
+                <label for="listed">Listed?</label>
+                <select name="listed" id="listed" value="<?php $row["Listed"] ?>">
+                        <option value="<?php echo '1'; ?>" <?php if ($row["Listed"] == '1') {
+                                                                        echo "selected";
+                                                                } ?>>YES</option>
+                        <option value="<?php echo '0'; ?>" <?php if ($row["Listed"] == '0') {
+                                                                        echo "selected";
+                                                                } ?>>NOT</option>
+                </select> <br>
+
                 Desktop: <input type="text" name="desktop" value="<?php echo $row["Desktop"]; ?>"><br>
                 Mobile: <input type="text" name="mobile" value="<?php echo $row["Mobile"]; ?>"><br>
                 Score: <input type="text" name="score" value="<?php echo $row["Score"]; ?>"><br>
                 Platform: <input type="text" name="platform" value="<?php echo $row["Platform"]; ?>"><br>
-                Type: <input type="text" name="type" value="<?php echo $row["Type"]; ?>"><br>
+                <br><label for="type">Type:</label>
+                <select name="type" id="type">
+                        <option value="Index" <?php if ($row["Type"] == 'Index') {
+                                                        echo "selected";
+                                                } ?>>Index</option>
+                        <option value="Bot" <?php if ($row["Type"] == 'Bot') {
+                                                        echo "selected";
+                                                } ?>>Bot</option>
+                        <option value="Tool" <?php if ($row["Type"] == 'Tool') {
+                                                        echo "selected";
+                                                } ?>>Tool</option>
+                        <option value="Dex" <?php if ($row["Type"] == 'Dex') {
+                                                        echo "selected";
+                                                } ?>>Dex</option>
+                        <option value="Audity" <?php if ($row["Type"] == 'Audity') {
+                                                        echo "selected";
+                                                } ?>>Audity</option>
+                        <option value="Nft" <?php if ($row["Type"] == 'Nft') {
+                                                        echo "selected";
+                                                } ?>>Nft</option>
+                        <option value="Audity/KYC" <?php if ($row["Type"] == 'Audity/KYC') {
+                                                                echo "selected";
+                                                        } ?>>Audity/KYC</option>
+                        <option value="Cex" <?php if ($row["Type"] == 'Cex') {
+                                                        echo "selected";
+                                                } ?>>Cex</option>
+                        <option value="Newspaper" <?php if ($row["Type"] == 'Newspaper') {
+                                                                echo "selected";
+                                                        } ?>>Newspaper</option>
+                        <option value="Kyc" <?php if ($row["Type"] == 'Kyc') {
+                                                        echo "selected";
+                                                } ?>>Kyc</option>
+                        <option value="Voting" <?php if ($row["Type"] == 'Voting') {
+                                                        echo "selected";
+                                                } ?>>Voting</option>
+                        <option value="Funding" <?php if ($row["Type"] == 'Funding') {
+                                                        echo "selected";
+                                                } ?>>Funding</option>
+                        <option value="Chart" <?php if ($row["Type"] == 'Chart') {
+                                                        echo "selected";
+                                                } ?>>Chart</option>
+                </select><br>
                 Link: <input type="text" id="link" name="link" value="<?php echo $row["Link"]; ?>"><br>
                 <br>
                 Access: <input type="text" id="access" name="access" value="<?php echo $row["Access"]; ?>"><br>
@@ -252,13 +307,28 @@ $conn->close();
                                                                 } ?>>Unavailable</option>
                 </select> <br>
 
-                Obs1: <input type="text" name="obs1" value="<?php echo $row["Obs1"]; ?>"><br>
-                Obs2: <input type="text" name="obs2" value="<?php echo $row["Obs2"]; ?>"><br>
+                Obs1: <input type="text" name="obs1" value="<?php echo $row["Obs1"]; ?>" onblur="validateInput(this)"><br>
+                Obs2: <input type="text" name="obs2" value="<?php echo $row["Obs2"]; ?>" onblur="validateInput(this)"><br>
+
                 <label for="email"></label>Email:</label> <input type="email" name="zemail" value="<?php echo $row["Email"]; ?>"><br>
                 <label for="telegram"></label>Telegram:</label> <input type="text" name="telegram" value="<?php echo $row["Telegram"]; ?>"><br>
+                <input type="hidden" name="last_updated" value="<?php echo (new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s'); ?>">
+
+
                 <input type="submit" value="Update">
                 <a href="https://plata.ie/listingplatform/painel/painel.php">Cancel</a>
         </form>
+        <script>
+                function validateInput(input) {
+
+                        var regex = /^[a-zA-Z0-9\s]*$/;
+
+                        if (!regex.test(input.value)) {
+                                alert("Please enter only alphanumeric characters.");
+                                input.value = '';
+                        }
+                }
+        </script>
 </body>
 
 </html>

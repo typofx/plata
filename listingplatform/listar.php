@@ -82,7 +82,7 @@ $sql = "SELECT * FROM granna80_bdlinks.links";
 
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $searchTerm = $_GET['search'];
-    $sql .= " WHERE (`Platform` LIKE '%$searchTerm%')";
+    $sql .= " WHERE (`Platform` LIKE '%$searchTerm%') || (`Type` LIKE '%$searchTerm%')";
 }
 
 if ($fullMode) {
@@ -92,11 +92,6 @@ if ($fullMode) {
 }
 
 $result = $conn->query($sql);
-
-
-
-
-
 
 $sqlScore = "SELECT * FROM granna80_bdlinks.links ORDER BY `Access` DESC LIMIT 1 OFFSET 5";
 $resultScore = $conn->query($sqlScore);
@@ -156,15 +151,25 @@ function tokenRanked($data)
         return 'color: green;';
     }
 }
+$sqlTotal = "SELECT COUNT(*) AS TotalListed FROM granna80_bdlinks.links WHERE Listed = 1";
+$resultTotal = $conn->query($sqlTotal);
+
+
+// Check if there are results and fetch the total
+if ($resultTotal->num_rows > 0) {
+    $totalRow = $resultTotal->fetch_assoc();
+    $totalListed = $totalRow['TotalListed'];
+}
 
 if ($result->num_rows > 0) {
     echo '<center><table class="table-listing-places">';
     echo '
-<form action="" method="get">
-    <label for="search">Search by Platform:</label>
-    <input type="text" id="search" name="search">
-    <input type="submit" value="search">
-</form>';
+    <form action="" method="get">
+        <label for="search">Filter : </label>
+        <input type="text" id="search" name="search" autocomplete="off">&nbsp;<input type="submit" value="&#128269;">
+        <br><p>Plata Token (PLT) is listed on ' . $totalListed . ' websites.</p>
+    </form>';
+    
     echo '<tr class="tr-list">
             <th> # </th>
             <!--<th> ID </th>-->
@@ -246,5 +251,16 @@ echo '</div>';
         alert("Help\nWebsite Listed on Desktop Version;\nWebsite Listed on Mobile Version;");
     }
 </script>
+
 <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RXYGWW7KHB"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-RXYGWW7KHB');
 </script>

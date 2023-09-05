@@ -1,81 +1,69 @@
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.112.5">
-  <title>Login - Listin Places</title>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+        }
 
+        img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
 
+        label, input {
+            margin-bottom: 10px;
+        }
 
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-
-
-
-
-  
-<style>
-  /* CSS para modificar as cores */
-  .form-control:focus {
-    border-color: #ffb800;
-    box-shadow: 0 0 0 0.25rem rgba(255, 184, 0, 0.25);
-  }
-  .form-check-input:checked {
-    background-color: #ffb800;
-    border-color: #ffb800;
-  }
-  .btn-primary {
-    background-color: #ffb800;
-    border-color: #ffb800;
-  }
-  .btn-primary:hover {
-    background-color: black;
-    border-color: black;
-  }
-</style>
-
-  <!-- Custom styles for this template -->
-  <link href="sign-in.css" rel="stylesheet">
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
-
 <body>
- 
+    <img src="https://plata.ie/images/platatoken1kpx.png" alt="Logo">
 
+    <h1>Login</h1>
+    <form action="login_process.php" method="post">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
 
-
-  <main  style="text-align: center">
-    <form  method="post" action="login_process.php">
-      <img class="mb-4" src="assets/teste1.png" alt="" width="300px" height="300px">
-      <h4 style="text-align: center; color:black"><b>FAZER LOGIN</b></h4>
-      
-     
-
-      <div >
-        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">E-mail</label>
-      </div>
-      <div>
-        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Type your password">
-        <label for="floatingPassword">password</label>
-      </div>
-
-      <div >
-        <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-         Salvar senha
-        </label>
-      </div>
-      <button type="submit">Entrar</button>
-      <p class="mt-5 mb-3 text-body-secondary">&copy; <?php echo date('Y'); ?></p>
-
+        <label for="token">Enter Token:</label>
+        <input type="text" name="token" id="token" size="6" required autocomplete="off">
+        
+        <button type="submit">Login and Authenticate</button>
     </form>
-  </main>
-
-
 </body>
-
 </html>
