@@ -233,7 +233,7 @@ $conn->close();
 
         <label for="Email">Email:</label>
         <input type="email" name="zemail"><br>
-
+        <label for="user_edit"></label>Who is insert:</label> <input type="user_edit" name="user_edit" value="<?php echo $userName; ?>"><br>
         <button type="submit">Add New</button> <a href="painel.php" class="btn btn-primary">Cancel</a>
     </form>
     <div class="container-fluid">

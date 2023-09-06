@@ -11,63 +11,76 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>User Registration</title>
-  <style>/* styles.css */
+    <style>
+        /* styles.css */
 
-/* Center the container horizontally and vertically */
-.container {
-    width: 300px; /* Adjust the width as needed */
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 50px; /* Adjust the top margin as needed */
-}
+        /* Center the container horizontally and vertically */
+        .container {
+            width: 300px;
+            /* Adjust the width as needed */
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 50px;
+            /* Adjust the top margin as needed */
+        }
 
-/* Apply styles to form elements */
-label {
-    display: block;
-    text-align: left;
-    font-weight: bold;
-    margin-top: 10px;
-}
+        /* Apply styles to form elements */
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin-top: 10px;
+        }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-/* Style the password status message */
-#senha_status {
-    font-weight: bold;
-}
+        /* Style the password status message */
+        #senha_status {
+            font-weight: bold;
+        }
 
-/* Style the token status message (Add this in your HTML if needed) */
-#token_status {
-    font-weight: bold;
-    margin-top: 10px;
-    color: green; /* Default color for valid token status */
-}
-</style>
-    
+        /* Style the token status message (Add this in your HTML if needed) */
+        #token_status {
+            font-weight: bold;
+            margin-top: 10px;
+            color: green;
+            /* Default color for valid token status */
+        }
+    </style>
+
 </head>
+
 <body>
     <div class="container">
         <h2>User Registration</h2>
         <form method="post" action="cadastro.php" onsubmit="return validarForm()">
+
+            <label for="name">Name: </label>
+            <input type="text" name="name" required><br><br>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" required><br><br>
+
             <label for="email">Email:</label>
             <input type="email" name="email" required><br><br>
 
@@ -120,10 +133,11 @@ input[type="submit"] {
 
             if (password !== confirm_password) {
                 alert("Passwords do not match");
-                return false; 
+                return false;
             }
-            return true; 
+            return true;
         }
     </script>
 </body>
+
 </html>

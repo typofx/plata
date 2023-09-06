@@ -25,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $token = $_POST["token"];
+    $name = $_POST["name"];
+    $lastName = $_POST["last_name"];
 
     if (!$g->checkCode($secret, $token)) {
 
@@ -38,14 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare the SQL query to insert data into the "users" table
-    $sql = "INSERT INTO granna80_bdlinks.users (email, password) VALUES (?, ?)";
+
+    $sql = "INSERT INTO granna80_bdlinks.users (email, password, name, last_name) VALUES (?, ?, ?, ?)";
 
     // Prepare the SQL statement
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
-        // Bind parameters
-        $stmt->bind_param("ss", $email, $hashed_password);
+        // Bind parameters including name and last_name
+        $stmt->bind_param("ssss", $email, $hashed_password, $name, $lastName);
 
         // Execute the SQL statement to insert data
         if ($stmt->execute()) {
@@ -65,4 +68,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "The form was not submitted correctly.";
 }
-?>

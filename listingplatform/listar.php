@@ -86,7 +86,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 }
 
 if ($fullMode) {
-    $sql .= " WHERE (`Score` != 'NOT') ORDER BY `Score` DESC, Access DESC, Rank DESC";
+    $sql .= " WHERE (`Listed` = 1) ORDER BY `Score` DESC, Access DESC, Rank DESC";
 } else {
     $sql .= " ORDER BY `Score` DESC, Access DESC, Rank DESC";
 }

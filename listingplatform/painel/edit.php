@@ -312,6 +312,7 @@ $conn->close();
 
                 <label for="email"></label>Email:</label> <input type="email" name="zemail" value="<?php echo $row["Email"]; ?>"><br>
                 <label for="telegram"></label>Telegram:</label> <input type="text" name="telegram" value="<?php echo $row["Telegram"]; ?>"><br>
+                <label for="user_edit"></label>Who is editing:</label> <input type="user_edit" name="user_edit" value="<?php echo $userName; ?>"><br>
                 <input type="hidden" name="last_updated" value="<?php echo (new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s'); ?>">
 
 
