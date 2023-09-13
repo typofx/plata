@@ -58,7 +58,7 @@
         <input type="email" id="email" name="email"><br><br>
 
         <!-- reCAPTCHA -->
-        <div class="g-recaptcha" data-sitekey="6LebDiIoAAAAADxJucIc0n8is7A6L_Yt6DZRZ2R_"></div><br>
+        <div class="g-recaptcha" data-sitekey=" TOKEN "></div><br>
 
         <input type="submit" value="Submit">
     </form>
