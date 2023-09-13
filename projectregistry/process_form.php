@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the reCAPTCHA response is set
     if (isset($_POST['g-recaptcha-response'])) {
-        $recaptchaSecretKey = '6LebDiIoAAAAAIKq9fT49DAm5Mi77O8AQEt1NfQ4'; // Replace with your reCAPTCHA secret key
+        $recaptchaSecretKey = ' TOKEN '; // Replace with your reCAPTCHA secret key
         $recaptchaResponse = $_POST['g-recaptcha-response'];
 
         // Send a POST request to reCAPTCHA verification endpoint
