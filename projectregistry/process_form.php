@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the reCAPTCHA response is set
     if (isset($_POST['g-recaptcha-response'])) {
-        $recaptchaSecretKey = ' TOKEN '; // Replace with your reCAPTCHA secret key
+        $recaptchaSecretKey = '6LebDiIoAAAAAIKq9fT49DAm5Mi77O8AQEt1NfQ4'; // Replace with your reCAPTCHA secret key
         $recaptchaResponse = $_POST['g-recaptcha-response'];
 
         // Send a POST request to reCAPTCHA verification endpoint
@@ -29,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $telegram = $_POST['telegram'];
             $email = $_POST['email'];
 
-          
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-type: text/html; charset=UTF-8\r\n";
             $headers .= 'From: ' . $email . "\r\n";
@@ -45,24 +44,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $emailMessage .= "<p><strong>Email:</strong> $email</p>";
             $emailMessage .= "</body></html>";
 
-            $toEmail = 'actm@plata.ie'; 
+            $toEmail = 'actm@plata.ie';
+
             if (mail($toEmail, $emailSubject, $emailMessage, $headers)) {
-        
+                // Envie uma mensagem de confirmação em inglês para o email da pessoa
+                $confirmationSubject = 'Form Submission Confirmation';
+                $confirmationMessage = "Dear $email,\n\nYour form submission has been received successfully.\n\nThank you for your submission!";
+                mail($email, $confirmationSubject, $confirmationMessage);
+
                 echo 'Form sent successfully. Thanks!';
             } else {
-                
                 echo 'Error: Unable to send email. Please try again later.';
             }
         } else {
-            
             echo 'Error: reCAPTCHA check failed. Please check the reCAPTCHA box.';
         }
     } else {
-   
         echo 'Error: The reCAPTCHA response is missing. Please check the reCAPTCHA box.';
     }
 } else {
-   
     echo "<script>alert('Error: Invalid request method.');</script>";
     echo "<script>window.location.href = 'index.php';</script>";
 }
