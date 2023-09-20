@@ -152,6 +152,7 @@ $conn->close();
             <option value="Voting">Voting</option>
             <option value="Funding">Funding</option>
             <option value="Chart">Chart</option>
+            <option value="Wallet">Wallet</option>
         </select>
         <br>
         <table>

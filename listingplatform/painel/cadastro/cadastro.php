@@ -19,7 +19,7 @@ include_once('vendor/sonata-project/google-authenticator/src/GoogleQrUrl.php');
 $g = new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 
 // Define the secret key used for Google Authenticator
-$secret = ' '; // Replace with your secret key
+$secret = 'XVQ2UIGO75XRUKJO'; // Replace with your secret key
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];

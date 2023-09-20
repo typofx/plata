@@ -158,10 +158,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             <th><img src="https://www.plata.ie/images/td-metamask.png"></th>
             <th>Obs1</th>
             <th>Obs2</th>
-            <th>Obs3</th>
-            <th >Email</th>
-            <th >Telegram</th>
-            <th> Edit </th>
+            <th>Last Updated</th>
+            <th>Last edited by</th>
           </tr>
           
         <?php
@@ -191,27 +189,13 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             echo '<td class="colored-cell" style="' . getTXTcolor($row["MetamaskButton"]) . '">█</td>';
             echo '<td style="' . setBGcolor($row["Listed"]) . '">' . $row["Obs1"] . '</td>';
             echo '<td style="' . setBGcolor($row["Listed"]) . '">' . $row["Obs2"] . '</td>';
-            echo '<td style="' . setBGcolor($row["Listed"]) . '">' . $row["last_updated"] . '</td>';
-         
-            echo '<td class="" style="' . setBGcolor($row["Listed"]) . '">
-    <center>
-        <a href="mailto:' . $row["Email"] . '" target="_blank">
-        <img src="https://www.plata.ie/images/email.png" alt="Email" width="20px" height="20px">
-        </a>
-    </center>
-</td>';
-           
-            echo '<td class="" style="' . setBGcolor($row["Listed"]) . '">
-    <center>
-        <a href="https://t.me/' . $row["Telegram"] . '" target="_blank">
-        <img src="https://www.plata.ie/images/telegram-logo.svg" alt="Telegram" width="20px" height="20px">
-
-        </a>
-    </center>
-</td>';
-
-            echo '<td><a href="edit.php?id=' . $row["ID"] . '" style="' . setBGcolor($row["Listed"]) . '"><img src="https://www.plata.ie/listingplatform/img/sheet-icon-edit.png"></a>
-                      <a href="delete.php?id=' . $row["ID"] . '" onclick="return confirm(\'Are you sure you want to delete this record?\')" style="' . setBGcolor($row["Listed"]) . '"><img src="https://www.plata.ie/listingplatform/img/sheet-icon-delete.png"></a>
+            echo '<td style="' . setBGcolor($row["Listed"]) . '">' . date("d/m/Y H:i", strtotime($row["last_updated"])) . ' (UTC)</td>';
+            echo '<td style="' . setBGcolor($row["Listed"]) . '">' . $row["editedBy"] . '</td>';
+            echo '<td>
+                    <a href="https://t.me/' . $row["Telegram"] . '" target="_blank"><img src="https://www.plata.ie/images/telegram-logo.svg" alt="Telegram" width="20px" height="20px"></a>
+                    <a href="mailto:' . $row["Email"] . '" target="_blank"><img src="https://www.plata.ie/images/sheet-icon-email.png" alt="Email"></a>
+                    <a href="edit.php?id=' . $row["ID"] . '" style="' . setBGcolor($row["Listed"]) . '"><img src="https://www.plata.ie/listingplatform/img/sheet-icon-edit.png"></a>
+                    <a href="delete.php?id=' . $row["ID"] . '" onclick="return confirm(\'Are you sure you want to delete this record?\')" style="' . setBGcolor($row["Listed"]) . '"><img src="https://www.plata.ie/listingplatform/img/sheet-icon-delete.png"></a>
             </td>';
 
             echo '</tr>';
