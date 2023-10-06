@@ -14,7 +14,8 @@
     }
 </style>
 
-<center><h1>$PLT Plata Token Listing Places</h1></center>
+
+
 
 <?php include 'listar.php'; ?>
 
