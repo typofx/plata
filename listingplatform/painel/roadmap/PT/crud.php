@@ -9,7 +9,7 @@ function createTask($task_date, $task_goal, $task_done, $task_highlighted) {
     $task_done = (int)$task_done;
     $task_highlighted = (int)$task_highlighted; // Convert "highlighted" to an integer
 
-    $sql = "INSERT INTO granna80_bdlinks.roadmap_en (task_date, task_goal, task_done, task_highlighted) 
+    $sql = "INSERT INTO granna80_bdlinks.roadmap_pt (task_date, task_goal, task_done, task_highlighted) 
             VALUES ('$task_date', '$task_goal', $task_done, $task_highlighted)";
 
     if (mysqli_query($conn, $sql)) {
@@ -28,7 +28,7 @@ function editTask($task_id, $task_date, $task_goal, $task_done, $task_highlighte
     $task_done = (int)$task_done;
     $task_highlighted = (int)$task_highlighted; // Convert "highlighted" to an integer
 
-    $sql = "UPDATE granna80_bdlinks.roadmap_en 
+    $sql = "UPDATE granna80_bdlinks.roadmap_pt
             SET task_date = '$task_date', task_goal = '$task_goal', task_done = $task_done, task_highlighted = $task_highlighted 
             WHERE task_id = $task_id";
 
@@ -44,7 +44,7 @@ function deleteTask($task_id) {
 
     $task_id = (int)$task_id;
 
-    $sql = "DELETE FROM granna80_bdlinks.roadmap_en WHERE task_id = $task_id";
+    $sql = "DELETE FROM granna80_bdlinks.roadmap_pt WHERE task_id = $task_id";
 
     if (mysqli_query($conn, $sql)) {
         return true;
@@ -58,7 +58,7 @@ function listTasks() {
 
     $tasks = array();
 
-    $result = mysqli_query($conn, "SELECT * FROM granna80_bdlinks.roadmap_en");
+    $result = mysqli_query($conn, "SELECT * FROM granna80_bdlinks.roadmap_pt");
 
     while ($row = mysqli_fetch_assoc($result)) {
         $tasks[] = $row;

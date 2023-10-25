@@ -51,10 +51,10 @@ $tasks = listTasks();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit RoadMap - EN</title>
+    <title>Edit RoadMap - ES</title>
 </head>
 <body>
-    <h1>RoadMap EN</h1>
+    <h1>RoadMap ES</h1>
     <form method="post">
         <?php if (isset($_GET["edit"])): ?>
             <input type="hidden" name="task_id" value="<?php echo $_GET["edit"]; ?>">
@@ -68,7 +68,7 @@ $tasks = listTasks();
         <button type="submit">Submit</button>
     </form>
 
-    <h2>RoadMap - List</h2>
+    <h2>RoadMap ES - List</h2>
     <ul>
         <?php foreach ($tasks as $task): ?>
             <li>
@@ -79,7 +79,7 @@ $tasks = listTasks();
             </li>
         <?php endforeach; ?>
     </ul>
-    <a href="ES">RoadMap ES</a><br>
-    <a href="PT">RoadMap PT</a>
+    <a href="../index.php">RoadMap EN</a><br>
+    <a href="../PT/index.php">RoadMap PT</a>
 </body>
 </html>

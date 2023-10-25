@@ -51,10 +51,10 @@ $tasks = listTasks();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit RoadMap - EN</title>
+    <title>PT RoadMap - EDIT</title>
 </head>
 <body>
-    <h1>RoadMap EN</h1>
+    <h1>RoadMap PT</h1>
     <form method="post">
         <?php if (isset($_GET["edit"])): ?>
             <input type="hidden" name="task_id" value="<?php echo $_GET["edit"]; ?>">
@@ -79,7 +79,7 @@ $tasks = listTasks();
             </li>
         <?php endforeach; ?>
     </ul>
-    <a href="ES">RoadMap ES</a><br>
-    <a href="PT">RoadMap PT</a>
+    <a href="../index.php">RoadMap EN</a><br>
+    <a href="../ES/index.php">RoadMap ES</a>
 </body>
 </html>
