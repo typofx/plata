@@ -38,15 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h1>Edit Task</h1>
-    <form method="post">
+    <form method="post" action="process_edit_task.php">
         <input type="hidden" name="task_id" value="<?php echo $task_id; ?>">
         Date: <input type="date" name="task_date" value="<?php echo $task_date; ?>"><br>
         Goal: <input type="text" name="task_goal" value="<?php echo $task_goal; ?>"><br>
         Done: <input type="checkbox" name="task_done" value="1" <?php if ($task_done == 1) echo "checked"; ?>><br>
         Highlighted:
-        <input type="radio" name="task_highlighted" value="1" <?php if ($task_highlighted == 1) echo "checked"; ?> > Yes
-        <input type="radio" name="task_highlighted" value="0" <?php if ($task_highlighted == 0) echo "checked"; ?> > No
+<input type="checkbox" name="task_highlighted" value="1" <?php if ($task_highlighted == 1) echo "checked"; ?> > Yes
+
         <button type="submit">Save</button>
     </form>
+    <a href="index.php">voltar</a>
 </body>
 </html>

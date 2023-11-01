@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Error editing the task, redirect back to the edit page or display an error message
+            echo    'erro';
             header("Location: edit_task.php?task_id=$task_id&error=true");
             exit();
         }
