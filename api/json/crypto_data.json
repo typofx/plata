@@ -1,0 +1,26 @@
+{
+        "General": {
+            "chain": "Polygon",
+            "decimals": 4,
+            "symbol": "PLT",
+            "chainID": 137,
+            "name": "Plata",
+            "category": "token",
+            "webURL": "https://www.plata.ie",
+            "contract": "0xC298812164BD558268f51cc6E3B8b5daAf0b6341",
+            "tokenLogo": "https://plata.ie/images/platatoken400px.png",
+            "explorer": "https://polygonscan.com/address/0xc298812164bd558268f51cc6e3b8b5daaf0b6341#code"
+        },
+        "Statistics": {
+          "fullyDilutedMarketCapUSD": 144706306,
+          "fullyDilutedMarketCapBRL": 723384642,
+          "fullyDilutedMarketCapEUR": 134028750,
+            "circulatingSupply": 11299000992,
+            "maximumSupply": 22299000992,
+            "totalSupply": 22299000992,
+            "priceUSD": 0.0000012807,
+            "priceBRL": 0.0000064022,
+            "priceEUR": 0.0000011862,
+            "timeStamp": "12-12-2023 23:31:49"
+        }
+    }
