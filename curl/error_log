@@ -1,0 +1,20 @@
+[20-Jul-2023 03:22:21 America/Chicago] PHP Fatal error:  Uncaught TypeError: curl_getinfo(): Argument #1 ($handle) must be of type CurlHandle, string given in /home2/granna80/public_html/curl/index.php:31
+Stack trace:
+#0 /home2/granna80/public_html/curl/index.php(31): curl_getinfo('https://www.coi...', 2097163)
+#1 {main}
+  thrown in /home2/granna80/public_html/curl/index.php on line 31
+[20-Jul-2023 03:39:31 America/Chicago] PHP Fatal error:  Uncaught TypeError: curl_getinfo(): Argument #1 ($handle) must be of type CurlHandle, string given in /home2/granna80/public_html/curl/index.php:31
+Stack trace:
+#0 /home2/granna80/public_html/curl/index.php(31): curl_getinfo('https://www.coi...', 2097163)
+#1 {main}
+  thrown in /home2/granna80/public_html/curl/index.php on line 31
+[20-Jul-2023 03:39:49 America/Chicago] PHP Fatal error:  Uncaught TypeError: curl_getinfo(): Argument #1 ($handle) must be of type CurlHandle, string given in /home2/granna80/public_html/curl/index.php:31
+Stack trace:
+#0 /home2/granna80/public_html/curl/index.php(31): curl_getinfo('https://www.coi...', 2097163)
+#1 {main}
+  thrown in /home2/granna80/public_html/curl/index.php on line 31
+[20-Jul-2023 05:34:42 America/Chicago] PHP Fatal error:  Uncaught TypeError: curl_getinfo(): Argument #1 ($handle) must be of type CurlHandle, string given in /home2/granna80/public_html/curl/index.php:31
+Stack trace:
+#0 /home2/granna80/public_html/curl/index.php(31): curl_getinfo('https://www.coi...', 2097163)
+#1 {main}
+  thrown in /home2/granna80/public_html/curl/index.php on line 31
