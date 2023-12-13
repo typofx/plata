@@ -36,7 +36,7 @@ $secret = 'XVQ2UIGO75XRUKJO';
 </head>
 <body>
     <h1>registre a autenticação em 2 fatores</h1>
-    <img src="<?php echo $g->getUrl('Plata.ie','plata.ie',$secret)?>">
+    <img src="<?php echo $g->getUrl('Typo FX',' (Plata Token) ',$secret)?>">
 
 
 </body>
