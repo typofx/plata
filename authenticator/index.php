@@ -20,16 +20,16 @@ $g = new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 
 
 
-$secret = 'XVQ2UIGO75XRUKJO';
+$secret = '';
 
-//autenticar
+
 
 if(isset($_POST['token'])){
    $token = $_POST['token'];
    if($g->checkCode($secret, $token)){
-    echo 'autenticação liberada!';
+    echo 'true';
    }else{
-    echo 'token invalido';
+    echo 'false';
    }
    die();
 }
@@ -48,7 +48,7 @@ if(isset($_POST['token'])){
     <h1>Informe o token </h1>
     <form action="" method="post">
         <input type="text" name="token" id="">
-        <button type="submit">Autenticar</button>
+        <button type="submit">submit</button>
     </form>
 </body>
 </html>
