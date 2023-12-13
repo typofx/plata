@@ -1,6 +1,6 @@
 <?php
 // Dados da sua conta na Coinbase
-$coinbaseApiKey = 'KEY';
+$coinbaseApiKey = 'd683db11-168d-4e2e-adb9-e48e670d0f92';
 
 // Valores padrão do pagamento
 $customerName = '';
@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $customerName = $_POST['customerName'];
     $customerEmail = $_POST['customerEmail'];
     $web3wallet = $_POST['customerWallet'];
+    $PLTwanted = $_POST['PLTwanted'];
+    
     
     //$paymentDescription = $_POST['description'];
 }
@@ -67,17 +69,17 @@ if ($status === 201) {
         $checkoutId = $responseData['data']['id'];
         $checkoutUrl = 'https://commerce.coinbase.com/checkout/' . $checkoutId;
 
-        // Cria um botão de pagamento
+         //Cria um botão de pagamento
         //echo '<a href="' . $checkoutUrl . '" target="_blank">Pagar com Coinbase</a>';
         //echo 'Resposta da API: ' . $response;
         //echo 'URL de checkout da Coinbase: ' . $checkoutUrl;
     } else {
-        echo 'Erro ao obter URL de pagamento.';
-        echo 'Resposta da API: ' . $response;
+        //echo 'Erro ao obter URL de pagamento.';
+        //echo 'Resposta da API: ' . $response;
     }
 } else {
-    echo 'Erro na requisição para a API da Coinbase. Status: ' . $status;
-    echo 'Resposta da API: ' . $response;
+    //echo 'Erro na requisição para a API da Coinbase. Status: ' . $status;
+    //echo 'Resposta da API: ' . $response;
 }
 ?>
 
@@ -87,7 +89,6 @@ if ($status === 201) {
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 
-<html lang="pt-br">
     <head>
     <title>Plata Token - Coinbase</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -160,8 +161,8 @@ if ($status === 201) {
                 </select>
             <input class="input-amount" type="number" step="0.01" min="0.01" name="amount" id="amount" autocomplete="off" value="<?php echo $paymentAmount; ?>" onkeyup="QUOTEexec()" onkeypress="QUOTEexec()" required>
             </div>
-            <div class="div-label"> <label for="PLTwanted">Quote to Plata Token (PLT)</label></div>
-            <input type="number" id="PLTwanted" name="PLTwanted" size="15" step="0.0001" autocomplete="off" min="0.0001" value="<?php echo $PLTwanted; ?>" onkeyup="PLTexec()" onkeypress="PLTexec()" required>
+            <div class="div-label"> <label for="PLTwanted">Receiving about Plata Tokens (PLT)</label></div>
+            <input lass="input-amount" type="number" id="PLTwanted" name="PLTwanted" size="15" step="0.0001" autocomplete="off" min="0.0001" value="<?php echo $PLTwanted; ?>" onkeyup="PLTexec()" onkeypress="PLTexec()" required>
 
             <hr width="95%" class="hrline"/>
             <button id="submitButton" name="submit" class="buttonBuyNow"> Pay with Crypto </button>
@@ -171,7 +172,7 @@ if ($status === 201) {
         
         
 <br>
-<center><a id="dappVersion">PlataByCoinbase Dapp Version 0.0.2 (Beta)</a></center>
+<center><a id="dappVersion">PlataByCoinbase Dapp Version 0.0.99 (Beta)</a></center>
 <?php include '../en/mobile/price.php';?>
 
 <?php

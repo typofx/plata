@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $customerEmail = $_POST['customerEmail'];
     $web3wallet = $_POST['customerWallet'];
     $PLTwanted = $_POST['PLTwanted'];
-    $checkoutUrl = $_POST['checkoutUrl'];
     
     //$paymentDescription = $_POST['description'];
     
@@ -71,23 +70,23 @@ if ($status === 201) {
         
         //echo $checkoutMail;
         
+
+
         //echo 'Resposta da API: ' . $response;
         //echo 'URL de checkout da Coinbase: ' . $checkoutUrl;
     } else {
-        //echo 'Erro ao obter URL de pagamento.';
-        //echo 'Resposta da API: ' . $response;
-            header("Location: https://www.plata.ie/coinbase/");
-            exit();
+        echo 'Erro ao obter URL de pagamento.';
+        echo 'Resposta da API: ' . $response;
     }
 } else {
-    //echo 'Erro na requisição para a API da Coinbase. Status: ' . $status;
-    //echo 'Resposta da API: ' . $response;
-    header("Location: https://www.plata.ie/coinbase/");
-    exit();
+    echo 'Erro na requisição para a API da Coinbase. Status: ' . $status;
+    echo 'Resposta da API: ' . $response;
+    //header("Location: https://www.plata.ie/coinbase/");
+    //exit();
 }
 
 ?>
-<link rel="stylesheet" href="https://www.plata.ie/coinbase/style.css">
+<link rel="stylesheet" href="style.css">
 <?php
 
         // Cria um botão de pagamento
@@ -119,8 +118,6 @@ if ($status === 201) {
         <h3>Purchase Confirmation</h3>
         <h4>Coinbase Commerce</h4>
         <div>
-            
-        <form action="<?php echo $checkoutUrl; ?>" >
             <div class="div-label"><label for="User Name">Name :</label></div>
             <div>
                 <b><?php echo $customerName; ?></b>
@@ -149,14 +146,12 @@ if ($status === 201) {
             <b><?php echo $PLTwanted; ?> (PLT)</b>
             <br>
             <hr width="95%" class="hrline"/>
-            <button class='buttonBuyNow' onclick="emailToCustomer()" >Checkout</button>
+            <?php echo "<button class='buttonBuyNow' href='".$checkoutUrl."' ".$checkoutMail. ">Checkout</button>"; ?>
+                        <?php echo "<button class='buttonBuyNow' href='".$checkoutUrl."' ".$checkoutMail. ">Checkout</button>"; ?>
             <hr width="95%" class="hrline"/>
-            
-        </form>
-            
         </div></div></div></div>
         <br>
-<center><a id="dappVersion">PlataByCoinbase Dapp Version 0.0.99 (Beta)</a></center>
+<center><a id="dappVersion">PlataByCoinbase Dapp Version 0.0.3 (Beta)</a></center>
 
 <?php
     date_default_timezone_set('UTC');

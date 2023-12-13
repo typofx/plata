@@ -1,0 +1,3 @@
+[30-Jun-2023 19:45:38 UTC] PHP Warning:  Undefined variable $Expdate in /home2/granna80/public_html/coinbase/checkout/index.php on line 160
+[30-Jun-2023 14:46:09 America/Chicago] PHP Warning:  Undefined variable $paymentAmount in /home2/granna80/public_html/coinbase/checkout/index.php on line 43
+[30-Jun-2023 14:46:09 America/Chicago] PHP Warning:  Undefined variable $paymentCurrency in /home2/granna80/public_html/coinbase/checkout/index.php on line 44

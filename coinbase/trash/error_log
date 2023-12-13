@@ -1,0 +1,33 @@
+[27-Jun-2023 12:01:26 America/Chicago] PHP Warning:  Undefined array key "TXTdate" in /home2/granna80/public_html/coinbase/mailto.php on line 21
+[27-Jun-2023 17:01:26 UTC] PHP Warning:  Undefined variable $PLTwanted in /home2/granna80/public_html/coinbase/mailto.php on line 32
+[27-Jun-2023 12:01:54 America/Chicago] PHP Warning:  Undefined array key "TXTdate" in /home2/granna80/public_html/coinbase/mailto.php on line 21
+[27-Jun-2023 17:01:54 UTC] PHP Warning:  Undefined variable $PLTwanted in /home2/granna80/public_html/coinbase/mailto.php on line 32
+[27-Jun-2023 12:06:41 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "EUR" in /home2/granna80/public_html/coinbase/index.php:99
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/coinbase/index.php on line 99
+[27-Jun-2023 12:08:35 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "EUR" in /home2/granna80/public_html/coinbase/index.php:99
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/coinbase/index.php on line 99
+[27-Jun-2023 12:08:49 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "EUR" in /home2/granna80/public_html/coinbase/index.php:99
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/coinbase/index.php on line 99
+[27-Jun-2023 12:11:01 America/Chicago] PHP Warning:  Undefined array key "TXTdate" in /home2/granna80/public_html/coinbase/mailto.php on line 21
+[27-Jun-2023 17:11:01 UTC] PHP Warning:  Undefined variable $PLTwanted in /home2/granna80/public_html/coinbase/mailto.php on line 32
+[27-Jun-2023 12:14:49 America/Chicago] PHP Warning:  Undefined array key "TXTdate" in /home2/granna80/public_html/coinbase/mailto.php on line 21
+[27-Jun-2023 17:14:49 UTC] PHP Warning:  Undefined variable $PLTwanted in /home2/granna80/public_html/coinbase/mailto.php on line 32
+[27-Jun-2023 12:15:35 America/Chicago] PHP Warning:  Undefined array key "TXTdate" in /home2/granna80/public_html/coinbase/mailto.php on line 21
+[27-Jun-2023 17:15:35 UTC] PHP Warning:  Undefined variable $PLTwanted in /home2/granna80/public_html/coinbase/mailto.php on line 32
+[27-Jun-2023 12:16:46 America/Chicago] PHP Parse error:  syntax error, unexpected token "/" in /home2/granna80/public_html/coinbase/mailto.php on line 55
+[27-Jun-2023 12:17:21 America/Chicago] PHP Parse error:  syntax error, unexpected token "/" in /home2/granna80/public_html/coinbase/mailto.php on line 57
+[27-Jun-2023 12:18:41 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/coinbase/mailto.php on line 4
+[27-Jun-2023 12:18:41 America/Chicago] PHP Warning:  Undefined array key "TXTdate" in /home2/granna80/public_html/coinbase/mailto.php on line 23
+[27-Jun-2023 17:18:41 UTC] PHP Warning:  Undefined variable $PLTwanted in /home2/granna80/public_html/coinbase/mailto.php on line 34
+[27-Jun-2023 12:19:55 America/Chicago] PHP Warning:  Undefined array key "TXTdate" in /home2/granna80/public_html/coinbase/mailto.php on line 20
+[27-Jun-2023 17:19:55 UTC] PHP Warning:  Undefined variable $PLTwanted in /home2/granna80/public_html/coinbase/mailto.php on line 31
+[27-Jun-2023 12:20:37 America/Chicago] PHP Warning:  Undefined array key "TXTdate" in /home2/granna80/public_html/coinbase/mailto.php on line 20
+[27-Jun-2023 17:20:37 UTC] PHP Warning:  Undefined variable $PLTwanted in /home2/granna80/public_html/coinbase/mailto.php on line 31
+[27-Jun-2023 19:21:16 America/Chicago] PHP Warning:  Undefined array key "TXTdate" in /home2/granna80/public_html/coinbase/mailto.php on line 20
+[28-Jun-2023 00:21:16 UTC] PHP Warning:  Undefined variable $PLTwanted in /home2/granna80/public_html/coinbase/mailto.php on line 31
