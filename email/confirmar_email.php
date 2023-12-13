@@ -40,7 +40,7 @@ if (isset($_GET["token"])) {
                 echo "The email address ($email) is not registered.";
             }
 
-            // Feche as conexões e declarações
+        
             $checkEmailStmt->close();
             $updateStmt->close();
         } else {
