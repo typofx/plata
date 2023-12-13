@@ -20,7 +20,7 @@ $g = new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 
 
 
-$secret = 'XVQ2UIGO75XRUKJO';
+$secret = '';
 
 
 
