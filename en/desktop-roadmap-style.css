@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"); /* need to be at index */
+
+/*
+table, th, td {
+    border: 1px solid black;
+    color: black;
+    }*/
+
+.img-line {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 47px;
+    }
+
+.roadmap-main-text {
+    border-collapse: collapse;
+    width: 100%;
+    height: 80px; /* width="70%" height="80px"*/
+    }
+    
+.roadmap-main-text .roadmap-header{
+    background-color: #4C00B0;
+    color: white;
+    padding-top:15px;
+    }
+    
+.roadmap-main-text .roadmap-icon{
+    background-color: #8A00C2;
+    width: 80px;
+    }
+    
+.roadmap-table {
+    border-collapse: collapse;
+    width: calc(100% - 120px);
+    margin-left: 60px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    text-align: left;
+    }
+    
+.roadmap-table h3 {
+    text-align: left;
+
+}
+
+.roadmap-table .tdleft {
+    margin-top: 30px;
+    text-align: center;
+    width: 50px;
+}
+
+.roadmap-table .tdline1 {
+    background-color: #9966CC;
+    color: white;
+}
+
+.roadmap-table .tdline2 {
+    background-color: #8A00C2;
+    color: white;
+}
+
+.div-roadmap{
+    background-color: #1C0024;
+    padding-bottom: 30px;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
+    

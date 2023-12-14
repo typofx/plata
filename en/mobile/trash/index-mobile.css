@@ -1,0 +1,133 @@
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+}
+
+/* Modal Content/Box */
+.modal-contentt {
+    background-color: #EBECF0;
+    margin: 20% auto;
+    padding: 0.5px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    width: 280px;
+    height: 90px;
+    left: 50%;
+    top: 50%;
+}
+
+.main-text {
+    cursor: default;
+    font-size: 52px;
+    letter-spacing: 2.25px;
+    line-height: 52pt;
+    padding-left: 60px;
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(to right, #DCDCDC, #DDA0DD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-text-mobile {
+    cursor: default;
+    font-size: 23px; 
+    letter-spacing: 1.25px;
+    line-height: 26pt;
+    padding-left: 23px;
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(to right, #DCDCDC, #DDA0DD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sub-text {
+    cursor: default;
+    font-size: 18px;
+    letter-spacing: 2.5px;
+    padding-left: 60px;
+    font-family: "Montserrat", sans-serif;
+    background: #DCDCDC;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sub-text-mobile {
+    cursor: default;
+    font-size: 12px;
+    letter-spacing: 1.1px;
+    line-height:100%;
+    padding-left: 23px;
+    font-family: "Montserrat", sans-serif;
+    background: #DCDCDC;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.div-main-text-background {
+    cursor: default;
+    background-image: url("https://www.plata.ie/images/PolygonBackground.jpg");
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.div-main-text-background-mobile {
+    cursor: default;
+    background-image: url("https://www.plata.ie/images/PolygonBackgroundVert.jpg");
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.div-indexes-background {
+
+    background-image: url("https://www.plata.ie/images/background-indexes.jpg");
+    height: 100%;
+    width: 100%;
+}
+
+.linkContract:link {
+    color: #B49CE4;
+}
+.linkContract:visited {
+    color: #B49CE4;
+}
+.linkContract:hover {
+    color: white;
+}
+.linkContract:active {
+    color: white;
+}
+
+ .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 0;
+}
+
+.u-section-1 .u-text-1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 22px 89px 0 0;
+}
+
+.u-section-1 .u-image-1 {
+  width: 133px;
+  height: 117px;
+  transition-duration: 0.5s;
+  margin: -144px 15px 0 auto;
+}
+
+.u-section-1 .u-image-2 {
+  width: 182px;
+  height: 208px;
+  margin: 42px auto 0 23px;
+}
