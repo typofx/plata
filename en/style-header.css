@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+/*table, th, td, tr,img {
+  border: 1px solid red;
+}*/
+
+.th-dropdown:hover a{
+  color: rgb(144, 137, 183);
+}
+
+.icon {
+  height: 13px;
+}
+
+.menu-container {
+  overflow: hidden;
+  left: 100px;
+  right: 100px;
+  width: 100%;
+  height: 84px;
+  background-color: white;
+  top: 0;
+  border-collapse: collapse;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: rgb(26,26,26);
+  text-align: center;
+}
+
+.logo-align {
+  width: 122px;
+  height: 52.72px;
+  padding-bottom: 10px;
+}
+
+.img-logo {
+  width: 122px;
+  height: 52.72px;
+  cursor: pointer;
+}
+
+.table-space {
+  width: 100px;
+}
+
+.table-space-between {
+  width: 392px;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.th-dropdown {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.th-dropdown:hover {
+  cursor: pointer;
+  background-color: rgb(230,230,230);
+  color: rgb(144, 137, 183);
+}
+
+.menu-container a:hover, .menu-container span:hover  {
+  color: rgb(144, 137, 183);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  text-align: left;
+  border: 2px rgb(242, 242, 242) solid;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.triangle:hover {
+  color: rgb(144, 137, 183);
+}
+
+.retc {
+  margin-left: 12px;
+}
+
+.typo-fx {
+  margin-right: 5px;
+}
+
+.dropdown-span {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(26,26,26);
+}
+
+.rotate-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown-span:hover .rotate-on-hover {
+  transform: rotate(180deg);
+}
+
+.align-column {
+  padding-bottom: 27px;
+}
+
+.align-column-trolley {
+  padding-bottom: 18px;
+}
+
+.align-column-calc {
+  padding-bottom: 12px;
+}
+
+.align-text-dropdown {
+  padding-bottom: 20px;
+}
+
+.align-column-config {
+  padding-bottom: 15px;
+}
+
+.align-column-icon {
+  padding-bottom: 12px;
+}

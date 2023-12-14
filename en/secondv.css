@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+.main-text {
+  font-size: 49px;
+  letter-spacing: 2.5px;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(to right, #DCDCDC, #DDA0DD);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
