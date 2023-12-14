@@ -1,0 +1,18 @@
+[03-Sep-2022 04:05:15 America/Chicago] PHP Warning:  include(MeetTheTeam.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/index.php on line 625
+[03-Sep-2022 04:05:15 America/Chicago] PHP Warning:  include(): Failed opening 'MeetTheTeam.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/index.php on line 625
+[03-Sep-2022 04:05:41 America/Chicago] PHP Warning:  include(MeetTheTeam.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/index.php on line 625
+[03-Sep-2022 04:05:41 America/Chicago] PHP Warning:  include(): Failed opening 'MeetTheTeam.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/index.php on line 625
+[11-Sep-2022 14:56:17 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in /home2/granna80/public_html/ReportBug.php:30
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/ReportBug.php on line 30
+[11-Sep-2022 14:57:29 America/Chicago] PHP Fatal error:  Uncaught Error: Undefined constant "console" in /home2/granna80/public_html/ReportBug.php:30
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/ReportBug.php on line 30
+[08-Dec-2022 09:51:13 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/vetor.php:1) in /home2/granna80/public_html/vetor.php on line 22
+[29-Jan-2023 08:17:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/vetor.php:1) in /home2/granna80/public_html/vetor.php on line 22
+[03-May-2023 00:06:11 America/Chicago] PHP Warning:  include(../../en/mobile/footer.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/newMeetTheTeam.php on line 1
+[03-May-2023 00:06:11 America/Chicago] PHP Warning:  include(): Failed opening '../../en/mobile/footer.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/newMeetTheTeam.php on line 1
+[03-May-2023 00:12:54 America/Chicago] PHP Warning:  include(../../en/mobile/footer.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/newMeetTheTeam.php on line 103
+[03-May-2023 00:12:54 America/Chicago] PHP Warning:  include(): Failed opening '../../en/mobile/footer.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/newMeetTheTeam.php on line 103
