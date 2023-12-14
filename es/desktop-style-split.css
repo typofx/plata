@@ -1,0 +1,205 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.background-ground {
+ background-image: url("https://www.plata.ie/images/background02.jpg");
+ background-color: #cccccc;
+ width: 100%;
+ background-size: cover;
+}
+
+/*table,td,tr {
+     border: 1px solid black;
+     padding: 1px;
+}*/
+
+.td-smallgap {
+    height: 10px;
+}
+
+.tb-token {
+    border-collapse: collapse;
+    color: white;
+    width: 100%;
+} 
+
+.line-column-border {
+    border-collapse: collapse;
+    color: white;
+}
+
+.tb-title {
+    font-size: 35px;
+    color: black;
+}
+
+.img-social-footer {
+    border-radius: 15px;
+}
+
+.tb-subtitle {
+    font-size: 22px;
+    font-family: 'Montserrat'; 
+    color: black;
+}
+
+.tb-typofx {
+    font-size: 22px;
+    font-family: 'Montserrat'; 
+    color: rgb(110, 70, 174);
+}
+
+.td-token-split {
+    text-align: center;
+}
+
+.td-token-column{
+    width: 50%;
+    padding: 1px;
+    border-radius: 5%;
+}
+
+.tb-token-split {
+    width: 100%;
+}
+
+.td-tb-info {
+    padding-left: 20px;
+    text-align: left;
+    border-width: 100%;
+    color: white;
+}
+
+.td-info-top{
+    border-top: none;
+}
+
+.td-info-bottom{
+    border-bottom: none;
+}
+.td-info-left{
+    border-left: none;
+}
+.td-info-right{
+    border-right: none;
+}
+
+.tb-info {
+    width: 90%;
+    text-align: center;
+    border-radius: 10px; 
+    background-color: rgb(105,105,105, 0.50);
+    height: 300px;
+    border-collapse: collapse;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.td-suply {
+    padding: 10px;
+    text-align: center;
+}
+
+.gray-button {
+    display: inline-block;
+    background-color: #5A5A5A;
+    border-radius: 8px; 
+    border: 0px solid #3D3D3D;
+    font-size: 13px; 
+    font-family: 'Montserrat'; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 6px 12px;
+    color: white; 
+}
+
+.a-list {
+    display: inline-block;
+    border-radius: 8px; 
+    font-size: 15px; 
+    font-family: 'Montserrat'; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 6px 12px;
+    color: white; 
+}
+
+/* APARTIR DAQUI CSS SPLIT*/
+
+.split-table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.split-table-buttons {
+    width: 40px;
+    border-collapse: collapse;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.invisibled {
+    display: none;
+}
+
+.tdwid {
+    width: 100px;
+}
+
+.th-title {
+    height: 60px;
+}
+
+.center-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50%;
+}
+
+.button-year {
+    width: 95px;
+    height: 40px;
+    display: block;
+    background-color: #6E46AE;
+    border-radius: 6px; 
+    border: 0px solid #3D3D3D;
+    color: white; 
+    font-size: 18px; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    font-family: 'Montserrat';
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-year:hover {
+    background-color: #8247E5;
+    border-radius: 6px; 
+    color: white;
+    transition: 0.3s;
+}
+
+.inative {
+    background-color: #EBECF0;
+    color: #5A5A5A;
+}
+
+.inative-darkmode {
+    background-color: #3A3B3C;
+    color: white;
+}
+
+.cursor {
+    cursor: default;
+}

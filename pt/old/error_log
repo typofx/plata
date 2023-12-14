@@ -1,0 +1,70 @@
+[19-Mar-2023 14:31:37 America/Chicago] PHP Warning:  include(): https:// wrapper is disabled in the server configuration by allow_url_include=0 in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:31:37 America/Chicago] PHP Warning:  include(https://www.plata.ie/mobile/sand-menu.php): Failed to open stream: no suitable wrapper could be found in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:31:37 America/Chicago] PHP Warning:  include(): Failed opening 'https://www.plata.ie/mobile/sand-menu.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:31:37 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[19-Mar-2023 14:32:01 America/Chicago] PHP Warning:  include(): https:// wrapper is disabled in the server configuration by allow_url_include=0 in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:32:01 America/Chicago] PHP Warning:  include(https://www.plata.ie/mobile/sand-menu.php): Failed to open stream: no suitable wrapper could be found in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:32:01 America/Chicago] PHP Warning:  include(): Failed opening 'https://www.plata.ie/mobile/sand-menu.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:32:01 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[19-Mar-2023 14:43:02 America/Chicago] PHP Warning:  include(): https:// wrapper is disabled in the server configuration by allow_url_include=0 in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:43:02 America/Chicago] PHP Warning:  include(https://www.plata.ie/mobile/sand-menu.php): Failed to open stream: no suitable wrapper could be found in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:43:02 America/Chicago] PHP Warning:  include(): Failed opening 'https://www.plata.ie/mobile/sand-menu.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:43:02 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[19-Mar-2023 14:47:31 America/Chicago] PHP Warning:  include(): https:// wrapper is disabled in the server configuration by allow_url_include=0 in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:47:31 America/Chicago] PHP Warning:  include(https://www.plata.ie/mobile/sand-menu.php): Failed to open stream: no suitable wrapper could be found in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:47:31 America/Chicago] PHP Warning:  include(): Failed opening 'https://www.plata.ie/mobile/sand-menu.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:47:31 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[19-Mar-2023 14:47:59 America/Chicago] PHP Warning:  include(): https:// wrapper is disabled in the server configuration by allow_url_include=0 in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:47:59 America/Chicago] PHP Warning:  include(https://www.plata.ie/mobile/sand-menu.php): Failed to open stream: no suitable wrapper could be found in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:47:59 America/Chicago] PHP Warning:  include(): Failed opening 'https://www.plata.ie/mobile/sand-menu.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/mobile/pt/header.php on line 16
+[19-Mar-2023 14:47:59 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[19-Mar-2023 14:52:13 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[19-Mar-2023 14:52:24 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[19-Mar-2023 14:53:47 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[19-Mar-2023 16:01:20 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[19-Mar-2023 19:06:20 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/mobile/pt/header.php on line 47
+[02-Apr-2023 17:26:49 America/Chicago] PHP Warning:  include(../../languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/index.php on line 25
+[02-Apr-2023 17:26:49 America/Chicago] PHP Warning:  include(): Failed opening '../../languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/index.php on line 25
+[02-Apr-2023 17:26:49 America/Chicago] PHP Warning:  include(languagePT.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/header.php on line 4
+[02-Apr-2023 17:26:49 America/Chicago] PHP Warning:  include(): Failed opening 'languagePT.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/header.php on line 4
+[02-Apr-2023 17:26:49 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/pt/header.php on line 47
+[07-Apr-2023 08:01:50 America/Chicago] PHP Warning:  include(../../languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/index.php on line 25
+[07-Apr-2023 08:01:50 America/Chicago] PHP Warning:  include(): Failed opening '../../languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/index.php on line 25
+[07-Apr-2023 08:01:50 America/Chicago] PHP Warning:  include(languagePT.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/header.php on line 4
+[07-Apr-2023 08:01:50 America/Chicago] PHP Warning:  include(): Failed opening 'languagePT.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/header.php on line 4
+[07-Apr-2023 08:01:50 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/pt/header.php on line 47
+[07-Apr-2023 08:02:08 America/Chicago] PHP Warning:  include(../../languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/index.php on line 25
+[07-Apr-2023 08:02:08 America/Chicago] PHP Warning:  include(): Failed opening '../../languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/index.php on line 25
+[07-Apr-2023 08:02:08 America/Chicago] PHP Warning:  include(languagePT.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/header.php on line 4
+[07-Apr-2023 08:02:08 America/Chicago] PHP Warning:  include(): Failed opening 'languagePT.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/header.php on line 4
+[07-Apr-2023 08:02:08 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/pt/header.php on line 47
+[07-Apr-2023 08:18:40 America/Chicago] PHP Warning:  include(../../languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/index.php on line 25
+[07-Apr-2023 08:18:40 America/Chicago] PHP Warning:  include(): Failed opening '../../languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/index.php on line 25
+[07-Apr-2023 08:18:40 America/Chicago] PHP Warning:  include(languagePT.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/header.php on line 4
+[07-Apr-2023 08:18:40 America/Chicago] PHP Warning:  include(): Failed opening 'languagePT.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/header.php on line 4
+[07-Apr-2023 08:18:40 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/pt/header.php on line 47
+[11-Apr-2023 08:44:16 America/Chicago] PHP Warning:  include(../../languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/index.php on line 25
+[11-Apr-2023 08:44:16 America/Chicago] PHP Warning:  include(): Failed opening '../../languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/index.php on line 25
+[11-Apr-2023 08:44:16 America/Chicago] PHP Warning:  include(languagePT.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/header.php on line 4
+[11-Apr-2023 08:44:16 America/Chicago] PHP Warning:  include(): Failed opening 'languagePT.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/header.php on line 4
+[11-Apr-2023 08:44:16 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/pt/header.php on line 47
+[14-Apr-2023 00:28:11 America/Chicago] PHP Warning:  include(../../languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/index.php on line 25
+[14-Apr-2023 00:28:11 America/Chicago] PHP Warning:  include(): Failed opening '../../languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/index.php on line 25
+[14-Apr-2023 00:28:11 America/Chicago] PHP Warning:  include(languagePT.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/header.php on line 4
+[14-Apr-2023 00:28:11 America/Chicago] PHP Warning:  include(): Failed opening 'languagePT.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/header.php on line 4
+[14-Apr-2023 00:28:11 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/pt/header.php on line 47
+[02-Jun-2023 21:10:10 America/Chicago] PHP Warning:  include(../../languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/index.php on line 25
+[02-Jun-2023 21:10:10 America/Chicago] PHP Warning:  include(): Failed opening '../../languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/index.php on line 25
+[02-Jun-2023 21:10:10 America/Chicago] PHP Warning:  include(languagePT.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/header.php on line 4
+[02-Jun-2023 21:10:10 America/Chicago] PHP Warning:  include(): Failed opening 'languagePT.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/header.php on line 4
+[02-Jun-2023 21:10:10 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/pt/header.php on line 47
+[23-Aug-2023 12:18:06 America/Chicago] PHP Warning:  include(../../languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/index.php on line 25
+[23-Aug-2023 12:18:06 America/Chicago] PHP Warning:  include(): Failed opening '../../languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/index.php on line 25
+[23-Aug-2023 12:18:06 America/Chicago] PHP Warning:  include(languagePT.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/header.php on line 4
+[23-Aug-2023 12:18:06 America/Chicago] PHP Warning:  include(): Failed opening 'languagePT.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/header.php on line 4
+[23-Aug-2023 12:18:06 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/pt/header.php on line 47
+[02-Sep-2023 17:40:44 America/Chicago] PHP Warning:  include(../../languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/index.php on line 25
+[02-Sep-2023 17:40:44 America/Chicago] PHP Warning:  include(): Failed opening '../../languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/index.php on line 25
+[02-Sep-2023 17:40:44 America/Chicago] PHP Warning:  include(languagePT.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/pt/header.php on line 4
+[02-Sep-2023 17:40:44 America/Chicago] PHP Warning:  include(): Failed opening 'languagePT.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/pt/header.php on line 4
+[02-Sep-2023 17:40:44 America/Chicago] PHP Warning:  Undefined variable $txtRoadmap in /home2/granna80/public_html/pt/header.php on line 47

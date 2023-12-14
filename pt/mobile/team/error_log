@@ -1,0 +1,44 @@
+[07-Apr-2023 15:10:10 America/Chicago] PHP Parse error:  syntax error, unexpected fully qualified name "\n" in /home2/granna80/public_html/languages/languages.php on line 48
+[07-Apr-2023 15:10:22 America/Chicago] PHP Parse error:  syntax error, unexpected fully qualified name "\n" in /home2/granna80/public_html/languages/languages.php on line 48
+[07-Apr-2023 15:10:30 America/Chicago] PHP Parse error:  syntax error, unexpected fully qualified name "\n" in /home2/granna80/public_html/languages/languages.php on line 48
+[07-Apr-2023 18:09:11 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 58
+[07-Apr-2023 18:12:01 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 58
+[07-Apr-2023 21:15:10 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 58
+[07-Apr-2023 21:29:54 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 58
+[07-Apr-2023 21:32:57 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[07-Apr-2023 21:40:14 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[07-Apr-2023 21:40:14 America/Chicago] PHP Warning:  Undefined variable $txtProjectL1 in /home2/granna80/public_html/en/mobile/project.php on line 21
+[07-Apr-2023 21:43:13 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[07-Apr-2023 21:43:13 America/Chicago] PHP Warning:  Undefined variable $txtProjectL1 in /home2/granna80/public_html/en/mobile/project.php on line 21
+[07-Apr-2023 21:44:13 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[07-Apr-2023 21:44:13 America/Chicago] PHP Warning:  Undefined variable $txtProjectL1 in /home2/granna80/public_html/en/mobile/project.php on line 21
+[07-Apr-2023 21:54:37 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[07-Apr-2023 21:54:37 America/Chicago] PHP Warning:  Undefined variable $txtProjectL1 in /home2/granna80/public_html/en/mobile/project.php on line 21
+[07-Apr-2023 21:55:55 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[07-Apr-2023 21:55:55 America/Chicago] PHP Warning:  Undefined variable $txtProjectL1 in /home2/granna80/public_html/en/mobile/project.php on line 21
+[07-Apr-2023 22:06:26 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[07-Apr-2023 22:09:41 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[08-Apr-2023 14:27:39 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[09-Apr-2023 08:35:57 America/Chicago] PHP Warning:  Undefined variable $​PLT in /home2/granna80/public_html/languages/languages.php on line 61
+[11-Apr-2023 22:13:11 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[11-Apr-2023 22:13:11 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[11-Apr-2023 23:49:42 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[11-Apr-2023 23:49:42 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[11-Apr-2023 23:59:27 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[11-Apr-2023 23:59:27 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[12-Apr-2023 00:13:28 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[12-Apr-2023 00:13:28 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[12-Apr-2023 00:23:34 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[12-Apr-2023 00:23:34 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[12-Apr-2023 17:23:17 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[12-Apr-2023 17:23:17 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[16-Apr-2023 15:04:15 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[16-Apr-2023 15:04:15 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[16-Apr-2023 15:06:43 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[16-Apr-2023 15:06:43 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[19-Apr-2023 15:18:23 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[19-Apr-2023 15:18:23 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[18-May-2023 14:15:24 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[18-May-2023 14:15:24 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65
+[19-May-2023 13:35:22 America/Chicago] PHP Warning:  Undefined variable $txtThiagoPosition in /home2/granna80/public_html/en/mobile/team/index.php on line 63
+[19-May-2023 13:35:22 America/Chicago] PHP Warning:  Undefined variable $txtThiagoAbout in /home2/granna80/public_html/en/mobile/team/index.php on line 65

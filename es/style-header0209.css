@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+/*td, table, th, tr{
+  border: 1px solid red;
+  border-collapse: collapse;
+}*/
+
+.hidden {
+  display: none;
+}
+
+.th-dropdown:hover {
+    color: rgb(144, 137, 183);
+}
+
+.menu-container {
+  width: 100%;
+  height: 84px;
+  background-color: dark;
+  border-collapse: collapse;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: rgb(26,26,26);
+  text-align: center;
+  top:0px;
+  left: 0px;
+  z-index: 889;
+}
+
+.img-logo {
+  width: 122px;
+  height: 52.72px;
+  cursor: pointer;
+}
+
+.table-space {
+  width: 100px;
+}
+
+.table-space-between {
+  width: 450px;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.th-dropdown-config, .th-dropdown-config-m{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.th-dropdown {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.th-dropdown:hover, .th-dropdown-config:hover {
+  cursor: pointer;
+  background-color: rgb(230,230,230);
+  color: rgb(144, 137, 183);
+}
+
+.menu-container a:hover, .menu-container span:hover  {
+  color: rgb(144, 137, 183);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  text-align: left;
+  border: 2px rgb(242, 242, 242) solid;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.retc {
+    margin-left: 12px;
+}
+
+.typo-fx-header {
+  margin-right: 5px;
+}
+
+.dropdown-span {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(26,26,26);
+}
+
+.clean {
+  cursor: pointer;
+  color: rgb(26,26,26);
+}
+
+.clean:hover .lang {
+  display: none;
+}
+
+.rotate-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown-span:hover .rotate-on-hover {
+  transform: rotate(180deg);
+}
+
+.sub-dropdown {
+  width: 130px;
+}
+
+.align-column-bar .bar {
+  max-width: 1px;
+  width: 1px; 
+  height: 25px;
+  background-color: black;
+  margin: 0 auto;
+  
+}
+
+.table-space { /*Y*/
+    width: 141px;
+}
+  
+.headericon-right {
+    margin-top: 8px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.headericon-left {
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-right: 0px;
+}
+
+.headericon-middle {
+    margin-top: 8px;
+    margin-left: 4px;
+    margin-right: 6px;
+}
+  
+.align-column-icon-eng {
+    width: 50px;
+    text-align: center;
+}
+
+.navbar:hover .lang {
+    display: none;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .dropdown-span,
+.dark-mode .menu-container span:hover {
+    color: #fff;
+}
+
+.dark-mode .dropdown-span:hover{
+    color: #DCA2DC;
+}
+
+.dark-mode .th-dropdown:hover,
+.dark-mode .th-dropdown-config:hover {
+    background-color: rgb(64, 64, 64); 
+    color: #DCA2DC; 
+}
+
+.dark-mode .dropdown-content{
+  border-color: #333;
+}
+
+.dark-mode .dropdown:hover .dropdown-content {
+    display: block;
+    background-color: #333;
+    color: #fff; 
+}
+
+.dark-mode body {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .bar {
+  background-color: #fff;
+}
+
+.dark-mode section {
+    background-color: #333; /* Dark background color for sections */
+    color: #fff; /* White text color for sections */
+    /* Add any other styles you want for section elements in dark mode here */
+}
+.dark-mode center,
+.dark-mode .listing-link
+{
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    /* Add any other styles you want for these elements in dark mode here */
+}
+
+.dark-mode .u-section-11 .u-text-1 {
+    color: #fff; /* White text color */
+    /* Add any other styles you want for this element in dark mode here */
+}
+.dark-mode .u-text-grey-80 {
+    color: #fff; /* White text color */
+    /* Add any other styles you want for this element in dark mode here */
+}
+
+.dark-mode .u-text-grey-90 {
+    color: #fff; /* White text color */
+    /* Add any other styles you want for this element in dark mode here */
+}
+.dark-mode .u-white {
+    background-color: #333; /* Dark background color */
+    /* Add any other styles you want for elements with class .u-white in dark mode here */
+}
+.dark-mode .tb-members {
+    background-color: #333; /* Dark background color */
+    /* Add any other styles you want for elements with class .tb-members in dark mode here */
+}
+
+.dark-mode .img-logo {
+    filter: brightness(0) invert(1); /* Change the image color to white in dark mode */
+}
+/* Dark Mode Styles for changing the second image color to white */
+.dark-mode #header-icon-calc {
+    filter: brightness(0) invert(1); /* Change the image color to white in dark mode */
+}
+/* Dark Mode Styles for changing the third image color to white */
+.dark-mode #header-icon-trolley {
+    filter: brightness(0) invert(1); /* Change the image color to white in dark mode */
+}
+/* Dark Mode Styles for changing the fourth image color to white */
+.dark-mode #header-icon-eng {
+    filter: brightness(0) invert(1); /* Change the image color to white in dark mode */
+}
+/* Dark Mode Styles for changing the border color to #333 */
+.dark-mode .u-border-grey-5 {
+    border-color: #333; /* Change the border color to #333 in dark mode */
+}
+/* Dark Mode Styles for changing the color of .background-ground to #333 with !important */
+.dark-mode .background-ground {
+    background-color: #333 !important; /* Change the background color to #333 in dark mode */
+}
+.dark-mode .background-ground {
+    background-image: none; /* Deactivate the background image in dark mode */
+    background-color: #333; /* Change the background color to #333 in dark mode */
+}
+/* Dark Mode Styles for .tb-subtitle */
+.dark-mode .tb-subtitle {
+    color: #FFF !important; /* Set the text color to #FFF (white) in dark mode with !important */
+}
+
+
+
+
+
+
+
+
+
+
+
+

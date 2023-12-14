@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+/*table, tr,td {
+    border:1px solid black;
+}*/
+
+.wallet-name {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+.dark-mode .wallet-name {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.wallet-name:hover {
+    color: rgb(110, 70, 174);
+}
+
+.dark-mode .wallet-name:hover {
+    color: rgb(110, 70, 174);
+}
+
+.wallets-table {
+    border-collapse: collapse;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wallets-table .wlttd {
+    width: 20%;
+    text-align: center;
+    padding: 10px;
+}
+
+.wallets-table img {
+    width: 100px;
+}
+
+.cursor {
+    cursor: default;
+}
