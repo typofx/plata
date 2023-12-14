@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+body{
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+    margin-left: 0px; 
+    margin-right: 0px;
+    padding: 0;
+}
+
+/*td, table, th, tr{
+  border: 1px solid red;
+  border-collapse: collapse;
+}*/
+
+body {
+  background-color:black ;
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+.th-dropdown:hover a{
+  color: rgb(144, 137, 183);
+}
+
+.menu-container {
+  overflow: hidden;
+  width: 100%;
+  height: 84px;
+  background-color: white;
+  border-collapse: collapse;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: rgb(26,26,26);
+  text-align: center;
+  top:0px;
+  left: 0px;
+}
+
+.logo-align {
+  width: 122px;
+  height: 52.72px;
+  padding-bottom: 10px;
+}
+
+.img-logo {
+  width: 122px;
+  height: 52.72px;
+  cursor: pointer;
+}
+
+.table-space {
+  width: 100px;
+}
+
+.table-space-between {
+  width: 450px;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.th-dropdown-config, .th-dropdown-config-m{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.th-dropdown {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.th-dropdown:hover, .th-dropdown-config:hover {
+  cursor: pointer;
+  background-color: rgb(230,230,230);
+  color: rgb(144, 137, 183);
+}
+
+.menu-container a:hover, .menu-container span:hover  {
+  color: rgb(144, 137, 183);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  text-align: left;
+  border: 2px rgb(242, 242, 242) solid;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.retc {
+  margin-left: 12px;
+}
+
+.typo-fx {
+  margin-right: 5px;
+}
+
+.dropdown-span {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(26,26,26);
+}
+
+.clean {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(26,26,26);
+}
+
+.clean:hover .lang {
+  display: none;
+}
+
+.rotate-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown-span:hover .rotate-on-hover {
+  transform: rotate(180deg);
+}
+/*
+.align-column {
+  padding-bottom: 27px;
+}
+
+.align-text-dropdown {
+  padding-bottom: 23px;
+}
+
+.align-column-trolley {
+  padding-bottom: 15px;
+}
+
+
+
+.align-column-config {
+  padding-bottom: 0px;
+}
+*/
+
+.sub-dropdown {
+  width: 130px;
+}
+
+th.align-column-bar .bar {
+  max-width: 1px;
+  width: 1px; 
+  height: 25px;
+  background-color: black;
+  margin: 0 auto;
+}
+
+.table-space { /*Y*/
+    width: 141px;
+}
+  
+.align-column-icon {
+    width: 40px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.navbar:hover .lang {
+  display: none;
+}

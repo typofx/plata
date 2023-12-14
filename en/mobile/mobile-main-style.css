@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+.modalbackground {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 0 100000px rgba(0, 0, 0, 0.60);
+  text-align: center;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.modalbackground p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+.modalcontent {
+  border-radius: 8px;
+  box-shadow: 0 0 100px #000;
+  width: 270px;
+  height: 55px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    color: black;
+    background: white;
+}
+
+.modaldark {
+    border-radius: 8px;
+    /*box-shadow: 0 0 100px #000;*/
+    width: 270px;
+    height: 55px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #5A5A5A;
+}
+
+.main-text-mobile {
+    font-family: "Montserrat", sans-serif;
+    cursor: default;
+    font-size: 23px; 
+    letter-spacing: 1.25px;
+    line-height: 26pt;
+    padding-left: 25px;
+    background: linear-gradient(to right, #DCDCDC, #DDA0DD);
+    background-size: 400px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sub-text-mobile {
+    cursor: default;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    line-height: 15pt;
+    padding-left: 25px;
+    font-family: "Montserrat", sans-serif;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.div-main-text-background-mobile {
+    cursor: default;
+    background-image: url("https://www.plata.ie/images/PolygonBackgroundVert.jpg");
+    background-size: 100%;
+    width: 100%;
+    height: 435px;
+}
+
+.div-indexes-background {
+
+    background-image: url("https://www.plata.ie/images/background-indexes.jpg");
+    height: 100%;
+    width: 100%;
+}
+
+.linkContract:link {
+    color: #B49CE4;
+}
+.linkContract:visited {
+    color: #B49CE4;
+}
+.linkContract:hover {
+    color: white;
+}
+.linkContract:active {
+    color: white;
+}
+
+/*
+
+ .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 0;
+}
+
+.u-section-1 .u-text-1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 22px 89px 0 0;
+}
+
+.u-section-1 .u-image-1 {
+  width: 133px;
+  height: 117px;
+  transition-duration: 0.5s;
+  margin: -144px 15px 0 auto;
+}
+
+.u-section-1 .u-image-2 {
+  width: 182px;
+  height: 208px;
+  margin: 42px auto 0 23px;
+}
+*/

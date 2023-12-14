@@ -1,0 +1,17 @@
+ .listing-table {
+    border-collapse: collapse;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.listing-table td,tr {
+    text-align: center;
+}
+
+.listing-table img {
+    object-fit: scale-down;
+    width:145px;
+}
+

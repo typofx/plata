@@ -1,0 +1,206 @@
+
+/*CONTRACT BUTTON START*/
+
+.contract-btn-container {
+	margin-left: auto;
+    margin-right: auto;
+    width: 275px;
+}
+
+.contract-btn-container .btn {
+	box-sizing: border-box;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 215px;
+	height: 40px;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contract-btn-container .btn a {
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 30px;
+	padding: 10px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	overflow: hidden;
+	color: #fff;
+	font-weight: 400px;
+	z-index: 1;
+	transition: 0.5s;
+	backdrop-filter: blur(15px);
+}
+.contract-btn-container .btn:hover a {
+	letter-spacing: 2px;
+}
+.contract-btn-container .btn a::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+	transform: skewX(45deg) translate(0);
+	transition: 0.5s;
+	filter: blur(0px);
+}
+.contract-btn-container .btn:hover a::before {
+	transform: skewX(45deg) translate(200px);
+}
+.contract-btn-container .btn::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	bottom: -5px;
+	width: 30px;
+	height: 10px;
+	background: #A000C8; /*color*/
+	border-radius: 10px;
+	transition: 0.5s;
+	transition-delay: 0.5;
+}
+.contract-btn-container .btn:hover::before /*lightup button*/ {
+	bottom: 0;
+	height: 50%;
+	width: 80%;
+	border-radius: 30px;
+}
+
+.contract-btn-container .btn::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	top: -5px;
+	width: 30px;
+	height: 10px;
+	background: #A000C8;
+	border-radius: 10px;
+	transition: 0.5s;
+	transition-delay: 0.5;
+    box-shadow: 0 0 5px #A000C8, 0 0 15px #A000C8, 0 0 30px #A000C8,
+    0 0 60px #A000C8;
+}
+.contract-btn-container .btn:hover::after /*lightup button*/ {
+	top: 0;
+	height: 50%;
+	width: 80%;
+	border-radius: 30px;
+}
+
+/*CONTRACT BUTTON END*/
+
+
+.contract-btn-container .copy-btn {
+	box-sizing: border-box;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 40px;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contract-btn-container .copy-btn a {
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 30px;
+	padding: 10px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	overflow: hidden;
+	color: #fff;
+	font-weight: 400px;
+	z-index: 1;
+	transition: 0.5s;
+	backdrop-filter: blur(15px);
+	background: no-repeat center/35% url("https://www.plata.ie/images/copyIcon.png");
+}
+.contract-btn-container .copy-btn:hover a {
+	letter-spacing: 2px;
+}
+.contract-btn-container .copy-btn a::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+	transform: skewX(45deg) translate(0);
+	transition: 0.5s;
+	filter: blur(0px);
+}
+.contract-btn-container .copy-btn:hover a::before {
+	transform: skewX(45deg) translate(200px);
+}
+.contract-btn-container .copy-btn::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	bottom: -5px;
+	width: 18px;
+	height: 10px;
+	background: #A000C8; /*color*/
+	border-radius: 10px;
+	transition: 0.5s;
+	transition-delay: 0.5;
+}
+.contract-btn-container .copy-btn:hover::before /*lightup button*/ {
+	bottom: 0;
+	height: 50%;
+	width: 80%;
+	border-radius: 30px;
+}
+
+.contract-btn-container .copy-btn::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	top: -5px;
+	width: 12px;
+	height: 10px;
+	background: #A000C8;
+	border-radius: 10px;
+	transition: 0.5s;
+	transition-delay: 0.5;
+    box-shadow: 0 0 5px #A000C8, 0 0 15px #A000C8, 0 0 30px #A000C8,
+    0 0 60px #A000C8;
+}
+.contract-btn-container .copy-btn:hover::after /*lightup button*/ {
+	top: 0;
+	height: 50%;
+	width: 80%;
+	border-radius: 30px;
+}

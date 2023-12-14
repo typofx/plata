@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript - Copy to Clipboard</title>
+
+</head>
+<body>
+    <input type="text" id="texto" value="0xc298812164bd558268f51cc6e3b8b5daaf0b6341" style = "font-size:1px;background-color:transparent;color:transparent;border: none;" readonly/>
+    <button onclick="copiarTexto()">Copiar</button>
+    <script>
+        function copiarTexto() {
+            let textoCopiado = document.getElementById("texto");
+            textoCopiado.select();
+         
+            document.execCommand("copy");
+            alert("$PLT Plata Contract Address Copied! " + textoCopiado.value);
+        }
+    </script>
+</body>
+</html>
+
+
