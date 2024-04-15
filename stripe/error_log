@@ -1,0 +1,130 @@
+[15-Apr-2024 06:58:19 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_06KJ5yU6fW8low) The Checkout Session's total amount must convert to at least 50 cents. R$ 1.00 converts to approximately €0.18.
+Stripe\Exception\InvalidRequestException: The Checkout Session's total amount must convert to at least 50 cents. R$ 1.00 converts to approximately €0.18. in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...', NULL)
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[15-Apr-2024 06:58:24 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_za6Msj293YBpr7) The Checkout Session's total amount must convert to at least 50 cents. R$ 1.00 converts to approximately €0.18.
+Stripe\Exception\InvalidRequestException: The Checkout Session's total amount must convert to at least 50 cents. R$ 1.00 converts to approximately €0.18. in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...', NULL)
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[15-Apr-2024 06:58:29 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_eXWcNghur7ahcs) The Checkout Session's total amount must convert to at least 50 cents. R$ 2.00 converts to approximately €0.37.
+Stripe\Exception\InvalidRequestException: The Checkout Session's total amount must convert to at least 50 cents. R$ 2.00 converts to approximately €0.37. in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...', NULL)
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[15-Apr-2024 06:58:46 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_ZunvJMgnnKx7sq) The Checkout Session's total amount must convert to at least 50 cents. R$ 2.00 converts to approximately €0.37.
+Stripe\Exception\InvalidRequestException: The Checkout Session's total amount must convert to at least 50 cents. R$ 2.00 converts to approximately €0.37. in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...', NULL)
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[15-Apr-2024 07:18:35 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_15prVrmkIBUy7H) Invalid integer: 10,00
+Stripe\Exception\InvalidRequestException: Invalid integer: 10,00 in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('Invalid integer...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'parameter_inval...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('Invalid integer...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'parameter_inval...', 'line_items[0][p...')
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[15-Apr-2024 07:19:08 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_3s8C0z2xVg50PQ) The Checkout Session's total amount must convert to at least 50 cents. $0.10 converts to approximately €0.09.
+Stripe\Exception\InvalidRequestException: The Checkout Session's total amount must convert to at least 50 cents. $0.10 converts to approximately €0.09. in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...', NULL)
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[15-Apr-2024 07:28:08 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_UF6ik3gRJzbkH1) Invalid integer: 11,00
+Stripe\Exception\InvalidRequestException: Invalid integer: 11,00 in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('Invalid integer...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'parameter_inval...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('Invalid integer...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'parameter_inval...', 'line_items[0][p...')
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[15-Apr-2024 07:42:22 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_SjAKFZIKnDP1ZP) The Checkout Session's total amount must convert to at least 50 cents. R$ 0.03 converts to approximately €0.01.
+Stripe\Exception\InvalidRequestException: The Checkout Session's total amount must convert to at least 50 cents. R$ 0.03 converts to approximately €0.01. in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...', NULL)
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[15-Apr-2024 07:42:29 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_htpCpqLa2PYscT) The Checkout Session's total amount must convert to at least 50 cents. R$ 0.04 converts to approximately €0.01.
+Stripe\Exception\InvalidRequestException: The Checkout Session's total amount must convert to at least 50 cents. R$ 0.04 converts to approximately €0.01. in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...', NULL)
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[15-Apr-2024 07:43:06 America/Chicago] PHP Fatal error:  Uncaught Error sending request to Stripe: (Status 400) (Request req_59AXhjQVzRJjT3) The Checkout Session's total amount must convert to at least 50 cents. R$ 0.98 converts to approximately €0.18.
+Stripe\Exception\InvalidRequestException: The Checkout Session's total amount must convert to at least 50 cents. R$ 0.98 converts to approximately €0.18. in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php:38
+Stack trace:
+#0 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/InvalidRequestException.php(35): Stripe\Exception\ApiErrorException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...')
+#1 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(218): Stripe\Exception\InvalidRequestException::factory('The Checkout Se...', 400, '{\n  "error": {\n...', Array, Object(Stripe\Util\CaseInsensitiveArray), 'amount_too_smal...', NULL)
+#2 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(180): Stripe\ApiRequestor::_specificAPIError('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array, Array)
+#3 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(564): Stripe\ApiRequestor->handleErrorResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray), Array)
+#4 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiRequestor.php(128): Stripe\ApiRequestor->_interpretResponse('{\n  "error": {\n...', 400, Object(Stripe\Util\CaseInsensitiveArray))
+#5 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Request.php(109): Stripe\ApiRequestor->request('post', '/v1/checkout/se...', Array, Array, Array)
+#6 /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/ApiOperations/Create.php(25): Stripe\ApiResource::_staticRequest('post', '/v1/checkout/se...', Array, NULL)
+#7 /home2/granna80/public_html/stripe/checkout.php(12): Stripe\Checkout\Session::create(Array)
+#8 {main}
+  thrown in /home2/granna80/public_html/stripe/vendor/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
