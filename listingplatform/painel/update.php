@@ -13,6 +13,47 @@ $userName = $_SESSION["user_email"];
 include '../conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
+
+
+     if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
+        $fileTmpPath = $_FILES['logo']['tmp_name'];
+        $fileName = $_FILES['logo']['name'];
+        $fileSize = $_FILES['logo']['size'];
+        $fileType = $_FILES['logo']['type'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
+
+ 
+        $maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
+        if ($fileSize > $maxFileSize) {
+            echo "Error: File size exceeds 5MB.";
+            exit();
+        }
+
+
+        $allowedFileExtensions = array('jpg', 'jpeg', 'png', 'gif', 'ico');
+        if (in_array($fileExtension, $allowedFileExtensions)) {
+           
+            $uploadFileDir = '../../images/icolog/';
+            $destPath = $uploadFileDir . $fileName;
+            if (move_uploaded_file($fileTmpPath, $destPath)) {
+            
+            } else {
+                echo "Error moving file.";
+                exit();
+            }
+        } else {
+            echo "Error: Only JPG, JPEG, PNG, GIF and ICO files are allowed.";
+            exit();
+        }
+    } else {
+        echo "Error: No image files sent or upload error.";
+        exit();
+    }
+
+
+    $logoFileName = isset($fileName) ? $fileName : '';
+   
     $id = $_POST["id"];
     $desktop = $_POST["desktop"];
     $mobile = $_POST["mobile"];
@@ -74,6 +115,7 @@ $currentDateTime = $currentDateTimeFormatted;
         Telegram = '$telegram',
         Listed = '$listed',
        last_updated = '$currentDateTime',
+       logo =  '$logoFileName',
        editedBy = '$userName'
         WHERE ID = $id";
 
