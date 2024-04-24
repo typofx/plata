@@ -78,8 +78,15 @@ $conn->close();
 
 <body>
         <h2>Edit: <?php echo $row["Platform"]; ?></h2>
-        <form action="update.php" method="POST">
+        <form action="update.php" method="POST" enctype="multipart/form-data">
+              
+
                 <input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
+
+                <img src="../../images/icolog/<?php echo $row["logo"]; ?>" alt="Descrição da Imagem" width="50" height="50"><br>
+                <label for="logo">Logo:</label>
+
+                <input type="file" name="logo" id="logo"><br>
 
                 <label for="listed">Listed?</label>
                 <select name="listed" id="listed" value="<?php $row["Listed"] ?>">
@@ -138,7 +145,7 @@ $conn->close();
                                                 } ?>>Chart</option>
                         <option value="Wallet" <?php if ($row["Type"] == 'Wallet') {
                                                         echo "selected";
-                                                } ?>>Wallet</option> 
+                                                } ?>>Wallet</option>
                 </select><br>
 
                 Link: <input type="text" id="link" name="link" value="<?php echo $row["Link"]; ?>"><br>
