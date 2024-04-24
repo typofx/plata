@@ -90,8 +90,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     <a href="cadastro" class="btn btn-primary">Add New user</a>
     <a href="roadmap" class="btn btn-primary">EditRoadmap</a>
     <form action="new_status.php" method="post" target="_blank">
-    <button type="submit" name="status">Update Status</button>
-</form>
+        <button type="submit" name="status">Update Status</button>
+    </form>
 
 
     <?php
@@ -190,6 +190,20 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             <th>Last Updated</th>
             <th>Last edited by</th>
         </tr>
+        <style>
+            .icon-button {
+                border: none;
+                padding: 0;
+                background: none;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            .icon-button img {
+                margin-right: 5px;
+            }
+        </style>
 
     <?php
         while ($row = $result->fetch_assoc()) {
@@ -199,8 +213,20 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             echo '<td class="colored-cell" style="' . getTXTcolor($row["Desktop"]) . '"></td>';
             echo '<td class="colored-cell" style="' . getTXTcolor($row["Mobile"]) . '"></td>';
             echo '<td class="colored-cell" style="' . setBGcolor($row["Score"]) . '"><center>' . $row["Score"] . '</center></td>';
-            echo '<td class="colored-cell" style="' . setBGcolor($row["Score"]) . '"><center> <a href="' . $row["Link"] . '" target="_blank">' . $row["Platform"] . '</a> </center></td>';
-            echo '<td class="colored-cell" style="' . setBGcolor($row["Score"]) . '"><center><a href="' . $row["Link"] . '" target="_blank">' . ($row["status"]) . '</a></center></td>';
+            echo '<td class="colored-cell" style="' . setBGcolor($row["Score"]) . '"><center><a href="' . $row["Link"] . '" target="_blank">' . (!empty($row["Platform"]) ? $row["Platform"] : "update") . '</a></center></td>';
+            echo '<td class="colored-cell" style="' . setBGcolor($row["Score"]) . '">
+            <center>   
+                <form method="post" target="_blank" action="new_status.php">
+                    <input type="hidden" name="id" value="' . $row["ID"] . '">
+                    <button type="submit" name="atualizar_individual" class="icon-button">
+                        <img src="update.png" alt="Ícone" width="20" height="20"> 
+                        <span> <a href="' . $row["Link"] . '" target="_blank">' . $row["status"] . '</a> </span>
+                    </button>
+                </form> 
+               
+            </center>
+        </td>';
+
 
             echo '<td class="cl-type" style="' . setBGcolor($row["Score"]) . '"><center> ' . $row["Type"] . ' </center></td>';
             echo '<td class="cl-access" style="' . setBGcolor($row["Score"]) . '"><center> ' . $row["Access"] . ' </center></td>';
