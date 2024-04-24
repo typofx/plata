@@ -1,73 +1,85 @@
 <?php
-session_start(); // Start session
+session_start(); 
 
-// Check if the user is authenticated
+// Check if user is logged in
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    // User is not authenticated, redirect back to login page
     header("Location: index.php");
     exit();
 }
+
 $userName = $_SESSION["user_email"];
 
-$utcZeroTimezone = new DateTimeZone('Etc/UTC');
-$currentDateTime = new DateTime('now', $utcZeroTimezone);
-$currentDateTimeFormatted = $currentDateTime->format('Y-m-d H:i:s');
-$currentDateTime = $currentDateTimeFormatted;
-echo $currentDateTime;
-
-
+$currentDateTime = (new DateTime('now', new DateTimeZone('Etc/UTC')))->format('Y-m-d H:i:s');
 
 include '../conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //$desktop = $_POST['desktop'];
-    //$mobile = $_POST['mobile'];
-   
-    $score = 'NOT';
-    $platform = $_POST['platform'];
-    $platform = $_POST['platform'];
-    $type = $_POST['type'];
-    $access = $_POST['access'];
-    $country = $_POST['country'];
-    $link = $_POST['link'];
-    //$rank = $_POST['rank'];
-    //$marketCap = $_POST['marketCap'];
-    //$liquidity = $_POST['liquidity'];
-    //$fullyDilutedMKC = $_POST['fullyDilutedMKC'];
-    //$circulatingSupply = $_POST['circulatingSupply'];
-    //$maxSupply = $_POST['maxSupply'];
-    //$totalSupply = $_POST['totalSupply'];
-    //$price = $_POST['price'];
-    //$graph = $_POST['graph'];
-    //$holders = $_POST['holders'];
-    //$tokenLogo = $_POST['tokenLogo'];
-    //$socialMedia = $_POST['socialMedia'];
-    //$metamaskButton = $_POST['metamaskButton'];
-    $obs1 = $_POST['obs1'];
-    $obs2 = $_POST['obs2'];
-    $telegram = $_POST['telegram'];
-    $email = $_POST['zemail'];
+ 
+    // Check if an image file is uploaded
+    if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
+        $fileTmpPath = $_FILES['logo']['tmp_name'];
+        $fileName = $_FILES['logo']['name'];
+        $fileSize = $_FILES['logo']['size'];
+        $fileType = $_FILES['logo']['type'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
 
-    $utcZeroTimezone = new DateTimeZone('Etc/UTC');
-    $currentDateTime = new DateTime('now', $utcZeroTimezone);
-    $currentDateTimeFormatted = $currentDateTime->format('Y-m-d H:i:s');
-    $currentDateTime = $currentDateTimeFormatted;
-    echo $currentDateTime;
+        // Maximum file size allowed (5MB)
+        $maxFileSize = 5 * 1024 * 1024; 
+        if ($fileSize > $maxFileSize) {
+            echo "Error: File size exceeds 5MB.";
+            exit();
+        }
 
+        // Check if the uploaded file is an image
+        $allowedFileExtensions = array('jpg', 'jpeg', 'png', 'gif', 'ico');
+        if (in_array($fileExtension, $allowedFileExtensions)) {
+            // Move the file to the desired directory
+            $uploadFileDir = '../../images/icolog/';
+            $destPath = $uploadFileDir . $fileName;
+            if (move_uploaded_file($fileTmpPath, $destPath)) {
+                // File moved successfully
+            } else {
+                echo "Error moving file.";
+                exit();
+            }
+        } else {
+            echo "Error: Only JPG, JPEG, PNG, GIF, and ICO files are allowed.";
+            exit();
+        }
+    } else {
+        echo "Error: No image file uploaded or upload error.";
+        exit();
+    }
 
-    $sql = "INSERT INTO granna80_bdlinks.links (Desktop, Mobile, Score, Platform, Link, Type, Access, Country, Rank, MarketCap, Liquidity, FullyDilutedMKC, CirculatingSupply, MaxSupply, TotalSupply, Price, Graph, Holders, TokenLogo, SocialMedia, MetamaskButton, Obs1, Obs2, Telegram, Email, InsertDateTime, insertBy)
-    VALUES ('$desktop', '$mobile', '$score', '$platform','$link', '$type', '$access', '$country', '$rank', '$marketCap', '$liquidity', '$fullyDilutedMKC', '$circulatingSupply', '$maxSupply', '$totalSupply', '$price', '$graph', '$holders', '$tokenLogo', '$socialMedia', '$metamaskButton', '$obs1', '$obs2', '$telegram', '$email'  , '$currentDateTime', '$userName')";
+    $logoFileName = isset($fileName) ? $fileName : '';
 
+    // Get values of other form fields
+    $platform = isset($_POST['platform_name']) ? $_POST['platform_name'] : '';
+    $type = isset($_POST['type']) ? $_POST['type'] : '';
+    $access = isset($_POST['access']) ? $_POST['access'] : '';
+    $country = isset($_POST['country']) ? $_POST['country'] : '';
+    $link = isset($_POST['link']) ? $_POST['link'] : '';
+    $obs1 = isset($_POST['obs1']) ? $_POST['obs1'] : '';
+    $obs2 = isset($_POST['obs2']) ? $_POST['obs2'] : '';
+    $telegram = isset($_POST['telegram']) ? $_POST['telegram'] : '';
+    $email = isset($_POST['zemail']) ? $_POST['zemail'] : '';
 
-    if ($conn->query($sql) === TRUE) {
+    // Prepare and execute SQL statement to insert data into database
+    $stmt = $conn->prepare("INSERT INTO granna80_bdlinks.links (Platform, Link, Type, Access, Country, Obs1, Obs2, Telegram, Email, logo, InsertDateTime, insertBy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssssss", $platform, $link, $type, $access, $country, $obs1, $obs2, $telegram, $email, $logoFileName, $currentDateTime, $userName);
+    if ($stmt->execute()) {
         echo "New record created successfully.";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
+    $stmt->close();
 }
 
 $conn->close();
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -121,7 +133,7 @@ $conn->close();
 
 <body>
     <h2>Add New Record</h2>
-    <form method="POST" action="">
+    <form method="POST" action="" enctype="multipart/form-data">
         <!--<label for="desktop">Desktop:</label>
         <input type="text" name="desktop" required><br>
         
@@ -131,8 +143,11 @@ $conn->close();
         <label for="score">Score:</label>
         <input type="text" name="score" required><br>-->
 
+        <label for="logo">Logo (max 5MB):</label>
+        <input type="file" name="logo" id="logo" accept="image/*" required><br>
+
         <label for="platform">Platform (Name):</label>
-        <input type="text" name="platform" required><br>
+        <input type="text" name="platform_name" required><br>
 
         <label for="Link">Link:</label>
         <input type="text" id="link" name="link" required><br>
