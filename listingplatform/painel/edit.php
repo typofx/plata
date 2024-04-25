@@ -79,14 +79,31 @@ $conn->close();
 <body>
         <h2>Edit: <?php echo $row["Platform"]; ?></h2>
         <form action="update.php" method="POST" enctype="multipart/form-data">
-              
+
 
                 <input type="hidden" name="id" value="<?php echo $row["ID"]; ?>">
 
                 <img src="../../images/icolog/<?php echo $row["logo"]; ?>" alt="Descrição da Imagem" width="50" height="50"><br>
                 <label for="logo">Logo:</label>
+                <label for="logo">Select a file (allowed types: .jpg, .jpeg, .png, .ico | maximum size: 5MB):</label><br>
+                <input type="file" name="logo" id="logo" accept=".jpg, .jpeg, .png, .ico" onchange="validateFileSize(this)"><br>
 
-                <input type="file" name="logo" id="logo"><br>
+                <script>
+                        function validateFileSize(input) {
+                                var file = input.files[0];
+
+                                if (file) {
+                                        var size = file.size;
+
+                                        if (size > 5000000) {
+                                                alert("The file size exceeds the limit of 5MB. Please select a smaller file.");
+                                                input.value = '';
+                                        }
+                                }
+                        }
+                </script>
+
+
 
                 <label for="listed">Listed?</label>
                 <select name="listed" id="listed" value="<?php $row["Listed"] ?>">
