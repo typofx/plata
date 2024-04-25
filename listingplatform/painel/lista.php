@@ -206,7 +206,9 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         </style>
 
     <?php
+
         while ($row = $result->fetch_assoc()) {
+            $update = 'Update';
             echo '<tr>';
             echo '<td><center>' . $row["ID"] . '</center></td>';
             //echo '<td class="colored-cell" style="' . setBGcolor($row["Score"]) . '"><center> ' . $row["Listed"] . ' </center></td>';
@@ -215,17 +217,27 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             echo '<td class="colored-cell" style="' . setBGcolor($row["Score"]) . '"><center>' . $row["Score"] . '</center></td>';
             echo '<td class="colored-cell" style="' . setBGcolor($row["Score"]) . '"><center><a href="' . $row["Link"] . '" target="_blank">' . (!empty($row["Platform"]) ? $row["Platform"] : "update") . '</a></center></td>';
             echo '<td class="colored-cell" style="' . setBGcolor($row["Score"]) . '">
-            <center>   
-                <form method="post" target="_blank" action="new_status.php">
-                    <input type="hidden" name="id" value="' . $row["ID"] . '">
-                    <button type="submit" name="atualizar_individual" class="icon-button">
-                        <img src="update.png" alt="Ícone" width="20" height="20"> 
-                        <span> <a href="' . $row["Link"] . '" target="_blank">' . $row["status"] . '</a> </span>
-                    </button>
-                </form> 
-               
-            </center>
+            <center>';
+            if (empty($row["status"])) {
+                echo '<form method="post" target="_blank" action="new_status.php">
+                <input type="hidden" name="id" value="' . $row["ID"] . '">
+                <button type="submit" name="atualizar_individual" class="icon-button">
+                    <img src="update.png" alt="Ícone" width="20" height="20"> 
+                    <span> <a href="' . $row["Link"] . '" target="_blank">' . $update . '</a> </span>
+                </button>
+              </form>';
+            } else {
+                echo '<form method="post" target="_blank" action="new_status.php">
+                <input type="hidden" name="id" value="' . $row["ID"] . '">
+                <button type="submit" name="atualizar_individual" class="icon-button">
+                    <img src="update.png" alt="Ícone" width="20" height="20"> 
+                    <span> <a href="' . $row["Link"] . '" target="_blank">' . $row["status"] . '</a> </span>
+                </button>
+              </form>';
+            }
+            echo '</center>
         </td>';
+
 
 
             echo '<td class="cl-type" style="' . setBGcolor($row["Score"]) . '"><center> ' . $row["Type"] . ' </center></td>';
