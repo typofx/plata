@@ -15,45 +15,36 @@ include '../conexao.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
 
 
-     if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
+
+    if (!empty($_FILES['logo']['tmp_name'])) {
         $fileTmpPath = $_FILES['logo']['tmp_name'];
         $fileName = $_FILES['logo']['name'];
         $fileSize = $_FILES['logo']['size'];
         $fileType = $_FILES['logo']['type'];
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
-
- 
+    
         $maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
         if ($fileSize > $maxFileSize) {
             echo "Error: File size exceeds 5MB.";
             exit();
         }
-
-
+    
         $allowedFileExtensions = array('jpg', 'jpeg', 'png', 'gif', 'ico');
         if (in_array($fileExtension, $allowedFileExtensions)) {
-           
             $uploadFileDir = '../../images/icolog/';
             $destPath = $uploadFileDir . $fileName;
             if (move_uploaded_file($fileTmpPath, $destPath)) {
-            
+             
             } else {
                 echo "Error moving file.";
                 exit();
             }
-        } else {
-            echo "Error: Only JPG, JPEG, PNG, GIF and ICO files are allowed.";
-            exit();
         }
-    } else {
-        echo "Error: No image files sent or upload error.";
-        exit();
     }
-
-
+    
     $logoFileName = isset($fileName) ? $fileName : '';
-   
+    
     $id = $_POST["id"];
     $desktop = $_POST["desktop"];
     $mobile = $_POST["mobile"];
@@ -81,12 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
     $email = $_POST["zemail"];
     $telegram = $_POST["telegram"];
     $listed = $_POST["listed"];
-   
-    $utcZeroTimezone = new DateTimeZone('Etc/UTC');  
-$currentDateTime = new DateTime('now', $utcZeroTimezone);
-$currentDateTimeFormatted = $currentDateTime->format('Y-m-d H:i:s');
-$currentDateTime = $currentDateTimeFormatted; 
 
+    $utcZeroTimezone = new DateTimeZone('Etc/UTC');
+    $currentDateTime = new DateTime('now', $utcZeroTimezone);
+    $currentDateTimeFormatted = $currentDateTime->format('Y-m-d H:i:s');
+    $currentDateTime = $currentDateTimeFormatted;
     $sql = "UPDATE granna80_bdlinks.links SET 
         Desktop = '$desktop',
         Mobile = '$mobile',
@@ -106,7 +96,6 @@ $currentDateTime = $currentDateTimeFormatted;
         Price = '$price',
         Graph = '$graph',
         Holders = '$holders',
-        TokenLogo = '$tokenlogo',
         SocialMedia = '$socialmedia',
         MetamaskButton = '$metamaskbutton',
         Obs1 = '$obs1',
@@ -114,18 +103,28 @@ $currentDateTime = $currentDateTimeFormatted;
         Email = '$email',
         Telegram = '$telegram',
         Listed = '$listed',
-       last_updated = '$currentDateTime',
-       logo =  '$logoFileName',
-       editedBy = '$userName'
-        WHERE ID = $id";
+        last_updated = '$currentDateTime',
+        editedBy = '$userName'";
+
+
+    if (!empty($_FILES['logo']['tmp_name'])) {
+        $sql .= ", logo = '$logoFileName'";
+    }
+
+    $sql .= " WHERE ID = $id";
+
 
     if ($conn->query($sql) === TRUE) {
         echo 'updated successfully';
-        //echo '<script>window.location.href = "painel.php";</script>';
+        echo '<script>
+        setTimeout(function() {
+            window.location.href = "painel.php";
+        }, 2000); // 3000 milissegundos = 3 segundos
+    </script>';
+    
     } else {
         echo "Error updating record: ";
     }
 }
 
 $conn->close();
-?>
