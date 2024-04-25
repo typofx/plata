@@ -120,9 +120,10 @@ $currentDateTime = $currentDateTimeFormatted;
         WHERE ID = $id";
 
     if ($conn->query($sql) === TRUE) {
-        echo '<script>window.location.href = "painel.php";</script>';
+        echo 'updated successfully';
+        //echo '<script>window.location.href = "painel.php";</script>';
     } else {
-        echo "Error updating record: " . $conn->error;
+        echo "Error updating record: ";
     }
 }
 
