@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+/*table, td, th {
+    border: red 1px solid;
+}*/
+
+.body-listing {
+    background-color: #EBECF0;
+}
+
+img {
+    border: none;
+    overflow: hidden;
+}
+
+.listing {
+    background-color:#3D3D3D;
+    border-radius: 6px;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.dark-mode .listing {
+    background-color: #181818;
+}
+
+.listing-container {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 0.9rem;
+    width: 97%;
+    margin-left: 14px;
+    margin-right: 14px;
+    background-color: #3D3D3D;
+    border-radius: 6px;
+    border-collapse: collapse;
+}
+.dark-mode .listing-container {
+    background-color: #181818;
+}
+
+.listing-container td {
+    cursor: default;
+}
+
+.label {
+    height: 34px;
+}
+
+.platform-data {
+    height: 48px;
+}
+
+.padding-column {
+    padding: 0px 5px;
+}
+
+.border-bottom1px  {
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.dark-mode .border-bottom1px {
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.border-bottom2px  {
+    border-bottom: 2px solid #CCCCCC;
+}
+
+.dark-mode .border-bottom2px  {
+    border-bottom: 2px solid #ffffff;
+}
+
+.platform-data:hover {
+    background-color: #2d2d2d; /***/
+}
+
+.dark-mode .platform-data:hover {
+    background-color: #2d2d2d;
+}
+
+.text-number {
+    font-size: 12px;
+    color: rgb(134, 153, 184) ;
+}
+
+.number {
+    text-align: center;
+    width: 25px;
+}
+
+.desktop {
+    text-align: center;
+    width: 25px;
+}
+
+.mobile {
+    text-align: center;
+    width: 25px;
+}
+
+.logo-platform {
+    text-align: right;
+    width: 30px;
+}
+
+.platform {
+    text-align: center;
+    width: 120px;
+}
+
+.platform1 {
+    text-align: left;
+    width: 120px;
+    color: #fff;
+}
+
+.category {
+    text-align: center;
+    width: 70px;
+}
+
+.country {
+    text-align: center;
+    width: 20px;
+}
+
+.metrics {
+    text-align: center;
+    width: 60px;
+}   
+
+.performance {
+    text-align: center;
+    width: 120px !important;
+}
+
+.performance-bars {
+    text-align: center;
+    width: 10px !important;
+}
+
+.score {
+    text-align: center;
+    width: 50px;
+}
+
+.title-plataforma {
+    text-align: center;
+}
+/*#OLD STYLE*/
+
+body {
+    font-family: Montserrat;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.a-listing-places:link {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dark-mode .a-listing-places:link {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.a-listing-places:visited {
+    color: grey;
+    text-decoration: none;
+}
+
+.a-listing-places:visited:hover {
+    color: #6E46AE ;
+    text-decoration: none;
+}
+
+.dark-mode .a-listing-places:visited {
+    color: grey;
+    text-decoration: none;
+}
+
+.dark-mode .a-listing-places:visited:hover {
+    color: #DBA7D8 ;
+    text-decoration: none;
+}
+
+.a-listing-places:hover {
+    color: #6E46AE ;
+    text-decoration: none;
+}
+
+.dark-mode .a-listing-places:hover {
+    color: #DBA7D8  ;
+    text-decoration: none;
+}
+
+.a-listing-places:active {
+    color: gray;
+    text-decoration: none;
+}
+
+.dark-mode .a-listing-places:active {
+    color: gray;
+    text-decoration: none;
+}
+
+.act-link {
+    cursor: pointer;
+    color: black;
+}
+
+.tb-bg-color-light-fortable {
+    font-size: 14px;
+    background-color: #EDEDED;
+}
+
+.tb-bg-color-dark-fortable {
+    font-size: 14px;
+    background-color: #FFFFFF;
+}
+
+.tr-list {
+    background-color: #B5B5B5;
+    height: 30px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.button {
+    background-color: purple;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 0 1.5px;
+    /* 3px space divided by 2 */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+center {
+    background-color: #AAA;
+    /* Dark background color */
+    color: #fff;
+    /* White text color */
+    /* Add any other styles you want for these elements in dark mode here */
+}
+
+.dark-mode center {
+    background-color: #454545;
+    /* Dark background color */
+    color: #fff;
+    /* White text color */
+    /* Add any other styles you want for these elements in dark mode here */
+}
+
+/* .dark-mode .black-and-white {
+filter: grayscale(100%) brightness(150%);
+} */
+

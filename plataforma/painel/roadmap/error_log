@@ -1,0 +1,108 @@
+[20-Oct-2023 09:41:43 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'granna80_user'@'localhost' (using password: YES) in /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:7
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php(7): mysqli->__construct('localhost', 'granna80_user', Object(SensitiveParameterValue))
+#1 /home2/granna80/public_html/listingplatform/painel/roadmap/index.php(4): include('/home2/granna80...')
+#2 {main}
+  thrown in /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php on line 7
+[20-Oct-2023 09:49:32 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php:83
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/painel/roadmap/index.php(83): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 {main}
+  thrown in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 83
+[20-Oct-2023 09:50:41 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php:29
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/painel/roadmap/index.php(29): mysqli_query(Object(mysqli), 'UPDATE task_lis...')
+#1 {main}
+  thrown in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 29
+[20-Oct-2023 09:51:08 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php:29
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/painel/roadmap/index.php(29): mysqli_query(Object(mysqli), 'UPDATE task_lis...')
+#1 {main}
+  thrown in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 29
+[20-Oct-2023 09:51:14 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php:29
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/painel/roadmap/index.php(29): mysqli_query(Object(mysqli), 'UPDATE task_lis...')
+#1 {main}
+  thrown in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 29
+[20-Oct-2023 09:51:22 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php:29
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/painel/roadmap/index.php(29): mysqli_query(Object(mysqli), 'UPDATE task_lis...')
+#1 {main}
+  thrown in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 29
+[20-Oct-2023 09:58:35 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/listingplatform/painel/roadmap/crud.php:56
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/painel/roadmap/crud.php(56): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 /home2/granna80/public_html/listingplatform/painel/roadmap/index.php(37): listarTarefas()
+#2 {main}
+  thrown in /home2/granna80/public_html/listingplatform/painel/roadmap/crud.php on line 56
+[20-Oct-2023 10:00:07 America/Chicago] PHP Warning:  Undefined variable $task_date in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 51
+[20-Oct-2023 10:00:07 America/Chicago] PHP Warning:  Undefined variable $task_goal in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 52
+[20-Oct-2023 10:00:07 America/Chicago] PHP Warning:  Undefined variable $task_done in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 53
+[20-Oct-2023 10:03:46 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/listingplatform/painel/roadmap/crud.php:44
+Stack trace:
+#0 /home2/granna80/public_html/listingplatform/painel/roadmap/crud.php(44): mysqli_query(Object(mysqli), 'DELETE FROM tas...')
+#1 /home2/granna80/public_html/listingplatform/painel/roadmap/index.php(33): excluirTarefa(2)
+#2 {main}
+  thrown in /home2/granna80/public_html/listingplatform/painel/roadmap/crud.php on line 44
+[20-Oct-2023 10:14:31 America/Chicago] PHP Warning:  Undefined array key "task_done" in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 18
+[20-Oct-2023 10:15:06 America/Chicago] PHP Warning:  Undefined array key "task_done" in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 24
+[20-Oct-2023 10:18:26 America/Chicago] PHP Warning:  Undefined array key "task_done" in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 24
+[20-Oct-2023 10:19:23 America/Chicago] PHP Warning:  Undefined array key "task_done" in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 25
+[20-Oct-2023 10:20:34 America/Chicago] PHP Warning:  Undefined array key "task_done" in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 25
+[20-Oct-2023 10:24:06 America/Chicago] PHP Warning:  Undefined array key "task_done" in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 25
+[20-Oct-2023 10:25:54 America/Chicago] PHP Warning:  Undefined variable $task_done in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 58
+[20-Oct-2023 10:38:31 America/Chicago] PHP Warning:  Undefined variable $task_id in /home2/granna80/public_html/listingplatform/painel/roadmap/edit_task.php on line 9
+[20-Oct-2023 10:38:31 America/Chicago] PHP Warning:  Undefined variable $task_date in /home2/granna80/public_html/listingplatform/painel/roadmap/edit_task.php on line 10
+[20-Oct-2023 10:38:31 America/Chicago] PHP Warning:  Undefined variable $task_goal in /home2/granna80/public_html/listingplatform/painel/roadmap/edit_task.php on line 11
+[20-Oct-2023 10:38:31 America/Chicago] PHP Warning:  Undefined variable $task_done in /home2/granna80/public_html/listingplatform/painel/roadmap/edit_task.php on line 12
+[20-Oct-2023 10:43:18 America/Chicago] PHP Warning:  Undefined array key "task_id" in /home2/granna80/public_html/listingplatform/painel/roadmap/edit_task.php on line 11
+[20-Oct-2023 10:43:18 America/Chicago] PHP Warning:  Undefined array key "task_date" in /home2/granna80/public_html/listingplatform/painel/roadmap/edit_task.php on line 12
+[20-Oct-2023 10:43:18 America/Chicago] PHP Warning:  Undefined array key "task_goal" in /home2/granna80/public_html/listingplatform/painel/roadmap/edit_task.php on line 13
+[20-Oct-2023 10:43:18 America/Chicago] PHP Warning:  Undefined array key "task_done" in /home2/granna80/public_html/listingplatform/painel/roadmap/edit_task.php on line 14
+[20-Oct-2023 10:54:00 America/Chicago] PHP Warning:  Undefined array key "task_goal" in /home2/granna80/public_html/listingplatform/painel/roadmap/process_edit_task.php on line 9
+[20-Oct-2023 10:54:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/process_edit_task.php on line 14
+[20-Oct-2023 10:56:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/process_edit_task.php on line 14
+[20-Oct-2023 11:49:38 America/Chicago] PHP Warning:  include(connection.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 3
+[20-Oct-2023 11:49:38 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 3
+[20-Oct-2023 11:49:38 America/Chicago] PHP Warning:  include(connection.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/listingplatform/painel/roadmap/crud.php on line 2
+[20-Oct-2023 11:49:38 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/listingplatform/painel/roadmap/crud.php on line 2
+[20-Oct-2023 11:49:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/index.php:3) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 7
+[20-Oct-2023 11:50:25 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 7
+[20-Oct-2023 11:50:33 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 7
+[20-Oct-2023 11:51:22 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 7
+[20-Oct-2023 11:53:22 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 7
+[20-Oct-2023 11:53:24 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 7
+[27-Oct-2023 05:54:40 America/Chicago] PHP Warning:  Undefined variable $task_date in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 17
+[27-Oct-2023 05:54:40 America/Chicago] PHP Warning:  Undefined variable $task_goal in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 18
+[27-Oct-2023 05:54:40 America/Chicago] PHP Warning:  Undefined variable $task_done in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 19
+[27-Oct-2023 05:54:40 America/Chicago] PHP Warning:  Undefined variable $task_highlighted in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 21
+[27-Oct-2023 05:54:40 America/Chicago] PHP Warning:  Undefined variable $task_highlighted in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 22
+[27-Oct-2023 05:54:40 America/Chicago] PHP Warning:  Undefined variable $tasks in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 28
+[27-Oct-2023 05:54:40 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 28
+[27-Oct-2023 05:54:42 America/Chicago] PHP Warning:  Undefined variable $task_date in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 17
+[27-Oct-2023 05:54:42 America/Chicago] PHP Warning:  Undefined variable $task_goal in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 18
+[27-Oct-2023 05:54:42 America/Chicago] PHP Warning:  Undefined variable $task_done in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 19
+[27-Oct-2023 05:54:42 America/Chicago] PHP Warning:  Undefined variable $task_highlighted in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 21
+[27-Oct-2023 05:54:42 America/Chicago] PHP Warning:  Undefined variable $task_highlighted in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 22
+[27-Oct-2023 05:54:42 America/Chicago] PHP Warning:  Undefined variable $tasks in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 28
+[27-Oct-2023 05:54:42 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 28
+[27-Oct-2023 05:56:10 America/Chicago] PHP Warning:  Undefined variable $task_date in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 17
+[27-Oct-2023 05:56:10 America/Chicago] PHP Warning:  Undefined variable $task_goal in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 18
+[27-Oct-2023 05:56:10 America/Chicago] PHP Warning:  Undefined variable $task_done in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 19
+[27-Oct-2023 05:56:10 America/Chicago] PHP Warning:  Undefined variable $task_highlighted in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 21
+[27-Oct-2023 05:56:10 America/Chicago] PHP Warning:  Undefined variable $task_highlighted in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 22
+[27-Oct-2023 05:56:10 America/Chicago] PHP Warning:  Undefined variable $tasks in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 28
+[27-Oct-2023 05:56:10 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 28
+[27-Oct-2023 11:17:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 11:18:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 11:18:08 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 14:29:46 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 14:30:36 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 14:30:41 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 14:30:54 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 14:31:17 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 14:31:45 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 14:35:11 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 14:35:13 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 13
+[27-Oct-2023 19:55:57 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/listingplatform/painel/roadmap/conexao.php:14) in /home2/granna80/public_html/listingplatform/painel/roadmap/edit_task.php on line 7
+[30-Oct-2023 10:18:11 America/Chicago] PHP Warning:  Undefined array key "task_goal" in /home2/granna80/public_html/listingplatform/painel/roadmap/index.php on line 30
