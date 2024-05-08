@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 
-
-
-
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -18,17 +15,20 @@
     <script class="u-script" type="text/javascript" src="https://www.plata.ie/copyContract.js"></script> 
 </head>
 
+
 <body>
+
 
 <br>
 
 <div id="boxApp" align="center">
 <div id="box" class="box">
+    <br>
 <center><h3>Token Price Converter</h3></center>
 
 <div id="forml">
+<form method="post" action="0xc298812164bd558268f51cc6e3b8b5daaf0b6341.php" target="_blank">
 
-<div id="form" class="card-body">
 
     <div>
         <label for="PLTvalue" class="form-label">Plata (PLT)</label>
@@ -65,8 +65,24 @@
       <label for="BRLvalue" class="form-label">Brazilian Real (BRL)</label>
       <input type="number" id="BRLvalue" name="BRLvalue" maxlength="12" min="0.01" onfocusout="calcFromBRL()" onclick="select()" required>
    </div>
-
    <br>
+   <div>
+      <input class="invisible" type="number" name="invisibled" maxlength="1" min="0" required>
+   </div>
+
+
+    </form>
+    </div></div></div></div>
+
+<?php include '../en/mobile/price.php';?>
+<br>
+<?php
+    date_default_timezone_set('UTC');
+    echo "<center>" . $Expdate . "</center>";
+?>
+
+</body>
+</html>
 
 <!--
    
@@ -79,6 +95,7 @@
 <button onclick="BRLexec()">BRL</button>
 
 -->
+
 
 <?php include '../price.php';?>
 
@@ -220,10 +237,7 @@
 
 </script>
 
-<button type="button" onclick="calcFromUSD()">Click Me!</button>
-<button type="button" onclick="calcFromPLT()">Click Me!</button>
-
-<a id="messager"/>
+</div> </div> </div> </div>
 
 </body>
 <script>
