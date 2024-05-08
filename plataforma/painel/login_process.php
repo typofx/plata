@@ -1,4 +1,6 @@
 <?php
+$expiration_time = 12 * 60 * 60;
+session_set_cookie_params($expiration_time);
 session_start();
 include '../conexao.php';
 
@@ -11,7 +13,7 @@ include_once('vendor/sonata-project/google-authenticator/src/GoogleQrUrl.php');
 $g = new \Sonata\GoogleAuthenticator\GoogleAuthenticator();
 
 // Define the secret key used for Google Authenticator
-$secret = 'XVQ2UIGO75XRUKJO'; // Replace with your secret key
+$secret = ''; // Replace with your secret key
 
 if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["token"])) {
     $email = $_POST["email"];
