@@ -73,13 +73,9 @@
 
     </form>
     </div></div></div></div>
+    
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';?>
 
-<?php include '../en/mobile/price.php';?>
-<br>
-<?php
-    date_default_timezone_set('UTC');
-    echo "<center>" . $Expdate . "</center>";
-?>
 
 </body>
 </html>
@@ -95,9 +91,6 @@
 <button onclick="BRLexec()">BRL</button>
 
 -->
-
-
-<?php include '../price.php';?>
 
 <script>
 
@@ -238,6 +231,10 @@
 </script>
 
 </div> </div> </div> </div>
+
+<br>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/footer.php';?>
 
 </body>
 <script>
