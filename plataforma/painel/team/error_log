@@ -1,0 +1,26 @@
+[09-May-2024 10:58:33 America/Chicago] PHP Warning:  include(config.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/team/add.php on line 38
+[09-May-2024 10:58:33 America/Chicago] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/team/add.php on line 38
+[09-May-2024 10:58:33 America/Chicago] PHP Warning:  Undefined variable $mysqli in /home2/granna80/public_html/plataforma/painel/team/add.php on line 77
+[09-May-2024 10:58:33 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/granna80/public_html/plataforma/painel/team/add.php:77
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/add.php on line 77
+[09-May-2024 11:00:02 America/Chicago] PHP Warning:  include(config.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/team/add.php on line 38
+[09-May-2024 11:00:02 America/Chicago] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/team/add.php on line 38
+[09-May-2024 11:00:02 America/Chicago] PHP Warning:  Undefined variable $mysqli in /home2/granna80/public_html/plataforma/painel/team/add.php on line 77
+[09-May-2024 11:00:02 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/granna80/public_html/plataforma/painel/team/add.php:77
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/add.php on line 77
+[09-May-2024 11:00:21 America/Chicago] PHP Warning:  include(config.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/team/add.php on line 38
+[09-May-2024 11:00:21 America/Chicago] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/team/add.php on line 38
+[09-May-2024 11:00:21 America/Chicago] PHP Warning:  Undefined variable $mysqli in /home2/granna80/public_html/plataforma/painel/team/add.php on line 77
+[09-May-2024 11:00:21 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/granna80/public_html/plataforma/painel/team/add.php:77
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/add.php on line 77
+[09-May-2024 11:05:57 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/team/index.php:25
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/index.php(25): mysqli->query('SELECT * FROM t...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/index.php on line 25
