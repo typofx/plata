@@ -116,7 +116,7 @@ $result_pt_mobile = $conn->query($sql_pt_mobile);
          if ($row_en && $row_en["task_done"] == 1) {
              echo "&#x2713;";
          } else if ($row_en) {
-             echo "No";
+             echo "&ndash; ";
          }
          echo "</td>";
 
