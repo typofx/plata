@@ -115,29 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Add Task</button>
     </form>
 
-    <!-- JavaScript script -->
-    <script>
-        window.onload = function() {
-            updateTaskGoals();
-            // Adding change event for the "Task Done" checkbox
-            document.getElementById('task_done').addEventListener('change', function() {
-                updateTaskGoals();
-            });
-        };
-
-        function updateTaskGoals() {
-            var taskDone = document.getElementById('task_done').checked;
-            var taskGoals = document.querySelectorAll('.task-goal');
-
-            taskGoals.forEach(function(taskGoal) {
-                if (!taskDone && !taskGoal.value.startsWith('–')) {
-                    taskGoal.value = '– ' + taskGoal.value;
-                } else if (taskDone && taskGoal.value.startsWith('–')) {
-                    taskGoal.value = taskGoal.value.substring(2);
-                }
-            });
-        }
-    </script>
+  
 
 </body>
 
