@@ -140,8 +140,11 @@ if ($resultEN) {
         
         // Check if task_done is equal to 1
         if ($rowEN["task_done"] == 1) {
-            $task_goalEN = '✓ ' . $task_goalEN;
-        }
+          $task_goalEN = '✓ ' . $task_goalEN;
+      } else {
+          $task_goalEN = ' &ndash; ' . $task_goalEN;
+      }
+      
 
         // Check if task_highlighted is equal to 1 and add a CSS class
         $task_highlighted = $rowEN["task_highlighted"];
@@ -204,7 +207,7 @@ if ($resultEN) {
 
     spans.forEach(function(span) {
       var paragrafo = span.querySelector('l');
-      var palavrasExibidas = 3.5; // Número desejado de palavras
+      var palavrasExibidas = 5.5; // Número desejado de palavras
       var palavras = paragrafo.textContent.split(/\s+/).filter(word => word !== '-' && word.toLowerCase() !== 'de'&& word.toLowerCase() !== 'la');
 
      
