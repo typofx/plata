@@ -163,7 +163,10 @@ table, th, td {
                 // Check if task_done is equal to 1
                 if ($rowEN["task_done"] == 1) {
                     $task_goalEN = '✓ ' . $task_goalEN;
+                } else {
+                    $task_goalEN = ' &ndash; ' . $task_goalEN;
                 }
+                
 
                 // Check if task_highlighted is equal to 1 and add a CSS class
                 $task_highlighted = $rowEN["task_highlighted"];
