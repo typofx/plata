@@ -1,22 +1,35 @@
+<?php session_start();
+if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
+    header("Location: ../index.php");
+    exit();
+} ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Membros da Equipe</title>
+    <title>Team Members List</title>
     <style>
         table {
             width: 60%;
             border-collapse: collapse;
         }
-        table, th, td {
+
+        table,
+        th,
+        td {
             border: 1px solid black;
-         
             text-align: center;
         }
+
         th {
             background-color: #f2f2f2;
         }
+
         .highlighted {
             background-color: yellow;
             display: inline;
@@ -24,49 +37,62 @@
         }
     </style>
 </head>
+
 <body>
-    <h2>Lista de Membros da Equipe</h2>
-    <a href="add.php">Add new</a>
+    <h2>Team Members List</h2>
+    <a href="add.php">Add new member</a>
 
     <table>
         <tr>
-            <th>Foto do Perfil</th>
-            <th>Nome</th>
-            <th>Posição</th>
-            <th>Redes Sociais</th>
+            <th>Profile Picture</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Social Media</th>
             <th>Actions</th>
         </tr>
 
         <?php
-        // Inclui o arquivo de configuração do banco de dados
+
+        // Include database configuration file
         include "conexao.php";
 
-        // Consulta SQL para selecionar todos os membros da equipe
+        // SQL query to select all team members
         $sql = "SELECT * FROM granna80_bdlinks.team";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            // Exibir cada membro da equipe em uma linha da tabela
-            while($row = $result->fetch_assoc()) {
+            // Display each team member in a table row
+            while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td><img src='" . $row['teamProfilePicture'] . "' width='100'></td>";
                 echo "<td>" . $row['teamName'] . "</td>";
                 echo "<td>" . $row['teamPosition'] . "</td>";
                 echo "<td>";
-                echo "Rede Social 1: " . $row['teamSocialMedia0'] . "<br>";
-                echo "Rede Social 2: " . $row['teamSocialMedia1'] . "<br>";
-                echo "Rede Social 3: " . $row['teamSocialMedia2'];
+                echo "Social Media 1: " . $row['teamSocialMedia0'] . "<br>";
+                echo "Social Media 2: " . $row['teamSocialMedia1'] . "<br>";
+                echo "Social Media 3: " . $row['teamSocialMedia2'];
                 echo "</td>";
-                echo "<td>Edit</td>";
+                echo "<td>";
+                echo "<a href='editar.php?id=" . $row['id'] . "'>Edit</a>"; // Link to edit page with member ID
+                echo " | ";
+                echo "<a href='javascript:void(0);' onclick='confirmDelete(" . $row['id'] . ")'>Delete</a>"; // Link to delete with JavaScript confirmation
+                echo "</td>";
                 echo "</tr>";
-
             }
         } else {
-            echo "Nenhum membro da equipe encontrado.";
+            echo "<tr><td colspan='5'>No team members found.</td></tr>";
         }
-        // Fecha a conexão com o banco de dados
+        // Close database connection
         $conn->close();
         ?>
     </table>
+    <script>
+        function confirmDelete(id) {
+            if (confirm("Are you sure you want to delete this member?")) {
+                window.location.href = "delete.php?id=" + id;
+            }
+        }
+    </script>
 </body>
+
 </html>
