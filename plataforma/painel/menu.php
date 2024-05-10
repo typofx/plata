@@ -61,6 +61,7 @@ $userName1 = $_SESSION["user_user"];
     <ul>
         <li><a href="painel.php">Plataforma</a></li>
         <li><a href="roadmap">Roadmap</a></li>
+        <li><a href="team">Meet the Team</a></li>
         <li><a href="email.php">Email</a></li>
     </ul>
 
