@@ -24,3 +24,12 @@ Stack trace:
 #0 /home2/granna80/public_html/plataforma/painel/team/index.php(25): mysqli->query('SELECT * FROM t...')
 #1 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/team/index.php on line 25
+[10-May-2024 09:47:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/delete.php:13) in /home2/granna80/public_html/plataforma/painel/team/delete.php on line 14
+[10-May-2024 09:47:40 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/delete.php:13) in /home2/granna80/public_html/plataforma/painel/team/delete.php on line 14
+[10-May-2024 09:48:25 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/delete.php:13) in /home2/granna80/public_html/plataforma/painel/team/delete.php on line 14
+[10-May-2024 09:55:50 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/plataforma/painel/team/index.php on line 40
+[10-May-2024 09:55:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/index.php:1) in /home2/granna80/public_html/plataforma/painel/team/index.php on line 42
+[10-May-2024 09:56:15 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/plataforma/painel/team/index.php on line 40
+[10-May-2024 09:56:15 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/index.php:1) in /home2/granna80/public_html/plataforma/painel/team/index.php on line 42
+[10-May-2024 09:56:23 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/plataforma/painel/team/index.php on line 40
+[10-May-2024 09:56:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/index.php:1) in /home2/granna80/public_html/plataforma/painel/team/index.php on line 42

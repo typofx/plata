@@ -1,41 +1,48 @@
+<?php session_start();
+if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
+    header("Location: ../index.php");
+    exit();
+} ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar membro</title>
+    <title>Add Member</title>
 </head>
 <body>
-    <h2>Adicionar membro</h2>
+    <h2>Add Member</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-        <label for="profilePicture">Foto do perfil:</label><br>
-        <input type="file" id="profilePicture" name="profilePicture"><br>
+        <label for="profilePicture">Profile Picture:</label><br>
+        <input type="file" id="profilePicture" name="profilePicture" required ><br>
         
-        <label for="name">Nome:</label><br>
-        <input type="text" id="name" name="name"><br>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
 
-        <label for="position">Posição:</label><br>
-        <input type="text" id="position" name="position"><br>
+        <label for="position">Position:</label><br>
+        <input type="text" id="position" name="position" required><br>
         
-        <label for="socialMedia">Rede Social 1:</label><br>
-        <input type="text" id="socialMedia" name="socialMedia"><br>
+        <label for="socialMedia">Social Media 1:</label><br>
+        <input type="text" id="socialMedia" name="socialMedia" required><br>
         
-        <label for="socialMedia1">Rede Social 2:</label><br>
-        <input type="text" id="socialMedia1" name="socialMedia1"><br>
+        <label for="socialMedia1">Social Media 2:</label><br>
+        <input type="text" id="socialMedia1" name="socialMedia1" required><br>
         
-        <label for="socialMedia2">Rede Social 3:</label><br>
-        <input type="text" id="socialMedia2" name="socialMedia2"><br>
+        <label for="socialMedia2">Social Media 3:</label><br>
+        <input type="text" id="socialMedia2" name="socialMedia2" required><br>
         
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Submit">
     </form>
 
     <?php
-    // Verifica se os dados foram submetidos
+    
+    // Check if form data is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Inclui o arquivo de configuração do banco de dados
+        // Include database configuration file
         include "conexao.php";
 
-        // Verifica se foi enviado um arquivo
+        // Check if file is uploaded
         if(isset($_FILES['profilePicture'])){
             $errors= array();
             $file_name = $_FILES['profilePicture']['name'];
@@ -47,23 +54,23 @@
             $extensions= array("jpeg","jpg","png");
             
             if(in_array($file_ext,$extensions)=== false){
-               $errors[]="Extensão não permitida, por favor escolha um arquivo JPEG ou PNG.";
+               $errors[]="Extension not allowed, please choose a JPEG or PNG file.";
             }
             
             if($file_size > 2097152) {
-               $errors[]='Tamanho do arquivo deve ser no máximo 2 MB';
+               $errors[]='File size must be maximum 2 MB';
             }
             
             if(empty($errors)==true) {
                move_uploaded_file($file_tmp,"uploads/".$file_name);
-               echo "Upload do arquivo ".$file_name." realizado com sucesso!";
+               echo "File ".$file_name." uploaded successfully!";
             }else{
                print_r($errors);
             }
          }
         
 
-        // Obtém os dados do formulário
+        // Get form data
         $profilePicture = "uploads/".$_FILES['profilePicture']['name'];
         $position = $_POST["position"];
         $name = $_POST["name"];
@@ -71,19 +78,19 @@
         $socialMedia1 = $_POST["socialMedia1"];
         $socialMedia2 = $_POST["socialMedia2"];
 
-        // Prepara e executa a consulta SQL para inserir os dados na tabela
+        // Prepare and execute SQL query to insert data into the table
         $stmt = $conn->prepare("INSERT INTO granna80_bdlinks.team (teamProfilePicture, teamPosition, teamName, teamSocialMedia0, teamSocialMedia1, teamSocialMedia2) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $profilePicture, $position, $name, $socialMedia, $socialMedia1, $socialMedia2);
         $stmt->execute();
 
-        // Verifica se a inserção foi bem sucedida
+        // Check if insertion was successful
         if ($stmt->affected_rows > 0) {
-            echo "Equipe adicionada com sucesso!";
+            echo "Team added successfully!";
         } else {
-            echo "Erro ao adicionar equipe.";
+            echo "Error adding team.";
         }
 
-        // Fecha a declaração e a conexão com o banco de dados
+        // Close statement and database connection
         $stmt->close();
         $conn->close();
     }
