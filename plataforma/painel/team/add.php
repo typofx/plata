@@ -15,7 +15,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     <h2>Add Member</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
         <label for="profilePicture">Profile Picture:</label><br>
-        <input type="file" id="profilePicture" name="profilePicture" required ><br>
+        <input type="file" id="profilePicture" name="profilePicture" required><br>
         
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" required><br>
@@ -23,74 +23,94 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         <label for="position">Position:</label><br>
         <input type="text" id="position" name="position" required><br>
         
-        <label for="socialMedia">Social Media 1:</label><br>
-        <input type="text" id="socialMedia" name="socialMedia" required><br>
+        <label for="socialMedia">Whatsapp:</label><br>
+        <input type="text" id="socialMedia" name="socialMedia"><br>
         
-        <label for="socialMedia1">Social Media 2:</label><br>
-        <input type="text" id="socialMedia1" name="socialMedia1" required><br>
+        <label for="socialMedia1">Instagram:</label><br>
+        <input type="text" id="socialMedia1" name="socialMedia1"><br>
         
-        <label for="socialMedia2">Social Media 3:</label><br>
-        <input type="text" id="socialMedia2" name="socialMedia2" required><br>
+        <label for="socialMedia2">Telegram:</label><br>
+        <input type="text" id="socialMedia2" name="socialMedia2"><br>
+
+        <label for="socialMedia3">Facebook:</label><br>
+        <input type="text" id="socialMedia3" name="socialMedia3"><br>
+
+        <label for="socialMedia4">Github:</label><br>
+        <input type="text" id="socialMedia4" name="socialMedia4"><br>
+
+        <label for="socialMedia5">Email:</label><br>
+        <input type="text" id="socialMedia5" name="socialMedia5"><br>
+
+        <label for="socialMedia6">Twitter:</label><br>
+        <input type="text" id="socialMedia6" name="socialMedia6"><br>
         
+        <label for="socialMedia7">LinkedIn:</label><br>
+        <input type="text" id="socialMedia7" name="socialMedia7"><br>
+
+        <label for="socialMedia8">Twitch:</label><br>
+        <input type="text" id="socialMedia8" name="socialMedia8"><br>
+        
+        <label for="socialMedia9">Medium:</label><br>
+        <input type="text" id="socialMedia9" name="socialMedia9"><br>
+        
+        <a href="index.php">Back</a>
         <input type="submit" value="Submit">
     </form>
 
     <?php
     
-    // Check if form data is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Include database configuration file
         include "conexao.php";
 
-        // Check if file is uploaded
-        if(isset($_FILES['profilePicture'])){
-            $errors= array();
+        if (isset($_FILES['profilePicture'])) {
+            $errors = array();
             $file_name = $_FILES['profilePicture']['name'];
             $file_size = $_FILES['profilePicture']['size'];
             $file_tmp = $_FILES['profilePicture']['tmp_name'];
-            $file_type = $_FILES['profilePicture']['type'];
-            $file_ext=strtolower(end(explode('.',$_FILES['profilePicture']['name'])));
+            $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
             
-            $extensions= array("jpeg","jpg","png");
+            $extensions = array("jpeg", "jpg", "png");
             
-            if(in_array($file_ext,$extensions)=== false){
-               $errors[]="Extension not allowed, please choose a JPEG or PNG file.";
+            if (!in_array($file_ext, $extensions)) {
+               $errors[] = "Extension not allowed, please choose a JPEG or PNG file.";
             }
             
-            if($file_size > 2097152) {
-               $errors[]='File size must be maximum 2 MB';
+            if ($file_size > 2097152) {
+               $errors[] = 'File size must be maximum 2 MB';
             }
             
-            if(empty($errors)==true) {
-               move_uploaded_file($file_tmp,"uploads/".$file_name);
-               echo "File ".$file_name." uploaded successfully!";
-            }else{
+            if (empty($errors)) {
+               move_uploaded_file($file_tmp, "uploads/" . $file_name);
+               echo "File " . $file_name . " uploaded successfully!";
+            } else {
                print_r($errors);
             }
-         }
+        }
         
+        $profilePicture = "uploads/" . $_FILES['profilePicture']['name'];
+        $position = htmlspecialchars($_POST["position"]);
+        $name = htmlspecialchars($_POST["name"]);
+        $socialMedia = htmlspecialchars($_POST["socialMedia"]);
+        $socialMedia1 = htmlspecialchars($_POST["socialMedia1"]);
+        $socialMedia2 = htmlspecialchars($_POST["socialMedia2"]);
+        $socialMedia3 = htmlspecialchars($_POST["socialMedia3"]);
+        $socialMedia4 = htmlspecialchars($_POST["socialMedia4"]);
+        $socialMedia5 = htmlspecialchars($_POST["socialMedia5"]);
+        $socialMedia6 = htmlspecialchars($_POST["socialMedia6"]);
+        $socialMedia7 = htmlspecialchars($_POST["socialMedia7"]);
+        $socialMedia8 = htmlspecialchars($_POST["socialMedia8"]);
+        $socialMedia9 = htmlspecialchars($_POST["socialMedia9"]);
 
-        // Get form data
-        $profilePicture = "uploads/".$_FILES['profilePicture']['name'];
-        $position = $_POST["position"];
-        $name = $_POST["name"];
-        $socialMedia = $_POST["socialMedia"];
-        $socialMedia1 = $_POST["socialMedia1"];
-        $socialMedia2 = $_POST["socialMedia2"];
-
-        // Prepare and execute SQL query to insert data into the table
-        $stmt = $conn->prepare("INSERT INTO granna80_bdlinks.team (teamProfilePicture, teamPosition, teamName, teamSocialMedia0, teamSocialMedia1, teamSocialMedia2) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssss", $profilePicture, $position, $name, $socialMedia, $socialMedia1, $socialMedia2);
+        $stmt = $conn->prepare("INSERT INTO granna80_bdlinks.team (teamProfilePicture, teamPosition, teamName, teamSocialMedia0, teamSocialMedia1, teamSocialMedia2, teamSocialMedia3, teamSocialMedia4, teamSocialMedia5, teamSocialMedia6, teamSocialMedia7, teamSocialMedia8, teamSocialMedia9) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssssssssss", $profilePicture, $position, $name, $socialMedia, $socialMedia1, $socialMedia2, $socialMedia3, $socialMedia4, $socialMedia5, $socialMedia6, $socialMedia7, $socialMedia8, $socialMedia9);
         $stmt->execute();
 
-        // Check if insertion was successful
         if ($stmt->affected_rows > 0) {
             echo "Team added successfully!";
         } else {
             echo "Error adding team.";
         }
 
-        // Close statement and database connection
         $stmt->close();
         $conn->close();
     }
