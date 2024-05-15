@@ -28,6 +28,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 </head>
 
 <body>
+    
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/plataforma-header.php';?>
     <?php include 'lista.php'; ?>
 
 </body>
