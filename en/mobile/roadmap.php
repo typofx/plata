@@ -117,7 +117,7 @@ $language = substr($_SERVER['REQUEST_URI'], 1, 2);
 
 //granna80_bdlinks.roadmap_en
 
-$tableSuffix = ($language == "pt") ? "_pt" : (($language == "es") ? "_es" : "_en");
+$tableSuffix = ($language == "pt") ? "_pt_mobile" : (($language == "es") ? "_es_mobile" : "_en_mobile");
 
 // Construct the SQL query
 $sqlEN = "SELECT *
@@ -193,10 +193,10 @@ if ($resultEN) {
     echo "Erro na consulta ao banco de dados.";
 }
 ?>
- <!-- Botão para mostrar/ocultar o texto -->
- <div class="botao-mostrar" onclick="mostrarOcultarTexto()">Show more</div>
+ <!-- Botão para mostrar/ocultar o texto 
+ <div class="botao-mostrar" onclick="mostrarOcultarTexto()">Show more</div>-->
 
- <script>
+  <!--<script>
   document.addEventListener('DOMContentLoaded', function() {
     mostrarOcultarTexto(true); // Chame a função ao carregar a página
   });
@@ -246,7 +246,7 @@ if ($resultEN) {
     span.setAttribute('data-texto-completo', span.textContent);
   });
 </script>
-
+-->
 
 
 </div>
