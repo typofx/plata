@@ -43,16 +43,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Error moving file.";
                 exit();
             }
+
+            $logoFileName = $fileName;
         } else {
             echo "Error: Only JPG, JPEG, PNG, GIF, and ICO files are allowed.";
             exit();
         }
     } else {
-        echo "Error: No image file uploaded or upload error.";
-        exit();
+        // Use a default image if no file is uploaded
+        $defaultImagePath = '../../images/icolog/default.png';
+        if (file_exists($defaultImagePath)) {
+            $logoFileName = 'default.png';
+        } else {
+            echo "Error: Default image not found.";
+            exit();
+        }
     }
-
-    $logoFileName = isset($fileName) ? $fileName : '';
+    
 
     // Get values of other form fields
     $platform = isset($_POST['platform_name']) ? $_POST['platform_name'] : '';
@@ -79,14 +86,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-
+    <!-- Your existing head content -->
     <script>
         function generateAccessLink() {
             var linkInput = document.getElementById("link");
@@ -106,9 +109,6 @@ $conn->close();
             linkInput.addEventListener("input", generateAccessLink);
         });
     </script>
-
-
-
     <script>
         function generateCountryLink() {
             var linkInput = document.getElementById("link");
@@ -128,23 +128,12 @@ $conn->close();
             linkInput.addEventListener("input", generateCountryLink);
         });
     </script>
-
 </head>
-
 <body>
     <h2>Add New Record</h2>
     <form method="POST" action="" enctype="multipart/form-data">
-        <!--<label for="desktop">Desktop:</label>
-        <input type="text" name="desktop" required><br>
-        
-        <label for="mobile">Mobile:</label>
-        <input type="text" name="mobile" required><br>
-
-        <label for="score">Score:</label>
-        <input type="text" name="score" required><br>-->
-
         <label for="logo">Logo (max 5MB):</label>
-        <input type="file" name="logo" id="logo" accept="image/*" required><br>
+        <input type="file" name="logo" id="logo" accept="image/*"><br>
 
         <label for="platform">Platform (Name):</label>
         <input type="text" name="platform_name" required><br>
@@ -152,7 +141,7 @@ $conn->close();
         <label for="Link">Link:</label>
         <input type="text" id="link" name="link" required><br>
 
-        <br> <label for="type">Type:</label>
+        <label for="type">Type:</label>
         <select name="type" id="type">
             <option value="Index">Index</option>
             <option value="Bot">Bot</option>
@@ -182,10 +171,7 @@ $conn->close();
                 </td>
             </tr>
         </table>
-
-
         <br>
-
         <table>
             <tr>
                 <td>
@@ -198,46 +184,6 @@ $conn->close();
                 </td>
             </tr>
         </table>
-
-        <!--<label for="rank">Rank:</label>
-        <input type="text" name="rank" required><br>
-
-        <label for="marketCap">Market Cap:</label>
-        <input type="text" name="marketCap" required><br>
-
-        <label for="liquidity">Liquidity:</label>
-        <input type="text" name="liquidity" required><br>
-
-        <label for="fullyDilutedMKC">Fully Diluted Market Cap:</label>
-        <input type="text" name="fullyDilutedMKC" required><br>
-
-        <label for="circulatingSupply">Circulating Supply:</label>
-        <input type="text" name="circulatingSupply" required><br>
-
-        <label for="maxSupply">Max Supply:</label>
-        <input type="text" name="maxSupply" required><br>
-
-        <label for="totalSupply">Total Supply:</label>
-        <input type="text" name="totalSupply" required><br>
-
-        <label for="price">Price:</label>
-        <input type="text" name="price" required><br>
-
-        <label for="graph">Graph:</label>
-        <input type="text" name="graph" required><br>
-
-        <label for="holders">Holders:</label>
-        <input type="text" name="holders" required><br>
-
-        <label for="tokenLogo">Token Logo:</label>
-        <input type="text" name="tokenLogo" required><br>
-
-        <label for="socialMedia">Social Media:</label>
-        <input type="text" name="socialMedia" required><br>
-
-        <label for="metamaskButton">Metamask Button:</label>
-        <input type="text" name="metamaskButton" required>--><br>
-
         <label for="obs1">Obs1:</label>
         <input type="text" name="obs1" onblur="validateInput(this)"><br>
 
@@ -249,13 +195,15 @@ $conn->close();
 
         <label for="Email">Email:</label>
         <input type="email" name="zemail"><br>
-        <label for="user_edit"></label>Who is insert:</label> <input type="user_edit" name="user_edit" value="<?php echo $userName; ?>"><br>
-        <button type="submit">Add New</button> <a href="painel.php" class="btn btn-primary">Cancel</a>
+
+        <label for="user_edit">Who is insert:</label> 
+        <input type="text" name="user_edit" value="<?php echo $userName; ?>"><br>
+
+        <button type="submit">Add New</button> 
+        <a href="painel.php" class="btn btn-primary">Cancel</a>
     </form>
     <div class="container-fluid">
         <!-- Add a button or link to navigate to the insert.php page -->
-
-
         <?php
         // Your existing PHP code for displaying the table goes here
         ?>
@@ -270,5 +218,4 @@ $conn->close();
         }
     </script>
 </body>
-
 </html>
