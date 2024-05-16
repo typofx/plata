@@ -1,6 +1,6 @@
 <!doctype html>
 
-<link rel="stylesheet" href="pix-style.css">
+<link rel="stylesheet" href="https://www.plata.ie/pix/pix-style.css">
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 
 
