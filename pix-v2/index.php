@@ -1,40 +1,32 @@
 <?php
 session_start();
 
-// Function to generate a random 6-digit code
+// Função para gerar um código de verificação aleatório de 6 dígitos
 function generateVerificationCode()
 {
     return mt_rand(100000, 999999);
 }
 
-// Function to send the email with the verification code
+// Função para enviar o e-mail com o código de verificação
 function sendVerificationCode($email, $code)
 {
     $subject = 'Plata Token';
-    $message = 'Verification code : ' . $code;
-    $headers  = "From: Typo FX <no-reply@plata.ie>\n";
-
+    $message = 'Verification code: ' . $code;
+    $headers = "From: Typo FX <no-reply@plata.ie>\n";
     return mail($email, $subject, $message, $headers);
 }
 
-// Verifies if the verification code entered by the user is correct
-function verifyCode($userCode, $expectedCode)
-{
-    return $userCode == $expectedCode;
-}
-
-// Checks if the resend limit has been exceeded
+// Verifica se o limite de reenvio foi excedido
 function checkResendLimit()
 {
     if (!isset($_SESSION['resend_count'])) {
         $_SESSION['resend_count'] = 0;
     }
     $_SESSION['resend_count']++;
-
     return $_SESSION['resend_count'] < 3;
 }
 
-// Resets the verification process
+// Reseta o processo de verificação
 function resetVerification()
 {
     unset($_SESSION['email']);
@@ -44,62 +36,68 @@ function resetVerification()
     unset($_SESSION['email_sent']);
 }
 
-function resetVerification2()
-{
-
-    unset($_SESSION['resend_count']);
-    unset($_SESSION['code_sent']);
-    unset($_SESSION['email_sent']);
-}
-
-// Checks if the form has been submitted
+// Verifica se o formulário foi submetido
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['send_email']) && !isset($_SESSION['code_sent'])) {
+    if (isset($_POST['send_email'])) {
         if (isset($_POST['email'])) {
-            $email = $_POST['email'];
-            $_SESSION['email'] = $email; // Stores the email in the session
-            $_SESSION['verification_code'] = generateVerificationCode();
-            $_SESSION['code_sent_time'] = time();
-            sendVerificationCode($email, $_SESSION['verification_code']);
-            $_SESSION['code_sent'] = true;
-            echo 'Email sent successfully! Please check your inbox.';
-        } else {
-            echo 'Please enter a valid email address.';
-        }
-    } elseif (isset($_POST['confirm_code'])) {
-        if (isset($_POST['verification_code'])) {
-            $userCode = $_POST['verification_code'];
-            $expectedCode = $_SESSION['verification_code'];
-            if (verifyCode($userCode, $expectedCode)) {
-                echo 'Verification code correct. Email confirmed!';
-                resetVerification2(); // Clears the sessions
-            } else {
-                echo 'Incorrect verification code. Please try again.';
-            }
-        } else {
-            echo 'Please enter the verification code.';
-        }
-    } elseif (isset($_POST['resend_code'])) {
-        if (checkResendLimit()) {
-            if (isset($_SESSION['email'])) {
-                $email = $_SESSION['email'];
+            if (!isset($_SESSION['code_sent']) || checkResendLimit()) {
+                $email = $_POST['email'];
+                $_SESSION['email'] = $email; // Armazena o e-mail na sessão
                 $_SESSION['verification_code'] = generateVerificationCode();
                 $_SESSION['code_sent_time'] = time();
                 sendVerificationCode($email, $_SESSION['verification_code']);
-                echo 'Email resent successfully! Please check your inbox.';
+                $_SESSION['code_sent'] = true;
+                echo 'Email sent successfully! Please check your inbox.';
             } else {
-                echo 'An error occurred while resending the email. Please send the email again.';
+                echo 'Resend limit exceeded. Please, we are resetting the process.';
+                resetVerification(); // Limpa as sessões
             }
         } else {
-            echo 'Resend limit exceeded. Please, we are resetting the process.';
-            resetVerification(); // Clears the sessions
+            echo 'Please enter a valid email address.';
+        }
+    } elseif (isset($_POST['verify_code'])) {
+        if (isset($_POST['verification_code']) && $_POST['verification_code'] == $_SESSION['verification_code']) {
+            echo 'Verification successful!';
+
+            // Prepara o redirecionamento para o formulário final com os dados necessários
+            echo '<form id="redirectForm" method="post" action="0xc298812164bd558268f51cc6e3b8b5daaf0b6341.php" >';
+            echo '<input type="hidden" name="verification_code" value="' . $_POST['verification_code'] . '">';
+            echo '<input type="hidden" name="valorpix" value="' . $_POST['valorpix'] . '">';
+            echo '<input type="hidden" name="PLTwanted" value="' . $_POST['PLTwanted'] . '">';
+            echo '<input type="hidden" name="emailUser" value="' . $_SESSION['email'] . '">';
+            resetVerification();
+            echo '<input type="hidden" name="web3wallet" value="' . $_POST['web3wallet'] . '">';
+            echo '<input type="hidden" name="identificador" value="' . rand(100, 999) . '">';
+            echo '<input type="hidden" name="Expdate" value="' . date("H:i:s T d/m/Y", strtotime('+15 minutes')) . '">';
+            echo '</form>';
+            echo '<script>document.getElementById("redirectForm").submit();</script>';
+            
+        } else {
+            echo 'Incorrect verification code. Please try again.';
+            resetVerification(); // Limpa as sessões
         }
     }
 }
-// Checks if the confirmation time has exceeded 3 minutes
+
+// Verifica se o tempo para confirmação excedeu 5 minutos
 if (isset($_SESSION['code_sent_time']) && time() - $_SESSION['code_sent_time'] > 300) {
     echo 'Time exceeded to enter the verification code. Please restart the process.';
-    resetVerification(); // Clears the sessions
+    resetVerification(); // Limpa as sessões
+}
+
+// Verifica se há um erro na URL
+if (isset($_GET['error'])) {
+    // Verifica o tipo de erro
+    switch ($_GET['error']) {
+        case 'incorrect_verification_code':
+            resetVerification();
+            echo "Código de verificação incorreto. Por favor, tente novamente.";
+            break;
+        default:
+            resetVerification();
+            echo "Ocorreu um erro desconhecido.";
+            break;
+    }
 }
 ?>
 
@@ -116,35 +114,6 @@ if (isset($_SESSION['code_sent_time']) && time() - $_SESSION['code_sent_time'] >
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/0f8eed42e7.js" crossorigin="anonymous"></script>
-    <script>
-        function copiar() {
-            var copyText = document.getElementById("brcodepix");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
-            document.execCommand("copy");
-            document.getElementById("clip_btn").innerHTML = '<i class="fas fa-clipboard-check"></i>';
-        }
-
-        function reais(v) {
-            v = v.replace(/\D/g, "");
-            v = v / 100;
-            v = v.toFixed(2);
-            return v;
-        }
-
-        function mascara(o, f) {
-            v_obj = o;
-            v_fun = f;
-            setTimeout("execmascara()", 1);
-        }
-
-        function execmascara() {
-            v_obj.value = v_fun(v_obj.value);
-        }
-        $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
     <style>
         .invisibled {
             font-size: 0px;
@@ -160,67 +129,104 @@ if (isset($_SESSION['code_sent_time']) && time() - $_SESSION['code_sent_time'] >
 
 <body>
     <h3>Comprar Plata com Pix</h3>
-    <form method="POST">
-
-        <label for="email">Email:</label> <input type="email" name="email" value="<?php echo $_SESSION['email']; ?>" required><br>
-        <label for="verification_code">Verification Code:</label> <input type="number" id="verification_code" name="verification_code" max="999999" value="<?php echo $userCode  ?>"><br>
-        <br>
+    <form id="form2" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="<?php echo $_SESSION['email'] ?? ''; ?>" required><br><br>
         <button type="submit" name="send_email">Send Email</button>
-        <button type="submit" name="resend_code">Resend Code</button>
-        <button type="submit" name="confirm_code">Confirm Code</button>
     </form>
 
-
-
     <br>
-   
 
+    <form id="form1" method="post">
+        <?php
+        date_default_timezone_set('UTC');
+        $date = date("H:i:s T d/m/Y");
+        $Expdate = strtotime(date("H:i:s")) + 900; //15*60=900 seconds
+        $Expdate = date("H:i:s T d/m/Y", $Expdate);
+        $_POST["Expdate"] = $Expdate;
+        ?>
+        <label for="verification_code">Verification Code:</label>
+        <input type="number" id="verification_code" name="verification_code" max="999999" autocomplete="off" required><br>
 
+        <div>
+            <label for="valor">Valor a Pagar (BRL)</label>
+        </div>
+        <div>
+            <input type="number" id="valorpix" name="valorpix" size="15" autocomplete="off" maxlength="13" step="0.01" min="1" value="<?= $_POST["valorpix"] ?? ''; ?>" onkeyup="BRLexec()" onkeypress="BRLexec()" onclick="select()" onfocusout="addZeroBRL()" required>
+        </div>
 
+        <div>
+            <label for="PLTwanted">Tokens Plata Previstos (PLT)</label>
+        </div>
+        <div>
+            <input type="number" id="PLTwanted" name="PLTwanted" size="15" step="0.0001" autocomplete="off" maxlength="13" min="1" value="<?= $_POST["PLTwanted"] ?? ''; ?>" onkeyup="PLTexec()" onkeypress="PLTexec()" onclick="select()" required>
+        </div>
 
-                <form method="post" action="0xc298812164bd558268f51cc6e3b8b5daaf0b6341.php" target="_blank">
-                    <?php
-                    date_default_timezone_set('UTC');
-                    $date = date("H:i:s T d/m/Y");
-                    $Expdate = strtotime(date("H:i:s")) + 900; //15*60=900 seconds
-                    $Expdate = date("H:i:s T d/m/Y", $Expdate);
-                    $_POST["Expdate"] = $Expdate;
-                    ?>
-                    <div>
-                        <label for="valor">Valor a Pagar (BRL)</label>
-                    </div>
-                    <div>
-                        <input type="number" id="valorpix" name="valorpix" size="15" autocomplete="off" maxlength="13" step="0.001" min="0.001" value="<?= $_POST["valorpix"]; ?>" onkeyup="BRLexec()" onkeypress="BRLexec()" onclick="select()" onfocusout="addZeroBRL()" required>
-                    </div>
-                    <div>
-                        <label for="PLTwanted">Tokens Plata Previstos (PLT)</label>
-                    </div>
-                    <div>
-                        <input type="number" id="PLTwanted" name="PLTwanted" size="15" step="0.0001" autocomplete="off" maxlength="13" min="0.0001" value="<?= $_POST["PLTwanted"]; ?>" onkeyup="PLTexec()" onkeypress="PLTexec()" onclick="select()" required>
-                    </div>
-                    <div>
+        <div>
+            <input type="hidden" id="emailUser" name="emailUser" size="60" maxlength="90" value="<?php echo $_SESSION['email']; ?>" required>
+        </div>
 
-                    </div>
-                    <div>
-                        <input type="hidden" id="emailUser" name="emailUser" size="60" maxlength="90" value="<?php echo $_SESSION['email']; ?>" onclick="this.select();" required>
-                    </div>
+        <div>
+            <label for="email">Carteira Web3 Polygon(MATIC)</label>
+        </div>
+        <div>
+            <input type="text" id="web3wallet" name="web3wallet" placeholder="0x..." size="60" maxlength="42" value="<?= $_POST["web3wallet"] ?? ''; ?>" onclick="this.select();" onfocusout="isValidEtherWallet()" required>
+        </div>
+        <div style="display: none;">
+            <label for="identificador">Identificador</label>
+            <input type="text" id="identificador" name="identificador" value="<?php echo (rand(100, 999)); ?>" required>
+        </div>
 
+        <hr width="95%" />
+        <button type="submit" name="verify_code">Gerar QR Code <i class="fas fa-qrcode"></i></button>
+        <hr width="95%" />
+    </form>
 
-                    <div>
-                        <label for="email">Carteira Web3 Polygon(MATIC)</label>
-                    </div>
-                    <div>
-                        <input type="text" id="web3wallet" name="web3wallet" placeholder="0x..." size="60" maxlength="42" value="<?= $_POST["web3wallet"]; ?>" onclick="this.select();" onfocusout="isValidEtherWallet()" required>
-                    </div>
-                    <div style="display: none;">
-                        <label for="identificador">Identificador</label>
-                        <input type="text" id="identificador" name="identificador" value="<?php echo (rand(100, 999)); ?>" required>
-                    </div>
-                    <hr width="95%" />
-                    <button id="submitButton" name="submit" onclick="checkemail()">Gerar QR Code <i class="fas fa-qrcode"></i></button>
-                    <hr width="95%" />
-                </form>
-     
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleciona o formulário
+            var form = document.getElementById('form2');
+
+            // Adiciona um ouvinte de evento para quando o formulário for enviado
+            form.addEventListener('submit', function(event) {
+                // Define o atributo 'action' do formulário para 'index.php' antes de enviar
+                form.action = '';
+            });
+        });
+    </script>
+
+    <script>
+        //  document.addEventListener('DOMContentLoaded', (event) => {
+        //   const form = document.getElementById('form1');
+
+        //    const fields = [ 'valorpix', 'web3wallet'];
+
+        // Carrega valores salvos do localStorage, se existirem
+        //   fields.forEach(field => {
+        //     const input = document.getElementById(field);
+        //       const savedValue = localStorage.getItem(field);
+        //        if (savedValue) {
+        //            input.value = savedValue;
+        //        }
+        //     });
+
+        // Salva valores no localStorage sempre que forem alterados
+        //   form.addEventListener('input', (event) => {
+        //       const input = event.target;
+        //        if (fields.includes(input.id)) {
+        //            let valueToSave = input.value;
+        //
+        // Formatar valor para BRL se for valorpix
+        //     if (input.id === 'valorpix') {
+        //           valueToSave = parseFloat(input.value).toFixed(2);
+        //       }
+
+        //      localStorage.setItem(input.id, valueToSave);
+        //   }
+        //   });
+        // });
+    </script>
+
     <?php include '../en/mobile/price.php'; ?>
     <br>
     <a id="dappVersion">PlataByPix dApp Version 0.1.3 (Beta)</a>
@@ -257,20 +263,8 @@ if (isset($_SESSION['code_sent_time']) && time() - $_SESSION['code_sent_time'] >
             if (result != true) document.getElementById("web3wallet").value = "";
             console.log(result); // => true?
         }
-
-        function checkemail() {
-            if (document.getElementById("emailUser").value != (document.getElementById("confirmemail").value)) document.getElementById("confirmemail").value = "";
-        }
     </script>
-    
-    <div id="popup2" class="overlay">
-	<div class="popup">
-		<h1>Text01</h1>
-		<a class="close" href="#">&times;</a>
-	</div>
 
-</div>
-    
 </body>
 
 </html>
