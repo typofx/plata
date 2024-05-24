@@ -63,6 +63,7 @@ $userName1 = $_SESSION["user_user"];
         <li><a href="roadmap">Roadmap</a></li>
         <li><a href="team">Meet the Team</a></li>
         <li><a href="email.php">Email</a></li>
+        <li><a href="payments">Payments</a></li>
     </ul>
 
    
