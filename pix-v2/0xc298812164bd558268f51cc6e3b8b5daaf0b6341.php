@@ -1,8 +1,7 @@
-
 <?php
+include
 
-
-$emailSubject = "Compra de Token Plata via PIX";
+    $emailSubject = "Compra de Token Plata via PIX";
 $emailUser = $_POST['emailUser'];
 
 if ($emailUser == "") {
@@ -40,6 +39,32 @@ $emailMessage =
 mail($emailUser, $emailSubject, $emailMessage, $headers);
 mail('salesdone@plata.ie', $emailSubject, $emailMessage, $headers);
 mail('uarloque@live.com', $emailSubject, $emailMessage, $headers);
+
+include "conexao.php"; // Inclui o arquivo com a configuração da conexão com o banco de dados
+
+$date = date("Y-m-d H:i:s");
+$bank = "PIX";
+$plata = $PLTwanted;
+$amount = $_POST['valorpix']; // Supondo que o valor PIX esteja disponível no formulário
+$asset = "PLT";
+$address = $web3wallet;
+$txid = "polygon"; // Você pode definir isso conforme necessário
+$email = $_POST['emailUser']; // Supondo que o email do usuário esteja disponível no formulário
+$status = "pending"; // Você pode definir isso conforme necessário
+
+// Consulta SQL para inserir os dados na tabela payments
+$sql = "INSERT INTO granna80_bdlinks.payments (date, bank, plata, amount, asset, address, txid, email, status) 
+        VALUES ('$date', '$bank', '$plata', $amount, '$asset', '$address', '$txid', '$email', '$status')";
+
+// Executar a consulta SQL
+if ($conn->query($sql) === TRUE) {
+    $text1 = "Dados do pagamento inseridos com sucesso.";
+} else {
+    $text2 = "Erro ao inserir dados do pagamento: " . $conn->error;
+}
+
+
+
 
 include "phpqrcode/qrlib.php";
 include "funcoes_pix.php";
@@ -132,7 +157,7 @@ $linhas = round(strlen($pix) / 120) + 1;
     ?>
     <br>
     <center>Um email foi enviado!</center>
-    
+
     <br>
     <center><img src="https://www.plata.ie/images/pix-full-logo.svg"></center>
     <br>
@@ -170,4 +195,4 @@ $linhas = round(strlen($pix) / 120) + 1;
     </html>
 
 
-    ?>
+   
