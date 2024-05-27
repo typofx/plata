@@ -1,10 +1,24 @@
 <?php
 session_start();
+
+// Verifica se a sessão está ativa e se a última atividade foi há menos de 5 minutos
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 300)) {
+    // Se a última atividade foi há mais de 5 minutos, destrua a sessão e redirecione para a página inicial
+    session_unset();     // remove todas as variáveis de sessão
+    session_destroy();   // destrói a sessão
+    header("Location: index.php");
+    exit();
+}
+
+// Atualiza o timestamp da última atividade para o timestamp atual
+$_SESSION['LAST_ACTIVITY'] = time();
+
 if (!isset($_SESSION['user'])) {
     // Se a sessão não estiver iniciada, redireciona de volta para a página inicial
     header("Location: index.php");
     exit();
 }
+
 
 //echo $_SESSION['user'];
 
@@ -42,6 +56,7 @@ function resetVerification()
     unset($_SESSION['code_sent']);
     unset($_SESSION['email_sent']);
 }
+
 
 // Verifica se o formulário foi submetido
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
