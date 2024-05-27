@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Iniciar a sessão e definir a variável de sessão se o parâmetro 'iniciar' estiver presente na URL
+if (isset($_GET['iniciar'])) {
+    $_SESSION['user'] = 'visitante';
+    // Redirecionar para pix.php
+    header('Location: email.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +18,7 @@
     <title>Iniciar Sessão</title>
 </head>
 <body>
-    <a href="session_start.php">Clique aqui para iniciar a sessão</a>
+    <!-- Link para iniciar a sessão -->
+    <a href="?iniciar=1">Clique aqui para iniciar a sessão</a>
 </body>
 </html>
