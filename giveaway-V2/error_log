@@ -1,0 +1,4 @@
+[29-May-2024 08:12:43 America/Chicago] PHP Warning:  move_uploaded_file(uploads/steve.png): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
+[29-May-2024 08:12:43 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpxTNXvT&quot; to &quot;uploads/steve.png&quot; in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
+[29-May-2024 08:13:13 America/Chicago] PHP Warning:  move_uploaded_file(uploads/steve.png): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
+[29-May-2024 08:13:13 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpNwZVBZ&quot; to &quot;uploads/steve.png&quot; in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
