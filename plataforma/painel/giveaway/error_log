@@ -1,0 +1,67 @@
+[24-May-2024 12:19:41 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:41 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:41 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:19:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/plataforma/painel/payments/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:19:46 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:46 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:46 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:19:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/plataforma/painel/payments/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:27:32 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function </td>
+                <td>() in /home2/granna80/public_html/plataforma/painel/payments/index.php:58
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 58
+[24-May-2024 14:15:27 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payments/edit.php:45
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/edit.php(45): mysqli_stmt->bind_param('ssssdsssssi', '2011-03-15 00:0...', 'PIX', '456,204.3796', '10.00', 'BRL', '0x57Cc6e9bc56e2...', 'polygon', 'softgamebr4@gma...', 'Completed', '2')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 45
+[24-May-2024 14:17:08 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payments/edit.php:45
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/edit.php(45): mysqli_stmt->bind_param('ssssssssssi', '2011-03-15 00:0...', 'PIX', '456,204.3796', '10.00', 'BRL', '0x57Cc6e9bc56e2...', 'polygon', 'softgamebr4@gma...', 'Completed', '2')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 45
+[24-May-2024 14:18:16 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payments/edit.php:45
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/edit.php(45): mysqli_stmt->bind_param('ssssdsssssi', '2011-03-15 00:0...', 'PIX', '456,204.3796', 10.0, 'BRL', '0x57Cc6e9bc56e2...', 'polygon', 'softgamebr4@gma...', 'Completed', '2')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 45
+[24-May-2024 14:34:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/payments/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/payments/delete.php on line 14
+[24-May-2024 14:37:41 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/payments/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/payments/delete.php on line 16
+[29-May-2024 14:17:21 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home2/granna80/public_html/plataforma/painel/giveaway/index.php:35
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/giveaway/index.php(35): mysqli->query('SELECT id, evm_...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/giveaway/index.php on line 35
+[29-May-2024 14:17:23 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'status' in 'field list' in /home2/granna80/public_html/plataforma/painel/giveaway/index.php:35
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/giveaway/index.php(35): mysqli->query('SELECT id, evm_...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/giveaway/index.php on line 35
+[29-May-2024 14:17:59 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM granna80_bdlinks.votes' at line 1 in /home2/granna80/public_html/plataforma/painel/giveaway/index.php:35
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/giveaway/index.php(35): mysqli->query('SELECT id, evm_...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/giveaway/index.php on line 35
+[29-May-2024 14:18:22 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'evm_wallet' in 'field list' in /home2/granna80/public_html/plataforma/painel/giveaway/index.php:35
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/giveaway/index.php(35): mysqli->query('SELECT id, evm_...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/giveaway/index.php on line 35
+[29-May-2024 14:19:23 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'evm_wallet' in 'field list' in /home2/granna80/public_html/plataforma/painel/giveaway/index.php:35
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/giveaway/index.php(35): mysqli->query('SELECT id, evm_...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/giveaway/index.php on line 35
+[29-May-2024 14:19:26 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'evm_wallet' in 'field list' in /home2/granna80/public_html/plataforma/painel/giveaway/index.php:35
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/giveaway/index.php(35): mysqli->query('SELECT id, evm_...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/giveaway/index.php on line 35
+[29-May-2024 14:54:52 America/Chicago] PHP Warning:  Undefined array key "date" in /home2/granna80/public_html/plataforma/painel/giveaway/edit.php on line 46
