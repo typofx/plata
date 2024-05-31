@@ -1,73 +1,96 @@
 <?php
-include "conexao.php"; 
+include "connection.php"; 
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     die("Access denied.");
 }
 
-// Verificar se os dados esperados foram recebidos
-if (!isset($_POST['evm_wallet']) || !isset($_POST['vote_number']) || !isset($_FILES["vote_image"])) {
+// Check if expected data was received
+if (!isset($_POST['evm_wallet']) || !isset($_POST['vote_number'])) {
     die("Missing form data.");
 }
 
-// Checar conexão
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Pegar dados do formulário
+    // Get form data
     $evm_wallet = $_POST['evm_wallet'];
     $vote_number = $_POST['vote_number'];
     
-    // Processar upload da imagem
+    // Check if EVM address format is valid
+    if (!preg_match('/^0x[a-fA-F0-9]{40}$/', $evm_wallet)) {
+        echo "Invalid EVM address.";
+        die();
+    }
+
+    // Check if the address already exists in the database
+    $check_sql = "SELECT COUNT(*) AS count FROM granna80_bdlinks.votes WHERE evm_wallet = '$evm_wallet'";
+    $result = $conn->query($check_sql);
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if ($row["count"] > 0) {
+            echo "This Ethereum wallet address already exists in the database.";
+            die();
+        }
+    } else {
+        echo "Error checking database for existing wallet address.";
+        die();
+    }
+
+    // Process image upload
     $target_dir = "uploads/";
     $imageFileType = strtolower(pathinfo($_FILES["vote_image"]["name"], PATHINFO_EXTENSION));
-
-    // Gerar um nome de arquivo único
     $unique_filename = uniqid('PLATA_', true) . '_' . rand(1000, 9999) . '.' . $imageFileType;
-    
-    // Caminho completo do arquivo alvo
     $target_file = $target_dir . $unique_filename;
-    
-    $uploadOk = 1;
-    
-    // Verificar se o arquivo é uma imagem real
-    $check = getimagesize($_FILES["vote_image"]["tmp_name"]);
-    if($check !== false) {
-        $uploadOk = 1;
+
+    if (!isset($_FILES["vote_image"]) || $_FILES["vote_image"]["size"] == 0) {
+        $target_file = "platatoken400px.png";
     } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-    
-    // Verificar tamanho do arquivo
-    if ($_FILES["vote_image"]["size"] > 10000000) { // 10MB
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-    
-    // Verificar se $uploadOk está definido como 0 por um erro
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-    // Se tudo estiver ok, tentar fazer o upload do arquivo
-    } else {
-        if (move_uploaded_file($_FILES["vote_image"]["tmp_name"], $target_file)) {
-            echo "The file ". basename($unique_filename). " has been uploaded.";
-            
-            // Inserir dados na tabela
-            $sql = "INSERT INTO granna80_bdlinks.votes (evm_wallet, vote_image, vote_number) VALUES ('$evm_wallet', '$target_file', '$vote_number')";
-            
-            if ($conn->query($sql) === TRUE) {
-                echo "New record created successfully";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-        } else {
-            echo "Sorry, there was an error uploading your file.";
+        $check = getimagesize($_FILES["vote_image"]["tmp_name"]);
+        if($check === false) {
+            echo "File is not an image.";
+            die();
         }
+        if ($_FILES["vote_image"]["size"] > 10000000) { // 10MB
+            echo "Sorry, your file is too large.";
+            die();
+        }
+        if (!move_uploaded_file($_FILES["vote_image"]["tmp_name"], $target_file)) {
+            echo "Sorry, there was an error uploading your file.";
+            die();
+        }
+    }
+
+    // Insert data into the table
+    $sql = "INSERT INTO granna80_bdlinks.votes (evm_wallet, vote_image, vote_number) VALUES ('$evm_wallet', '$target_file', '$vote_number')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
 $conn->close();
 ?>
+
+<script>
+    $(document).ready(function() {
+        // Function to validate Ethereum address
+        function isValidEtherWallet() {
+            let address = $("#evm_wallet").val();
+            let result = web3.utils.isAddress(address);
+            if (!result) {
+                alert("Invalid Ethereum address.");
+            }
+        }
+
+        // Calling the validation function when the field loses focus
+        $("#evm_wallet").blur(function() {
+            isValidEtherWallet();
+        });
+    });
+</script>
