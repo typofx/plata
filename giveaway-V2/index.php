@@ -52,7 +52,7 @@ function recaptchaChecked() {
       <img id="preview" src="" alt="Preview" style="display: block; margin-top: 20px; max-width: 300px;"><br><br>
       <!-- Add the data-sitekey attribute with the site key for reCAPTCHA Enterprise -->
       <input type="hidden" id="recaptchaChecked" name="recaptchaChecked" value="0">
-      <div id="recaptcha-container" class="g-recaptcha" data-callback="recaptchaChecked" data-sitekey="6LdHDu0pAAAAAEIphakdhBK3-z8hruVG3iHNud-T"></div><br>
+      <div id="recaptcha-container" class="g-recaptcha" data-callback="recaptchaChecked" data-sitekey="KEY"></div><br>
       <input type="submit" value="Submit Vote">
     </form>
   </div>
@@ -66,7 +66,7 @@ function recaptchaChecked() {
       <label for="vote_number_alternative">Vote Number:</label><br>
       <input type="number" id="vote_number_alternative" name="vote_number" required><br><br>
 
-      <div id="recaptcha-container-alt" class="g-recaptcha" data-callback="recaptchaChecked" data-sitekey="6LdHDu0pAAAAAEIphakdhBK3-z8hruVG3iHNud-T"></div><br>
+      <div id="recaptcha-container-alt" class="g-recaptcha" data-callback="recaptchaChecked" data-sitekey="KEY"></div><br>
       <input type="submit" value="Submit">
     </form>
   </div>
