@@ -2,3 +2,19 @@
 [29-May-2024 08:12:43 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpxTNXvT&quot; to &quot;uploads/steve.png&quot; in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
 [29-May-2024 08:13:13 America/Chicago] PHP Warning:  move_uploaded_file(uploads/steve.png): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
 [29-May-2024 08:13:13 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpNwZVBZ&quot; to &quot;uploads/steve.png&quot; in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
+[30-May-2024 12:08:53 America/Chicago] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in /home2/granna80/public_html/giveaway/submit_vote.php:39
+Stack trace:
+#0 /home2/granna80/public_html/giveaway/submit_vote.php(39): getimagesize('')
+#1 {main}
+  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 39
+[30-May-2024 13:34:02 America/Chicago] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in /home2/granna80/public_html/giveaway/submit_vote.php:39
+Stack trace:
+#0 /home2/granna80/public_html/giveaway/submit_vote.php(39): getimagesize('')
+#1 {main}
+  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 39
+[30-May-2024 14:57:05 America/Chicago] PHP Warning:  Undefined array key "vote_image" in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
+[30-May-2024 14:57:05 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
+[30-May-2024 23:31:46 America/Chicago] PHP Warning:  Undefined array key "vote_image" in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
+[30-May-2024 23:31:46 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
+[31-May-2024 08:00:42 America/Chicago] PHP Warning:  Undefined array key "vote_image" in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
+[31-May-2024 08:00:42 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
