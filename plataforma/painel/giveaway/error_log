@@ -65,3 +65,7 @@ Stack trace:
 #1 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/giveaway/index.php on line 35
 [29-May-2024 14:54:52 America/Chicago] PHP Warning:  Undefined array key "date" in /home2/granna80/public_html/plataforma/painel/giveaway/edit.php on line 46
+[30-May-2024 12:25:31 UTC] PHP Warning:  move_uploaded_file(uploads/PLATA_6658703b34c970.73362822_2838.png): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/giveaway/edit.php on line 58
+[30-May-2024 12:25:31 UTC] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpW3eDSa&quot; to &quot;uploads/PLATA_6658703b34c970.73362822_2838.png&quot; in /home2/granna80/public_html/plataforma/painel/giveaway/edit.php on line 58
+[30-May-2024 12:25:38 UTC] PHP Warning:  move_uploaded_file(uploads/PLATA_66587042f2aa05.11701163_2074.png): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/giveaway/edit.php on line 58
+[30-May-2024 12:25:38 UTC] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpOBz6Hs&quot; to &quot;uploads/PLATA_66587042f2aa05.11701163_2074.png&quot; in /home2/granna80/public_html/plataforma/painel/giveaway/edit.php on line 58
