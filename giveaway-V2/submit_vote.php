@@ -1,5 +1,13 @@
 <?php
-include "connection.php"; 
+include "conexao.php"; 
+
+
+
+ob_start(); include '../en/mobile/price.php'; ob_end_clean();
+
+//echo "1 Matic to Plata (PLT): $MATICPLT";  
+
+
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     die("Access denied.");
@@ -25,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid EVM address.";
         die();
     }
+
+
 
     // Check if the address already exists in the database
     $check_sql = "SELECT COUNT(*) AS count FROM granna80_bdlinks.votes WHERE evm_wallet = '$evm_wallet'";
@@ -65,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert data into the table
-    $sql = "INSERT INTO granna80_bdlinks.votes (evm_wallet, vote_image, vote_number) VALUES ('$evm_wallet', '$target_file', '$vote_number')";
+    $sql = "INSERT INTO granna80_bdlinks.votes (evm_wallet, vote_image, vote_number, MATICPLT, USDMATIC) VALUES ('$evm_wallet', '$target_file', '$vote_number', '$MATICPLT', '$USDMATIC')";
     
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
