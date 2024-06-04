@@ -21,6 +21,15 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         td {
             text-align: center;
         }
+
+        .highlight {
+            background-color: yellow;
+            color: black;
+            padding: 2px 4px;
+       
+            border-radius: 3px;
+         
+        }
     </style>
 </head>
 
@@ -61,6 +70,15 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
         // Iterate over results and fill the table
         while ($row = $result->fetch_assoc()) {
+            $email1 = "uarloque@live.com";
+            $email2 = "softgamebr4@gmail.com";
+            $highlight_class = "";
+            if ($row["email"] == $email1 || $row["email"] == $email2) {
+                $highlight_class = "highlight";
+            } else {
+                $highlight_class = "";
+            }
+
             echo "<tr>
             <td>" . $row["id"] . "</td>
             <td><b>" . date('d/m/Y H:i:s', strtotime($row["date"])) . "</b></td>
@@ -70,7 +88,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             <td>" . $row["asset"] . "</td>
             <td>" . $row["address"] . "</td>
             <td><a href='https://polygonscan.com/tx/" . $row["txid"] . "' target='_blank'> " . (strlen($row["txid"]) > 12 ? substr($row["txid"], 0, 6) . "..." . substr($row["txid"], -6) : $row["txid"]) . " </a></td>
-            <td>" . $row["email"] . "</td>
+            <td class='" . $highlight_class . "'>" . $row["email"] . "</td>
             <td>" . $currentStatus = strtolower($row['status']) . "</td>
             <td>
                 <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
