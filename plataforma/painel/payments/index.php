@@ -1,16 +1,17 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
     header("Location: ../index.php");
     exit();
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataTables Example</title>
+    <title>Payments</title>
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
@@ -22,6 +23,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         }
     </style>
 </head>
+
 <body>
     <h1>Payments</h1>
 
@@ -31,7 +33,10 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     include 'conexao.php';
 
     // SQL query to get data from the `payments` table
-    $sql = "SELECT id, date, bank, plata, amount, asset, address, txid, email, status FROM granna80_bdlinks.payments";
+    $sql = "SELECT id, date, bank, plata, amount, asset, address, txid, email, status 
+    FROM granna80_bdlinks.payments 
+    WHERE trash = 1";
+
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -55,23 +60,23 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
                 <tbody>";
 
         // Iterate over results and fill the table
-        while($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
             echo "<tr>
-                    <td>" . $row["id"] . "</td>
-                    <td><b>" . date('d/m/Y H:i:s', strtotime($row["date"])) . "</b></td>
-                    <td>" . $row["bank"] . "</td>
-                    <td>" . $row["plata"] . "</td>
-                    <td>" . $row["amount"] . "</td>
-                    <td>" . $row["asset"] . "</td>
-                    <td>" . $row["address"] . "</td>
-                    <td>" . $row["txid"] . "</td>
-                    <td>" . $row["email"] . "</td>
-                    <td>" . $currentStatus = strtolower($row['status']) . "</td>
-                    <td>
-                        <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
-                        <a href='delete.php?id=" . $row["id"] . "'><i style='color: red;' class='fa-solid fa-trash'></i></i></a>
-                    </td>
-                  </tr>";
+            <td>" . $row["id"] . "</td>
+            <td><b>" . date('d/m/Y H:i:s', strtotime($row["date"])) . "</b></td>
+            <td>" . $row["bank"] . "</td>
+            <td>" . $row["plata"] . "</td>
+            <td>" . $row["amount"] . "</td>
+            <td>" . $row["asset"] . "</td>
+            <td>" . $row["address"] . "</td>
+            <td><a href='https://polygonscan.com/tx/" . $row["txid"] . "' target='_blank'> " . (strlen($row["txid"]) > 12 ? substr($row["txid"], 0, 6) . "..." . substr($row["txid"], -6) : $row["txid"]) . " </a></td>
+            <td>" . $row["email"] . "</td>
+            <td>" . $currentStatus = strtolower($row['status']) . "</td>
+            <td>
+                <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
+                <a href='#' onclick='confirmDelete(" . $row["id"] . ")'><i style='color: red;' class='fa-solid fa-trash'></i></a>
+            </td>
+        </tr>";
         }
 
         echo "</tbody></table>";
@@ -81,6 +86,14 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
     $conn->close();
     ?>
+    <script>
+        function confirmDelete(id) {
+            var confirmDelete = confirm("Tem certeza que deseja deletar?");
+            if (confirmDelete) {
+                window.location.href = "delete.php?id=" + id;
+            }
+        }
+    </script>
 
     <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -88,8 +101,15 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#example').DataTable();
+            $('#example').dataTable({
+                "lengthMenu": [
+                    [25, 50, 75, -1],
+                    [25, 50, 75, "All"]
+                ],
+                "pageLength": 50
+            });
         });
     </script>
 </body>
+
 </html>

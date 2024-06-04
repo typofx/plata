@@ -1,0 +1,44 @@
+[24-May-2024 12:19:41 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:41 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:41 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:19:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/plataforma/painel/payments/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:19:46 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:46 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:46 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:19:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/plataforma/painel/payments/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:27:32 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function </td>
+                <td>() in /home2/granna80/public_html/plataforma/painel/payments/index.php:58
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 58
+[24-May-2024 14:15:27 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payments/edit.php:45
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/edit.php(45): mysqli_stmt->bind_param('ssssdsssssi', '2011-03-15 00:0...', 'PIX', '456,204.3796', '10.00', 'BRL', '0x57Cc6e9bc56e2...', 'polygon', 'softgamebr4@gma...', 'Completed', '2')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 45
+[24-May-2024 14:17:08 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payments/edit.php:45
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/edit.php(45): mysqli_stmt->bind_param('ssssssssssi', '2011-03-15 00:0...', 'PIX', '456,204.3796', '10.00', 'BRL', '0x57Cc6e9bc56e2...', 'polygon', 'softgamebr4@gma...', 'Completed', '2')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 45
+[24-May-2024 14:18:16 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payments/edit.php:45
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/edit.php(45): mysqli_stmt->bind_param('ssssdsssssi', '2011-03-15 00:0...', 'PIX', '456,204.3796', 10.0, 'BRL', '0x57Cc6e9bc56e2...', 'polygon', 'softgamebr4@gma...', 'Completed', '2')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 45
+[24-May-2024 14:34:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/payments/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/payments/delete.php on line 14
+[24-May-2024 14:37:41 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/payments/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/payments/delete.php on line 16
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $subject in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 70
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $message in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 71
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $headers in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 72
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $subject in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 73
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $message in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 73
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $headers in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 73
+[04-Jun-2024 08:09:24 America/Chicago] PHP Warning:  Undefined variable $code in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 67
+[04-Jun-2024 08:37:26 America/Chicago] PHP Warning:  Undefined variable $code in /home2/granna80/public_html/plataforma/painel/payments/send_email.php on line 19
