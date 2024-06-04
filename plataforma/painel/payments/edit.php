@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
     header("Location: ../index.php");
@@ -62,6 +62,16 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
         if ($stmt->execute()) {
             echo "Record updated successfully";
+
+            // Check if status is changed to "Completed"
+            if ($status == "Completed") {
+                echo "<script>";
+                echo "var sendEmail = confirm('Do you want to send an email?');";
+                echo "if (sendEmail) {";
+                echo "window.location.href = 'send_email.php?id=$id';";
+                echo "}";
+                echo "</script>";
+            }
         } else {
             echo "Error updating record: " . $stmt->error;
         }
