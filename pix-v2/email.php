@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['code_sent_time'] = time();
                 sendVerificationCode($email, $_SESSION['verification_code']);
                 $_SESSION['code_sent'] = true;
-                echo $email;
+                //echo $email;
             } else {
                 echo 'Resend limit exceeded. Please, we are resetting the process.';
                 resetVerification2(); // Clear the sessions
@@ -131,22 +131,11 @@ if (isset($_GET['order_cancel'])) {
 }
 
 if (!isset($_SESSION['code_sent'])) {
-    echo '<form id="form1" method="POST">
-    <label for="email">Email:</label>
-    <input type="email" name="email" autocomplete="off" required><br><br>
-    <button type="submit" name="send_email">Send Email</button>
-    <a href="?cancel=true">Cancel</a>
-  </form>';
+    include $_SERVER['DOCUMENT_ROOT'] . '/pix3/email_sent.php';
 }
 
 if (isset($_SESSION['email'])) {
-    echo '<form id="form2" method="POST">
-    <label for="verification_code">Verification Code:</label>
-    <input type="number" id="verification_code" name="verification_code" max="999999" autocomplete="off"><br>
-    <button type="submit" name="verify_code">Confirm Email</button>
-    <button type="submit" name="resend_code">Resend Code</button>
-    <a href="?cancel=true">Cancel</a>
-  </form>';
+    include $_SERVER['DOCUMENT_ROOT'] . '/pix3/confirm_email.php';
 }
 ?>
 <br>

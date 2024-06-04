@@ -1,14 +1,14 @@
 <?php
-include
-
-    $emailSubject = "Compra de Token Plata via PIX";
-$emailUser = $_POST['emailUser'];
-
-if ($emailUser == "") {
+session_start();
+if (!isset($_SESSION['emailUser'])) {
     echo "<script>window.close();</script>";
     die();
 }
 
+
+$emailUser = $_SESSION['emailUser'];
+
+$emailSubject = "Compra de Token Plata via PIX";
 $headers = "From: noreply@plata.ie";
 
 $valor_pix = number_format($_POST['valorpix'], 2, '.', ',');
@@ -40,17 +40,17 @@ mail($emailUser, $emailSubject, $emailMessage, $headers);
 mail('salesdone@plata.ie', $emailSubject, $emailMessage, $headers);
 mail('uarloque@live.com', $emailSubject, $emailMessage, $headers);
 
-include "conexao.php"; // Inclui o arquivo com a configuração da conexão com o banco de dados
+include "conexao.php"; 
 
 $date = date("Y-m-d H:i:s");
 $bank = "PIX";
 $plata = $PLTwanted;
-$amount = $_POST['valorpix']; // Supondo que o valor PIX esteja disponível no formulário
+$amount = $_POST['valorpix']; 
 $asset = "BRL";
 $address = $web3wallet;
-$txid = "polygon"; // Você pode definir isso conforme necessário
-$email = $_POST['emailUser']; // Supondo que o email do usuário esteja disponível no formulário
-$status = "pending"; // Você pode definir isso conforme necessário
+$txid = "polygon"; 
+$email = $emailUser; 
+$status = "pending"; 
 
 // Consulta SQL para inserir os dados na tabela payments
 $sql = "INSERT INTO granna80_bdlinks.payments (date, bank, plata, amount, asset, address, txid, email, status) 
@@ -195,4 +195,4 @@ $linhas = round(strlen($pix) / 120) + 1;
     </html>
 
 
-   
+   <?php unset($_SESSION['emailUser']); session_destroy(); ?>

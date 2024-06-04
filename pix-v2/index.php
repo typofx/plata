@@ -5,7 +5,7 @@ session_start();
 if (isset($_GET['iniciar'])) {
     $_SESSION['user'] = 'visitante';
     // Redirecionar para pix.php
-    header('Location: email.php');
+    header('Location: email');
     exit;
 }
 ?>
