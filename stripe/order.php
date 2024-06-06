@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <title>Checkout Form</title>
     <?php
     ob_start();
@@ -15,9 +14,6 @@
     <div style="display: none;">
         <?php echo $price_content; ?>
     </div>
-    <!-- reCAPTCHA Enterprise Script -->
-    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
- 
     <script>
         function atrAssets() {
             _USDPLT = <?php echo number_format($USDPLT, 8, '.', ''); ?>;
@@ -101,8 +97,6 @@
             this.submit(); // Submit the form after manipulating the value
         });
 
-
-        
         function onValueChange(value) {
             formatCurrency(value);
             calcFromCurrency();
@@ -115,13 +109,9 @@
 </head>
 
 <body>
-    <form id="myForm" method="post" action="checkout.php" onsubmit="return get_action();">
+    <form id="myForm" method="post" action="checkout.php">
         <label for="customer_email">E-mail:</label>
         <input type="email" id="customer_email" name="customer_email" required>
-        <br>
-
-        <label for="webWallet">webWallet:</label>
-        <input type="text" id="web_wallet" name="web_wallet" onfocusout="isValidEtherWallet()" required>
         <br>
 
         <label for="unit_amount">Value:</label>
@@ -140,40 +130,22 @@
         <label for="PLTvalue">Predicted Plata Tokens (PLT):</label>
         <input type="number" step="0.0001" id="PLTvalue" name="PLTvalue" onkeyup="onPLTChange(this)" required>
         <br><br>
-        <input type="hidden" id="recaptchaChecked" name="recaptchaChecked" value="0">
-        <div id="recaptcha-container" class="g-recaptcha" data-callback="recaptchaChecked" data-sitekey="6LdHDu0pAAAAAEIphakdhBK3-z8hruVG3iHNud-T"></div><br>
+
         <input type="submit" value="Checkout">
     </form>
 
-
-<script>
-        function isValidEtherWallet() {
-            let address = document.getElementById("web_wallet").value;
-            let result = Web3.utils.isAddress(address);
-            if (result != true) document.getElementById("web_wallet").value = "";
-            console.log(result); // => true?
-        }
-        function get_action() {
-            // Check if reCAPTCHA is checked
-            if (document.getElementById('recaptchaChecked').value === '1') {
-                console.log("reCAPTCHA checked.");
-                return true; // Allow form submission
-            } else {
-                console.log("reCAPTCHA not checked.");
-                alert("Please check the reCAPTCHA.");
-                return false; // Prevent form submission
-            }
-        }
-
-        // Function to update reCAPTCHA state when checked
-        function recaptchaChecked() {
-            document.getElementById('recaptchaChecked').value = '1';
-        }
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var formattedAmount = document.getElementById('valor').value;
+            var centsAmount = document.getElementById('valor').value; // Get the formatted value
+            centsAmount = centsAmount.replace(/\D/g, ""); // Remove all non-digits
+            centsAmount = parseFloat(centsAmount); // Convert to float
+            console.log("Cents Amount:", centsAmount);
+            document.getElementById('value_cents').value = centsAmount;
+            this.submit(); // Submit the form after manipulating the value
+        });
     </script>
-
-    
-    
-
 </body>
 
 </html>
