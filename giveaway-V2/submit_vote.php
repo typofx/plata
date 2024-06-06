@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert data into the table
-    $sql = "INSERT INTO granna80_bdlinks.votes (evm_wallet, vote_image, vote_number, MATICPLT, USDMATIC) VALUES ('$evm_wallet', '$target_file', '$vote_number', '$MATICPLT', '$USDMATIC')";
+    $sql = "INSERT INTO granna80_bdlinks.votes (evm_wallet, vote_image, vote_number, MATICPLT, MATICUSD) VALUES ('$evm_wallet', '$target_file', '$vote_number', '$MATICPLT', '$MATICUSD')";
     
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
