@@ -141,7 +141,7 @@
         <input type="number" step="0.0001" id="PLTvalue" name="PLTvalue" onkeyup="onPLTChange(this)" required>
         <br><br>
         <input type="hidden" id="recaptchaChecked" name="recaptchaChecked" value="0">
-        <div id="recaptcha-container" class="g-recaptcha" data-callback="recaptchaChecked" data-sitekey="6LdHDu0pAAAAAEIphakdhBK3-z8hruVG3iHNud-T"></div><br>
+
         <input type="submit" value="Checkout">
     </form>
 
