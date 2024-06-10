@@ -9,9 +9,8 @@
 }
 
 .timer{
-    -webkit-animation: time calc(99s) steps(1000, start) 60;
+    -webkit-animation: time calc(99s) steps(1000, start) forwards;
     animation: 99s linear count;
-    animation-fill-mode: forwards;
     counter-reset: n calc(0 + var(--n));
 }
 
