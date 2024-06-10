@@ -1,0 +1,21 @@
+@property --n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+@keyframes count {
+  from { --n: 120; }
+  to { --n: 0; }
+}
+
+.timer{
+    -webkit-animation: time calc(60s) steps(1000, start) 60;
+    animation: 120s linear count;
+    animation-fill-mode: forwards;
+    counter-reset: n calc(0 + var(--n));
+}
+
+.ref::before {
+    color: blue;
+    content: counter(n);
+}
