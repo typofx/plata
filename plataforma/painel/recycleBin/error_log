@@ -1,0 +1,20 @@
+[12-Jun-2024 10:42:40 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 10
+[12-Jun-2024 10:42:40 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 10
+[12-Jun-2024 10:42:40 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 14
+[12-Jun-2024 10:42:40 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function select_db() on null in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 14
+[12-Jun-2024 10:42:45 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 10
+[12-Jun-2024 10:42:45 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 10
+[12-Jun-2024 10:42:45 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 14
+[12-Jun-2024 10:42:45 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function select_db() on null in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 14
+[12-Jun-2024 10:45:41 America/Chicago] PHP Warning:  Undefined array key "trash_id" in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 54
+[12-Jun-2024 10:45:41 America/Chicago] PHP Warning:  Undefined array key "trash_id" in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 54
+[12-Jun-2024 10:46:22 America/Chicago] PHP Warning:  Undefined array key "trash_id" in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 54
+[12-Jun-2024 10:46:22 America/Chicago] PHP Warning:  Undefined array key "trash_id" in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 54
+[12-Jun-2024 10:47:03 America/Chicago] PHP Warning:  Undefined array key "trash_id" in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 56
+[12-Jun-2024 10:47:03 America/Chicago] PHP Warning:  Undefined array key "trash_id" in /home2/granna80/public_html/plataforma/painel/recycleBin/index.php on line 56
