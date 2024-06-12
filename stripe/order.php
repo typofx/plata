@@ -81,8 +81,8 @@
         function formatCurrency(value) {
             var formattedValue = value.value;
             formattedValue = formattedValue.replace(/\D/g, ""); // Remove all non-digits
-            formattedValue = formattedValue.replace(/(\d+)(\d{2})$/, "$1,$2");
-            formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."); // Add dots every three digits
+            formattedValue = formattedValue.replace(/(\d+)(\d{2})$/, "$1.$4");
+            formattedValue = formattedValue.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"); // Add dots every three digits
             value.value = formattedValue;
         }
 
