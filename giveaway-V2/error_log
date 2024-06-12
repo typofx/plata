@@ -1,793 +1,355 @@
-[29-May-2024 08:12:43 America/Chicago] PHP Warning:  move_uploaded_file(uploads/steve.png): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
-[29-May-2024 08:12:43 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpxTNXvT&quot; to &quot;uploads/steve.png&quot; in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
-[29-May-2024 08:13:13 America/Chicago] PHP Warning:  move_uploaded_file(uploads/steve.png): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
-[29-May-2024 08:13:13 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpNwZVBZ&quot; to &quot;uploads/steve.png&quot; in /home2/granna80/public_html/giveaway/submit_vote.php on line 40
-[30-May-2024 12:08:53 America/Chicago] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in /home2/granna80/public_html/giveaway/submit_vote.php:39
-Stack trace:
-#0 /home2/granna80/public_html/giveaway/submit_vote.php(39): getimagesize('')
-#1 {main}
-  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 39
-[30-May-2024 13:34:02 America/Chicago] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in /home2/granna80/public_html/giveaway/submit_vote.php:39
-Stack trace:
-#0 /home2/granna80/public_html/giveaway/submit_vote.php(39): getimagesize('')
-#1 {main}
-  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 39
-[30-May-2024 14:57:05 America/Chicago] PHP Warning:  Undefined array key "vote_image" in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
-[30-May-2024 14:57:05 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
-[30-May-2024 23:31:46 America/Chicago] PHP Warning:  Undefined array key "vote_image" in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
-[30-May-2024 23:31:46 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
-[31-May-2024 08:00:42 America/Chicago] PHP Warning:  Undefined array key "vote_image" in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
-[31-May-2024 08:00:42 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/giveaway/submit_vote.php on line 28
-[03-Jun-2024 12:17:26 America/Chicago] PHP Warning:  include(connection.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:17:26 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:17:26 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:17:26 America/Chicago] PHP Warning:  Attempt to read property "connect_error" on null in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:17:26 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:17:26 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/giveaway/submit_vote.php:31
-Stack trace:
-#0 {main}
-  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:17:42 America/Chicago] PHP Warning:  include(connection.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:17:42 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:17:42 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:17:42 America/Chicago] PHP Warning:  Attempt to read property "connect_error" on null in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:17:42 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:17:42 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/giveaway/submit_vote.php:31
-Stack trace:
-#0 {main}
-  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:18:36 America/Chicago] PHP Warning:  include(connection.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:18:36 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:18:36 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:18:36 America/Chicago] PHP Warning:  Attempt to read property "connect_error" on null in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:18:36 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:18:36 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/giveaway/submit_vote.php:31
-Stack trace:
-#0 {main}
-  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:19:40 America/Chicago] PHP Warning:  include(connection.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:19:40 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:19:40 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:19:40 America/Chicago] PHP Warning:  Attempt to read property "connect_error" on null in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:19:40 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:19:40 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/giveaway/submit_vote.php:31
-Stack trace:
-#0 {main}
-  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:19:56 America/Chicago] PHP Warning:  include(connection.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:19:56 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:19:56 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:19:56 America/Chicago] PHP Warning:  Attempt to read property "connect_error" on null in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:19:56 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:19:56 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/giveaway/submit_vote.php:31
-Stack trace:
-#0 {main}
-  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:20:01 America/Chicago] PHP Warning:  include(connection.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:20:01 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:20:17 America/Chicago] PHP Warning:  include(connection.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:20:17 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/giveaway/submit_vote.php on line 2
-[03-Jun-2024 12:20:17 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:20:17 America/Chicago] PHP Warning:  Attempt to read property "connect_error" on null in /home2/granna80/public_html/giveaway/submit_vote.php on line 14
-[03-Jun-2024 12:20:17 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:20:17 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/giveaway/submit_vote.php:31
-Stack trace:
-#0 {main}
-  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 31
-[03-Jun-2024 12:42:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:42:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:42:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:42:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:42:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:44:04 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:44:04 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:44:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:44:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:44:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:44:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:44:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:44:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:44:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:44:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:53:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:53:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:53:30 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:53:30 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:53:30 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:53:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:53:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:53:39 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:53:39 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:53:39 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:53:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:53:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:53:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:53:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:53:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:56:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:56:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:56:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:56:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:56:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:56:46 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:56:46 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:56:46 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:56:46 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:56:46 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:56:51 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:56:51 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:56:51 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:56:51 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:56:51 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:56:59 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:56:59 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:56:59 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:56:59 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:56:59 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:57:13 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:57:13 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:57:13 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:57:13 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:57:13 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:57:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:57:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:57:23 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:57:23 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:57:23 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:57:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:57:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:57:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:57:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:57:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:57:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:57:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:57:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:57:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:57:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:57:43 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:57:43 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:57:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:57:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:57:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:57:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:57:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:57:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:57:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:57:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 12:59:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:01:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:01:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:01:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:01:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:01:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:06:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:06:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:06:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:06:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:06:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:06:33 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:06:33 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:06:33 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:06:33 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:06:33 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:07:43 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:07:43 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:07:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:07:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:07:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:08:04 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:08:04 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:08:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:08:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:08:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:23:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:23:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:23:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:23:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:23:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:24:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:24:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:24:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:24:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:24:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:30:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:30:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:30:29 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:30:29 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:30:29 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:30:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:30:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:30:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:30:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:30:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:31:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:31:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:31:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:31:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:31:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:32:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:32:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:32:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:32:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:32:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 13:43:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 13:43:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 13:43:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 13:43:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 13:43:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[03-Jun-2024 14:53:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[03-Jun-2024 14:53:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[03-Jun-2024 14:53:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[03-Jun-2024 14:53:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[03-Jun-2024 14:53:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[04-Jun-2024 17:33:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[04-Jun-2024 17:33:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[04-Jun-2024 17:33:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[04-Jun-2024 17:33:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[04-Jun-2024 17:33:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 07:10:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[05-Jun-2024 07:10:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[05-Jun-2024 07:10:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 07:10:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 07:10:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 07:10:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[05-Jun-2024 07:10:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[05-Jun-2024 07:10:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 07:10:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 07:10:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 07:11:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[05-Jun-2024 07:11:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[05-Jun-2024 07:11:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 07:11:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 07:11:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 09:54:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[05-Jun-2024 09:54:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[05-Jun-2024 09:54:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 09:54:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 09:54:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 09:56:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[05-Jun-2024 09:56:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[05-Jun-2024 09:56:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 09:56:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 09:56:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 11:51:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[05-Jun-2024 11:51:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[05-Jun-2024 11:51:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 11:51:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 11:51:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 11:51:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[05-Jun-2024 11:51:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[05-Jun-2024 11:51:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 11:51:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 11:51:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 13:02:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 42
-[05-Jun-2024 13:02:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 44
-[05-Jun-2024 13:02:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 13:02:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 13:02:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 13:47:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[05-Jun-2024 13:47:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[05-Jun-2024 13:47:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 13:47:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 13:47:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 13:47:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[05-Jun-2024 13:47:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[05-Jun-2024 13:47:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 13:47:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 13:47:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 13:48:04 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[05-Jun-2024 13:48:04 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[05-Jun-2024 13:48:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 13:48:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 13:48:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[05-Jun-2024 13:48:04 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'USDMATIC' in 'field list' in /home2/granna80/public_html/giveaway/submit_vote.php:80
-Stack trace:
-#0 /home2/granna80/public_html/giveaway/submit_vote.php(80): mysqli->query('INSERT INTO gra...')
-#1 {main}
-  thrown in /home2/granna80/public_html/giveaway/submit_vote.php on line 80
-[05-Jun-2024 13:48:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[05-Jun-2024 13:48:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[05-Jun-2024 13:48:28 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[05-Jun-2024 13:48:28 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[05-Jun-2024 13:48:28 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:03:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:03:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:03:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:03:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:03:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:03:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:03:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:03:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:03:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:03:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:05:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:05:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:05:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:05:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:05:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:05:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:05:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:05:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:05:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:05:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:05:45 America/Chicago] PHP Warning:  Undefined array key "vote_image" in /home2/granna80/public_html/giveaway/submit_vote.php on line 56
-[06-Jun-2024 10:05:45 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/giveaway/submit_vote.php on line 56
-[06-Jun-2024 10:06:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:06:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:06:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:06:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:06:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:43:26 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/giveaway/index.php on line 36
-[06-Jun-2024 10:43:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:43:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:43:28 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:43:28 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:43:28 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:43:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:43:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:43:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:43:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:43:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:43:49 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/giveaway/index.php on line 36
-[06-Jun-2024 10:43:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:43:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:43:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:43:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:43:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:44:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:44:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:44:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:44:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:44:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:44:22 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/giveaway/index.php on line 36
-[06-Jun-2024 10:44:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:44:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:44:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:44:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:44:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:45:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:45:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:45:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:45:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:45:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:45:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:45:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:45:23 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:45:23 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:45:23 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:45:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:45:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:45:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:45:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:45:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:45:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:45:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:45:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:45:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:45:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:46:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:46:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:46:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:46:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:46:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:46:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:46:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:46:28 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:46:28 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:46:28 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:47:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:47:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:47:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:47:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:47:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:47:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:47:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:47:27 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:47:27 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:47:27 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:47:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:47:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:47:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:47:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:47:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:58:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:58:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:58:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:58:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:58:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:58:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:58:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:58:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:58:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:58:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 10:58:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 10:58:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 10:58:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 10:58:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 10:58:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 11:25:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 11:25:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 11:25:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 11:25:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 11:25:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 11:43:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 11:43:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 11:43:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 11:43:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 11:43:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 11:44:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 11:44:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 11:44:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 11:44:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 11:44:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[06-Jun-2024 12:23:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[06-Jun-2024 12:23:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[06-Jun-2024 12:23:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[06-Jun-2024 12:23:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[06-Jun-2024 12:23:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[09-Jun-2024 23:16:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[09-Jun-2024 23:16:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[09-Jun-2024 23:16:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[09-Jun-2024 23:16:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[09-Jun-2024 23:16:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[10-Jun-2024 00:27:24 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 00:27:24 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 00:27:24 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 85
-[10-Jun-2024 00:27:24 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 87
-[10-Jun-2024 01:01:12 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 01:01:12 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 01:01:12 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 85
-[10-Jun-2024 01:01:12 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 87
-[10-Jun-2024 09:53:13 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 09:53:13 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 09:53:13 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 85
-[10-Jun-2024 09:53:13 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 87
-[10-Jun-2024 09:53:19 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 09:53:19 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 09:53:19 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 85
-[10-Jun-2024 09:53:19 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 87
-[10-Jun-2024 09:53:24 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 09:53:24 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 83
-[10-Jun-2024 09:53:24 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 85
-[10-Jun-2024 09:53:24 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 87
-[10-Jun-2024 10:51:45 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 10:51:45 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 10:51:45 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 10:51:45 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 10:52:52 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 10:52:52 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 10:52:52 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 10:52:52 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 10:54:00 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 10:54:00 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 10:54:00 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 10:54:00 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 10:54:00 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 10:54:00 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 10:54:52 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 10:54:52 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 10:54:52 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 91
-[10-Jun-2024 10:54:52 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 91
-[10-Jun-2024 10:54:52 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 10:54:52 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 10:54:52 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 10:54:52 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 11:00:05 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:00:05 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:00:05 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 11:00:05 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 11:01:05 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 11:01:05 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 11:01:05 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 91
-[10-Jun-2024 11:01:05 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 91
-[10-Jun-2024 11:01:05 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:01:05 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:01:05 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 11:01:05 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 11:01:24 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 11:01:24 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 11:01:25 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:01:25 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:01:25 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 11:01:25 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  Undefined array key "vote_image" in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 66
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 66
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 91
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 91
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 11:01:47 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 11:02:39 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:02:39 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:02:39 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 11:02:39 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 11:02:59 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:02:59 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:02:59 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 11:02:59 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 11:03:35 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:03:35 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:03:35 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 11:03:35 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 11:56:58 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:56:58 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 11:56:58 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 11:56:58 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 12:37:45 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 12:37:45 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 12:37:45 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 12:37:45 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 12:37:55 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 12:37:55 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 12:37:55 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 12:37:55 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 12:38:47 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 12:38:47 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 12:38:47 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 12:38:47 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 13:04:27 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:04:27 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:04:27 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:04:27 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:04:27 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 13:04:27 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 13:04:27 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 13:04:27 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 13:05:23 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:05:23 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:05:23 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 13:05:23 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 13:05:23 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:05:23 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:05:23 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 13:05:23 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 13:08:38 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 13:08:38 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 13:08:39 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:08:39 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:08:39 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 13:08:39 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 13:09:09 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:09:09 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 13:09:09 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 13:09:09 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:01:20 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:01:20 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:01:20 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:01:20 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:01:47 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:01:47 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:01:47 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:01:47 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:01:55 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:01:55 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:01:55 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:01:55 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:03:24 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 15:03:24 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 15:03:24 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:03:24 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:03:24 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:03:24 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:06:59 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:06:59 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:06:59 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:06:59 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:11:33 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:11:33 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:11:33 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:11:33 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:33:37 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:33:37 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:33:37 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:33:37 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:34:45 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:34:45 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:34:45 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:34:45 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:35:42 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:35:42 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:35:42 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:35:42 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:36:26 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 15:36:26 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[10-Jun-2024 15:36:26 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:36:26 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:36:26 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:36:26 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 15:37:11 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:37:11 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 15:37:11 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 15:37:11 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 17:25:00 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 17:25:00 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 17:25:00 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 17:25:00 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[10-Jun-2024 21:33:32 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 21:33:32 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[10-Jun-2024 21:33:32 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[10-Jun-2024 21:33:32 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[11-Jun-2024 06:16:30 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:16:30 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:16:30 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[11-Jun-2024 06:16:30 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[11-Jun-2024 06:20:37 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:20:37 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:20:37 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 06:20:37 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 06:20:58 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:20:58 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:20:58 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 06:20:58 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 06:21:15 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:21:15 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:21:15 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 06:21:15 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 06:21:46 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:21:46 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:21:46 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[11-Jun-2024 06:21:46 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[11-Jun-2024 06:21:54 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:21:54 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:21:54 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 06:21:54 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 06:22:57 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:22:57 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:22:57 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[11-Jun-2024 06:22:57 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[11-Jun-2024 06:23:10 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:23:10 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:23:10 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 06:23:10 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 06:23:18 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:23:18 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:23:18 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[11-Jun-2024 06:23:18 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[11-Jun-2024 06:25:01 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:25:01 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:25:01 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 06:25:01 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 06:35:31 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:35:31 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:35:31 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[11-Jun-2024 06:35:31 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[11-Jun-2024 06:41:50 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:41:50 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:41:50 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[11-Jun-2024 06:41:50 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[11-Jun-2024 06:42:54 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:42:54 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:42:54 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[11-Jun-2024 06:42:54 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[11-Jun-2024 06:43:23 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:43:23 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 128
-[11-Jun-2024 06:43:23 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 130
-[11-Jun-2024 06:43:23 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 132
-[11-Jun-2024 06:44:12 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:44:12 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:44:12 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 06:44:12 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 06:44:13 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:44:13 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:44:13 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 06:44:13 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 06:44:29 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:44:29 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:44:29 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 06:44:29 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 06:44:39 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:44:39 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:44:39 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 06:44:39 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 06:44:49 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:44:49 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:44:49 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 06:44:49 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 06:45:52 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:45:52 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 06:45:52 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 06:45:52 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 06:45:58 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:45:58 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:45:58 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 06:45:58 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 06:46:07 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:46:07 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:46:07 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 06:46:07 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 06:47:08 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:47:08 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:47:08 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 06:47:08 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 06:47:23 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:47:23 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:47:23 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 06:47:23 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 06:48:27 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:48:27 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 06:48:27 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 06:48:27 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 07:12:38 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:12:38 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:12:38 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 07:12:38 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 07:16:07 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 07:16:07 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 07:16:07 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 07:16:07 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 07:16:20 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 07:16:20 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 07:16:20 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 07:16:20 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 07:17:24 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 07:17:24 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 07:17:24 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 07:17:24 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 07:17:32 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 07:17:32 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 83
-[11-Jun-2024 07:17:32 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 85
-[11-Jun-2024 07:17:32 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index2.php on line 87
-[11-Jun-2024 07:33:42 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:33:42 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:33:42 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 07:33:42 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 07:33:51 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:33:51 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:33:51 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 07:33:51 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 07:35:00 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:35:00 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:35:00 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 07:35:00 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 07:35:33 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:35:33 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:35:33 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 07:35:33 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 07:55:27 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:55:27 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 07:55:27 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 07:55:27 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 08:27:44 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 08:27:44 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 08:27:44 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 08:27:44 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 08:28:21 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[11-Jun-2024 08:28:21 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[11-Jun-2024 08:28:21 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 95
-[11-Jun-2024 08:28:21 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 95
-[11-Jun-2024 08:28:22 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 08:28:22 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 08:28:22 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 08:28:22 America/Chicago] PHP Warning:  Undefined variable $MATICUSD in /home2/granna80/public_html/sandbox/giveaway/index.php on line 129
-[11-Jun-2024 08:31:35 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 08:31:35 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/index.php on line 125
-[11-Jun-2024 08:31:35 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/sandbox/giveaway/index.php on line 127
-[11-Jun-2024 08:31:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[11-Jun-2024 08:31:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[11-Jun-2024 08:31:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[11-Jun-2024 08:31:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[11-Jun-2024 08:31:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[11-Jun-2024 15:20:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[11-Jun-2024 15:20:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[11-Jun-2024 15:20:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[11-Jun-2024 15:20:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[11-Jun-2024 15:20:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
-[11-Jun-2024 15:21:09 America/Chicago] PHP Warning:  include(../en/mobile/price.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[11-Jun-2024 15:21:09 America/Chicago] PHP Warning:  include(): Failed opening '../en/mobile/price.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/sandbox/giveaway/submit_vote.php on line 4
-[11-Jun-2024 15:21:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
-[11-Jun-2024 15:21:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
-[11-Jun-2024 15:21:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
-[11-Jun-2024 15:21:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
-[11-Jun-2024 15:21:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:07:31 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:07:31 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:07:31 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:07:31 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:07:31 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:10:31 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:10:31 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:10:31 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:10:31 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:10:31 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:13:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:13:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:13:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:13:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:13:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:18:21 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 88
+[10-Jun-2024 00:18:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:18:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:18:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:18:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:18:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:22:08 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 88
+[10-Jun-2024 00:22:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:22:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:22:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:22:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:22:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:22:36 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 88
+[10-Jun-2024 00:22:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:22:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:22:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:22:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:22:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:23:48 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 86
+[10-Jun-2024 00:23:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:23:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:23:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:23:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:23:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:25:04 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/upvote/index.php on line 86
+[10-Jun-2024 00:25:04 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 87
+[10-Jun-2024 00:25:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:25:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:25:05 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:25:05 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:25:05 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:26:14 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/upvote/index.php on line 83
+[10-Jun-2024 00:26:14 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 84
+[10-Jun-2024 00:26:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:26:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:26:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:26:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:26:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:27:06 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/upvote/index.php on line 83
+[10-Jun-2024 00:27:06 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 84
+[10-Jun-2024 00:27:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:27:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:27:07 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:27:07 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:27:07 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:29:14 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/upvote/index.php on line 83
+[10-Jun-2024 00:29:14 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 84
+[10-Jun-2024 00:29:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:29:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:29:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:29:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:29:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:32:55 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/upvote/index.php on line 83
+[10-Jun-2024 00:32:55 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 84
+[10-Jun-2024 00:32:56 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:32:56 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:32:56 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:32:56 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:32:56 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:34:10 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/upvote/index.php on line 83
+[10-Jun-2024 00:34:10 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 84
+[10-Jun-2024 00:34:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:34:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:34:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:34:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:34:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:34:48 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/upvote/index.php on line 83
+[10-Jun-2024 00:34:48 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 84
+[10-Jun-2024 00:34:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:34:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:34:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:34:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:34:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:38:11 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/upvote/index.php on line 83
+[10-Jun-2024 00:38:11 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 84
+[10-Jun-2024 00:38:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:38:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:38:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:38:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:38:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:38:17 America/Chicago] PHP Warning:  Undefined variable $MATICPLT in /home2/granna80/public_html/upvote/index.php on line 83
+[10-Jun-2024 00:38:17 America/Chicago] PHP Warning:  Undefined variable $USDPLT in /home2/granna80/public_html/upvote/index.php on line 84
+[10-Jun-2024 00:38:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:38:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:38:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:38:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:38:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:39:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:39:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:39:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:39:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:39:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:39:14 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:39:56 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:39:56 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:39:56 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:39:56 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:39:56 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:39:56 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:43:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:43:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:43:07 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:43:07 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:43:07 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:43:07 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:45:36 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:45:36 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:45:36 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:45:36 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:45:36 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:45:36 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:46:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:46:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:46:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:46:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:46:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:46:41 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:47:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:47:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:47:30 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:47:30 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:47:30 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:47:30 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:48:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:48:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:48:39 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:48:39 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:48:39 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:48:39 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:49:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:49:41 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:49:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:49:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:49:41 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:49:41 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:50:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:50:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:50:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:50:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:50:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:50:10 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:51:08 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:51:08 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:51:08 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:51:08 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:51:08 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:51:08 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:51:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:51:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:51:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:51:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:51:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:51:54 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:52:57 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:52:57 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:52:57 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:52:57 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:52:57 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:52:57 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:53:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:53:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:53:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:53:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:53:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:53:37 America/Chicago] PHP Fatal error:  Cannot redeclare tokenbalance() (previously declared in /home2/granna80/public_html/js/cryptoprices.php:12) in /home2/granna80/public_html/js/cryptoprices.php on line 12
+[10-Jun-2024 00:54:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:54:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:54:23 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:54:23 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:54:23 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:54:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:54:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:54:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:54:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:54:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:56:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:56:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:56:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:56:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:56:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:57:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:57:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:57:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:57:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:57:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:58:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:58:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:58:07 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:58:07 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:58:07 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 00:59:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 00:59:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 00:59:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 00:59:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 00:59:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:01:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:01:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:01:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:01:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:01:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:01:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:01:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:01:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:01:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:01:53 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:02:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:02:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:02:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:02:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:02:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:03:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:03:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:03:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:03:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:03:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:04:06 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:04:06 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:04:06 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:04:06 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:04:06 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:04:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:04:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:04:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:04:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:04:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:05:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:05:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:05:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:05:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:05:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:05:42 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:05:42 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:05:42 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:05:42 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:05:42 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:07:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:07:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:07:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:07:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:07:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:15:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:15:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:15:34 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:15:34 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:15:34 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 01:30:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 01:30:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 01:30:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 01:30:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 01:30:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 09:51:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 09:51:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 09:51:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 09:51:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 09:51:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 09:55:55 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 09:55:55 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 09:55:55 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 09:55:55 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 09:55:55 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 12:26:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 12:26:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 12:26:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 12:26:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 12:26:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 13:09:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 13:09:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 13:09:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 13:09:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 13:09:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 15:07:02 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 15:07:02 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 15:07:02 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 15:07:02 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 15:07:02 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[10-Jun-2024 23:11:21 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[10-Jun-2024 23:11:21 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[10-Jun-2024 23:11:21 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[10-Jun-2024 23:11:21 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[10-Jun-2024 23:11:21 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 08:00:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 08:00:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 08:00:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 08:00:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 08:00:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 08:00:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 08:00:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 08:00:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 08:00:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 08:00:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 08:21:13 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 08:21:13 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 08:21:13 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 08:21:13 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 08:21:13 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 08:23:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 08:23:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 08:23:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 08:23:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 08:23:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 08:23:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 08:23:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 08:23:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 08:23:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 08:23:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 08:24:36 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 08:24:36 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 08:24:36 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 08:24:36 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 08:24:36 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 09:04:06 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 09:04:06 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 09:04:06 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 09:04:06 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 09:04:06 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 09:04:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 09:04:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 09:04:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 09:04:29 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 09:04:29 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 09:04:29 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 09:10:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 09:10:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 09:10:34 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 09:10:34 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 09:10:34 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[11-Jun-2024 09:20:46 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[11-Jun-2024 09:20:46 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[11-Jun-2024 09:20:46 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[11-Jun-2024 09:20:46 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[11-Jun-2024 09:20:46 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
