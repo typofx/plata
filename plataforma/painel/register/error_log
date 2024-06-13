@@ -1,0 +1,29 @@
+[01-Sep-2023 09:58:22 America/Chicago] PHP Warning:  include(.../conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/listingplatform/painel/cadastro/cadastro.php on line 3
+[01-Sep-2023 09:58:22 America/Chicago] PHP Warning:  include(): Failed opening '.../conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/listingplatform/painel/cadastro/cadastro.php on line 3
+[01-Sep-2023 09:59:37 America/Chicago] PHP Warning:  include(./../conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/listingplatform/painel/cadastro/cadastro.php on line 3
+[01-Sep-2023 09:59:37 America/Chicago] PHP Warning:  include(): Failed opening './../conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php80/root/usr/share/pear') in /home2/granna80/public_html/listingplatform/painel/cadastro/cadastro.php on line 3
+[13-Jun-2024 11:44:15 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/plataforma/painel/register/index.php on line 3
+[13-Jun-2024 11:44:15 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/register/index.php:1) in /home2/granna80/public_html/plataforma/painel/register/index.php on line 5
+[13-Jun-2024 11:44:18 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/plataforma/painel/register/index.php on line 3
+[13-Jun-2024 11:44:18 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/register/index.php:1) in /home2/granna80/public_html/plataforma/painel/register/index.php on line 5
+[13-Jun-2024 11:51:02 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM granna80_bdlinks.users' at line 1 in /home2/granna80/public_html/plataforma/painel/register/index.php:47
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/register/index.php(47): mysqli->query('SELECT id, user...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/register/index.php on line 47
+[13-Jun-2024 11:51:33 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM granna80_bdlinks.users' at line 1 in /home2/granna80/public_html/plataforma/painel/register/index.php:47
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/register/index.php(47): mysqli->query('SELECT id, user...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/register/index.php on line 47
+[13-Jun-2024 11:51:56 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM granna80_bdlinks.users' at line 1 in /home2/granna80/public_html/plataforma/painel/register/index.php:47
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/register/index.php(47): mysqli->query('SELECT id, user...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/register/index.php on line 47
+[13-Jun-2024 11:51:58 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM granna80_bdlinks.users' at line 1 in /home2/granna80/public_html/plataforma/painel/register/index.php:47
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/register/index.php(47): mysqli->query('SELECT id, user...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/register/index.php on line 47
+[13-Jun-2024 12:49:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/register/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/register/delete.php on line 32
