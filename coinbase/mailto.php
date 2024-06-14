@@ -16,8 +16,7 @@
     
     $headers = "From: noreply@plata.ie";
   
-    //$identificador = $_POST['identificador'];
-    //$PLTwanted = number_format($_POST["PLTwanted"], 4, '.' , ',');
+
     $TXTdate = $_POST["TXTdate"]; 
     
     date_default_timezone_set('UTC');
@@ -32,7 +31,7 @@
                     "Receives About (PLT) : ".$PLTwanted."\n".
                     "Web3 Wallet : ". $web3wallet."\n".
                     "Chain ID : Polygon (137)"."\n".
-                    //"Identificador : ". $identificador."\n".
+                 
                     "Order Expires at : ". $Expdate
                   ;
 
@@ -53,12 +52,10 @@
   $txid = "polygon"; 
   $email = $customerEmail; 
   $status = "pending"; 
-  
-  // Consulta SQL para inserir os dados na tabela payments
+
   $sql = "INSERT INTO granna80_bdlinks.payments (date, bank, plata, amount, asset, address, txid, email, status) 
           VALUES ('$date', '$bank', '$plata', $amount, '$asset', '$address', '$txid', '$email', '$status')";
-  
-  // Executar a consulta SQL
+
   if ($conn->query($sql) === TRUE) {
       $text1 = "Payment details entered successfully.";
   } else {
