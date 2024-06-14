@@ -40,6 +40,31 @@
   mail('salesdone@plata.ie', $emailSubject, $emailMessage, $headers);
   mail('uarloque@live.com', $emailSubject, $emailMessage, $headers);
   
+
+  include "conexao.php"; 
+  date_default_timezone_set('UTC');
+  
+  $date = date("Y-m-d H:i:s");
+  $bank = "coinbase";
+  $plata = $PLTwanted;
+  $amount =  $paymentAmount;
+  $asset = $paymentCurrency;
+  $address = $web3wallet;
+  $txid = "polygon"; 
+  $email = $customerEmail; 
+  $status = "pending"; 
+  
+  // Consulta SQL para inserir os dados na tabela payments
+  $sql = "INSERT INTO granna80_bdlinks.payments (date, bank, plata, amount, asset, address, txid, email, status) 
+          VALUES ('$date', '$bank', '$plata', $amount, '$asset', '$address', '$txid', '$email', '$status')";
+  
+  // Executar a consulta SQL
+  if ($conn->query($sql) === TRUE) {
+      $text1 = "Payment details entered successfully.";
+  } else {
+      $text2 = "Error when entering payment details:" . $conn->error;
+  }
+
 echo '<body><script language="Javascript1.1">window.close();
 
 function openTab(){

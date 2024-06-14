@@ -1,8 +1,8 @@
 <?php
+// Dados da sua conta na Coinbase
 
-$coinbaseApiKey = '';
 
-
+// Valores padrão do pagamento
 $customerName = '';
 $customerEmail = ''; 
 $paymentAmount = 1.00;
@@ -10,9 +10,9 @@ $paymentCurrency = 'USD';
 $paymentDescription = 'Buying Plata Token';
 $customerWallet = '';
 
-
+// Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
- 
+    // Atualiza os valores do pagamento com os dados do formulário
     $paymentAmount = $_POST['amount'];
     $paymentCurrency = $_POST['currency'];
     $customerName = $_POST['customerName'];
@@ -24,18 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //$paymentDescription = $_POST['description'];
 }
 
-
+// Configurações da API da Coinbase
 $coinbaseApiUrl = 'https://api.commerce.coinbase.com';
 $coinbaseApiEndpoint = '/checkouts';
 
-
+// Cabeçalhos da requisição
 $headers = array(
     'Content-Type: application/json',
     'X-CC-Api-Key: ' . $coinbaseApiKey,
     'X-CC-Version: 2018-03-22'
 );
 
-
+// Dados do pagamento no formato JSON
 
 $paymentData = array(
     'name' => '$PLT Plata Token',
@@ -50,7 +50,7 @@ $paymentData = array(
     'redirect_url' => 'https://plata.ie/'
 );
 
-
+// Realiza a requisição para criar um novo pagamento na Coinbase
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $coinbaseApiUrl . $coinbaseApiEndpoint);
 curl_setopt($ch, CURLOPT_POST, 1);
@@ -58,10 +58,10 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($paymentData));
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
-$status = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
+$status = curl_getinfo($ch, CURLINFO_HTTP_CODE); // Obtém o código de status HTTP da resposta
 curl_close($ch);
 
-
+// Processa a resposta da API da Coinbase
 if ($status === 201) {
     $responseData = json_decode($response, true);
   
@@ -69,12 +69,17 @@ if ($status === 201) {
         $checkoutId = $responseData['data']['id'];
         $checkoutUrl = 'https://commerce.coinbase.com/checkout/' . $checkoutId;
 
-     
+         //Cria um botão de pagamento
+        //echo '<a href="' . $checkoutUrl . '" target="_blank">Pagar com Coinbase</a>';
+        //echo 'Resposta da API: ' . $response;
+        //echo 'URL de checkout da Coinbase: ' . $checkoutUrl;
     } else {
-       
+        //echo 'Erro ao obter URL de pagamento.';
+        //echo 'Resposta da API: ' . $response;
     }
 } else {
-   
+    //echo 'Erro na requisição para a API da Coinbase. Status: ' . $status;
+    //echo 'Resposta da API: ' . $response;
 }
 ?>
 

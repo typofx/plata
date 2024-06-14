@@ -1,7 +1,7 @@
 <?php
 
 // Dados da sua conta na Coinbase
-$coinbaseApiKey = 'd683db11-168d-4e2e-adb9-e48e670d0f92';
+
 
 // Valores padrão do pagamento
 //$paymentAmount = 10.0;
