@@ -1,0 +1,8 @@
+{
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "web3p/web3.php": "*"
+    }
+}
+
