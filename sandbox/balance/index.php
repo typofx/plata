@@ -130,17 +130,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <title>Check Wallet Balance on Polygon (Matic)</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/0f8eed42e7.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <h2>Check Wallet Balance</h2>
     <form method="post" action="">
         <label for="walletAddress">Ethereum Wallet Address:</label>
-        <input type="text" id="walletAddress" name="walletAddress" placeholder="Ethereum Wallet Address"><br><br>
+        <input type="text" id="walletAddress" name="walletAddress" onfocusout="isValidEtherWallet()" placeholder="Ethereum Wallet Address"><br><br>
         
         <label for="tokenContract">ERC20 Token Contract Address:</label>
         <input type="text" id="tokenContract" name="tokenContract" placeholder="ERC20 Token Contract Address"><br><br>
         
         <input type="submit" name="submit" value="Check Balance">
     </form>
+
+    <script>
+
+function isValidEtherWallet() {
+            let address = document.getElementById("walletAddress").value;
+            let result = Web3.utils.isAddress(address);
+            if (result != true) document.getElementById("walletAddress").value = "";
+            console.log(result); // => true?
+        }
+
+    </script>
 </body>
 </html>
