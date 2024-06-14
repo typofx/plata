@@ -111,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $walletBalanceWei = number_format(substr($walletBalanceWei, 0, -18) . '.' . substr($walletBalanceWei, -18), 5);
     echo '<p>Wallet balance ' . $walletAddress . ': <b>' . $walletBalanceWei . '</b> MATIC </p>';
     if ($tokenBalance !== null) {
+        $tokenBalance =   substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), 0, -12) . ',' . substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), -12, 3) . ',' . substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), -9, 3) . ',' . substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), -6, 3) . '.' . substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), -3);
         echo 'PLT Balance: <b>'. $tokenBalance . '</b>';
     } else {
         echo '<p>Token balance not available.</p>';
