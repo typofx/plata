@@ -1,56 +1,52 @@
 <?php
-// Dados da sua conta na Coinbase
 
+// Your Coinbase account data
 
-// Valores padrão do pagamento
-$customerName = '';
-$customerEmail = ''; 
-$paymentAmount = 1.00;
-$paymentCurrency = 'USD';
-$paymentDescription = 'Buying Plata Token';
-$customerWallet = '';
+// Default payment values
+//$paymentAmount = 10.0;
+//$paymentCurrency = 'USD';
+//$paymentDescription = 'Text';
 
-// Verifica se o formulário foi enviado
+// Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Atualiza os valores do pagamento com os dados do formulário
+    // Update payment values with form data
     $paymentAmount = $_POST['amount'];
     $paymentCurrency = $_POST['currency'];
     $customerName = $_POST['customerName'];
     $customerEmail = $_POST['customerEmail'];
     $web3wallet = $_POST['customerWallet'];
     $PLTwanted = $_POST['PLTwanted'];
-    
+    $checkoutUrl = $_POST['checkoutUrl'];
     
     //$paymentDescription = $_POST['description'];
 }
 
-// Configurações da API da Coinbase
+// Coinbase API configurations
 $coinbaseApiUrl = 'https://api.commerce.coinbase.com';
 $coinbaseApiEndpoint = '/checkouts';
 
-// Cabeçalhos da requisição
+// Request headers
 $headers = array(
     'Content-Type: application/json',
     'X-CC-Api-Key: ' . $coinbaseApiKey,
     'X-CC-Version: 2018-03-22'
 );
 
-// Dados do pagamento no formato JSON
-
+// Payment data in JSON format
 $paymentData = array(
     'name' => '$PLT Plata Token',
     'description' => 'Buying Plata Token with Coinbase',
     'pricing_type' => 'fixed_price',
-        'local_price' => array(
-            'amount' => $paymentAmount,
-            'currency' => $paymentCurrency,
-        ),
+    'local_price' => array(
+        'amount' => $paymentAmount,
+        'currency' => $paymentCurrency,
+    ),
     'requested_info' => array(
     ),
     'redirect_url' => 'https://plata.ie/'
 );
 
-// Realiza a requisição para criar um novo pagamento na Coinbase
+// Make a request to create a new payment on Coinbase
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $coinbaseApiUrl . $coinbaseApiEndpoint);
 curl_setopt($ch, CURLOPT_POST, 1);
@@ -58,122 +54,101 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($paymentData));
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
-$status = curl_getinfo($ch, CURLINFO_HTTP_CODE); // Obtém o código de status HTTP da resposta
+$status = curl_getinfo($ch, CURLINFO_HTTP_CODE); // Get the HTTP status code of the response
 curl_close($ch);
 
-// Processa a resposta da API da Coinbase
+// Process the response from the Coinbase API
 if ($status === 201) {
     $responseData = json_decode($response, true);
   
     if (isset($responseData['data']['id'])) {
         $checkoutId = $responseData['data']['id'];
         $checkoutUrl = 'https://commerce.coinbase.com/checkout/' . $checkoutId;
-
-         //Cria um botão de pagamento
-        //echo '<a href="' . $checkoutUrl . '" target="_blank">Pagar com Coinbase</a>';
-        //echo 'Resposta da API: ' . $response;
-        //echo 'URL de checkout da Coinbase: ' . $checkoutUrl;
+        $checkoutMail = 'onclick="emailToCustomer()"';
+        
+        //echo $checkoutMail;
+        
+        //echo 'API response: ' . $response;
+        //echo 'Coinbase checkout URL: ' . $checkoutUrl;
     } else {
-        //echo 'Erro ao obter URL de pagamento.';
-        //echo 'Resposta da API: ' . $response;
+        //echo 'Error getting payment URL.';
+        //echo 'API response: ' . $response;
+        header("Location: https://www.plata.ie/coinbase/");
+        exit();
     }
 } else {
-    //echo 'Erro na requisição para a API da Coinbase. Status: ' . $status;
-    //echo 'Resposta da API: ' . $response;
+    //echo 'Error in request to Coinbase API. Status: ' . $status;
+    //echo 'API response: ' . $response;
+    header("Location: https://www.plata.ie/coinbase/");
+    exit();
 }
+
+?>
+<link rel="stylesheet" href="https://www.plata.ie/coinbase/style.css">
+<?php
+
+// Create a payment button
+
 ?>
 
-
-<!doctype html>
-
-<link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 
-    <head>
+<head>
     <title>Plata Token - Coinbase</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta charset="utf-8">
     <meta name="keywords" content="coinbase, coin" />
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/0f8eed42e7.js" crossorigin="anonymous"></script>
     <script>
-        function isValidEtherWallet(){
-        let address = document.getElementById("customerWallet").value;
-        let result = Web3.utils.isAddress(address);
-        if (result!= true) document.getElementById("customerWallet").value = "";
-        console.log(result);  // => true?
-    }  
-    
+        function showFullWallet(){
+            alert(WalletAddress);
+        }
     </script>
-    </head>
-
-    <script>
-        function currencyConvert() {
-            let textCurrency = String(document.getElementById("currency").value);
-        
-            console.log(textCurrency);
-        
-            if (textCurrency=='BRL') {
-                document.getElementById("PLTwanted").value = (Number(document.getElementById("amount").value) / Number(_PLTBRL)).toFixed(4);
-            }else if (textCurrency=='EUR') {
-                document.getElementById("PLTwanted").value = (Number(document.getElementById("amount").value) / Number(_PLTEUR)).toFixed(4);
-            }else if (textCurrency=='USD') {
-                document.getElementById("PLTwanted").value = (Number(document.getElementById("amount").value) / Number(_PLTUSD)).toFixed(4);
-            }
-    }
-        
-    </script>
-
-    <body>
-        <div id="boxApp" align="center">
+    <div id="boxApp" align="center">
         <div id="box" class="box">
-        <h3>Coinbase Commerce</h3>
-        <div>
-        <form method="POST" action="checkout.php">
-
-            <div class="div-label"><label for="User Name">Name</label></div>
+            <h3>Purchase Confirmation</h3>
+            <h4>Coinbase Commerce</h4>
             <div>
-                <input type="text" id="customerName" name="customerName" value="<?php echo $customerName; ?>" required>
-            </div> 
-
-            <div class="div-label"><label for="Email">Email</label></div>
-            <div>
-                <input type="email" name="customerEmail" id="customerEmail" value="<?php echo $customerEmail; ?>" required>
+                <form action="<?php echo $checkoutUrl; ?>" >
+                    <div class="div-label"><label for="User Name">Name :</label></div>
+                    <div>
+                        <b><?php echo $customerName; ?></b>
+                    </div> 
+                    <br>
+                    <div class="div-label"><label for="Email">Email :</label></div>
+                    <div>
+                        <b><?php echo $customerEmail; ?></b>
+                    </div>
+                    <br>
+                    <div class="div-label"><label for="Web3Wallet">Web3 DEX Polygon(MATIC) Wallet :</label></div>
+                    <div>
+                        <b><a id="WalletToGetPlata" onclick="showFullWallet()"><?php echo $web3wallet; ?></a></b>
+                    </div>
+                    <br>
+                    <div class="div-label"><label for="Amount">Amount To Be Spent :</label></div>
+                    <div>
+                        <b><?php echo $paymentAmount; ?> (<?php echo $paymentCurrency; ?>)</b>
+                    </div>
+                    <br>
+                    <div class="div-label"><label for="PLTwanted">Plata Tokens (Quote) :</label></div>
+                    <b><?php echo $PLTwanted; ?> (PLT)</b>
+                    <br>
+                    <hr width="95%" class="hrline"/>
+                    <button class='buttonBuyNow' onclick="emailToCustomer()" >Checkout</button>
+                    <hr width="95%" class="hrline"/>
+                </form>
             </div>
-
-            <div class="div-label"><label for="Web3Wallet">Web3 DEX Polygon(MATIC) Wallet</label></div>
-            <div>
-                <input type="text" name="customerWallet" size="49" id="customerWallet" placeholder="0x..." value="<?php echo $customerWallet; ?>" onfocusout="isValidEtherWallet()" required>
-            </div>
-
-            <div class="amount">
-            <div class="div-label"><label for="amount">Payment Amount </label></div>
-                <select class="select-list" name="currency" id="currency" onfocus="currencyConvert()" onfocosout="currencyConvert()" focusin="currencyConvert()" onclick="currencyConvert()">
-                    <option class="option" value="<?php echo $paymentCurrency = "EUR"; ?>">EUR</option> 
-                    <option class="option" value="<?php echo $paymentCurrency = "USD"; ?>">USD</option>
-                    <option class="option" value="<?php echo $paymentCurrency = "BRL"; ?>">BRL</option>
-                </select>
-            <input class="input-amount" type="number" step="0.01" min="0.01" name="amount" id="amount" autocomplete="off" value="<?php echo $paymentAmount; ?>" onkeyup="QUOTEexec()" onkeypress="QUOTEexec()" required>
-            </div>
-            <div class="div-label"> <label for="PLTwanted">Receiving about Plata Tokens (PLT)</label></div>
-            <input lass="input-amount" type="number" id="PLTwanted" name="PLTwanted" size="15" step="0.0001" autocomplete="off" min="0.0001" value="<?php echo $PLTwanted; ?>" onkeyup="PLTexec()" onkeypress="PLTexec()" required>
-
-            <hr width="95%" class="hrline"/>
-            <button id="submitButton" name="submit" class="buttonBuyNow"> Pay with Crypto </button>
-            <hr width="95%" class="hrline"/>
-        </form>
-        </div></div></div></div>
-        
-        
-<br>
-<center><a id="dappVersion">PlataByCoinbase Dapp Version 0.0.99 (Beta)</a></center>
-<?php include '../en/mobile/price.php';?>
+        </div>
+    </div>
+    <br>
+    <center><a id="dappVersion">PlataByCoinbase Dapp Version 0.0.99 (Beta)</a></center>
 
 <?php
     date_default_timezone_set('UTC');
@@ -181,48 +156,17 @@ if ($status === 201) {
 ?>
 
 <script>
-
-    document.getElementById("amount").value = "1.00";
-    let _PLTBRL = <?php echo number_format($PLTBRL, 8, '.' , ''); ?>;
-    let _PLTEUR = <?php echo number_format($PLTEUR, 8, '.' , ''); ?>;
-    let _PLTUSD = <?php echo number_format($PLTUSD, 8, '.' , ''); ?>;
-
-    console.log(_PLTEUR);
-    document.getElementById("PLTwanted").value = Number(1/_PLTEUR).toFixed(4);
-
-    document.getElementById("txtCurrencyEnv").innerText = "(EUR)";
-    document.getElementById("txtPAIR").innerText = "<?php echo $PLTEUR?>";
-    document.getElementById("tr-price").style.visibility = "collapse";
-
-    function QUOTEexec() {
-        let textCurrency = String(document.getElementById("currency").value);
-        let textAmount = Number(document.getElementById("amount").value);
-        
-        if (textCurrency=='BRL') {
-            document.getElementById("PLTwanted").value = Number(textAmount/_PLTBRL).toFixed(4);
-        }else if (textCurrency=='EUR') {
-            document.getElementById("PLTwanted").value = Number(textAmount/_PLTEUR).toFixed(4);
-        }else  if (textCurrency=='USD') {
-            document.getElementById("PLTwanted").value = Number(textAmount/_PLTUSD).toFixed(4);
-        }
-        
-    } QUOTEexec();
+    let WalletAddress = document.getElementById("WalletToGetPlata").innerText + " ";
     
-    function PLTexec() {
-        let textCurrency = String(document.getElementById("currency").value);
-        let textPLT = Number(document.getElementById("PLTwanted").value);
+    function emailToCustomer() {
+        var link = document.createElement("a")
+        link.href = "mailto.php?customerName=<?php echo $customerName;?>&customerEmail=<?php echo $customerEmail;?>&customerWallet=<?php echo $web3wallet;?>&amount=<?php echo $paymentAmount;?>&currency=<?php echo $paymentCurrency;?>&PLTwanted=<?php echo $PLTwanted;?>";
+        link.target = "_blank"
+        link.click()
+    }
 
-        if (textCurrency=='BRL') {
-            document.getElementById("amount").value = Number(textPLT*_PLTBRL).toFixed(2);
-        }else if (textCurrency=='EUR') {
-            document.getElementById("amount").value = Number(textPLT*_PLTEUR).toFixed(2);
-        }else  if (textCurrency=='USD') {
-            document.getElementById("amount").value = Number(textPLT*_PLTUSD).toFixed(2);
-        }
-
-    } PLTexec();
+    function ReducedStringNameWalletAddress() {
+        document.getElementById("WalletToGetPlata").innerText = ( WalletAddress.slice(0,6) + "..." + WalletAddress.slice(-5,-1));
+    } ReducedStringNameWalletAddress();
     
 </script>
-
-    </body>
-</html>
