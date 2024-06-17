@@ -152,12 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     echo '<p>Token Contract: ' . htmlspecialchars($tokenContract) . '</p>';
     $walletBalanceWei = number_format(substr($walletBalanceWei, 0, -18) . '.' . substr($walletBalanceWei, -18), 5);
     echo '<p>Wallet balance ' . $walletAddress . ': <b>' . $walletBalanceWei . '</b> MATIC </p>';
-    if ($tokenBalance !== null) {
-        $tokenBalance =   number_format($tokenBalance / 10000, 4, '.', ',');
-        echo 'PLT Balance: <b>'. $tokenBalance . '</b>';
-    } else {
-        echo '<p>Token balance not available.</p>';
-    }
+  
     if ($tokenSymbol !== null) {
         echo '<p>Symbol : ' . $tokenSymbol . '</p>';
     } else {
@@ -173,6 +168,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     } else {
         echo '<p>Token decimals not available.</p>';
     }
+
+   
+    if ($tokenBalance !== null && $tokenDecimals !== null) {
+        // Convert token balance to the correct decimal format
+        $tokenDecimalsStr = (int) $tokenDecimals->toString(); 
+    
+        // Increment tokenDecimalsStr
+      
+    
+        // Use bcdiv para divisão precisa de números grandes
+        $tokenBalanceFormatted = bcdiv($tokenBalance, bcpow(10, $tokenDecimalsStr), $tokenDecimalsStr);
+    
+        // Format the balance for display
+        $formattedBalance = number_format((float) $tokenBalanceFormatted, $tokenDecimalsStr, '.', ',');
+    
+        echo 'Balance: <b>' . $formattedBalance . '</b>';
+    } else {
+        echo '<p>Token balance not available.</p>';
+    }
+    
+    
+
+
+
+    
+    
 }
 
 ?>
