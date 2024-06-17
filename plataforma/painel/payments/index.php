@@ -1,5 +1,10 @@
 <?php
+
+ini_set('session.gc_maxlifetime', 28800);
+session_set_cookie_params(28800);
+
 session_start();
+
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
     header("Location: ../index.php");
     exit();
@@ -26,8 +31,16 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             background-color: yellow;
             color: black;
             padding: 2px 4px;
-       
+
             border-radius: 3px;
+
+        }
+    </style>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
          
         }
     </style>
@@ -36,8 +49,10 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 <body>
     <h1>Payments</h1>
 
-    <a href='add.php'>Add new record</a>
-    <br>
+    <div class="container">
+        <a href="add.php">Add new record</a>
+        <button onclick="confirmDelete2();">Delete test users</button>
+    </div>
     <?php
     include 'conexao.php';
 
@@ -106,9 +121,17 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     ?>
     <script>
         function confirmDelete(id) {
-            var confirmDelete = confirm("Tem certeza que deseja deletar?");
+            var confirmDelete = confirm("Are you sure you want to delete?");
             if (confirmDelete) {
                 window.location.href = "delete.php?id=" + id;
+            }
+        }
+    </script>
+    <script>
+        function confirmDelete2() {
+            var confirmDelete = confirm("Are you sure you want to delete the test records? It will not be possible to recover this data.");
+            if (confirmDelete) {
+                window.location.href = "delete2.php";
             }
         }
     </script>
