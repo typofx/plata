@@ -15,6 +15,8 @@ $web3 = new Web3(new HttpProvider($rpcUrl));
 $walletBalanceWei = null;
 $tokenBalance = null;
 $tokenSymbol = null;
+$tokenName = null;
+$tokenDecimals = null;
 
 // Function to get Ethereum wallet balance
 function getWalletBalance($web3, $walletAddress, &$walletBalanceWei) {
@@ -37,10 +39,10 @@ function getWalletBalance($web3, $walletAddress, &$walletBalanceWei) {
     });
 }
 
-// Function to get ERC20 token balance and symbol
-function getTokenInfo($web3, $walletAddress, $tokenContract, &$tokenBalance, &$tokenSymbol) {
+// Function to get ERC20 token info
+function getTokenInfo($web3, $walletAddress, $tokenContract, &$tokenBalance, &$tokenSymbol, &$tokenName, &$tokenDecimals) {
     // ERC20 contract ABI
-    $erc20Abi = json_decode('[{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]', true);
+    $erc20Abi = json_decode('[{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"}]', true);
 
     $contract = new Contract($web3->provider, $erc20Abi);
 
@@ -88,6 +90,46 @@ function getTokenInfo($web3, $walletAddress, $tokenContract, &$tokenBalance, &$t
         // Set token symbol
         $tokenSymbol = $symbol;
     });
+
+    // Get token name
+    $contract->at($tokenContract)->call('name', [], function ($err, $name) use ($tokenContract, &$tokenName) {
+        if ($err !== null) {
+            echo 'Error getting token name ' . $tokenContract . ': ' . $err->getMessage() . PHP_EOL;
+            return;
+        }
+
+        // Check if $name is an array (as it appears to be)
+        if (is_array($name) && isset($name[0])) {
+            $name = $name[0]; // Access first element of array
+        } else {
+            echo 'Token name not available. Contract response:' . PHP_EOL;
+            var_dump($name); // Added for debugging
+            return;
+        }
+
+        // Set token name
+        $tokenName = $name;
+    });
+
+    // Get token decimals
+    $contract->at($tokenContract)->call('decimals', [], function ($err, $decimals) use ($tokenContract, &$tokenDecimals) {
+        if ($err !== null) {
+            echo 'Error getting token decimals ' . $tokenContract . ': ' . $err->getMessage() . PHP_EOL;
+            return;
+        }
+
+        // Check if $decimals is an array (as it appears to be)
+        if (is_array($decimals) && isset($decimals[0])) {
+            $decimals = $decimals[0]; // Access first element of array
+        } else {
+            echo 'Token decimals not available. Contract response:' . PHP_EOL;
+            var_dump($decimals); // Added for debugging
+            return;
+        }
+
+        // Set token decimals
+        $tokenDecimals = $decimals;
+    });
 }
 
 // Check if form was submitted
@@ -98,8 +140,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     // Get Ethereum wallet balance
     getWalletBalance($web3, $walletAddress, $walletBalanceWei);
 
-    // Get ERC20 token balance and symbol
-    getTokenInfo($web3, $walletAddress, $tokenContract, $tokenBalance, $tokenSymbol);
+    // Get ERC20 token info
+    getTokenInfo($web3, $walletAddress, $tokenContract, $tokenBalance, $tokenSymbol, $tokenName, $tokenDecimals);
 
     // Wait to ensure all asynchronous calls are completed before displaying results
     sleep(1);
@@ -111,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $walletBalanceWei = number_format(substr($walletBalanceWei, 0, -18) . '.' . substr($walletBalanceWei, -18), 5);
     echo '<p>Wallet balance ' . $walletAddress . ': <b>' . $walletBalanceWei . '</b> MATIC </p>';
     if ($tokenBalance !== null) {
-        $tokenBalance =   substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), 0, -12) . ',' . substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), -12, 3) . ',' . substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), -9, 3) . ',' . substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), -6, 3) . '.' . substr(str_pad((string)$tokenBalance, 15, '0', STR_PAD_RIGHT), -3);
+        $tokenBalance =   number_format($tokenBalance / 10000, 4, '.', ',');
         echo 'PLT Balance: <b>'. $tokenBalance . '</b>';
     } else {
         echo '<p>Token balance not available.</p>';
@@ -120,6 +162,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         echo '<p>Symbol : ' . $tokenSymbol . '</p>';
     } else {
         echo '<p>Token symbol not available.</p>';
+    }
+    if ($tokenName !== null) {
+        echo '<p>Name : ' . $tokenName . '</p>';
+    } else {
+        echo '<p>Token name not available.</p>';
+    }
+    if ($tokenDecimals !== null) {
+        echo '<p>Decimals : ' . $tokenDecimals . '</p>';
+    } else {
+        echo '<p>Token decimals not available.</p>';
     }
 }
 
@@ -147,14 +199,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     </form>
 
     <script>
-
-function isValidEtherWallet() {
+        function isValidEtherWallet() {
             let address = document.getElementById("walletAddress").value;
             let result = Web3.utils.isAddress(address);
             if (result != true) document.getElementById("walletAddress").value = "";
             console.log(result); // => true?
         }
-
     </script>
 </body>
 </html>
