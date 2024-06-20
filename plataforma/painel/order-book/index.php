@@ -10,84 +10,117 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Market Depth </title>
+    <title>Market Depth</title>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <style>
+        table,
+        th,
+        td {
+            text-align: center;
+        }
+
+        .highlight {
+            background-color: yellow;
+            color: black;
+            padding: 2px 4px;
+
+            border-radius: 3px;
+
+        }
+    </style>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+          
+        }
+    </style>
 </head>
 
 <body>
+    <h1>Market Depth</h1>
+
+    <div class="container">
+        <a href="add.php">Add new record</a>
+        
+    </div>
     <?php
     include 'conexao.php';
 
+    // SQL query to get data from the `payments` table
+    $sql = "SELECT id, value, value2, name, url
+    FROM granna80_bdlinks.order_book";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Start HTML table
+        echo "<table id='example' class='display'>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>                
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+               ";
     
-        $id = 1;
-
-        // SQL query to get data of the specific payment
-        $sql = "SELECT id, value, value1,  value2 FROM granna80_bdlinks.order_book WHERE id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-        } else {
-            echo "No record found";
-            exit();
+        // Iterate over results and fill the table
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>" . $row["id"] . "</td>
+                    <td><a href='https://plata.ie/sandbox/balance/cex-price.php?name=" . $row["name"] . "'>" . $row["name"] . "</a></td>
+                    <td>
+                        <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
+                       
+                    </td>
+                  </tr>";
         }
     
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $id = $_POST['id'];
-        $value = $_POST['value'];
-        $value1= $_POST['value1'];
-        $value2 = $_POST['value2'];
-
-
-        // Update the record in the database
-        $sql = "UPDATE granna80_bdlinks.order_book SET value=?, value1=?, value2=? WHERE id=?";
-        $stmt = $conn->prepare($sql);
-
-        if ($stmt === false) {
-            die("Error preparing statement: " . $conn->error);
-        }
-
-        // The type string and parameters must match
-        $stmt->bind_param("sssi", $value, $value1, $value2, $id);
-
-        if ($stmt->execute()) {
-            echo "Record updated successfully";
-
-            echo "<script>window.location.href = 'index.php';</script>";
-         
-        } else {
-            echo "Error updating record: " . $stmt->error;
-        }
+        echo "</tbody></table>";
+    } else {
+        echo "0 results";
     }
-
-    // Converting status to lowercase
-    $currentStatus = strtolower($row['status']);
+    
+    $conn->close();
+    
     ?>
 
-    <h2>Edit Market Depth </h2>
-    <form method="POST" action="">
-        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-        <label for="date">Value:</label><br>
-        <input type="text" id="date" name="value" value="<?php echo $row['value']; ?>"><br>
-        <label for="bank">Value1:</label><br>
-        <input type="text" id="bank" name="value1" value="<?php echo $row['value1']; ?>"><br>
-        <label for="plata">Value2:</label><br>
-        <input type="text" id="plata" name="value2" value="<?php echo $row['value2']; ?>"><br>
-      
-        <input type="submit" value="Update">
-    </form>
+    <script>
+        function confirmDelete(id) {
+            var confirmDelete = confirm("Are you sure you want to delete?");
+            if (confirmDelete) {
+                window.location.href = "delete.php?id=" + id;
+            }
+        }
+    </script>
 
-    <a href="https://plata.ie/sandbox/balance/cex-price.php">view cex</a>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- DataTables JS -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').dataTable({
+                "lengthMenu": [
+                    [25, 50, 75, -1],
+                    [25, 50, 75, "All"]
+                ],
+                "pageLength": 50
+            });
+        });
+    </script>
 </body>
 
 </html>
