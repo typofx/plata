@@ -76,10 +76,16 @@ $userLevel = $_SESSION["user_level"];
             <li><a href="team">Meet the Team</a></li>
             <li><a href="email.php">Email</a></li>
             <li><a href="payments">Payments</a></li>
+            <br>
+            <br>
             <li><a href="giveaway">Giveaway-V2</a></li>
             <li><a href="recycleBin">Recycle bin</a></li>
             <li><a href="register">Plataforma Users</a></li>
             <li><a href="order-book">CEX Order Book</a></li>
+            <br>
+            <br>
+            <li><a href="dex-liquidity">Exchanges</a></li>
+            <li><a href="lp-contracts">LP Contracts</a></li>
         </ul>
     <?php } ?>
 </body>
