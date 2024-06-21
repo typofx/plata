@@ -1,0 +1,227 @@
+[21-Jun-2024 10:11:41 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php:30
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php(30): mysqli_stmt->bind_param('sssss', '', '0x6808a38f94992...', 'PLT', 'USDC')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php on line 30
+[21-Jun-2024 10:12:02 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php:30
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php(30): mysqli_stmt->bind_param('sssss', '', '0x6808a38f94992...', 'PLT', 'USDC')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php on line 30
+[21-Jun-2024 10:23:30 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php:30
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php(30): mysqli_stmt->bind_param('sssss', '', '0x6808a38f94992...', 'PLT', 'USDC')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php on line 30
+[21-Jun-2024 11:42:19 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php:30
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php(30): mysqli_stmt->bind_param('sssss', '', '0x6808a38f94992...', 'PLT', 'USDC')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/add.php on line 30
+[21-Jun-2024 11:46:11 America/Chicago] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ConnectException: cURL error 28: Operation timed out after 1000 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://polygon-mainnet.infura.io/v3/55525f35a6194564837bdb0f6d842255 in /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php:210
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(158): GuzzleHttp\Handler\CurlFactory::createRejection(Object(GuzzleHttp\Handler\EasyHandle), Array)
+#1 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(110): GuzzleHttp\Handler\CurlFactory::finishError(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#2 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php(47): GuzzleHttp\Handler\CurlFactory::finish(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#3 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(28): GuzzleHttp\Handler\CurlHandler->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#4 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(48): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#5 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php(64): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#6 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Middleware.php(31): GuzzleHttp\PrepareBodyMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#7 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#8 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Middleware.php(66): GuzzleHttp\RedirectMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#9 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#10 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Client.php(333): GuzzleHttp\HandlerStack->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#11 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Client.php(169): GuzzleHttp\Client->transfer(Object(GuzzleHttp\Psr7\Request), Array)
+#12 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Client.php(189): GuzzleHttp\Client->requestAsync('POST', Object(GuzzleHttp\Psr7\Uri), Array)
+#13 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/ClientTrait.php(95): GuzzleHttp\Client->request('POST', 'https://polygon...', Array)
+#14 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Providers/HttpProvider.php(152): GuzzleHttp\Client->post('https://polygon...', Array)
+#15 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Providers/HttpProvider.php(83): Web3\Providers\HttpProvider->sendPayload('{"id":199323526...', Object(Closure))
+#16 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Eth.php(105): Web3\Providers\HttpProvider->send(Object(Web3\Methods\Eth\Call), Object(Closure))
+#17 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Contract.php(660): Web3\Eth->__call('call', Array)
+#18 /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php(50): Web3\Contract->call('balanceOf', '0xEe98D3e1fa695...', Object(Closure))
+#19 /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php(144): getTokenInfo(Object(Web3\Web3), '0xEe98D3e1fa695...', '0xc298812164bd5...', NULL, NULL, NULL, NULL)
+#20 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 210
+[21-Jun-2024 12:10:31 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 112
+[21-Jun-2024 12:10:31 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 117
+[21-Jun-2024 12:10:31 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 122
+[21-Jun-2024 12:15:33 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, array given in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php:108
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php(108): number_format(Array, 5)
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 108
+[21-Jun-2024 12:22:47 America/Chicago] PHP Warning:  Object of class phpseclib\Math\BigInteger could not be converted to int in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 129
+[21-Jun-2024 12:22:51 America/Chicago] PHP Warning:  Object of class phpseclib\Math\BigInteger could not be converted to int in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 129
+[21-Jun-2024 12:23:47 America/Chicago] PHP Warning:  Object of class phpseclib\Math\BigInteger could not be converted to int in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 130
+[21-Jun-2024 12:24:53 America/Chicago] PHP Warning:  Object of class phpseclib\Math\BigInteger could not be converted to int in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 130
+[21-Jun-2024 12:26:08 America/Chicago] PHP Warning:  Object of class phpseclib\Math\BigInteger could not be converted to int in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 129
+[21-Jun-2024 12:30:28 America/Chicago] PHP Warning:  Undefined variable $erc20Abi in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 52
+[21-Jun-2024 12:42:06 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function GuzzleHttp\Promise\all() in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php:75
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 75
+[21-Jun-2024 12:42:10 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function GuzzleHttp\Promise\all() in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php:75
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 75
+[21-Jun-2024 12:43:18 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function GuzzleHttp\Promise\all() in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php:75
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 75
+[21-Jun-2024 12:46:53 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function GuzzleHttp\Promise\all() in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php:77
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php(128): processForm(Object(Web3\Web3))
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 77
+[21-Jun-2024 12:57:45 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 82
+[21-Jun-2024 12:57:45 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 97
+[21-Jun-2024 13:03:24 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function getWalletBalance() in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php:89
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php on line 89
+[21-Jun-2024 13:07:25 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: int ** phpseclib\Math\BigInteger in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php:86
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 86
+[21-Jun-2024 13:07:39 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: int ** phpseclib\Math\BigInteger in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php:86
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 86
+[21-Jun-2024 13:09:41 America/Chicago] PHP Warning:  Object of class phpseclib\Math\BigInteger could not be converted to int in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 59
+[21-Jun-2024 13:11:22 America/Chicago] PHP Warning:  Object of class phpseclib\Math\BigInteger could not be converted to int in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 59
+[21-Jun-2024 13:15:46 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php on line 39
+[21-Jun-2024 13:33:12 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function getWalletBalance() in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php:89
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php on line 89
+[21-Jun-2024 13:33:36 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function getWalletBalance() in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php:89
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php on line 89
+[21-Jun-2024 13:45:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php on line 117
+[21-Jun-2024 13:45:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php on line 117
+[21-Jun-2024 13:45:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php on line 117
+[21-Jun-2024 13:45:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php on line 117
+[21-Jun-2024 13:51:06 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 13:51:06 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 13:51:06 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 13:51:06 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 13:51:06 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 13:51:07 America/Chicago] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ConnectException: cURL error 28: Resolving timed out after 1001 milliseconds (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://polygon-mainnet.infura.io/v3/55525f35a6194564837bdb0f6d842255 in /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php:210
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(158): GuzzleHttp\Handler\CurlFactory::createRejection(Object(GuzzleHttp\Handler\EasyHandle), Array)
+#1 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(110): GuzzleHttp\Handler\CurlFactory::finishError(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#2 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php(47): GuzzleHttp\Handler\CurlFactory::finish(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#3 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(28): GuzzleHttp\Handler\CurlHandler->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#4 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(48): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#5 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php(64): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#6 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Middleware.php(31): GuzzleHttp\PrepareBodyMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#7 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#8 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Middleware.php(66): GuzzleHttp\RedirectMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#9 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#10 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Client.php(333): GuzzleHttp\HandlerStack->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#11 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Client.php(169): GuzzleHttp\Client->transfer(Object(GuzzleHttp\Psr7\Request), Array)
+#12 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Client.php(189): GuzzleHttp\Client->requestAsync('POST', Object(GuzzleHttp\Psr7\Uri), Array)
+#13 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/ClientTrait.php(95): GuzzleHttp\Client->request('POST', 'https://polygon...', Array)
+#14 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Providers/HttpProvider.php(152): GuzzleHttp\Client->post('https://polygon...', Array)
+#15 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Providers/HttpProvider.php(83): Web3\Providers\HttpProvider->sendPayload('{"id":635674319...', Object(Closure))
+#16 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Eth.php(105): Web3\Providers\HttpProvider->send(Object(Web3\Methods\Eth\Call), Object(Closure))
+#17 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Contract.php(660): Web3\Eth->__call('call', Array)
+#18 /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php(26): Web3\Contract->call('balanceOf', '0xbe2042911106f...', Object(Closure))
+#19 /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php(105): getTokenInfo(Object(Web3\Web3), '0xbe2042911106f...', '0xc298812164bd5...', NULL, NULL)
+#20 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 210
+[21-Jun-2024 13:52:04 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 13:52:04 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 13:52:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 13:52:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 13:52:04 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 13:53:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 13:53:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 13:53:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 13:53:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 13:53:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 13:56:33 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 13:56:33 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 13:56:33 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 13:56:33 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 13:56:33 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 13:57:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 13:57:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 13:57:27 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 13:57:27 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 13:57:27 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 13:59:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 13:59:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 13:59:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 13:59:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 13:59:24 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 14:00:00 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 14:00:00 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 14:00:00 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 14:00:00 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 14:00:00 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 14:01:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 14:01:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 14:01:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 14:01:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 14:01:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 14:01:15 America/Chicago] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ConnectException: cURL error 28: Resolving timed out after 1000 milliseconds (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://polygon-mainnet.infura.io/v3/55525f35a6194564837bdb0f6d842255 in /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php:210
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(158): GuzzleHttp\Handler\CurlFactory::createRejection(Object(GuzzleHttp\Handler\EasyHandle), Array)
+#1 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php(110): GuzzleHttp\Handler\CurlFactory::finishError(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#2 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php(47): GuzzleHttp\Handler\CurlFactory::finish(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#3 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(28): GuzzleHttp\Handler\CurlHandler->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#4 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php(48): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#5 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php(64): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#6 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Middleware.php(31): GuzzleHttp\PrepareBodyMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#7 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#8 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Middleware.php(66): GuzzleHttp\RedirectMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#9 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#10 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Client.php(333): GuzzleHttp\HandlerStack->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#11 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Client.php(169): GuzzleHttp\Client->transfer(Object(GuzzleHttp\Psr7\Request), Array)
+#12 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Client.php(189): GuzzleHttp\Client->requestAsync('POST', Object(GuzzleHttp\Psr7\Uri), Array)
+#13 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/ClientTrait.php(95): GuzzleHttp\Client->request('POST', 'https://polygon...', Array)
+#14 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Providers/HttpProvider.php(152): GuzzleHttp\Client->post('https://polygon...', Array)
+#15 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Providers/HttpProvider.php(83): Web3\Providers\HttpProvider->sendPayload('{"id":612158955...', Object(Closure))
+#16 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Eth.php(105): Web3\Providers\HttpProvider->send(Object(Web3\Methods\Eth\Call), Object(Closure))
+#17 /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/web3p/web3.php/src/Contract.php(660): Web3\Eth->__call('call', Array)
+#18 /home2/granna80/public_html/plataforma/painel/lp-contracts/search.php(26): Web3\Contract->call('balanceOf', '0xbe2042911106f...', Object(Closure))
+#19 /home2/granna80/public_html/plataforma/painel/lp-contracts/index.php(105): getTokenInfo(Object(Web3\Web3), '0xbe2042911106f...', '0xc298812164bd5...', NULL, NULL)
+#20 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/lp-contracts/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 210
+[21-Jun-2024 14:01:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 14:01:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 14:01:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 14:01:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 14:01:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 14:02:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 14:02:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 14:02:30 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 14:02:30 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 14:02:30 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 14:03:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 14:03:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 14:03:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 14:03:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 14:03:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 14:05:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 14:05:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 14:05:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 14:05:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 14:05:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 14:07:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 14:07:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 14:07:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 14:07:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 14:07:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 14:11:58 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 14:11:58 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 14:11:58 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 14:11:58 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 14:11:58 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[21-Jun-2024 14:12:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 43
+[21-Jun-2024 14:12:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 45
+[21-Jun-2024 14:12:44 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[21-Jun-2024 14:12:44 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[21-Jun-2024 14:12:44 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
