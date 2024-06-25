@@ -15,11 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
     $contract = $_POST['contract'];
     $asset_a = $_POST['asset_a'];
+    $tokenContract_A = $_POST["contract_asset_a"];
     $asset_b = $_POST['asset_b'];
+    $tokenContract_B = $_POST["contract_asset_b"];
   
 
     // Inserting new record into database
-    $sql = "INSERT INTO granna80_bdlinks.lp_contracts ( contract, asset_a, asset_b) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO granna80_bdlinks.lp_contracts ( contract, asset_a, asset_b,contract_asset_a) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if ($stmt === false) {
@@ -27,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Bind parameters to the prepared statement
-    $stmt->bind_param("sss",  $contract, $asset_a, $asset_b);
+    $stmt->bind_param("sss",  $contract, $asset_a, $asset_b, $tokenContract_A);
 
     if ($stmt->execute()) {
         echo "New record created successfully";
@@ -52,11 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form method="POST" action="">
  
         <label for="contract">Contract:</label><br>
-        <input type="text" id="contract" name="contract"><br>
+        <input type="text" id="contract" name="contract" size="42" required><br>
         <label for="asset_a">Asset A:</label><br>
-        <input type="text" id="asset_a" name="asset_a"><br>
+        <input type="text" id="asset_a" name="asset_a" required><br>
+        <label for="contract_asset_a">Contract Asset A:</label><br>
+        <input type="text" id="contract_asset_a" name="contract_asset_a" required><br>
         <label for="asset_b">Asset B:</label><br>
-        <input type="text" id="asset_b" name="asset_b"><br>
+        <input type="text" id="asset_b" name="asset_b" required><br>
+        <label for="contract_asset_a">Contract Asset B:</label><br>
+        <input type="text" id="contract_asset_b" name="contract_asset_b" required><br>
     
         <input type="submit" value="Add">
     </form>

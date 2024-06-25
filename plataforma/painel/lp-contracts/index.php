@@ -19,6 +19,14 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 include 'search.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
+    
+    <style>
+body {
+  font-family: 'Courier New', monospace;
+    font-size: 14px;
+
+}
+</style>
 
 <head>
     <meta charset="UTF-8">
@@ -48,7 +56,7 @@ include 'search.php'; ?>
             display: flex;
             align-items: center;
             gap: 20px;
-            /* Ajuste o valor do gap conforme necessário */
+          
         }
     </style>
 </head>
@@ -58,26 +66,46 @@ include 'search.php'; ?>
 
     <div class="container">
         <a href="add.php">Add new record</a>
+<?php echo 'MATIC/USDT ' . number_format($MATICUSD, 5, '.', ',') . ' USD⠀⠀⠀⠀' ?>
+
+<?php echo 'PLT/USDT ' . number_format($PLTUSD , 8, '.', ',') . ' USD⠀⠀⠀⠀' ?>
+<?php 
+function format_currency($value) {
+    $value = str_replace(',', '', $value);
+    return number_format((float)$value, 3);
+}
+
+//echo 'BTC/USDT ' . format_currency($BTCUSD) . ' USD⠀⠀⠀⠀';
+
+//echo 'ETH/USDT ' . format_currency($ETHUSD) . ' USD⠀⠀⠀⠀';
+echo '<br>';
+echo 'WBTC/USDT ' . format_currency($WBTCUSD) . ' USD⠀⠀⠀⠀';
+
+echo 'WETH/USDT ' . format_currency($WETHUSD) . ' USD⠀⠀⠀⠀';
+?>
+
+
 
     </div>
     <?php
     include 'conexao.php';
 
     // SQL query to get data from the `payments` table
-    $sql = "SELECT id, name, contract, asset_a, asset_b, liquidity FROM granna80_bdlinks.lp_contracts";
+    $sql = "SELECT id, name, contract, asset_a, asset_b, contract_asset_a, contract_asset_b, liquidity FROM granna80_bdlinks.lp_contracts";
 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // Start HTML table
+        // Start HTML table 
         echo "<table id='example' class='display'>
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Pair</th>
                         <th>Contract</th>
-                        <th>Asset A</th>
-                        <th>Asset B</th>
+                        <!-- <th>Asset A</th> -->
+                        <!-- <th>Asset B</th> -->
+                        <!-- <th>Contract Asset B</th> -->
                         <th>Liquidity</th>
                    <th>Actions</th>
                     </tr>
@@ -88,39 +116,58 @@ include 'search.php'; ?>
         while ($row = $result->fetch_assoc()) {
 
             $walletAddress =  $row["contract"];
-            $tokenContract = "0xc298812164bd558268f51cc6e3b8b5daaf0b6341";
-
-
-
-
+            $tokenContract_A = $row["contract_asset_a"];
+            $tokenContract_B = $row["contract_asset_b"];
 
             echo "<tr>
             <td>" . $row["id"] . "</td>
          
             <td>" . $row["asset_a"] . "/" . $row["asset_b"] . "</td>
             <td>" . $row["contract"] . "</td>
-            <td>" . $row["asset_a"] . "</td>
-            <td>" . $row["asset_b"] . "</td>
-            <td>";          // Get ERC20 token balance and decimals
-            getTokenInfo($web3, $walletAddress, $tokenContract, $tokenBalance, $tokenDecimals);
+            
+            
+            
+            <td>";          // Get ERC20 token balance and decimals <td>" . $row["contract_asset_b"] . "</td> <td>" . $row["asset_a"] . "</td> <td>" . $row["asset_b"] . "</td>
+            
+            getTokenInfo($web3, $walletAddress, $tokenContract_A, $tokenBalance_A, $tokenDecimals);
 
+            $tokenBalance_A  = floatval( htmlspecialchars($tokenBalance_A) );
+            $tokenADecimal = intval( htmlspecialchars($tokenDecimals) );
+            $tokenBalance_A = $tokenBalance_A / ( 10** $tokenADecimal);
+            
+            getTokenInfo($web3, $walletAddress, $tokenContract_B, $tokenBalance_B, $tokenDecimals);
+            
+            $tokenBalance_B  = floatval( htmlspecialchars($tokenBalance_B) );
+            $tokenBDecimal = intval( htmlspecialchars($tokenDecimals) );
+            $tokenBalance_B = $tokenBalance_B / ( 10** $tokenBDecimal);
+
+            
+            //$tokenBalance_B = $tokenBalance_B / (10 ^ $tokenDecimals);
+            
             // Wait to ensure all asynchronous calls are completed before displaying results
             sleep(1);
 
-            // Display results
-           // echo '<h3>Results</h3>';
+             //Display results
+            //echo '<h3>Results</h3>';
             //echo '<p>Wallet Address: ' . htmlspecialchars($walletAddress) . '</p>';
-            //echo '<p>Token Contract: ' . htmlspecialchars($tokenContract) . '</p>';
+            //echo '<p>Token Contract A: ' . htmlspecialchars($tokenContract_A) . '</p>';
+            //echo '<p>Token Contract B: ' . htmlspecialchars($tokenContract_B) . '</p>';
+            //echo '<p>A Decimal: ' . $tokenADecimal . '</p>';
+            //echo '<p>B Decimal: ' . $tokenDecimals . '</p>';
+            //echo '<p>A Balance: ' . $tokenBalance_A . '</p>';
+            //echo '<p>B Balance: ' . $tokenBalance_B . '</p>';
+            //echo '<p>B Balance: ' . htmlspecialchars($tokenBalance_B / (10 ^ $tokenDecimals)) . '</p>';
 
-            if ($tokenBalance !== null && $tokenDecimals !== null) {
-                $tokenDecimalsStr = (int) $tokenDecimals->toString();
+            if ($tokenBalance_A !== null && $tokenDecimals !== null) {
+                //$tokenDecimalsStr = (int) $tokenDecimals->toString();
 
-                $tokenBalanceFormatted = bcdiv($tokenBalance, bcpow(10, $tokenDecimalsStr), $tokenDecimalsStr);
+                //$tokenBalanceFormatted = bcdiv($tokenBalance_A, bcpow(10, $tokenDecimalsStr), $tokenDecimalsStr); WHAT DOES IT DO
 
-                $formattedBalance = number_format((float) $tokenBalanceFormatted, $tokenDecimalsStr, '.', ',');
-                $FinalBalance = ($PLTUSD * $tokenBalance);
+                //$formattedBalance = number_format((float) $tokenBalanceFormatted, $tokenDecimalsStr, '.', ',');
+
+                $FinalBalance = ( ($PLTUSD * $tokenBalance_A) + (1 * $tokenBalance_B ) );
                 $ConvertedBalance = $FinalBalance / 10000;
-                echo '<b>' . number_format($ConvertedBalance, 2, '.', ','). '</b>';
+                echo '<b>' . number_format($FinalBalance, 2, '.', ','). ' USD</b>';
               //  echo '<br>';
                // echo '<b>' . $formattedBalance. '</b>';
             } else {
