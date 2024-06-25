@@ -86,6 +86,7 @@ $userLevel = $_SESSION["user_level"];
             <br>
             <li><a href="dex-liquidity">Exchanges</a></li>
             <li><a href="lp-contracts">LP Contracts</a></li>
+            <li><a href="liquidity">Liquidity</a></li>
         </ul>
     <?php } ?>
 </body>
