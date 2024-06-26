@@ -18,10 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tokenContract_A = $_POST["contract_asset_a"];
     $asset_b = $_POST['asset_b'];
     $tokenContract_B = $_POST["contract_asset_b"];
+    $exchange = $_POST["exchange"];
   
 
     // Inserting new record into database
-    $sql = "INSERT INTO granna80_bdlinks.lp_contracts ( contract, asset_a, asset_b,contract_asset_a) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO granna80_bdlinks.lp_contracts ( contract, asset_a, asset_b,contract_asset_a, exchange) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if ($stmt === false) {
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Bind parameters to the prepared statement
-    $stmt->bind_param("sss",  $contract, $asset_a, $asset_b, $tokenContract_A);
+    $stmt->bind_param("sssss",  $contract, $asset_a, $asset_b, $tokenContract_A, $exchange);
 
     if ($stmt->execute()) {
         echo "New record created successfully";
@@ -63,6 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="text" id="asset_b" name="asset_b" required><br>
         <label for="contract_asset_a">Contract Asset B:</label><br>
         <input type="text" id="contract_asset_b" name="contract_asset_b" required><br>
+        <label for="exchange">Exchange:</label><br>
+        <input type="text" id="exchange" name="exchange" ><br>
     
         <input type="submit" value="Add">
     </form>

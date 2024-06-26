@@ -1,0 +1,121 @@
+[
+    {
+        "id": 1,
+        "pair": "PLT/USDT",
+        "contract": "0xbe2042911106f27f06e7c72538ce16bdb1b5a135",
+        "exchange": 0,
+        "liquidity": 185.535090766049989952080068178474903106689453125
+    },
+    {
+        "id": 2,
+        "pair": "PLT/USDC",
+        "contract": "0x6b812301c9544ec2bd375a9ca979899cc8030600",
+        "exchange": 0,
+        "liquidity": 185.926637633250010139818186871707439422607421875
+    },
+    {
+        "id": 3,
+        "pair": "PLT/DAI",
+        "contract": "0xbc2ae8655e6847e83553c23e8cf7e310527991a3",
+        "exchange": 0,
+        "liquidity": 88.002100520796005866941413842141628265380859375
+    },
+    {
+        "id": 4,
+        "pair": "PLT/USDT",
+        "contract": "0x84236e57026739b36832641a99c13c29ddd29526",
+        "exchange": 0,
+        "liquidity": 430.51245198895998100852011702954769134521484375
+    },
+    {
+        "id": 5,
+        "pair": "PLT/USDC",
+        "contract": "0x6808a38f94992ecd3270eb5944bbb7c5c4389caa",
+        "exchange": 0,
+        "liquidity": 2987.302611661400078446604311466217041015625
+    },
+    {
+        "id": 7,
+        "pair": "PLT/WMATIC",
+        "contract": "0x0e145c7637747cf9cffef81b6a0317ca3c9671a6",
+        "exchange": 0,
+        "liquidity": 248.329553548349991842769668437540531158447265625
+    },
+    {
+        "id": 9,
+        "pair": "PLT/WMATIC",
+        "contract": "0x5d64b0ec81a0648f52be7a50267bf8d1d0ffb161",
+        "exchange": 0,
+        "liquidity": 5618.7050695101997916935943067073822021484375
+    },
+    {
+        "id": 10,
+        "pair": "PLT/WMATIC",
+        "contract": "0x311a794f0643f938143ad0bfbd6b956d53eb8e01",
+        "exchange": 0,
+        "liquidity": 28.765938980670998859068276942707598209381103515625
+    },
+    {
+        "id": 11,
+        "pair": "PLT/WMATIC",
+        "contract": "0xa2566919fa6c53bc929bc4392f2d0d1c3bf0eb52",
+        "exchange": 0,
+        "liquidity": 4.5828123362843999899496338912285864353179931640625
+    },
+    {
+        "id": 12,
+        "pair": "PLT/WMATIC",
+        "contract": "0xe384dc3d6c93b15b2e6ca15959ef648b3d66ff96",
+        "exchange": 0,
+        "liquidity": 0
+    },
+    {
+        "id": 13,
+        "pair": "PLT/WMATIC",
+        "contract": "0xddbdbcd7e821cc41719a3dd0857d7aa1ad82c86d",
+        "exchange": 0,
+        "liquidity": 0
+    },
+    {
+        "id": 14,
+        "pair": "PLT/WMATIC",
+        "contract": "0x475dfb5ceab85e69d7de22842e3a6c394ce2cc89",
+        "exchange": 0,
+        "liquidity": 3.28550000000000018322287038472612717698861928283804445527493953704833984375e-10
+    },
+    {
+        "id": 15,
+        "pair": "PLT/WBTC",
+        "contract": "0xbd2f52371413218a9efa91acee091d9e83596082",
+        "exchange": 0,
+        "liquidity": 4.13192844211589971337161841802299022674560546875
+    },
+    {
+        "id": 16,
+        "pair": "PLT/WETH",
+        "contract": "0x8922978912e9adfea6f259423c73baa5daebce38",
+        "exchange": 0,
+        "liquidity": 164.72392035429999168627546168863773345947265625
+    },
+    {
+        "id": 17,
+        "pair": "PLT/BRZ",
+        "contract": "0xb58d55813f5b5885e90322b944438d6de3b359db",
+        "exchange": 0,
+        "liquidity": 9.856500079999999561874062802848371622754797272136784158647060394287109375e-10
+    },
+    {
+        "id": 18,
+        "pair": "PLT/UST",
+        "contract": "0x0d379bc8418ae1083b9fc2ad29479af4ecd957dd",
+        "exchange": 0,
+        "liquidity": 78.8755255511830029035991174168884754180908203125
+    },
+    {
+        "id": 19,
+        "pair": "PLT/WETH",
+        "contract": "0x8f8098cedbaad7ccd5337b85daeb741d29281e08",
+        "exchange": 0,
+        "liquidity": 3288.63659109260015611653216183185577392578125
+    }
+]
