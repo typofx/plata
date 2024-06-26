@@ -25,7 +25,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         $id = $_GET['id'];
 
         // SQL query to get data of the specific contract
-        $sql = "SELECT contract, asset_a, asset_b FROM granna80_bdlinks.lp_contracts WHERE id = ?";
+        $sql = "SELECT contract, asset_a, asset_b, exchange FROM granna80_bdlinks.lp_contracts WHERE id = ?";
         $stmt = $conn->prepare($sql);
         if ($stmt === false) {
             die("Error preparing statement: " . $conn->error);
@@ -48,16 +48,17 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         $contract = $_POST['contract'];
         $asset_a = $_POST['asset_a'];
         $asset_b = $_POST['asset_b'];
+        $exchange = $_POST['exchange'];
 
         // Update the record in the database
-        $sql = "UPDATE granna80_bdlinks.lp_contracts SET contract=?, asset_a=?, asset_b=? WHERE id=?";
+        $sql = "UPDATE granna80_bdlinks.lp_contracts SET contract=?, asset_a=?, asset_b=?, exchange=? WHERE id=?";
         $stmt = $conn->prepare($sql);
 
         if ($stmt === false) {
             die("Error preparing statement: " . $conn->error);
         }
 
-        $stmt->bind_param("sssi", $contract, $asset_a, $asset_b, $id);
+        $stmt->bind_param("ssssi", $contract, $asset_a, $asset_b, $exchange, $id);
 
         if ($stmt->execute()) {
             echo "Record updated successfully";
@@ -76,6 +77,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         <input type="text" id="asset_a" name="asset_a" value="<?php echo $row['asset_a']; ?>"><br>
         <label for="asset_b">Asset B:</label><br>
         <input type="text" id="asset_b" name="asset_b" value="<?php echo $row['asset_b']; ?>"><br><br>
+        <label for="asset_b">Exchange:</label><br>
+        <input type="text" id="exchange" name="exchange" value="<?php echo $row['exchange']; ?>"><br><br>
         <input type="submit" value="Update">
     </form>
     <a href='index.php'>Back to List</a>
