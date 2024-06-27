@@ -29,9 +29,10 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         $value2 = $_POST['value2'];
         $name = $_POST['name'];
         $url = $_POST['url'];
+        $pair_contract = $_POST['pair_contract'];
 
         // Insert the new record into the database
-        $sql = "INSERT INTO granna80_bdlinks.order_book (value, value2, name, url) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO granna80_bdlinks.order_book (value, value2, name, url, pair_contract) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
 
         if ($stmt === false) {
@@ -39,7 +40,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         }
 
         // The type string and parameters must match
-        $stmt->bind_param("ssss", $value, $value2, $name, $url);
+        $stmt->bind_param("sssss", $value, $value2, $name, $url, $pair_contract);
 
         if ($stmt->execute()) {
             echo "Record added successfully";
@@ -61,6 +62,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         <input type="text" id="name" name="name"><br>
         <label for="url">JSON URL:</label><br>
         <input type="text" id="url" name="url"><br>
+        <label for="pair_contract">Pair Contract</label><br>
+        <input type="text" id="pair_contract" name="pair_contract"><br>
         <input type="submit" value="Add">
     </form>
 

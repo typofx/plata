@@ -32,7 +32,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     }
 
     // SQL query to get data of the specific record
-    $sql = "SELECT id, value, value2, name, url FROM granna80_bdlinks.order_book WHERE id = ?";
+    $sql = "SELECT id, value, value2, name, url, pair_contract FROM granna80_bdlinks.order_book WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -52,9 +52,10 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         $value2 = $_POST['value2'];
         $name = $_POST['name'];
         $url = $_POST['url'];
+        $pair_contract = $_POST['pair_contract'];
 
         // Update the record in the database
-        $sql = "UPDATE granna80_bdlinks.order_book SET value=?, value2=?, name=?, url=? WHERE id=?";
+        $sql = "UPDATE granna80_bdlinks.order_book SET value=?, value2=?, name=?, url=?, pair_contract=? WHERE id=?";
         $stmt = $conn->prepare($sql);
 
         if ($stmt === false) {
@@ -62,7 +63,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         }
 
         // The type string and parameters must match
-        $stmt->bind_param("ssssi", $value, $value2, $name, $url, $id);
+        $stmt->bind_param("sssssi", $value, $value2, $name, $url, $pair_contract, $id);
 
         if ($stmt->execute()) {
             echo "Record updated successfully";
@@ -84,6 +85,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         <input type="text" id="name" name="name" value="<?php echo $row['name']; ?>"><br>
         <label for="url">JSON URL:</label><br>
         <input type="text" id="url" name="url" value="<?php echo $row['url']; ?>"><br>
+        <label for="pair_contract">Pair Contract:</label><br>
+        <input type="text" id="pair_contract" name="pair_contract" value="<?php echo $row['pair_contract']; ?>"><br>
         <input type="submit" value="Update">
     </form>
 
