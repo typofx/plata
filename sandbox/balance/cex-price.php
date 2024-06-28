@@ -18,7 +18,9 @@ if (isset($_GET['name'])) {
     exit();
 }
 
+
 // SQL query to get data of the specific name
+
 $sql = "SELECT id, value, value1, value2, name, url FROM granna80_bdlinks.order_book WHERE name = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $name);
@@ -92,9 +94,10 @@ if ($result->num_rows > 0) {
 
             // Calculate the sum of each column for bids
             foreach ($bids as $bid) {
-                $totalPriceBids += $bid['price']; // Sum of prices
-                $totalAmountBids += $bid['amount']; // Sum of amounts
+                $totalPriceBids += $bid['price'] * $bid['amount']; // Sum of products of prices and amounts
             }
+
+
             // Calculate the sum of each column
             foreach ($asks as $ask) {
                 $totalPrice += $ask['price']; // Sum of prices
@@ -169,8 +172,14 @@ if ($result->num_rows > 0) {
             <br>
             <strong>
                 Total BID (USDT):
-                <?php $totalBIDUSD = ($PLTUSD * $totalAmountBids)  ?>
-                <?php echo number_format($totalBIDUSD, 2, '.', ',')   ?>
+
+                <?php echo number_format($totalPriceBids, 2, '.', ',')   ?>
+            </strong>
+            <br>
+            <strong>
+                Liquidity:
+                <?php $liquidity = $totalPLTUSD + $totalPriceBids  ?>
+                <?php echo number_format($liquidity, 2, '.', ',')   ?>
             </strong>
 
             <br>
