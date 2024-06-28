@@ -25,7 +25,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         $id = $_GET['id'];
 
         // SQL query to get data of the specific contract
-        $sql = "SELECT contract, asset_a, asset_b, exchange FROM granna80_bdlinks.lp_contracts WHERE id = ?";
+        $sql = "SELECT contract, asset_a, asset_b, exchange, contract_asset_a, contract_asset_b FROM granna80_bdlinks.lp_contracts WHERE id = ?";
         $stmt = $conn->prepare($sql);
         if ($stmt === false) {
             die("Error preparing statement: " . $conn->error);
@@ -49,19 +49,22 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         $asset_a = $_POST['asset_a'];
         $asset_b = $_POST['asset_b'];
         $exchange = $_POST['exchange'];
+        $contract_asset_a = $_POST['contract_asset_a'];
+        $contract_asset_b = $_POST['contract_asset_b'];
 
         // Update the record in the database
-        $sql = "UPDATE granna80_bdlinks.lp_contracts SET contract=?, asset_a=?, asset_b=?, exchange=? WHERE id=?";
+        $sql = "UPDATE granna80_bdlinks.lp_contracts SET contract=?, asset_a=?, asset_b=?, exchange=?, contract_asset_a=?, contract_asset_b=? WHERE id=?";
         $stmt = $conn->prepare($sql);
 
         if ($stmt === false) {
             die("Error preparing statement: " . $conn->error);
         }
 
-        $stmt->bind_param("ssssi", $contract, $asset_a, $asset_b, $exchange, $id);
+        $stmt->bind_param("ssssssi", $contract, $asset_a, $asset_b, $exchange, $contract_asset_a, $contract_asset_b, $id);
 
         if ($stmt->execute()) {
             echo "Record updated successfully";
+            echo "<script>window.location.href = 'edit.php?id=".$id."';</script>";
         } else {
             echo "Error updating record: " . $stmt->error;
         }
@@ -77,6 +80,11 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         <input type="text" id="asset_a" name="asset_a" value="<?php echo $row['asset_a']; ?>"><br>
         <label for="asset_b">Asset B:</label><br>
         <input type="text" id="asset_b" name="asset_b" value="<?php echo $row['asset_b']; ?>"><br><br>
+        <label for="contract_asset_a">Contract Asset A:</label><br>
+        <input type="text" id="contract_asset_a" name="contract_asset_a" value="<?php echo $row['contract_asset_a']; ?>"><br>
+        <label for="contract_asset_b">Contract Asset B:</label><br>
+        <input type="text" id="contract_asset_b" name="contract_asset_b" value="<?php echo $row['contract_asset_b']; ?>"><br>
+      
         <label for="asset_b">Exchange:</label><br>
         <input type="text" id="exchange" name="exchange" value="<?php echo $row['exchange']; ?>"><br><br>
         <input type="submit" value="Update">
