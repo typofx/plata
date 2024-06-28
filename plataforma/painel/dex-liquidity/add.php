@@ -28,7 +28,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $name = $_POST['name'];
-        $contract = $_POST['contract'];
+        $type = $_POST['type'];
 
         // Processar upload da imagem
         if (isset($_FILES['logo']) && $_FILES['logo']['error'] == UPLOAD_ERR_OK) {
@@ -69,7 +69,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             $logo = $target_file;
 
             // Inserting new record into database
-            $sql = "INSERT INTO granna80_bdlinks.dex_liquidity (name, logo, contract) VALUES (?, ?, ?)";
+            $sql = "INSERT INTO granna80_bdlinks.dex_liquidity (name, logo, type) VALUES (?, ?, ?)";
             $stmt = $conn->prepare($sql);
 
             if ($stmt === false) {
@@ -77,7 +77,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             }
 
             // The type string and parameters must match
-            $stmt->bind_param("sss", $name, $logo, $contract);
+            $stmt->bind_param("sss", $name, $logo, $type);
 
             if ($stmt->execute()) {
                 echo "New record created successfully";
@@ -92,8 +92,15 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" value=""><br>
 
-        <label for="contract">Contract:</label><br>
-        <input type="text" id="contract" name="contract" value=""><br>
+        <label for="type">Type:</label><br>
+        <select id="type" name="type">
+            <option value="dex">DEX</option>
+            <option value="cex">CEX</option>
+            <option value="lending">Lending</option>
+            <option value="farming">Farming</option>
+            <option value="locker">Locker</option>
+        </select><br>
+
 
         <label for="logo">Logo:</label><br>
         <input type="file" id="logo" name="logo"><br>

@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // SQL query to select specific data by ID
-    $sql = "SELECT name, logo, contract FROM granna80_bdlinks.dex_liquidity WHERE id = ?";
+    $sql = "SELECT name, logo, type FROM granna80_bdlinks.dex_liquidity WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $name = $_POST['name'];
-    $contract = $_POST['contract'];
+    $type = $_POST['type'];
 
     // Check if a new logo file was uploaded
     if (isset($_FILES['logo']) && $_FILES['logo']['error'] == UPLOAD_ERR_OK) {
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // If logo upload was successful or no new file was uploaded, update the record in the database
     if ($uploadOk || empty($_FILES['logo']['name'])) {
-        $sql = "UPDATE granna80_bdlinks.dex_liquidity SET name=?, logo=?, contract=? WHERE id=?";
+        $sql = "UPDATE granna80_bdlinks.dex_liquidity SET name=?, logo=?, type=? WHERE id=?";
         $stmt = $conn->prepare($sql);
 
         if ($stmt === false) {
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // Bind parameters and execute statement
-        $stmt->bind_param("sssi", $name, $logo, $contract, $id);
+        $stmt->bind_param("sssi", $name, $logo, $type, $id);
 
         if ($stmt->execute()) {
             echo "Record updated successfully";
@@ -99,24 +99,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Dex</title>
 </head>
+
 <body>
     <h1>Edit Dex</h1>
-    
+
     <br>
 
     <form method="POST" action="" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
-        
+
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" value="<?php echo $row['name']; ?>"><br>
 
-        <label for="contract">Contract:</label><br>
-        <input type="text" id="contract" name="contract" value="<?php echo $row['contract']; ?>"><br>
+        <label for="type">Type:</label><br>
+        <select id="type" name="type">
+            <option value="dex" <?php if ($row['type'] == 'dex') echo 'selected'; ?>>DEX</option>
+            <option value="cex" <?php if ($row['type'] == 'cex') echo 'selected'; ?>>CEX</option>
+            <option value="lending" <?php if ($row['type'] == 'lending') echo 'selected'; ?>>Lending</option>
+            <option value="farming" <?php if ($row['type'] == 'farming') echo 'selected'; ?>>Farming</option>
+            <option value="locker" <?php if ($row['type'] == 'locker') echo 'selected'; ?>>Locker</option>
+        </select><br>
+
 
         <label for="logo">Logo:</label><br>
         <img src="<?php echo $row['logo']; ?>" width="200" height="200" alt="Logo"><br>
@@ -127,4 +136,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
     <a href="index.php">Back to List</a>
 </body>
+
 </html>

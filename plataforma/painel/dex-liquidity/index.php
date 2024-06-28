@@ -36,7 +36,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     include 'conexao.php';
 
     // SQL query to get data from the `payments` table
-    $sql = "SELECT id, name, logo, contract FROM granna80_bdlinks.dex_liquidity";
+    $sql = "SELECT id, name, logo, type FROM granna80_bdlinks.dex_liquidity";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -47,7 +47,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
                         <th>ID</th>
                         <th>Name</th>
                         <th>Logo</th>
-                        <th>Contract</th>
+                        <th>Type</th>
                     
                       
                         <th>Actions</th>
@@ -62,7 +62,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
                     <td><b>" . $row["name"] . "</b></td>
                     <td> <img src='" . $row["logo"] . "' style='height: 20px;' alt='logo' srcset=''></td>
               
-                    <td>" . $row["contract"] . "</td>
+                    <td>" . $row["type"] . "</td>
               
                     <td>
                         <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
