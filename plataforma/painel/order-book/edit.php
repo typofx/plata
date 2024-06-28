@@ -77,9 +77,9 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     <h2>Edit Market Depth</h2>
     <form method="POST" action="">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-        <label for="value">Value:</label><br>
+        <label for="value">Claimed ASK (PLT):</label><br>
         <input type="text" id="value" name="value" value="<?php echo $row['value']; ?>"><br>
-        <label for="value2">Value2:</label><br>
+        <label for="value2">Total BID(USDT):</label><br>
         <input type="text" id="value2" name="value2" value="<?php echo $row['value2']; ?>"><br>
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" value="<?php echo $row['name']; ?>"><br>
