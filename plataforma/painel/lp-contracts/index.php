@@ -81,7 +81,7 @@ include 'search.php'; ?>
     include 'conexao.php';
     $totalFinalBalance = 0;
     // SQL query to get data from the `payments` table
-    $sql = "SELECT id, name, contract, asset_a, asset_b, contract_asset_a, contract_asset_b, liquidity FROM granna80_bdlinks.lp_contracts";
+    $sql = "SELECT id, name, contract, asset_a, asset_b, contract_asset_a, contract_asset_b, liquidity, exchange FROM granna80_bdlinks.lp_contracts";
 
     $result = $conn->query($sql);
 
@@ -98,6 +98,8 @@ include 'search.php'; ?>
                         <!-- <th>Contract Asset B</th> -->
                         <th>Exchange</th>
                         <th>Liquidity</th>
+                          <th>Active A</th>
+                         <th>Active B</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -115,6 +117,7 @@ include 'search.php'; ?>
             <td>" . $row["asset_a"] . "/" . $row["asset_b"] . "</td>
             <td>" . $row["contract"] . "</td>
             <td>" . $row["exchange"] . "</td>
+   
             <td>";
 
             getTokenInfo($web3, $walletAddress, $tokenContract_A, $tokenBalance_A, $tokenDecimals);
@@ -134,6 +137,8 @@ include 'search.php'; ?>
             if ($tokenBalance_A !== null && $tokenDecimals !== null) {
 
                 $FinalBalance = (($PLTUSD * $tokenBalance_A) + (1 * $tokenBalance_B));
+                //echo $tokenBalance_A. ' <br>';
+                //echo $tokenBalance_B. ' <br>';
                 $ConvertedBalance = $FinalBalance / 10000;
                 echo '<b>' . number_format($FinalBalance, 2, '.', ',') . ' USD</b>';
 
@@ -151,7 +156,8 @@ include 'search.php'; ?>
             }
 
             echo "</td>";
-
+echo "    <td>" . $tokenBalance_A . "</td>";
+echo "    <td>" . $tokenBalance_B . "</td>";
             echo "   <td>
                 <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
                 <a href='#' onclick='confirmDelete(" . $row["id"] . ")'><i style='color: red;' class='fa-solid fa-trash'></i></a>
@@ -276,10 +282,10 @@ function generateJsonFile($filePath)
             "columnDefs": [{
                     "type": "numeric-comma",
                     "targets": [4]
-                } // Defining the USD column (index 3) as numeric
+                } 
             ],
             "order": [
-                [4, "asc"]
+                [4, "desc"]
             ]
         });
     });
