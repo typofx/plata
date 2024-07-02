@@ -1,0 +1,59 @@
+{
+    "12": {
+        "name": "Token Plata",
+        "ticker": "PLT",
+        "contract": "0xc298812164bd558268f51cc6e3b8b5daaf0b6341",
+        "decimals": 4,
+        "network": "polygon",
+        "price": 3.33659999999999995340936066734460752059021615423262119293212890625e-6
+    },
+    "13": {
+        "name": "Aave Polygon WBTC",
+        "ticker": "aPolWBTC",
+        "contract": "0x078f358208685046a11C85e8ad32895DED33A249",
+        "decimals": 8,
+        "network": "polygon",
+        "price": 62.61699999999999732835931354202330112457275390625
+    },
+    "14": {
+        "name": "Matic Token",
+        "ticker": "MATIC",
+        "contract": "0x0000000000000000000000000000000000001010",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0.56720000000000003748112931134528480470180511474609375
+    },
+    "15": {
+        "name": "Wrapped Matic ",
+        "ticker": "WMATIC",
+        "contract": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0.56720000000000003748112931134528480470180511474609375
+    },
+    "16": {
+        "name": "Wrapped Ether",
+        "ticker": "WETH",
+        "contract": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 3.435000000000000053290705182007513940334320068359375
+    },
+    "20": {
+        "name": "BRZ Token",
+        "ticker": "BRZ",
+        "contract": "0x4eD141110F6EeeAbA9A1df36d8c26f684d2475Dc",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0.17630000000000001225686219186172820627689361572265625
+    },
+    "21": {
+        "name": " (PoS) Wrapped BTC",
+        "ticker": "WBTC",
+        "contract": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+        "decimals": 8,
+        "network": "polygon",
+        "price": 62605.3099999999976716935634613037109375
+    },
+    "timestamp": "2024-07-02T14:09:22Z"
+}
