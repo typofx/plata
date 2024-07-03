@@ -12,9 +12,9 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 ob_start();
 include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
 ob_end_clean();
-$ETHUSD; // variável $ETHUSD definida em price.php
+$ETHUSD; // $ETHUSD variable defined in price.php
 
-// Função para buscar o preço do token pelo símbolo
+// Function to get the token price by symbol
 function getTokenPriceBySymbol($symbol) {
     $api_key = 
     $priceEndpoint = "https://min-api.cryptocompare.com/data/price?fsym={$symbol}&tsyms=USD&api_key={$api_key}";
@@ -25,13 +25,13 @@ function getTokenPriceBySymbol($symbol) {
     curl_close($ch);
     $priceData = json_decode($response, true);
 
-    return $priceData['USD'] ?? 0; // Retorna o preço em USD ou 0 se não encontrado
+    return $priceData['USD'] ?? 0; // Returns price in USD or 0 if not found
 }
 
-// Função para atualizar ou criar arquivo JSON
+// Function to update or create JSON file
 function updateJsonFile($data) {
     $jsonFile = 'assets_data.json';
-    $data['timestamp'] = gmdate("Y-m-d\TH:i:s\Z"); // Adiciona timestamp UTC aos dados
+    $data['timestamp'] = gmdate("Y-m-d\TH:i:s\Z"); // Adds UTC timestamp to data
     if (file_put_contents($jsonFile, json_encode($data, JSON_PRETTY_PRINT))) {
         return "JSON file updated successfully. <a href='assets_data.json' target='_blank'>Assets-JSON</a>";
     } else {
@@ -39,15 +39,15 @@ function updateJsonFile($data) {
     }
 }
 
-// Conexão com o banco de dados
+// Database connection
 include 'conexao.php';
 
-// Verifica conexão
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Consulta SQL para buscar dados da tabela de ativos
+// SQL query to fetch data from the assets table
 $sql = "SELECT id, contract_name, ticker_symbol, decimal_value, network, timestamp_value, name FROM granna80_bdlinks.assets";
 $result = $conn->query($sql);
 
@@ -93,7 +93,7 @@ if ($result->num_rows > 0) {
         ];
     }
 
-    // Chama a função updateJsonFile e define $message
+    // Call updateJsonFile function and set $message
     $message = updateJsonFile($assetsData);
 } else {
     $message = "No records found to update JSON.";
@@ -150,7 +150,7 @@ if ($result->num_rows > 0) {
     </thead>
     <tbody>
         <?php
-        // Mostra os dados da tabela
+        // Display table data
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -201,7 +201,7 @@ if ($result->num_rows > 0) {
     </tbody>
 </table>
 
-<p><?php echo $message; ?></p> <!-- Mostra a mensagem de sucesso ou erro aqui -->
+<p><?php echo $message; ?></p> <!-- Displays success or error message here -->
 <p>Timestamp: <?php echo gmdate("Y-m-d\TH:i:s\Z"); ?></p>
 
 <script>
