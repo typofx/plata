@@ -1,4 +1,4 @@
-<?php 
+<?php
 ini_set('session.gc_maxlifetime', 28800);
 session_set_cookie_params(28800);
 
@@ -7,14 +7,14 @@ session_start();
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
     header("Location: ../../index.php");
     exit();
-} ?>
+}
 
-<?php
 ob_start();
 include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
 ob_end_clean();
+$ETHUSD; // variável $ETHUSD definida em price.php
 
-// Function to fetch token price by symbol
+// Função para buscar o preço do token pelo símbolo
 function getTokenPriceBySymbol($symbol) {
     $api_key = 
     $priceEndpoint = "https://min-api.cryptocompare.com/data/price?fsym={$symbol}&tsyms=USD&api_key={$api_key}";
@@ -28,26 +28,26 @@ function getTokenPriceBySymbol($symbol) {
     return $priceData['USD'] ?? 0; // Retorna o preço em USD ou 0 se não encontrado
 }
 
-// Function to update or create JSON file
+// Função para atualizar ou criar arquivo JSON
 function updateJsonFile($data) {
     $jsonFile = 'assets_data.json';
-    $data['timestamp'] = gmdate("Y-m-d\TH:i:s\Z"); // Add UTC timestamp to the data
+    $data['timestamp'] = gmdate("Y-m-d\TH:i:s\Z"); // Adiciona timestamp UTC aos dados
     if (file_put_contents($jsonFile, json_encode($data, JSON_PRETTY_PRINT))) {
-        return "JSON file updated successfully. <a href='assets_data.json'>Assets-JSON</a> ";
+        return "JSON file updated successfully. <a href='assets_data.json' target='_blank'>Assets-JSON</a>";
     } else {
         return "Error writing JSON file.";
     }
 }
 
-// Database connection settings
+// Conexão com o banco de dados
 include 'conexao.php';
 
-// Check connection
+// Verifica conexão
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// SQL query to fetch data from assets table
+// Consulta SQL para buscar dados da tabela de ativos
 $sql = "SELECT id, contract_name, ticker_symbol, decimal_value, network, timestamp_value, name FROM granna80_bdlinks.assets";
 $result = $conn->query($sql);
 
@@ -89,24 +89,16 @@ if ($result->num_rows > 0) {
             "contract" => $row["contract_name"],
             "decimals" => (int)$row["decimal_value"],
             "network" => $row["network"],
-          "price" => (float) str_replace(',', '.', $price) // Converte $price para float
+            "price" =>  $price
         ];
     }
 
+    // Chama a função updateJsonFile e define $message
     $message = updateJsonFile($assetsData);
 } else {
     $message = "No records found to update JSON.";
 }
-
-
 ?>
-
-<style>
-    body {
-        font-family: 'Courier New', monospace;
-        font-size: 14px;
-    }
-</style>
 
 <!DOCTYPE html>
 <html>
@@ -117,6 +109,11 @@ if ($result->num_rows > 0) {
 
     <title>Assets List</title>
     <style>
+        body {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
         table,
         th,
         td {
@@ -127,9 +124,7 @@ if ($result->num_rows > 0) {
             background-color: yellow;
             color: black;
             padding: 2px 4px;
-
             border-radius: 3px;
-
         }
     </style>
 
@@ -139,8 +134,7 @@ if ($result->num_rows > 0) {
 <a href="add.php">[Add New Record]</a>
 
 <h1>Assets List</h1>
-<p><?php echo $message; ?></p>
-<p>Timestamp: <?php echo gmdate("Y-m-d\TH:i:s\Z"); // Display UTC timestamp ?></p>
+
 <table id='example' class='display'>
     <thead>
         <tr>
@@ -156,17 +150,15 @@ if ($result->num_rows > 0) {
     </thead>
     <tbody>
         <?php
-        // Display table data
+        // Mostra os dados da tabela
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["id"] . "</td>";
-                echo "<td>" . $row["name"] . "</td>";
-                echo "<td>" . $row["ticker_symbol"] . "</td>";
-                echo "<td>" . $row["contract_name"] . "</td>";
-                echo "<td>" . $row["decimal_value"] . "</td>";
-                echo "<td>" . $row["network"] . "</td>";
+                if ($price >= number_format(0.01)) {
+                    $num_decimals = 4;
+                } else {
+                    $num_decimals = 10;
+                }
 
                 switch ($row["ticker_symbol"]) {
                     case "PLT":
@@ -188,12 +180,18 @@ if ($result->num_rows > 0) {
                         $price = number_format(getTokenPriceBySymbol($row["ticker_symbol"]), $num_decimals, '.', '');
                 }
 
+                echo "<tr>";
+                echo "<td>" . $row["id"] . "</td>";
+                echo "<td>" . $row["name"] . "</td>";
+                echo "<td>" . $row["ticker_symbol"] . "</td>";
+                echo "<td>" . $row["contract_name"] . "</td>";
+                echo "<td>" . $row["decimal_value"] . "</td>";
+                echo "<td>" . $row["network"] . "</td>";
                 echo "<td>" . $price . "</td>";
-
                 echo "<td>
-                <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
-                <a href='#' onclick='confirmDelete(" . $row["id"] . ")'><i style='color: red;' class='fa-solid fa-trash'></i></a>
-                </td>";
+                    <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
+                    <a href='#' onclick='confirmDelete(" . $row["id"] . ")'><i style='color: red;' class='fa-solid fa-trash'></i></a>
+                  </td>";
                 echo "</tr>";
             }
         } else {
@@ -202,6 +200,9 @@ if ($result->num_rows > 0) {
         ?>
     </tbody>
 </table>
+
+<p><?php echo $message; ?></p> <!-- Mostra a mensagem de sucesso ou erro aqui -->
+<p>Timestamp: <?php echo gmdate("Y-m-d\TH:i:s\Z"); ?></p>
 
 <script>
     function confirmDelete(id) {
