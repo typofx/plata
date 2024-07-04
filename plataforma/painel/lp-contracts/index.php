@@ -62,7 +62,9 @@ include 'search.php'; ?>
     <h1>LP Contracts</h1>
 
     <div class="container">
-        <a href="add.php">Add new record</a>
+        <a href="https://plata.ie/plataforma/painel/menu.php">[Main Menu]</a>
+        <a href="javascript:window.location.reload(true)">[Refresh]</a>
+        <a href="add.php">[Add New Record]</a>
         <?php echo 'MATIC/USDT ' . number_format($MATICUSD, 5, '.', ',') . ' USD⠀⠀⠀⠀' ?>
 
         <?php echo 'PLT/USDT ' . number_format($PLTUSD, 10, '.', ',') . ' USD⠀⠀⠀⠀' ?>
@@ -163,29 +165,62 @@ include 'search.php'; ?>
                 echo '<p>Token balance or decimals not available.</p>';
             }
 
-            echo "<td>" . number_format($PLTUSD, 10, '.', ',') . ' USD' . "</td>";
 
             echo "<td>";
 
-     
-            $contract_asset_b_lower = strtolower($row["contract_asset_b"]);
+            $contract_asset_a_lower = strtolower($row["contract_asset_a"]);
 
-        // Loop through prices
+            // Loop through prices
             $prices_lower = array_change_key_case($prices, CASE_LOWER);
 
             // Check if it is present in the prices
-            if (isset($prices_lower[$contract_asset_b_lower])) {
-                $contract_price = $prices_lower[$contract_asset_b_lower];
-                echo number_format($contract_price, 2, '.', ',') . ' USD'; 
+            if (isset($prices_lower[$contract_asset_a_lower])) {
+                $contract_price_a = $prices_lower[$contract_asset_a_lower];
+
+                if ($contract_asset_a_lower === '0xc298812164bd558268f51cc6e3b8b5daaf0b6341') {
+                    // Format the number to display with 10 decimal places for this specific contract
+                    echo number_format($contract_price_a, 10, '.', '') . ' USD';
+                } else {
+                    // Displays the number normally with 2 decimal places for other contracts
+                    echo number_format($contract_price_a, 2, '.', ',') . ' USD';
+                }
             } else {
                 echo '0'; // If there is no match, display 0
             }
 
             echo "</td>";
 
-$liquidityFinal = (($tokenBalance_A_unformated * $PLTUSD  ) + ($tokenBalance_B_unformated * $contract_price ));
+            echo "<td>";
 
-            echo "<td>" . number_format($liquidityFinal , 2, '.', ',') . ' USD⠀⠀⠀⠀' . "</td>";
+            $contract_asset_b_lower = strtolower($row["contract_asset_b"]);
+
+            // Loop through prices
+            $prices_lower_b = array_change_key_case($prices, CASE_LOWER);
+
+            // Check if it is present in the prices
+            if (isset($prices_lower_b[$contract_asset_b_lower])) {
+                $contract_price_b = $prices_lower_b[$contract_asset_b_lower];
+
+                if ($contract_asset_b_lower === '0xc298812164bd558268f51cc6e3b8b5daaf0b6341') {
+                     // Format the number to display with 10 decimal places for this specific contract
+                    echo number_format($contract_price_b, 10, '.', '') . ' USD';
+                } else {
+                  // Displays the number normally with 2 decimal places for other contracts
+                    echo number_format($contract_price_b, 2, '.', ',') . ' USD';
+                }
+            } else {
+                echo '0'; // If there is no match, display 0
+            }
+
+            echo "</td>";
+
+                        ///////////////////////////////////////////
+
+            $liquidityFinal = (($tokenBalance_A_unformated * $contract_price_a) + ($tokenBalance_B_unformated * $contract_price_b));
+
+            echo "<td>" . number_format($liquidityFinal, 2, '.', ',') . ' USD' . "</td>";
+
+                            //////////////////////////////
 
             echo "   <td>
                 <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
@@ -198,6 +233,7 @@ $liquidityFinal = (($tokenBalance_A_unformated * $PLTUSD  ) + ($tokenBalance_B_u
         echo "<tr> ⠀⠀⠀⠀</tr>";
         echo "<tr>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tr>";
         echo "<tr><h3> Total : " . number_format($totalFinalBalance, 4, '.', ',') . " USD</h3></tr>";
+        echo "Timestamp: " . gmdate("Y-m-d\TH:i:s\Z");
         echo "<tr>⠀⠀⠀⠀ </tr>";
     } else {
         echo "0 results";
@@ -226,10 +262,12 @@ $liquidityFinal = (($tokenBalance_A_unformated * $PLTUSD  ) + ($tokenBalance_B_u
         global $conn; // Making the connection available inside the function
         $sql = "SELECT id, name, contract, asset_a, asset_b, contract_asset_a, contract_asset_b, liquidity, exchange FROM granna80_bdlinks.lp_contracts";
         $result = $conn->query($sql);
-
+        $totalLiquidity = 0;
         if ($result->num_rows > 0) {
+
             while ($row = $result->fetch_assoc()) {
                 // Check if values are empty and set to 0 if they are
+
                 $id = !empty($row["id"]) ? (int)$row["id"] : 0;
                 $pair = !empty($row["asset_a"]) && !empty($row["asset_b"]) ? $row["asset_a"] . "/" . $row["asset_b"] : "0/0";
                 $contract = !empty($row["contract"]) ? $row["contract"] : "0";
@@ -244,7 +282,12 @@ $liquidityFinal = (($tokenBalance_A_unformated * $PLTUSD  ) + ($tokenBalance_B_u
                     "exchange" => $exchange,
                     "liquidity" => $liquidity,
                 );
+                $totalLiquidity += $liquidity;
             }
+            $lpContracts[] = array(
+                "total_liquidity" => $totalLiquidity,
+                "timestamp" => gmdate("Y-m-d\TH:i:s\Z")
+            );
 
             // Convert the array to JSON with numbers correctly handled
             $json_data = json_encode($lpContracts, JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK);
@@ -267,7 +310,7 @@ $liquidityFinal = (($tokenBalance_A_unformated * $PLTUSD  ) + ($tokenBalance_B_u
     }
     ?>
 
-    <a href="lp_contracts.json">LP-CONTRACTS-JSON</a>
+    <a href="lp_contracts.json" target="_blank">LP-CONTRACTS-JSON</a>
 
     <script>
         function confirmDelete(id) {
@@ -286,11 +329,11 @@ $liquidityFinal = (($tokenBalance_A_unformated * $PLTUSD  ) + ($tokenBalance_B_u
     <script>
         jQuery.extend(jQuery.fn.dataTableExt.oSort, {
             "numeric-comma-pre": function(a) {
-                // Remove all non-numeric characters except commas and dots
+                // Remove todos os caracteres não numéricos exceto vírgulas e pontos
                 var x = a.replace(/[^\d,.]/g, '');
-                // Remove commas to treat as number
-                x = x.replace(',', '');
-                // Convert to float
+                // Substitui vírgulas por nada para tratar como número
+                x = x.replace(/,/g, '');
+                // Converte para float
                 return parseFloat(x);
             },
             "numeric-comma-asc": function(a, b) {
@@ -318,6 +361,7 @@ $liquidityFinal = (($tokenBalance_A_unformated * $PLTUSD  ) + ($tokenBalance_B_u
             });
         });
     </script>
+
 
 </body>
 
