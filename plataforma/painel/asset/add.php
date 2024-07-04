@@ -17,7 +17,8 @@ use Web3\Contract;
 use Web3\Providers\HttpProvider;
 
 // Function to handle contract response
-function handleResponse($result) {
+function handleResponse($result)
+{
     if (is_array($result)) {
         $result = reset($result); // Get the first value from the array
     }
@@ -27,7 +28,7 @@ function handleResponse($result) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Select Infura endpoint URL based on the selected network
     $network = $_POST['network'];
-    $infuraProjectId = 
+    $infuraProjectId =  // Replace with your Infura project ID
 
     if ($network == 'ethereum') {
         $infuraUrl = "https://mainnet.infura.io/v3/{$infuraProjectId}";
@@ -47,30 +48,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $web3 = new Web3($httpProvider);
 
     // Ethereum contract ABI you want to interact with (example of a USDC contract)
-    $contractABI = '[{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"}]';
+    $contractABI = '[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"}]';
 
     // Create an instance of the contract with the HTTP provider and ABI
     $contract = new Contract($web3->provider, json_decode($contractABI, true));
 
     // Initialize variables to store results
+    $contract_name = '';
     $ticker_symbol = '';
     $decimal_value = '';
 
     // Methods and parameters to call directly
     $methods = [
+        'name' => [],       // name method without parameters
         'symbol' => [],     // symbol method without parameters
         'decimals' => [],   // decimals method without parameters
     ];
 
     // Loop to call each method
     foreach ($methods as $method => $params) {
-        $contract->at($contractAddress)->call($method, $params, function ($err, $result) use ($method, &$ticker_symbol, &$decimal_value) {
+        $contract->at($contractAddress)->call($method, $params, function ($err, $result) use ($method, &$contract_name, &$ticker_symbol, &$decimal_value) {
             if ($err !== null) {
                 echo 'Error fetching ' . $method . ': ' . $err->getMessage() . '<br>';
                 return;
             }
 
-            if ($method == 'symbol') {
+            if ($method == 'name') {
+                $contract_name = handleResponse($result);
+            } elseif ($method == 'symbol') {
                 $ticker_symbol = handleResponse($result);
             } elseif ($method == 'decimals') {
                 $decimal_value = handleResponse($result);
@@ -87,8 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO granna80_bdlinks.assets (contract_name, ticker_symbol, decimal_value, network) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $contractAddress, $ticker_symbol, $decimal_value, $network);
+    $stmt = $conn->prepare("INSERT INTO granna80_bdlinks.assets (name, contract_name, ticker_symbol, decimal_value, network) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $contract_name, $contractAddress, $ticker_symbol, $decimal_value, $network);
 
     // Execute the insertion into the database
     if ($stmt->execute()) {
@@ -104,22 +109,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Add Asset</title>
 </head>
+
 <body>
     <h1>Add Asset</h1>
     <form action="" method="post">
         <label for="network">Network:</label>
         <select id="network" name="network" required>
-            <option value="ethereum">Ethereum</option>
-            <option value="polygon">Polygon</option>
+            <option value="polygon" selected>Polygon</option>
+            <!--<option value="ethereum">Ethereum</option>-->
         </select><br><br>
-        
+
         <label for="contract_address">Contract:</label>
         <input type="text" id="contract_address" name="contract_address" required><br><br>
-        
-        <input type="submit" value="Save">
+
+        <input type="submit" value="Save">  <a href="https://plata.ie/plataforma/painel/asset/">Return</a>
     </form>
+
 </body>
+
 </html>
