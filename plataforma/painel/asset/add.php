@@ -28,7 +28,7 @@ function handleResponse($result)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Select Infura endpoint URL based on the selected network
     $network = $_POST['network'];
-    $infuraProjectId =  // Replace with your Infura project ID
+    $infuraProjectId = // Replace with your Infura project ID
 
     if ($network == 'ethereum') {
         $infuraUrl = "https://mainnet.infura.io/v3/{$infuraProjectId}";
@@ -97,13 +97,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the insertion into the database
     if ($stmt->execute()) {
-        echo "New record created successfully";
+        $last_id = $conn->insert_id;
+        $_SESSION['message'] = "New record created successfully. ID: " . $last_id . " <a href='edit.php?id=" . $last_id . "'><i class='fa-solid fa-pen-to-square'>edit</i></a>";
     } else {
-        echo "Error: " . $stmt->error;
+        $_SESSION['message'] = "Error: " . $stmt->error;
     }
 
     $stmt->close();
     $conn->close();
+
+    // Redirect to the same page to show the message
+    echo "<script>window.location.href = 'add.php';</script>";
+    exit();
+}
+
+$message = '';
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
 }
 ?>
 
@@ -116,6 +127,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <h1>Add Asset</h1>
+    <?php if ($message): ?>
+        <p><?php echo $message; ?></p>
+    <?php endif; ?>
+ 
+
     <form action="" method="post">
         <label for="network">Network:</label>
         <select id="network" name="network" required>
@@ -128,6 +144,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <input type="submit" value="Save">  <a href="https://plata.ie/plataforma/painel/asset/">Return</a>
     </form>
+
+
 
 </body>
 
