@@ -98,13 +98,14 @@ include 'search.php'; ?>
                         <th>Contract</th>
                         <th>Exchange</th>
                         <th>Asset A</th>
-                        <th> </th>
-                        <th>Asset B</th>
-                        <th> </th>
-                        <th>Liquidity</th>
                         <th>Price A</th>
-                         <th>Price B</th>       
+                        <th>qtA</th>
+                         <th>Asset B</th>
+                        <th>Price B</th>
+                        <th>qtB</th>
+                      
                          <th>Liquidity</th>
+                       
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -120,7 +121,7 @@ include 'search.php'; ?>
             echo "<tr>
             <td>" . $row["id"] . "</td>
             <td>" . $row["asset_a"] . "/" . $row["asset_b"] . "</td>
-            <td>" . $row["contract"] . "</td>
+             <td><a href='https://polygonscan.com/address/" . $row["contract"] . "'>" . substr($row["contract"], 0, 6) . "..." . substr($row["contract"], -4) . "</a></td>
             <td>" . $row["exchange"] . "</td>";
 
             getTokenInfo($web3, $walletAddress, $tokenContract_A, $tokenBalance_A, $tokenDecimals);
@@ -143,27 +144,7 @@ include 'search.php'; ?>
             sleep(1);
 
             echo "    <td style='text-align: right;'>" . $tokenBalance_A . " </td>";
-            echo "    <td>" . $row["asset_a"] . " </td>";
-            echo "    <td style='text-align: right;'>" . $tokenBalance_B . " </td>";
-            echo "    <td>" . $row["asset_b"] . " </td>";
-
-            if ($tokenBalance_A !== null && $tokenDecimals !== null) {
-
-                $FinalBalance = (($PLTUSD * $tokenBalance_A_unformated) + (2 * $tokenBalance_B_unformated));
-                $ConvertedBalance = $FinalBalance / 10000;
-                echo '<td style="text-align: right;"><b>' . number_format($FinalBalance, 2, '.', ',') . ' USD</b></td>';
-                $sqlInsert = "UPDATE granna80_bdlinks.lp_contracts SET liquidity = '$FinalBalance' WHERE id = " . $row['id'];
-
-                if ($conn->query($sqlInsert) === TRUE) {
-                    //echo "Liquidity updated successfully";
-                } else {
-                    //echo "Error updating liquidity: " . $conn->error;
-                }
-
-                $totalFinalBalance += $FinalBalance;
-            } else {
-                echo '<p>Token balance or decimals not available.</p>';
-            }
+            // echo "    <td>" . $row["asset_a"] . " </td>";
 
 
             echo "<td>";
@@ -179,10 +160,10 @@ include 'search.php'; ?>
 
                 if ($contract_asset_a_lower === '0xc298812164bd558268f51cc6e3b8b5daaf0b6341') {
                     // Format the number to display with 10 decimal places for this specific contract
-                    echo number_format($contract_price_a, 10, '.', '') . ' USD';
+                    echo number_format($contract_price_a, 10, '.', '') . '';
                 } else {
                     // Displays the number normally with 2 decimal places for other contracts
-                    echo number_format($contract_price_a, 2, '.', ',') . ' USD';
+                    echo number_format($contract_price_a, 2, '.', ',') . '';
                 }
             } else {
                 echo '0'; // If there is no match, display 0
@@ -190,8 +171,19 @@ include 'search.php'; ?>
 
             echo "</td>";
 
-            echo "<td>";
+           
 
+            $qtA = $tokenBalance_A_unformated * $contract_price_a;
+
+            echo "<td>" . number_format($qtA, 2, '.', ',') . '' .  "</td>";
+
+            /////////////////////////////////B////////////////////////////
+
+            echo "    <td style='text-align: right;'>" . $tokenBalance_B . " </td>";
+            // echo "    <td>" . $row["asset_b"] . " </td>";
+
+
+            echo "<td>";
             $contract_asset_b_lower = strtolower($row["contract_asset_b"]);
 
             // Loop through prices
@@ -202,11 +194,11 @@ include 'search.php'; ?>
                 $contract_price_b = $prices_lower_b[$contract_asset_b_lower];
 
                 if ($contract_asset_b_lower === '0xc298812164bd558268f51cc6e3b8b5daaf0b6341') {
-                     // Format the number to display with 10 decimal places for this specific contract
-                    echo number_format($contract_price_b, 10, '.', '') . ' USD';
+                    // Format the number to display with 10 decimal places for this specific contract
+                    echo number_format($contract_price_b, 10, '.', '') . '';
                 } else {
-                  // Displays the number normally with 2 decimal places for other contracts
-                    echo number_format($contract_price_b, 2, '.', ',') . ' USD';
+                    // Displays the number normally with 2 decimal places for other contracts
+                    echo number_format($contract_price_b, 2, '.', ',') . '';
                 }
             } else {
                 echo '0'; // If there is no match, display 0
@@ -214,13 +206,36 @@ include 'search.php'; ?>
 
             echo "</td>";
 
-                        ///////////////////////////////////////////
+            $qtB = $tokenBalance_B_unformated * $contract_price_b;
 
-            $liquidityFinal = (($tokenBalance_A_unformated * $contract_price_a) + ($tokenBalance_B_unformated * $contract_price_b));
 
-            echo "<td>" . number_format($liquidityFinal, 2, '.', ',') . ' USD' . "</td>";
+            echo "<td>" .  number_format($qtB, 2, '.', ',')  .  "</td>";
 
-                            //////////////////////////////
+
+/////////////////////////////////////////////////////////////////////
+
+            if ($tokenBalance_A !== null && $tokenDecimals !== null) {
+
+                $FinalBalance = (($tokenBalance_A_unformated * $contract_price_a) + ($tokenBalance_B_unformated * $contract_price_b));
+                echo '<td style="text-align: right;"><b>' . number_format($FinalBalance, 2, '.', ',') . ' USD</b></td>';
+                $sqlInsert = "UPDATE granna80_bdlinks.lp_contracts SET liquidity = '$FinalBalance' WHERE id = " . $row['id'];
+
+                if ($conn->query($sqlInsert) === TRUE) {
+                   // echo "Liquidity updated successfully";
+                } else {
+                   // echo "Error updating liquidity: " . $conn->error;
+                }
+
+                $totalFinalBalance += $FinalBalance;
+            } else {
+                echo '<p>Token balance or decimals not available.</p>';
+            }
+
+
+
+           //echo "<td>" . number_format($liquidityFinal, 2, '.', ',') . ' USD' . "</td>";
+
+            //////////////////////////////
 
             echo "   <td>
                 <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
@@ -253,48 +268,53 @@ include 'search.php'; ?>
     generateJsonFile($jsonFilePath);
 
     // Function to generate the JSON file
-    function generateJsonFile($filePath)
-    {
+  
+    
+    function generateJsonFile($filePath) {
         // Initialize an empty array for liquidity contracts
         $lpContracts = array();
-
+    
         // SQL to get data from the `lp_contracts` table
         global $conn; // Making the connection available inside the function
         $sql = "SELECT id, name, contract, asset_a, asset_b, contract_asset_a, contract_asset_b, liquidity, exchange FROM granna80_bdlinks.lp_contracts";
         $result = $conn->query($sql);
         $totalLiquidity = 0;
         if ($result->num_rows > 0) {
-
+    
             while ($row = $result->fetch_assoc()) {
                 // Check if values are empty and set to 0 if they are
-
                 $id = !empty($row["id"]) ? (int)$row["id"] : 0;
                 $pair = !empty($row["asset_a"]) && !empty($row["asset_b"]) ? $row["asset_a"] . "/" . $row["asset_b"] : "0/0";
                 $contract = !empty($row["contract"]) ? $row["contract"] : "0";
                 $exchange = !empty($row["exchange"]) ? $row["exchange"] : "0";
-                $liquidity = !empty($row["liquidity"]) ? (float)$row["liquidity"] : 0.0;
-
+                $liquidity = !empty($row["liquidity"]) ?  $row["liquidity"] : 0.0;
+                $liquidity = (float)$liquidity;
+                $liquidity =  round($liquidity,5);
+    
                 // Add each liquidity contract to the array
                 $lpContracts[] = array(
                     "id" => $id,
                     "pair" => $pair,
                     "contract" => $contract,
                     "exchange" => $exchange,
-                    "liquidity" => $liquidity,
+                    "liquidity" => $liquidity
                 );
                 $totalLiquidity += $liquidity;
             }
+     
+         
+    
             $lpContracts[] = array(
                 "total_liquidity" => $totalLiquidity,
                 "timestamp" => gmdate("Y-m-d\TH:i:s\Z")
             );
-
+    
             // Convert the array to JSON with numbers correctly handled
-            $json_data = json_encode($lpContracts, JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK);
-
+            $json_data = json_encode($lpContracts);
+    
             // Replace escaped slashes with normal slashes
             $json_data = str_replace("\\/", "/", $json_data);
-
+    
             // Save the JSON to a file
             if (file_put_contents($filePath, $json_data)) {
                 echo "JSON file updated successfully.";
@@ -304,7 +324,7 @@ include 'search.php'; ?>
         } else {
             echo "No records found.";
         }
-
+    
         // Close the database connection
         $conn->close();
     }
@@ -353,10 +373,10 @@ include 'search.php'; ?>
                 "pageLength": 50,
                 "columnDefs": [{
                     "type": "numeric-comma",
-                    "targets": [8]
+                    "targets": [10,9,8,7,6,5,4]
                 }],
                 "order": [
-                    [8, "desc"]
+                    [10, "desc"]
                 ]
             });
         });
