@@ -15,7 +15,7 @@ $result = $conn->query($sql);
 $members = [];
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $members[$row['id']] = $row; // Usar o id como chave no array
+        $members[] = $row; // Adicionar o membro ao array
     }
 }
 $conn->close();
@@ -25,24 +25,12 @@ $json_data = [];
 if (file_exists('team_members.json')) {
     $json_content = file_get_contents('team_members.json');
     $json_data = json_decode($json_content, true);
+} else {
+    $json_data = [];
 }
 
-// Processar a remoção de um membro
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['remove_member'])) {
-    $indexToRemove = $_GET['remove_member'];
-    if (isset($json_data[$indexToRemove])) {
-        unset($json_data[$indexToRemove]);
-        // Reindexar o array após a remoção
-        $json_data = array_values($json_data);
-        
-        // Salvar de volta no arquivo JSON
-        file_put_contents('team_members.json', json_encode($json_data, JSON_PRETTY_PRINT));
-        
-        // Redirecionar de volta para a página principal após a remoção
-        header("Location: form.php");
-        exit();
-    }
-}
+// Definir opções de mídias sociais
+$socialMediaFields = ['WhatsApp', 'Instagram', 'Telegram', 'Facebook', 'GitHub', 'Email', 'Twitter', 'LinkedIn', 'Twitch', 'Medium'];
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['remove_member'])) {
         <label for="num_members">Number of Team Members (1 to 5):</label>
         <select id="num_members" name="num_members" required>
             <?php for ($i = 1; $i <= 5; $i++): ?>
-                <option value="<?= $i ?>" <?= isset($json_data[$i - 1]) ? 'selected' : '' ?>><?= $i ?></option>
+                <option value="<?= $i ?>" <?= $i <= count($json_data) ? 'selected' : '' ?>><?= $i ?></option>
             <?php endfor; ?>
         </select>
 
@@ -73,46 +61,40 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['remove_member'])) {
     </form>
 
     <script>
+        // Passando dados PHP para JavaScript
         const members = <?= json_encode($members) ?>;
         const savedData = <?= json_encode($json_data) ?>;
+        const socialMediaFields = <?= json_encode($socialMediaFields) ?>;
+
         const membersContainer = document.getElementById('members_container');
         const numMembersSelect = document.getElementById('num_members');
 
         function createMemberFields(memberIndex, memberData = {}) {
             let memberOptions = '';
-            Object.keys(members).forEach(memberId => {
-                const member = members[memberId];
-                memberOptions += `<option value="${member.id}" ${memberData.id == memberId ? 'selected' : ''}>${member.teamName}</option>`;
+
+            // Gerando opções de membros dinamicamente com dados PHP
+            members.forEach(member => {
+                memberOptions += `<option value="${member.teamName}" ${memberData.name == member.teamName ? 'selected' : ''}>${member.teamName}</option>`;
             });
 
             let selectedSocialMedia = memberData.social_media || {};
-
-            let selectedMemberId = memberData.id || ''; // Definir selectedMemberId
 
             membersContainer.innerHTML += `
                 <fieldset>
                     <legend>Member ${memberIndex}</legend>
                     <label for="member_${memberIndex}">Select Member:</label>
-                    <select id="member_${memberIndex}" name="members[${memberIndex}][id]" required>
+                    <select id="member_${memberIndex}" name="members[${memberIndex}][teamName]" required>
                         ${memberOptions}
                     </select>
                     
                     <label>Social Media (Choose up to 3):</label>
                     <select name="members[${memberIndex}][social_media][]" multiple required>
-                        <option value="teamSocialMedia0" ${selectedSocialMedia.teamSocialMedia0 ? 'selected' : ''}>WhatsApp</option>
-                        <option value="teamSocialMedia1" ${selectedSocialMedia.teamSocialMedia1 ? 'selected' : ''}>Instagram</option>
-                        <option value="teamSocialMedia2" ${selectedSocialMedia.teamSocialMedia2 ? 'selected' : ''}>Telegram</option>
-                        <option value="teamSocialMedia3" ${selectedSocialMedia.teamSocialMedia3 ? 'selected' : ''}>Facebook</option>
-                        <option value="teamSocialMedia4" ${selectedSocialMedia.teamSocialMedia4 ? 'selected' : ''}>GitHub</option>
-                        <option value="teamSocialMedia5" ${selectedSocialMedia.teamSocialMedia5 ? 'selected' : ''}>Email</option>
-                        <option value="teamSocialMedia6" ${selectedSocialMedia.teamSocialMedia6 ? 'selected' : ''}>Twitter</option>
-                        <option value="teamSocialMedia7" ${selectedSocialMedia.teamSocialMedia7 ? 'selected' : ''}>LinkedIn</option>
-                        <option value="teamSocialMedia8" ${selectedSocialMedia.teamSocialMedia8 ? 'selected' : ''}>Twitch</option>
-                        <option value="teamSocialMedia9" ${selectedSocialMedia.teamSocialMedia9 ? 'selected' : ''}>Medium</option>
+                        ${socialMediaFields.map(field => `
+                            <option value="${field}" ${selectedSocialMedia[field] ? 'selected' : ''}>${field}</option>
+                        `).join('')}
                     </select>
 
-                    <input type="hidden" name="members[${memberIndex}][teamName]" value="${selectedMemberId}">
-                    <a href="remove_member.php?remove_member=${selectedMemberId}">Remove</a>
+                    <a href="remove_member.php?remove_member=${memberIndex}">Remove</a>
                 </fieldset>
             `;
         }
@@ -122,7 +104,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['remove_member'])) {
             const numMembers = this.value;
 
             for (let i = 1; i <= numMembers; i++) {
-                createMemberFields(i, savedData[i - 1]);
+                // Verificar se há dados salvos para este membroIndex no JSON
+                if (savedData[i - 1] && savedData[i - 1].name) {
+                    // Se houver, criar campos preenchidos com os dados salvos
+                    createMemberFields(i, savedData[i - 1]);
+                } else {
+                    // Se não houver dados salvos, criar campos vazios
+                    createMemberFields(i);
+                }
             }
         });
 
