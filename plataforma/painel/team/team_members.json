@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "name": "Adam Soares",
+        "position": "FOUNDER CEO COMPUTER ENGINEER",
+        "profile_picture": "uploads/6643933514fbe.jpg",
+        "social_media": {
+            "teamSocialMedia0": "+353899540823",
+            "teamSocialMedia1": "uarloque",
+            "teamSocialMedia2": "AdamSoares"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Adriel Dias",
+        "position": "WEB3 DEVELOPER",
+        "profile_picture": "uploads/Foto (2).jpg",
+        "social_media": {
+            "teamSocialMedia0": "+5513996453169",
+            "teamSocialMedia1": "https://plata.ie/plataforma/painel/menu.php",
+            "teamSocialMedia2": "https://plata.ie/plataforma/painel/menu.php"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Lucas Marquez Vianna",
+        "position": "WEB3 DEVELOPER TRAINEE",
+        "profile_picture": "uploads/Imagem do WhatsApp de 2024-07-03 \u00e0(s) 15.46.54_73022b04.jpg",
+        "social_media": {
+            "teamSocialMedia2": "+5513996354172"
+        }
+    }
+]
