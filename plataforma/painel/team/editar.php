@@ -1,8 +1,15 @@
-<?php session_start();
+<?php
+
+ini_set('session.gc_maxlifetime', 28800);
+session_set_cookie_params(28800);
+
+session_start();
+
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
     header("Location: ../index.php");
     exit();
-} ?>
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +23,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     <?php
     
     include "conexao.php";
-
+    $file_path = $_SERVER['DOCUMENT_ROOT'] . '/images/uploads';
     $error = "";
 
     if(isset($_GET['id']) && is_numeric($_GET['id'])) {
@@ -40,10 +47,12 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
                    $errors[] = 'File size must be maximum 2 MB';
                 }
                 
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . '/images/uploads';
+
                 if (empty($errors)) {
                    $new_file_name = uniqid() . '.' . $file_ext;
-                   move_uploaded_file($file_tmp, "uploads/" . $new_file_name);
-                   $profilePicture = "uploads/" . $new_file_name;
+                   move_uploaded_file($file_tmp, $file_path . '/' . $new_file_name);
+                   $profilePicture = 'uploads/' . $new_file_name;
                 } else {
                    $error = implode(", ", $errors);
                 }
@@ -92,9 +101,10 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     ?>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?id=" . $id; ?>" method="post" enctype="multipart/form-data">
                 <label for="profilePicture">Profile Picture:</label><br>
-                <?php if(!empty($row['teamProfilePicture'])) { ?>
-                    <img src="<?php echo htmlspecialchars($row['teamProfilePicture']); ?>" alt="Current Profile Picture" width="150"><br>
-                <?php } ?>
+                <?php if (!empty($row['teamProfilePicture'])) { ?>
+    <img src="<?php echo htmlspecialchars('/images/' . $row['teamProfilePicture']); ?>" alt="Current Profile Picture" width="150"><br>
+<?php } ?>
+
                 <input type="file" id="profilePicture" name="profilePicture"><br>
                 
                 <label for="name">Name:</label><br>

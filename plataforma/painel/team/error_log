@@ -33,3 +33,114 @@ Stack trace:
 [10-May-2024 09:56:15 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/index.php:1) in /home2/granna80/public_html/plataforma/painel/team/index.php on line 42
 [10-May-2024 09:56:23 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/plataforma/painel/team/index.php on line 40
 [10-May-2024 09:56:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/index.php:1) in /home2/granna80/public_html/plataforma/painel/team/index.php on line 42
+[30-Jun-2024 09:54:12 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/delete.php:13) in /home2/granna80/public_html/plataforma/painel/team/delete.php on line 27
+[08-Jul-2024 10:56:31 America/Chicago] PHP Parse error:  Unclosed '{' on line 16 in /home2/granna80/public_html/plataforma/painel/team/form.php on line 109
+[08-Jul-2024 12:45:01 America/Chicago] PHP Warning:  Undefined array key "Facebook" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:45:01 America/Chicago] PHP Warning:  Undefined array key "GitHub" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:45:01 America/Chicago] PHP Warning:  Undefined array key "LinkedIn" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:45:01 America/Chicago] PHP Warning:  Undefined array key "WhatsApp" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:45:01 America/Chicago] PHP Warning:  Undefined array key "Instagram" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:45:01 America/Chicago] PHP Warning:  Undefined array key "Telegram" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:45:01 America/Chicago] PHP Warning:  Undefined array key "WhatsApp" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:45:01 America/Chicago] PHP Warning:  Undefined array key "Instagram" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:45:01 America/Chicago] PHP Warning:  Undefined array key "Telegram" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:54:44 America/Chicago] PHP Warning:  Undefined array key "WhatsApp" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 12:57:48 America/Chicago] PHP Warning:  Undefined array key "WhatsApp" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[08-Jul-2024 13:10:50 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 42
+[08-Jul-2024 13:10:50 America/Chicago] PHP Warning:  Undefined array key "position" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 43
+[08-Jul-2024 13:10:50 America/Chicago] PHP Warning:  Undefined array key "profile_picture" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 44
+[08-Jul-2024 13:10:50 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 42
+[08-Jul-2024 13:10:50 America/Chicago] PHP Warning:  Undefined array key "position" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 43
+[08-Jul-2024 13:10:50 America/Chicago] PHP Warning:  Undefined array key "profile_picture" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 44
+[08-Jul-2024 13:56:17 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 113
+[08-Jul-2024 13:56:17 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 113
+[08-Jul-2024 13:56:51 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 113
+[08-Jul-2024 13:56:51 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 113
+[08-Jul-2024 13:58:30 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 121
+[08-Jul-2024 13:58:30 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 121
+[08-Jul-2024 14:00:50 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/plataforma/painel/team/form.php on line 2
+[08-Jul-2024 14:00:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/form.php:1) in /home2/granna80/public_html/plataforma/painel/team/form.php on line 5
+[08-Jul-2024 14:02:09 America/Chicago] PHP Warning:  Undefined variable $socialMediaFields in /home2/granna80/public_html/plataforma/painel/team/form.php on line 88
+[08-Jul-2024 14:02:09 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/team/form.php on line 88
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:00 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 54
+[08-Jul-2024 14:10:53 America/Chicago] PHP Warning:  Undefined variable $socialMediaFields in /home2/granna80/public_html/plataforma/painel/team/form.php on line 74
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:11:08 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 57
+[08-Jul-2024 14:21:24 America/Chicago] PHP Warning:  Undefined variable $members in /home2/granna80/public_html/plataforma/painel/team/form.php on line 44
+[08-Jul-2024 14:34:52 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 56
+[08-Jul-2024 14:34:52 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 56
+[08-Jul-2024 14:34:54 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 56
+[08-Jul-2024 14:34:54 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/form.php on line 56
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 16
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 50
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 50
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 50
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 58
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 59
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 60
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 16
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 50
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 50
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 50
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 58
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 59
+[08-Jul-2024 14:51:30 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/process.php on line 60
+[09-Jul-2024 06:21:21 America/Chicago] PHP Warning:  Undefined array key "redes_sociais" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 46
+[09-Jul-2024 06:21:22 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/team/process.php on line 46
+[09-Jul-2024 06:27:12 America/Chicago] PHP Warning:  Undefined array key "redes_sociais" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 46
+[09-Jul-2024 06:27:12 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/team/process.php on line 46
+[09-Jul-2024 06:48:23 America/Chicago] PHP Warning:  Undefined array key "name" in /home2/granna80/public_html/plataforma/painel/team/remove_member.php on line 26
+[09-Jul-2024 08:41:38 America/Chicago] PHP Warning:  Array to string conversion in /home2/granna80/public_html/plataforma/painel/team/post.php on line 6
+[09-Jul-2024 08:51:58 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[09-Jul-2024 08:51:58 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[09-Jul-2024 08:51:58 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[09-Jul-2024 08:51:58 America/Chicago] PHP Warning:  Undefined array key "teamName" in /home2/granna80/public_html/plataforma/painel/team/process.php on line 30
+[09-Jul-2024 08:55:50 America/Chicago] PHP Warning:  Undefined variable $cont in /home2/granna80/public_html/plataforma/painel/team/process.php on line 55
+[09-Jul-2024 08:55:50 America/Chicago] PHP Warning:  Undefined variable $cont in /home2/granna80/public_html/plataforma/painel/team/process.php on line 69
+[09-Jul-2024 08:56:29 America/Chicago] PHP Warning:  Undefined variable $cont in /home2/granna80/public_html/plataforma/painel/team/process.php on line 55
+[09-Jul-2024 08:56:29 America/Chicago] PHP Warning:  Undefined variable $cont in /home2/granna80/public_html/plataforma/painel/team/process.php on line 69
+[10-Jul-2024 08:54:09 America/Chicago] PHP Warning:  Undefined variable $file_path in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 105
+[10-Jul-2024 08:54:12 America/Chicago] PHP Warning:  Undefined variable $file_path in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 105
+[10-Jul-2024 08:56:02 America/Chicago] PHP Warning:  Undefined variable $file_path in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 107
+[10-Jul-2024 08:56:28 America/Chicago] PHP Warning:  Undefined variable $file_path in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 107
+[10-Jul-2024 08:57:23 America/Chicago] PHP Warning:  Undefined variable $file_path in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 107
+[10-Jul-2024 09:09:31 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/delete.php:13) in /home2/granna80/public_html/plataforma/painel/team/delete.php on line 27

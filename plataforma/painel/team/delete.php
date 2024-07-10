@@ -1,8 +1,15 @@
-<?php session_start();
+<?php
+
+ini_set('session.gc_maxlifetime', 28800);
+session_set_cookie_params(28800);
+
+session_start();
+
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
     header("Location: ../index.php");
     exit();
-} ?>
+}
+?>
 
 <?php
 // Check if a valid ID is provided in the URL
@@ -17,7 +24,8 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     if ($conn->query($sql) === TRUE) {
       
-        header("Location: index.php");
+      echo '<script>window.location.href="index.php";</script>'; 
+
     } else {
         echo "Error deleting team member: " . $conn->error;
     }
