@@ -1,0 +1,44 @@
+[10-Jul-2024 10:00:48 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/team/docs/add.php:23
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/docs/add.php(23): mysqli->query('SELECT teamName...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 23
+[10-Jul-2024 10:04:30 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'granna80_bdlinks.team_docs' doesn't exist in /home2/granna80/public_html/plataforma/painel/team/docs/add.php:107
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/docs/add.php(107): mysqli->query('INSERT INTO gra...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 107
+[10-Jul-2024 10:08:57 America/Chicago] PHP Warning:  Undefined array key "passport_photo" in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 98
+[10-Jul-2024 10:08:57 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 98
+[10-Jul-2024 10:08:57 America/Chicago] PHP Warning:  Undefined array key "passport_photo" in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 100
+[10-Jul-2024 10:08:57 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 100
+[10-Jul-2024 10:08:57 America/Chicago] PHP Warning:  Undefined array key "passport_photo" in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 103
+[10-Jul-2024 10:08:57 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 103
+[10-Jul-2024 10:08:57 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 111
+[10-Jul-2024 10:08:57 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'granna80_bdlinks.team_docs' doesn't exist in /home2/granna80/public_html/plataforma/painel/team/docs/add.php:113
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/docs/add.php(113): mysqli->query('INSERT INTO gra...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 113
+[10-Jul-2024 10:09:38 America/Chicago] PHP Warning:  Undefined array key "passport_photo" in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 98
+[10-Jul-2024 10:09:38 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 98
+[10-Jul-2024 10:09:38 America/Chicago] PHP Warning:  Undefined array key "passport_photo" in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 100
+[10-Jul-2024 10:09:38 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 100
+[10-Jul-2024 10:09:38 America/Chicago] PHP Warning:  Undefined array key "passport_photo" in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 103
+[10-Jul-2024 10:09:38 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 103
+[10-Jul-2024 10:09:38 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 111
+[10-Jul-2024 10:09:38 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'granna80_bdlinks.team_docs' doesn't exist in /home2/granna80/public_html/plataforma/painel/team/docs/add.php:113
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/docs/add.php(113): mysqli->query('INSERT INTO gra...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 113
+[10-Jul-2024 10:16:12 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 111
+[10-Jul-2024 12:05:11 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 111
+[10-Jul-2024 13:32:03 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 111
+[10-Jul-2024 13:34:33 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 112
+[10-Jul-2024 13:39:29 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 113
+[10-Jul-2024 14:18:51 America/Chicago] PHP Warning:  move_uploaded_file(/images/uploads-docs/World_Passport_front_page.jpg): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 105
+[10-Jul-2024 14:18:51 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/phpYTcYS0&quot; to &quot;/images/uploads-docs/World_Passport_front_page.jpg&quot; in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 105
+[10-Jul-2024 14:18:51 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 113
+[10-Jul-2024 14:21:53 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 113
+[10-Jul-2024 14:24:40 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 113

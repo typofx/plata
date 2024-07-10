@@ -1,8 +1,15 @@
-<?php session_start();
+<?php
+
+ini_set('session.gc_maxlifetime', 28800);
+session_set_cookie_params(28800);
+
+session_start();
+
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
     header("Location: ../index.php");
     exit();
-} ?>
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,9 +85,10 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             if ($file_size > 2097152) {
                $errors[] = 'File size must be maximum 2 MB';
             }
+            $file_path = $_SERVER['DOCUMENT_ROOT'] . '/images/uploads';
             
             if (empty($errors)) {
-               move_uploaded_file($file_tmp, "uploads/" . $file_name);
+               move_uploaded_file($file_tmp,  $file_path . '/' .$file_name);
                echo "File " . $file_name . " uploaded successfully!";
             } else {
                print_r($errors);

@@ -1,8 +1,15 @@
-<?php session_start();
+<?php
+
+ini_set('session.gc_maxlifetime', 28800);
+session_set_cookie_params(28800);
+
+session_start();
+
 if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
     header("Location: ../index.php");
     exit();
-} ?>
+}
+?>
 
 
 
@@ -73,8 +80,11 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
 <body>
     <h2>Team Members List</h2>
-    <a href="add.php">Add new member</a>
-
+    <a href="add.php">[Add new member]</a>
+    <a href="form.php">[JSON CONFIG]</a>
+    <a href="docs">[Team Docs]</a>
+<br>
+<br>
     <table>
         <tr>
             <th>Profile Picture</th>
@@ -106,7 +116,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             // Display each team member in a table row
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td><img src='" . $row['teamProfilePicture'] . "' width='100'></td>";
+                echo "<td><img src='/images/" . $row['teamProfilePicture'] . "' width='100'></td>";
                 echo "<td>" . $row['teamName'] . "</td>";
                 echo "<td>" . $row['teamPosition'] . "</td>";
                 echo "<td>";
