@@ -144,3 +144,18 @@ Stack trace:
 [10-Jul-2024 08:56:28 America/Chicago] PHP Warning:  Undefined variable $file_path in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 107
 [10-Jul-2024 08:57:23 America/Chicago] PHP Warning:  Undefined variable $file_path in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 107
 [10-Jul-2024 09:09:31 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/team/delete.php:13) in /home2/granna80/public_html/plataforma/painel/team/delete.php on line 27
+[11-Jul-2024 10:11:27 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/team/editar.php:83
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/editar.php(83): mysqli_stmt->bind_param('sssssssssssi', 'FOUNDER CEO COM...', 'Adam Soares', '+353899540823', 'uarloque', 'AdamSoares', 'uarloque', 'uarloque', 'uarloque@plata....', 'uarloque', 'adam-soares-a44...', '', 'typofx', 1, '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 83
+[11-Jul-2024 10:12:19 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/team/editar.php:83
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/editar.php(83): mysqli_stmt->bind_param('sssssssssssi', 'FOUNDER CEO COM...', 'Adam Soares', '+353899540823', 'uarloque', 'AdamSoares', 'uarloque', 'uarloque', 'uarloque@plata....', 'uarloque', 'adam-soares-a44...', '', 'typofx', 1, '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 83
+[11-Jul-2024 10:14:33 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/team/editar.php:83
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/editar.php(83): mysqli_stmt->bind_param('sssssssssssi', 'FOUNDER CEO COM...', 'Adam Soares', '+353899540823', 'uarloque', 'AdamSoares', 'uarloque', 'uarloque', 'uarloque@plata....', 'uarloque', 'adam-soares-a44...', '', 'typofx', 1, '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 83
