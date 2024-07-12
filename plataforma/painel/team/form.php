@@ -6,21 +6,21 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     exit();
 }
 
-include "conexao.php";
+include "conexao.php"; // Inclui o arquivo de conexão com o banco de dados
 
-
+// Consulta para obter todos os membros da equipe
 $sql = "SELECT * FROM granna80_bdlinks.team";
 $result = $conn->query($sql);
 
 $members = [];
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $members[] = $row;
+        $members[] = $row; // Adicionar o membro ao array
     }
 }
 $conn->close();
 
-
+// Carregar dados do JSON se existir
 $json_data = [];
 
 $file_path = $_SERVER['DOCUMENT_ROOT'] . '/sandbox/team/team_members.json';
@@ -32,9 +32,10 @@ if (file_exists($file_path)) {
     $json_data = [];
 }
 
+// Definir opções de mídias sociais
 $socialMediaFields = ['WhatsApp', 'Instagram', 'Telegram', 'Facebook', 'GitHub', 'Email', 'Twitter', 'LinkedIn', 'Twitch', 'Medium'];
 
-
+// Determinar número de campos de mídias sociais a partir dos dados salvos
 $num_social_media = 4; // Padrão para 4
 if (!empty($json_data['members'][0]['social_media'])) {
     $num_social_media = count($json_data['members'][0]['social_media']);
@@ -57,7 +58,7 @@ if (!empty($json_data['members'][0]['social_media'])) {
     <a href="https://www.plata.ie/sandbox/team/team_members.json" target="_blank">[JSON]</a>
 
     <br><br>
-
+    <!-- Select para escolher o número de membros -->
     <form action="process.php" method="post">
         <label for="num_members">Number of Team Members (1 to 5):</label>
         <select id="num_members" name="num_members" required>
@@ -68,14 +69,14 @@ if (!empty($json_data['members'][0]['social_media'])) {
 
         <br><br>
 
-
+        <!-- Botão para escolher entre 3 ou 4 mídias sociais -->
         <label for="num_social_media">Number of Social Media Fields:</label>
         <select id="num_social_media" name="num_social_media" required>
             <option value="3" <?= $num_social_media == 3 ? 'selected' : '' ?>>3</option>
             <option value="4" <?= $num_social_media == 4 ? 'selected' : '' ?>>4</option>
         </select>
 
-    
+        <!-- Div para conter os campos de membros da equipe -->
         <br><br>
         <div id="members_container"></div>
 
@@ -83,7 +84,7 @@ if (!empty($json_data['members'][0]['social_media'])) {
     </form>
 
     <script>
-
+        // Passando dados PHP para JavaScript
         const members = <?= json_encode($members) ?>;
         const savedData = <?= json_encode($json_data) ?>;
         const socialMediaFields = <?= json_encode($socialMediaFields) ?>;
@@ -95,7 +96,7 @@ if (!empty($json_data['members'][0]['social_media'])) {
         function createMemberFields(memberIndex, memberData = {}, numSocialMedia = 4) {
             let memberOptions = '';
 
-      
+            // Gerando opções de membros dinamicamente com dados PHP
             members.forEach(member => {
                 memberOptions += `<option value="${member.teamName}" ${memberData.name == member.teamName ? 'selected' : ''}>${member.teamName}</option>`;
             });
@@ -133,12 +134,12 @@ if (!empty($json_data['members'][0]['social_media'])) {
             const numSocialMedia = numSocialMediaSelect.value;
 
             for (let i = 1; i <= numMembers; i++) {
-       
+                // Verificar se há dados salvos para este membroIndex no JSON
                 if (savedData.members && savedData.members[i - 1] && savedData.members[i - 1].name) {
-             
+                    // Se houver, criar campos preenchidos com os dados salvos
                     createMemberFields(i, savedData.members[i - 1], numSocialMedia);
                 } else {
-            
+                    // Se não houver dados salvos, criar campos vazios
                     createMemberFields(i, {}, numSocialMedia);
                 }
             }

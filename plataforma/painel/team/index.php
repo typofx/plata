@@ -11,8 +11,6 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +52,6 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             background-color: transparent;
         }
 
-
         .highlighted {
             background-color: yellow;
             display: inline;
@@ -64,16 +61,10 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
     <style>
         .vertical-text {
-
-
-
-
             font-size: 16px;
             /* Tamanho da fonte */
-
             width: 10px;
             text-align: center;
-
         }
     </style>
 </head>
@@ -82,9 +73,9 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     <h2>Team Members List</h2>
     <a href="add.php">[Add new member]</a>
     <a href="form.php">[JSON CONFIG]</a>
-    <a href="docs">[Team Docs]</a>
-<br>
-<br>
+   
+    <br>
+    <br>
     <table>
         <tr>
             <th>Profile Picture</th>
@@ -100,6 +91,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             <th class="vertical-column">LINKEDIN</th>
             <th class="vertical-column">TWITCH</th>
             <th class="vertical-column">MEDIUM</th>
+            <th class="vertical-column">DOCS</th>
             <th>Actions</th>
         </tr>
 
@@ -115,66 +107,37 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         if ($result->num_rows > 0) {
             // Display each team member in a table row
             while ($row = $result->fetch_assoc()) {
+                // Fetch corresponding member_name from team_docs table
+                $doc_sql = "SELECT id FROM granna80_bdlinks.team_docs WHERE member_name = '" . $row['teamName'] . "'";
+                $doc_result = $conn->query($doc_sql);
+                $docs = ($doc_result->num_rows > 0) ? $doc_result->fetch_assoc()['id'] : 'none';
+
                 echo "<tr>";
-                echo "<td><img src='/images/" . $row['teamProfilePicture'] . "' width='100'></td>";
-                echo "<td>" . $row['teamName'] . "</td>";
-                echo "<td>" . $row['teamPosition'] . "</td>";
-                echo "<td>";
-                echo '<a href="https://wa.me/' . htmlspecialchars($row['teamSocialMedia0']) . '" target="_blank"><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i></a>';
-                echo "</td>";
-
-                echo "<td>";
-                echo '<a href="https://www.instagram.com/' . htmlspecialchars($row['teamSocialMedia1']) . '" target="_blank"><i class="fa-brands fa-instagram" style="color: #E4405F;"></i></a>';
-                echo "</td>";
-                
-                echo "<td>";
-                echo '<a href="https://t.me/' . htmlspecialchars($row['teamSocialMedia2']) . '" target="_blank"><i class="fa-brands fa-telegram" style="color: #0088cc;"></i></a>';
-                echo "</td>";
-                
-                echo "<td>";
-                echo '<a href="https://www.facebook.com/' . htmlspecialchars($row['teamSocialMedia3']) . '" target="_blank"><i class="fa-brands fa-facebook" style="color: #1877F2;"></i></a>';
-                echo "</td>";
-                
-                echo "<td>";
-                echo '<a href="https://github.com/' . htmlspecialchars($row['teamSocialMedia4']) . '" target="_blank"><i class="fa-brands fa-github" style="color: #333;"></i></a>';
-                echo "</td>";
-                
-                echo "<td>";
-                echo '<a href="mailto:' . htmlspecialchars($row['teamSocialMedia5']) . '" target="_blank"><i class="fa-solid fa-envelope" style="color: #D44638;"></i></a>';
-                echo "</td>";
-                
-                echo "<td>";
-                echo '<a href="https://twitter.com/' . htmlspecialchars($row['teamSocialMedia6']) . '" target="_blank"><i class="fa-brands fa-square-x-twitter" style="color: #000;"></i></a>';
-                echo "</td>";
-                
-                echo "<td>";
-                echo '<a href="https://www.linkedin.com/in/' . htmlspecialchars($row['teamSocialMedia7']) . '" target="_blank"><i class="fa-brands fa-linkedin" style="color: #0077B5;"></i></a>';
-                echo "</td>";
-                
-                echo "<td>";
-                echo '<a href="https://www.twitch.tv/' . htmlspecialchars($row['teamSocialMedia8']) . '" target="_blank"><i class="fa-brands fa-twitch" style="color: #9146FF;"></i></a>';
-                echo "</td>";
-                
-                echo "<td>";
-                echo '<a href="https://medium.com/@' . htmlspecialchars($row['teamSocialMedia9']) . '" target="_blank"><i class="fa-brands fa-medium" style="color: #12100E;"></i></a>';
-                echo "</td>";
-                
-
-         
-
-                echo "<td>";
-                echo "<a href='editar.php?id=" . $row['id'] . "'>Edit</a>"; // Link to edit page with member ID
-                echo " | ";
-                echo "<a href='javascript:void(0);' onclick='confirmDelete(" . $row['id'] . ")'>Delete</a>"; // Link to delete with JavaScript confirmation
-                echo "</td>";
+                echo "<td><img src='/images/" . htmlspecialchars($row['teamProfilePicture']) . "' width='100'></td>";
+                echo "<td>" . htmlspecialchars($row['teamName']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['teamPosition']) . "</td>";
+                echo "<td><a href='https://wa.me/" . htmlspecialchars($row['teamSocialMedia0']) . "' target='_blank'><i class='fa-brands fa-whatsapp' style='color: #25D366;'></i></a></td>";
+                echo "<td><a href='https://www.instagram.com/" . htmlspecialchars($row['teamSocialMedia1']) . "' target='_blank'><i class='fa-brands fa-instagram' style='color: #E4405F;'></i></a></td>";
+                echo "<td><a href='https://t.me/" . htmlspecialchars($row['teamSocialMedia2']) . "' target='_blank'><i class='fa-brands fa-telegram' style='color: #0088cc;'></i></a></td>";
+                echo "<td><a href='https://www.facebook.com/" . htmlspecialchars($row['teamSocialMedia3']) . "' target='_blank'><i class='fa-brands fa-facebook' style='color: #1877F2;'></i></a></td>";
+                echo "<td><a href='https://github.com/" . htmlspecialchars($row['teamSocialMedia4']) . "' target='_blank'><i class='fa-brands fa-github' style='color: #333;'></i></a></td>";
+                echo "<td><a href='mailto:" . htmlspecialchars($row['teamSocialMedia5']) . "' target='_blank'><i class='fa-solid fa-envelope' style='color: #D44638;'></i></a></td>";
+                echo "<td><a href='https://twitter.com/" . htmlspecialchars($row['teamSocialMedia6']) . "' target='_blank'><i class='fa-brands fa-square-x-twitter' style='color: #000;'></i></a></td>";
+                echo "<td><a href='https://www.linkedin.com/in/" . htmlspecialchars($row['teamSocialMedia7']) . "' target='_blank'><i class='fa-brands fa-linkedin' style='color: #0077B5;'></i></a></td>";
+                echo "<td><a href='https://www.twitch.tv/" . htmlspecialchars($row['teamSocialMedia8']) . "' target='_blank'><i class='fa-brands fa-twitch' style='color: #9146FF;'></i></a></td>";
+                echo "<td><a href='https://medium.com/@". htmlspecialchars($row['teamSocialMedia9']) . "' target='_blank'><i class='fa-brands fa-medium' style='color: #12100E;'></i></a></td>";
+                echo "<td><a href='docs/edit.php?id=" .  $row['id']  . "'><i class='fa-solid fa-id-card' style='color: #000;'></i></a></td>";
+                echo "<td><a href='editar.php?id=" . $row['id'] . "'><i class='fa-solid fa-pen-to-square'></i></a> | <a href='javascript:void(0);' onclick='confirmDelete(" . $row['id'] . ")'><i class='fa-solid fa-trash' style='color: red;'></i></a><br>";
+                echo "<input type='checkbox' id='active' name='active' " . ($row['active'] == 1 ? 'checked' : '') . " readonly onclick='return false;'> Currently work here</td>";
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='5'>No team members found.</td></tr>";
+            echo "<tr><td colspan='15'>No team members found.</td></tr>";
         }
         // Close database connection
         $conn->close();
         ?>
+
     </table>
     <script>
         function confirmDelete(id) {

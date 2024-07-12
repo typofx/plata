@@ -42,3 +42,10 @@ Stack trace:
 [10-Jul-2024 14:18:51 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 113
 [10-Jul-2024 14:21:53 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 113
 [10-Jul-2024 14:24:40 America/Chicago] PHP Warning:  Undefined variable $pix in /home2/granna80/public_html/plataforma/painel/team/docs/add.php on line 113
+[11-Jul-2024 12:02:52 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'none' in 'where clause' in /home2/granna80/public_html/plataforma/painel/team/docs/edit.php:37
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/docs/edit.php(37): mysqli->query('SELECT * FROM g...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/docs/edit.php on line 37
+[11-Jul-2024 12:26:25 America/Chicago] PHP Warning:  Undefined array key "member_name" in /home2/granna80/public_html/plataforma/painel/team/docs/edit.php on line 155
+[11-Jul-2024 12:26:32 America/Chicago] PHP Warning:  Undefined array key "member_name" in /home2/granna80/public_html/plataforma/painel/team/docs/edit.php on line 155

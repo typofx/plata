@@ -71,15 +71,16 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
                 $socialMedia7 = htmlspecialchars($_POST["socialMedia7"]);
                 $socialMedia8 = htmlspecialchars($_POST["socialMedia8"]);
                 $socialMedia9 = htmlspecialchars($_POST["socialMedia9"]);
+                $active = isset($_POST["active"]) ? 1 : 0;
 
                 if (isset($profilePicture)) {
-                    $sql = "UPDATE granna80_bdlinks.team SET teamProfilePicture=?, teamPosition=?, teamName=?, teamSocialMedia0=?, teamSocialMedia1=?, teamSocialMedia2=?, teamSocialMedia3=?, teamSocialMedia4=?, teamSocialMedia5=?, teamSocialMedia6=?, teamSocialMedia7=?, teamSocialMedia8=?, teamSocialMedia9=? WHERE id=?";
+                    $sql = "UPDATE granna80_bdlinks.team SET teamProfilePicture=?, teamPosition=?, teamName=?, teamSocialMedia0=?, teamSocialMedia1=?, teamSocialMedia2=?, teamSocialMedia3=?, teamSocialMedia4=?, teamSocialMedia5=?, teamSocialMedia6=?, teamSocialMedia7=?, teamSocialMedia8=?, teamSocialMedia9=?, active=? WHERE id=?";
                     $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("sssssssssssssi", $profilePicture, $position, $name, $socialMedia, $socialMedia1, $socialMedia2, $socialMedia3, $socialMedia4, $socialMedia5, $socialMedia6, $socialMedia7, $socialMedia8, $socialMedia9, $id);
+                    $stmt->bind_param("sssssssssssssssi", $profilePicture, $position, $name, $socialMedia, $socialMedia1, $socialMedia2, $socialMedia3, $socialMedia4, $socialMedia5, $socialMedia6, $socialMedia7, $socialMedia8, $socialMedia9, $active, $id);
                 } else {
-                    $sql = "UPDATE granna80_bdlinks.team SET teamPosition=?, teamName=?, teamSocialMedia0=?, teamSocialMedia1=?, teamSocialMedia2=?, teamSocialMedia3=?, teamSocialMedia4=?, teamSocialMedia5=?, teamSocialMedia6=?, teamSocialMedia7=?, teamSocialMedia8=?, teamSocialMedia9=? WHERE id=?";
+                    $sql = "UPDATE granna80_bdlinks.team SET teamPosition=?, teamName=?, teamSocialMedia0=?, teamSocialMedia1=?, teamSocialMedia2=?, teamSocialMedia3=?, teamSocialMedia4=?, teamSocialMedia5=?, teamSocialMedia6=?, teamSocialMedia7=?, teamSocialMedia8=?, teamSocialMedia9=?, active=? WHERE id=?";
                     $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("ssssssssssssi", $position, $name, $socialMedia, $socialMedia1, $socialMedia2, $socialMedia3, $socialMedia4, $socialMedia5, $socialMedia6, $socialMedia7, $socialMedia8, $socialMedia9, $id);
+                    $stmt->bind_param("sssssssssssssi", $position, $name, $socialMedia, $socialMedia1, $socialMedia2, $socialMedia3, $socialMedia4, $socialMedia5, $socialMedia6, $socialMedia7, $socialMedia8, $socialMedia9, $active, $id);
                 }
 
                 if ($stmt->execute()) {
@@ -142,6 +143,9 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         
                 <label for="socialMedia9">Medium:</label><br>
                 <input type="text" id="socialMedia9" name="socialMedia9" value="<?php echo htmlspecialchars($row['teamSocialMedia9']); ?>"><br>
+
+                <label for="active">Currently work here:</label><br>
+                <input type="checkbox" id="active" name="active" <?php echo $row['active'] == 1 ? 'checked' : ''; ?>><br>
 
                 <a href="index.php">Back</a>
                 <input type="submit" value="Save">
