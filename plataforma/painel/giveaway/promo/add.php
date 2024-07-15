@@ -1,4 +1,16 @@
 <?php
+
+ini_set('session.gc_maxlifetime', 28800);
+session_set_cookie_params(28800);
+
+session_start();
+
+if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
+    header("Location: ../index.php");
+    exit();
+}
+?>
+<?php
 // Include database connection file
 include 'conexao.php';
 
