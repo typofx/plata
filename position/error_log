@@ -1,0 +1,726 @@
+[05-Jul-2024 12:30:53 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/json/index.php on line 46
+[05-Jul-2024 12:30:53 America/Chicago] PHP Warning:  Undefined array key "pair" in /home2/granna80/public_html/json/index.php on line 47
+[05-Jul-2024 12:30:53 America/Chicago] PHP Warning:  Undefined array key "contract" in /home2/granna80/public_html/json/index.php on line 48
+[05-Jul-2024 12:30:53 America/Chicago] PHP Warning:  Undefined array key "exchange" in /home2/granna80/public_html/json/index.php on line 49
+[05-Jul-2024 12:30:53 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/json/index.php on line 50
+[05-Jul-2024 12:33:02 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/json/index.php on line 46
+[05-Jul-2024 12:33:02 America/Chicago] PHP Warning:  Undefined array key "pair" in /home2/granna80/public_html/json/index.php on line 47
+[05-Jul-2024 12:33:02 America/Chicago] PHP Warning:  Undefined array key "contract" in /home2/granna80/public_html/json/index.php on line 48
+[05-Jul-2024 12:33:02 America/Chicago] PHP Warning:  Undefined array key "exchange" in /home2/granna80/public_html/json/index.php on line 49
+[05-Jul-2024 12:33:02 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/json/index.php on line 50
+[05-Jul-2024 12:33:02 America/Chicago] PHP Warning:  Undefined array key "total_liquidity" in /home2/granna80/public_html/json/index.php on line 57
+[05-Jul-2024 12:33:29 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/json/index.php on line 46
+[05-Jul-2024 12:33:29 America/Chicago] PHP Warning:  Undefined array key "pair" in /home2/granna80/public_html/json/index.php on line 47
+[05-Jul-2024 12:33:29 America/Chicago] PHP Warning:  Undefined array key "contract" in /home2/granna80/public_html/json/index.php on line 48
+[05-Jul-2024 12:33:29 America/Chicago] PHP Warning:  Undefined array key "exchange" in /home2/granna80/public_html/json/index.php on line 49
+[05-Jul-2024 12:33:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/json/index.php on line 50
+[05-Jul-2024 12:34:01 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/json/index.php on line 46
+[05-Jul-2024 12:34:01 America/Chicago] PHP Warning:  Undefined array key "pair" in /home2/granna80/public_html/json/index.php on line 47
+[05-Jul-2024 12:34:01 America/Chicago] PHP Warning:  Undefined array key "contract" in /home2/granna80/public_html/json/index.php on line 48
+[05-Jul-2024 12:34:01 America/Chicago] PHP Warning:  Undefined array key "exchange" in /home2/granna80/public_html/json/index.php on line 49
+[05-Jul-2024 12:34:01 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/json/index.php on line 50
+[05-Jul-2024 12:36:23 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/json/index.php on line 36
+[05-Jul-2024 12:36:23 America/Chicago] PHP Warning:  Undefined array key "pair" in /home2/granna80/public_html/json/index.php on line 37
+[05-Jul-2024 12:36:23 America/Chicago] PHP Warning:  Undefined array key "contract" in /home2/granna80/public_html/json/index.php on line 38
+[05-Jul-2024 12:36:23 America/Chicago] PHP Warning:  Undefined array key "exchange" in /home2/granna80/public_html/json/index.php on line 39
+[05-Jul-2024 12:36:23 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/json/index.php on line 40
+[05-Jul-2024 12:37:31 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/json/index.php on line 35
+[05-Jul-2024 12:37:31 America/Chicago] PHP Warning:  Undefined array key "pair" in /home2/granna80/public_html/json/index.php on line 36
+[05-Jul-2024 12:37:31 America/Chicago] PHP Warning:  Undefined array key "contract" in /home2/granna80/public_html/json/index.php on line 37
+[05-Jul-2024 12:37:31 America/Chicago] PHP Warning:  Undefined array key "exchange" in /home2/granna80/public_html/json/index.php on line 38
+[05-Jul-2024 12:37:31 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/json/index.php on line 39
+[05-Jul-2024 12:38:33 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/json/index.php on line 35
+[05-Jul-2024 12:38:33 America/Chicago] PHP Warning:  Undefined array key "pair" in /home2/granna80/public_html/json/index.php on line 36
+[05-Jul-2024 12:38:33 America/Chicago] PHP Warning:  Undefined array key "contract" in /home2/granna80/public_html/json/index.php on line 37
+[05-Jul-2024 12:38:33 America/Chicago] PHP Warning:  Undefined array key "exchange" in /home2/granna80/public_html/json/index.php on line 38
+[05-Jul-2024 12:38:33 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/json/index.php on line 39
+[05-Jul-2024 21:53:29 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 86
+[05-Jul-2024 21:53:29 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 86
+[05-Jul-2024 21:56:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 85
+[05-Jul-2024 21:56:12 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 87
+[05-Jul-2024 21:56:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 85
+[05-Jul-2024 21:56:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 85
+[05-Jul-2024 21:56:12 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 87
+[05-Jul-2024 21:57:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 85
+[05-Jul-2024 21:57:44 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 87
+[05-Jul-2024 21:57:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 85
+[05-Jul-2024 21:57:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 85
+[05-Jul-2024 21:57:44 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 87
+[05-Jul-2024 21:58:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 85
+[05-Jul-2024 21:58:28 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 87
+[05-Jul-2024 21:58:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 85
+[05-Jul-2024 21:58:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 85
+[05-Jul-2024 21:58:28 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 87
+[05-Jul-2024 22:00:08 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 93
+[05-Jul-2024 22:00:08 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 93
+[05-Jul-2024 22:00:08 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 95
+[05-Jul-2024 22:01:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:01:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:01:09 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 97
+[05-Jul-2024 22:02:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 95
+[05-Jul-2024 22:02:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 95
+[05-Jul-2024 22:02:16 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 98
+[05-Jul-2024 22:03:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:03:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:03:23 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 99
+[05-Jul-2024 22:04:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:04:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:04:07 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 99
+[05-Jul-2024 22:04:40 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:04:40 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:04:40 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 99
+[05-Jul-2024 22:10:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:10:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:10:05 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 99
+[05-Jul-2024 22:18:57 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:18:57 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:20:08 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:20:08 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:20:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:20:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:21:03 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:21:03 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:21:40 America/Chicago] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/granna80/public_html/json/index.php:87
+Stack trace:
+#0 /home2/granna80/public_html/json/index.php(87): number_format('4,413.49')
+#1 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 87
+[05-Jul-2024 22:21:51 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:21:51 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:22:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:22:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:22:48 America/Chicago] PHP Warning:  Undefined variable $liquidity_orderbook in /home2/granna80/public_html/json/index.php on line 86
+[05-Jul-2024 22:22:48 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 86
+[05-Jul-2024 22:22:48 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:23:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:23:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 96
+[05-Jul-2024 22:23:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:23:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:30:40 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:30:40 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:32:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:32:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:33:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:33:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:33:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:33:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:38:26 America/Chicago] PHP Warning:  Undefined variable $liquidity_orderbook in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:38:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:42:47 America/Chicago] PHP Warning:  Undefined variable $liquidity_orderbook in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:42:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:43:01 America/Chicago] PHP Warning:  Undefined variable $liquidity_orderbook in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:43:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:43:01 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 97
+[05-Jul-2024 22:43:14 America/Chicago] PHP Warning:  Undefined variable $liquidity_orderbook in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:43:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:43:14 America/Chicago] PHP Warning:  Undefined array key "timestamp" in /home2/granna80/public_html/json/index.php on line 97
+[05-Jul-2024 22:43:36 America/Chicago] PHP Warning:  Undefined variable $liquidity_orderbook in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:43:36 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:52:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:52:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 22:55:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function float() in /home2/granna80/public_html/json/index.php:94
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 94
+[05-Jul-2024 23:05:14 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function format() on string in /home2/granna80/public_html/json/index.php:97
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 97
+[05-Jul-2024 23:05:50 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function format() on string in /home2/granna80/public_html/json/index.php:95
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 95
+[05-Jul-2024 23:07:27 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function format() on string in /home2/granna80/public_html/json/index.php:98
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 98
+[06-Jul-2024 04:13:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on string in /home2/granna80/public_html/json/index.php:99
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 99
+[06-Jul-2024 04:13:50 UTC] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in /home2/granna80/public_html/json/index.php:98
+Stack trace:
+#0 /home2/granna80/public_html/json/index.php(98): number_format('2024-07-06T03:5...')
+#1 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 98
+[06-Jul-2024 04:14:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on float in /home2/granna80/public_html/json/index.php:99
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 99
+[06-Jul-2024 04:14:45 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on string in /home2/granna80/public_html/json/index.php:98
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 98
+[06-Jul-2024 04:31:33 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on int in /home2/granna80/public_html/json/index.php:97
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/json/index.php on line 97
+[06-Jul-2024 04:35:59 UTC] PHP Warning:  Undefined variable $lastupdate in /home2/granna80/public_html/json/index.php on line 101
+[06-Jul-2024 00:20:57 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:20:57 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:20:57 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:20:57 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:20:57 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:22:43 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:22:43 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:22:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:22:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:22:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:23:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:23:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:23:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:23:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:23:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:24:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:24:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:24:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:24:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:24:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:24:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:24:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:24:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:24:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:24:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:25:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:25:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:25:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:25:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:25:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:25:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:25:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:25:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:25:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:25:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:25:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:25:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:25:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:25:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:25:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:25:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:25:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:25:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:25:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:25:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:25:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:25:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:25:27 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:25:27 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:25:27 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 00:32:57 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:32:57 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:32:57 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:32:57 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:32:57 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:32:57 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:32:57 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:33:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:33:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:33:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:33:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:33:15 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:33:15 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:33:15 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:33:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:33:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:33:29 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:33:29 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:33:29 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:33:29 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:33:29 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:35:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:35:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:35:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:35:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:35:18 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:35:18 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:35:18 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:36:31 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:36:31 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:36:31 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:36:31 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:36:31 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:36:31 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:36:31 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:37:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:37:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:37:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:37:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:37:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:37:45 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:37:45 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:39:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:39:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:39:05 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:39:05 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:39:05 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:39:05 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:39:05 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:51:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:51:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:51:44 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:51:44 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:51:44 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:51:44 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:51:44 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:52:33 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:52:33 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:52:33 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:52:33 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:52:33 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:52:33 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:52:33 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:54:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:54:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:54:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:54:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:54:19 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:54:19 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:54:19 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 00:58:55 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 00:58:55 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 00:58:55 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 00:58:55 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 00:58:55 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 05:58:55 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 05:58:55 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 01:03:21 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:03:21 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:03:21 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:03:21 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:03:21 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:03:21 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 06:03:21 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 01:03:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:03:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:03:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:03:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:03:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:03:49 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 06:03:49 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 111
+[06-Jul-2024 01:06:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:06:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:06:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:06:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:06:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:06:20 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:06:20 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:06:59 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:06:59 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:06:59 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:06:59 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:06:59 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:06:59 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:06:59 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:07:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:07:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:07:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:07:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:07:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:07:20 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:07:20 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:07:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:07:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:07:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:07:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:07:25 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:07:25 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:07:25 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:07:43 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:07:43 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:07:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:07:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:07:43 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:07:43 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:07:43 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:08:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:08:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:08:05 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:08:05 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:08:05 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:08:05 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:08:05 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:19:13 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:19:13 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:19:13 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:19:13 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:19:13 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:19:14 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:19:14 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:20:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:20:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:20:39 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:20:39 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:20:39 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:20:39 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:20:39 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:20:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:20:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:20:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:20:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:20:45 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:20:45 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:20:45 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:25:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:25:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:25:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:25:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:25:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:25:01 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:25:01 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:25:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:25:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:25:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:25:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:25:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:25:10 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:25:10 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:25:17 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:25:17 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:25:17 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:25:17 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:25:17 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:25:17 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:25:17 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuProject in /home2/granna80/public_html/es/desktop-header.php on line 20
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuRoadmap in /home2/granna80/public_html/es/desktop-header.php on line 28
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuTokenDistrib in /home2/granna80/public_html/es/desktop-header.php on line 31
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuSketch in /home2/granna80/public_html/es/desktop-header.php on line 34
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuLitepaper in /home2/granna80/public_html/es/desktop-header.php on line 40
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuProducts in /home2/granna80/public_html/es/desktop-header.php on line 53
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuBuyPlata in /home2/granna80/public_html/es/desktop-header.php on line 66
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuMerchant in /home2/granna80/public_html/es/desktop-header.php on line 72
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuAbout in /home2/granna80/public_html/es/desktop-header.php on line 101
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuMeetTheTeam in /home2/granna80/public_html/es/desktop-header.php on line 109
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuSocialMedia in /home2/granna80/public_html/es/desktop-header.php on line 112
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtChannelVerification in /home2/granna80/public_html/es/desktop-header.php on line 115
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuReportBug in /home2/granna80/public_html/es/desktop-header.php on line 118
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuLanguage in /home2/granna80/public_html/es/desktop-header.php on line 146
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuPortuguese in /home2/granna80/public_html/es/desktop-header.php on line 149
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuEnglish in /home2/granna80/public_html/es/desktop-header.php on line 152
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuSpanish in /home2/granna80/public_html/es/desktop-header.php on line 155
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuTheme in /home2/granna80/public_html/es/desktop-header.php on line 158
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuThemeLight in /home2/granna80/public_html/es/desktop-header.php on line 161
+[06-Jul-2024 01:26:59 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuThemeDark in /home2/granna80/public_html/es/desktop-header.php on line 164
+[06-Jul-2024 01:27:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:27:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 01:27:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Jul-2024 01:27:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Jul-2024 01:27:01 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Jul-2024 06:27:01 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 06:27:01 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 112
+[06-Jul-2024 01:27:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:27:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:27:30 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 115
+[06-Jul-2024 06:27:30 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 115
+[06-Jul-2024 01:29:17 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:29:17 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:29:17 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 115
+[06-Jul-2024 06:29:17 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 115
+[06-Jul-2024 01:33:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:33:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:33:16 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 116
+[06-Jul-2024 06:33:16 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 116
+[06-Jul-2024 01:34:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:34:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:34:47 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 116
+[06-Jul-2024 06:34:47 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 116
+[06-Jul-2024 01:35:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:35:01 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:35:01 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 116
+[06-Jul-2024 06:35:01 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 116
+[06-Jul-2024 01:35:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:35:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:35:14 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 116
+[06-Jul-2024 06:35:14 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 116
+[06-Jul-2024 01:37:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:37:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:37:34 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 06:37:34 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 01:38:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:38:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:38:28 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 06:38:28 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 01:38:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:38:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:38:39 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 06:38:39 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 01:38:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:38:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:38:54 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 06:38:54 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 01:40:00 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:40:00 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:40:00 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 06:40:00 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 01:40:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:40:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:40:27 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 06:40:27 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 01:41:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:41:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:41:15 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 06:41:15 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 01:45:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 01:45:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 06:45:24 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 06:45:24 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 11:22:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 11:22:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 16:22:34 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 16:22:34 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 15:35:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 15:35:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 20:35:14 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 20:35:14 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 16:15:08 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 16:15:08 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 21:15:08 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 21:15:08 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 16:17:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 16:17:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 21:17:28 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 21:17:28 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 17:03:31 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 17:03:31 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 22:03:31 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 22:03:31 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 18:09:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 18:09:15 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 23:09:15 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 23:09:15 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 18:19:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 18:19:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[06-Jul-2024 23:19:39 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 23:19:39 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 21:22:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 21:22:23 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[07-Jul-2024 02:22:24 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[07-Jul-2024 02:22:24 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[06-Jul-2024 21:22:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[06-Jul-2024 21:22:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[07-Jul-2024 02:22:24 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[07-Jul-2024 02:22:24 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[07-Jul-2024 00:07:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[07-Jul-2024 00:07:25 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[07-Jul-2024 05:07:25 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[07-Jul-2024 05:07:25 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[07-Jul-2024 16:44:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[07-Jul-2024 16:44:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[07-Jul-2024 21:44:51 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[07-Jul-2024 21:44:51 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[08-Jul-2024 00:58:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[08-Jul-2024 00:58:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[08-Jul-2024 05:58:14 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[08-Jul-2024 05:58:14 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[08-Jul-2024 05:35:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[08-Jul-2024 05:35:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[08-Jul-2024 10:35:44 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[08-Jul-2024 10:35:44 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[08-Jul-2024 15:14:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[08-Jul-2024 15:14:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[08-Jul-2024 20:14:11 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[08-Jul-2024 20:14:11 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[08-Jul-2024 23:46:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[08-Jul-2024 23:46:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[09-Jul-2024 04:46:10 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[09-Jul-2024 04:46:10 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[09-Jul-2024 22:12:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[09-Jul-2024 22:12:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[10-Jul-2024 03:12:25 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[10-Jul-2024 03:12:25 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[09-Jul-2024 23:27:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[09-Jul-2024 23:27:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[10-Jul-2024 04:27:50 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[10-Jul-2024 04:27:50 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[11-Jul-2024 03:07:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[11-Jul-2024 03:07:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[11-Jul-2024 08:07:39 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[11-Jul-2024 08:07:39 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[11-Jul-2024 09:07:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[11-Jul-2024 09:07:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[11-Jul-2024 14:07:24 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[11-Jul-2024 14:07:24 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[13-Jul-2024 08:31:40 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[13-Jul-2024 08:31:40 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[13-Jul-2024 13:31:41 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[13-Jul-2024 13:31:41 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[14-Jul-2024 21:01:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[14-Jul-2024 21:01:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[15-Jul-2024 02:01:18 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[15-Jul-2024 02:01:18 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[14-Jul-2024 21:13:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[14-Jul-2024 21:13:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[15-Jul-2024 02:13:50 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[15-Jul-2024 02:13:50 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[14-Jul-2024 21:14:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[14-Jul-2024 21:14:53 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[15-Jul-2024 02:14:53 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[15-Jul-2024 02:14:53 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[14-Jul-2024 21:15:00 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[14-Jul-2024 21:15:00 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[15-Jul-2024 02:15:00 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[15-Jul-2024 02:15:00 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[14-Jul-2024 21:18:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[14-Jul-2024 21:18:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[15-Jul-2024 02:18:30 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[15-Jul-2024 02:18:30 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 00:12:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 00:12:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 05:12:35 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 05:12:35 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 00:24:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 00:24:05 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 05:24:05 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 05:24:05 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 08:15:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:15:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 13:15:50 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 13:15:50 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 08:19:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:19:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 13:19:26 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 13:19:26 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 08:20:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:20:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 13:20:07 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 13:20:07 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 08:20:13 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:20:13 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 13:20:13 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 13:20:13 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:25:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 13:25:18 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 121
+[16-Jul-2024 08:26:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:26:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 13:26:50 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 13:26:50 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 117
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:27:24 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 13:27:24 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 121
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:10 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 13:28:10 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 121
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:28:40 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 13:28:40 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 121
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 08:29:29 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 82
+[16-Jul-2024 13:29:29 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 121
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:30:28 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 13:30:28 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 123
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:31:18 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 13:31:18 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 123
+[16-Jul-2024 08:32:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:32:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:32:15 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:15 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:15 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:15 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:15 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:15 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:15 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:15 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:15 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 13:32:15 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 123
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:32:30 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 13:32:30 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 123
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:34:03 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 13:34:03 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 123
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 47
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 49
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 08:38:45 America/Chicago] PHP Warning:  Undefined array key "liquidity" in /home2/granna80/public_html/position/index.php on line 84
+[16-Jul-2024 13:38:45 UTC] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/position/index.php on line 123
