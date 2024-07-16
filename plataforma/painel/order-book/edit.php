@@ -32,7 +32,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     }
 
     // SQL query to get data of the specific record
-    $sql = "SELECT id, value, value2, name, url, pair_contract FROM granna80_bdlinks.order_book WHERE id = ?";
+    $sql = "SELECT id, value, value2, name, url, pair_contract, link_contract, claimed FROM granna80_bdlinks.order_book WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -48,14 +48,15 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = $_POST['id'];
         $value = $_POST['value'];
-      
         $value2 = $_POST['value2'];
         $name = $_POST['name'];
         $url = $_POST['url'];
         $pair_contract = $_POST['pair_contract'];
+        $link_contract = $_POST['link_contract'];
+        $claimed = isset($_POST['use_claimed']) ? 1 : 0;
 
         // Update the record in the database
-        $sql = "UPDATE granna80_bdlinks.order_book SET value=?, value2=?, name=?, url=?, pair_contract=? WHERE id=?";
+        $sql = "UPDATE granna80_bdlinks.order_book SET value=?, value2=?, name=?, url=?, pair_contract=?, link_contract=?, claimed=? WHERE id=?";
         $stmt = $conn->prepare($sql);
 
         if ($stmt === false) {
@@ -63,7 +64,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         }
 
         // The type string and parameters must match
-        $stmt->bind_param("sssssi", $value, $value2, $name, $url, $pair_contract, $id);
+        $stmt->bind_param("ssssssii", $value, $value2, $name, $url, $pair_contract, $link_contract, $claimed, $id);
 
         if ($stmt->execute()) {
             echo "Record updated successfully";
@@ -77,9 +78,11 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     <h2>Edit Market Depth</h2>
     <form method="POST" action="">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+        <input type="checkbox" id="use_claimed" name="use_claimed" value="1" <?php echo $row['claimed'] == 1 ? 'checked' : ''; ?>>
+        <label for="use_claimed">Use claimed values</label><br>
         <label for="value">Claimed ASK (PLT):</label><br>
         <input type="text" id="value" name="value" value="<?php echo $row['value']; ?>"><br>
-        <label for="value2">Total BID(USDT):</label><br>
+        <label for="value2">Total BID (USDT):</label><br>
         <input type="text" id="value2" name="value2" value="<?php echo $row['value2']; ?>"><br>
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" value="<?php echo $row['name']; ?>"><br>
@@ -87,6 +90,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         <input type="text" id="url" name="url" value="<?php echo $row['url']; ?>"><br>
         <label for="pair_contract">Pair Contract:</label><br>
         <input type="text" id="pair_contract" name="pair_contract" value="<?php echo $row['pair_contract']; ?>"><br>
+        <label for="link_contract">Link Contract:</label><br>
+        <input type="text" id="link_contract" name="link_contract" value="<?php echo $row['link_contract']; ?>"><br>
         <input type="submit" value="Update">
     </form>
 
