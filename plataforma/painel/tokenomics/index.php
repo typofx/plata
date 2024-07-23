@@ -67,6 +67,11 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
                 $exchange = 'QuickSwap';
             }
 
+            // Group Uniswap and Uniswap V3
+            if ($exchange === 'Uniswap V3') {
+                $exchange = 'Uniswap';
+            }
+
             if (!isset($liquidity_per_exchange[$exchange])) {
                 $liquidity_per_exchange[$exchange] = 0;
             }
@@ -149,7 +154,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             <td>{$row['percentage']}</td>
         </tr>";
     }
-    
+
 
     echo "</tbody>
 </table>";
@@ -166,7 +171,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
                 "info": true,
                 "order": [
                     [1, 'desc']
-                ] 
+                ]
             });
         });
     </script>
