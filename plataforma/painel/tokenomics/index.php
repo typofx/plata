@@ -26,9 +26,10 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 </head>
 
 <body>
-    <a href="liquidity_data.json">[JSON]</a>
+    <a href="liquidity_data.json" target="_blank">[JSON]</a>
     <a href="https://plata.ie/plataforma/painel/menu.php">[Control Panel]</a>
     <a href="javascript:window.location.reload(true)">[Refresh]</a>
+    <a href="add.php">[Add manually]</a>
     <!-- PHP -->
 
     <?php
@@ -38,9 +39,32 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
     echo "<h2>Market Capitalization: " . $PLTmarketcap . "</h2>";
 
+    $circulating_supply = 11299000992;
 
-    // JSON URL for exchange liquidity
-    $json_url = 'https://plata.ie/plataforma/painel/lp-contracts/lp_contracts.json'; // replace with actual URL
+    include 'conexao.php';
+
+    $sql = "SELECT walletname, balance FROM granna80_bdlinks.tokenomics";
+    $result = $conn->query($sql);
+
+    // Initialize an array to store liquidity by exchange
+    $liquidity_per_exchange = [];
+
+    // Fetch data from the database
+    while ($row = $result->fetch_assoc()) {
+        $exchange = $row['walletname'];
+        $liquidity = ($PLTUSD * floatval($row['balance']));
+
+     
+
+        if (!isset($liquidity_per_exchange[$exchange])) {
+            $liquidity_per_exchange[$exchange] = 0;
+        }
+
+        $liquidity_per_exchange[$exchange] += $liquidity;
+    }
+
+ 
+    $json_url = 'https://plata.ie/plataforma/painel/lp-contracts/lp_contracts.json'; 
 
     // Fetch JSON data from the URL
     $json_data = file_get_contents($json_url);
@@ -48,26 +72,19 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     // Decode JSON data into an associative array
     $data = json_decode($json_data, true);
 
-    // Initialize an array to store liquidity by exchange
-    $liquidity_per_exchange = [];
-
     // Process JSON data
     foreach ($data as $item) {
         if (isset($item['exchange']) && isset($item['liquidity'])) {
             $exchange = $item['exchange'];
             $liquidity = $item['liquidity'];
 
-            // Group SushiSwap and SushiSwap V3
+            // Group exchanges if needed
             if ($exchange === 'SushiSwap V3') {
                 $exchange = 'SushiSwap';
             }
-
-            // Group QuickSwap and QuickSwap V3
             if ($exchange === 'QuickSwap V3') {
                 $exchange = 'QuickSwap';
             }
-
-            // Group Uniswap and Uniswap V3
             if ($exchange === 'Uniswap V3') {
                 $exchange = 'Uniswap';
             }
@@ -80,8 +97,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         }
     }
 
-    // JSON URL for order book data
-    $json_url = 'https://plata.ie/plataforma/painel/order-book/order_book_data.json'; // replace with actual URL
+    
+    $json_url = 'https://plata.ie/plataforma/painel/order-book/order_book_data.json'; 
 
     // Fetch JSON data from the URL
     $json_data = file_get_contents($json_url);
@@ -114,22 +131,28 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         $float2 = floatval($liquidity);
         $p = ($float2 / $float) * 100;
         $dex_liquidity_percentage = round($p / 1000, 2);
+        $dex_liquidity_percentage_d = $dex_liquidity_percentage / 100;
+        $plt = $circulating_supply * $dex_liquidity_percentage_d;
 
         $table_data[] = [
             'id' => $cont,
             'exchange' => $exchange,
-            'liquidity' => number_format($liquidity, 2),
-            'percentage' => $dex_liquidity_percentage . '%'
+            'liquidity' => round($liquidity,2),
+            'percentage' => $dex_liquidity_percentage / 100,
+            'plata' => $plt
         ];
         $cont++;
     }
+    $cex_liquidity_percentage_d = $cex_liquidity_percentage / 100;
+    $plt = $circulating_supply * $cex_liquidity_percentage_d;
 
     // Add row for total CEX liquidity
     $table_data[] = [
         'id' => $cont,
-        'exchange' => 'CEX Total',
-        'liquidity' => number_format($total_liquidity, 2),
-        'percentage' => $cex_liquidity_percentage . '%'
+        'exchange' => 'Centralized Exchanges (CEX)',
+        'liquidity' => round($total_liquidity,2),
+        'percentage' => $cex_liquidity_percentage / 100,
+        'plata' => $plt
     ];
 
     // Save data to JSON file
@@ -143,24 +166,23 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             <th>Exchange</th>
             <th>Liquidity</th>
             <th>Percentage</th>
+            <th>Plata Tokens(PLT)</th>
         </tr>
     </thead>
     <tbody>";
 
     foreach ($table_data as $row) {
         echo "<tr>
-            <td>{$row['exchange']}</td>
-            <td>{$row['liquidity']}</td>
-            <td>{$row['percentage']}</td>
-        </tr>";
+        <td>{$row['exchange']}</td>
+        <td>" . number_format($row['liquidity'], 2, '.', ',') . "</td>
+        <td>{$row['percentage']}</td>
+        <td>" . number_format($row['plata'], 4, '.', ',') . "</td>
+      </tr>";
     }
-
 
     echo "</tbody>
 </table>";
 
-    //echo "<h2>CEX Total Liquidity: " . number_format($total_liquidity, 2) . "</h2>";
-    //echo "<h2>CEX Liquidity Percentage: " . $cex_liquidity_percentage . "%</h2>";
     ?>
 
     <script>
