@@ -1,14 +1,4 @@
-<?php
-ini_set('session.gc_maxlifetime', 28800);
-session_set_cookie_params(28800);
-
-session_start();
-
-if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    header("Location: ../index.php");
-    exit();
-}
-?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +6,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataTables Example</title>
+    <title>Tokenomics</title>
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <!-- jQuery -->
@@ -29,7 +19,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     <a href="liquidity_data.json" target="_blank">[JSON]</a>
     <a href="https://plata.ie/plataforma/painel/menu.php">[Control Panel]</a>
     <a href="javascript:window.location.reload(true)">[Refresh]</a>
-    <a href="add.php">[Add manually]</a>
+    <a href="menu.php">[Add manually]</a>
     <!-- PHP -->
 
     <?php
@@ -38,6 +28,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     ob_end_clean();
 
     echo "<h2>Market Capitalization: " . $PLTmarketcap . "</h2>";
+    echo "PLTUSD: " . $PLTUSD;
 
     $circulating_supply = 11299000992;
 
@@ -50,21 +41,22 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     $liquidity_per_exchange = [];
 
     // Fetch data from the database
+    $table_data2 = [];
     while ($row = $result->fetch_assoc()) {
         $exchange = $row['walletname'];
-        $liquidity = ($PLTUSD * floatval($row['balance']));
+        $plt = $row['balance'] / 10000;
+        $liquidity = ($PLTUSD * $plt);
+        $percentage = number_format(($plt / $circulating_supply), 4, '.', ',');
 
-     
-
-        if (!isset($liquidity_per_exchange[$exchange])) {
-            $liquidity_per_exchange[$exchange] = 0;
-        }
-
-        $liquidity_per_exchange[$exchange] += $liquidity;
+        $table_data2[] = [
+            'exchange' => $exchange,
+            'liquidity' => $liquidity,
+            'percentage' => floatval($percentage),
+            'plata' => $plt
+        ];
     }
 
- 
-    $json_url = 'https://plata.ie/plataforma/painel/lp-contracts/lp_contracts.json'; 
+    $json_url = 'https://plata.ie/plataforma/painel/lp-contracts/lp_contracts.json';
 
     // Fetch JSON data from the URL
     $json_data = file_get_contents($json_url);
@@ -88,6 +80,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             if ($exchange === 'Uniswap V3') {
                 $exchange = 'Uniswap';
             }
+          
+
 
             if (!isset($liquidity_per_exchange[$exchange])) {
                 $liquidity_per_exchange[$exchange] = 0;
@@ -97,8 +91,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         }
     }
 
-    
-    $json_url = 'https://plata.ie/plataforma/painel/order-book/order_book_data.json'; 
+    $json_url = 'https://plata.ie/plataforma/painel/order-book/order_book_data.json';
 
     // Fetch JSON data from the URL
     $json_data = file_get_contents($json_url);
@@ -118,26 +111,26 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     }
 
     // Calculate CEX total liquidity percentage
-    $float = floatval($PLTmarketcap);
-    $float2 = floatval($total_liquidity);
-    $c = ($float2 / $float) * 100;
-    $cex_liquidity_percentage = round($c / 1000, 2);
+    $marketcap_float = floatval($PLTmarketcap);
+    $liquidity_float = floatval($total_liquidity);
+    $cex_result = ($liquidity_float / $marketcap_float) * 100;
+    $cex_liquidity_percentage = round($cex_result / 1000, 2);
 
     // Prepare data for DataTables
     $table_data = [];
     $cont = 1;
     foreach ($liquidity_per_exchange as $exchange => $liquidity) {
-        $float = floatval($PLTmarketcap);
-        $float2 = floatval($liquidity);
-        $p = ($float2 / $float) * 100;
-        $dex_liquidity_percentage = round($p / 1000, 2);
+        $marketcap_float = floatval($PLTmarketcap);
+        $liquidity_float = floatval($liquidity);
+        $dex_result = ($liquidity_float / $marketcap_float) * 100;
+        $dex_liquidity_percentage = round( $dex_result / 1000, 2);
         $dex_liquidity_percentage_d = $dex_liquidity_percentage / 100;
         $plt = $circulating_supply * $dex_liquidity_percentage_d;
 
         $table_data[] = [
             'id' => $cont,
             'exchange' => $exchange,
-            'liquidity' => round($liquidity,2),
+            'liquidity' => round($liquidity, 2),
             'percentage' => $dex_liquidity_percentage / 100,
             'plata' => $plt
         ];
@@ -150,10 +143,19 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     $table_data[] = [
         'id' => $cont,
         'exchange' => 'Centralized Exchanges (CEX)',
-        'liquidity' => round($total_liquidity,2),
+        'liquidity' => round($total_liquidity, 2),
         'percentage' => $cex_liquidity_percentage / 100,
         'plata' => $plt
     ];
+
+    $cont++;
+
+    // Merge table_data2 into table_data and adjust IDs
+    foreach ($table_data2 as $row) {
+        $row['id'] = $cont; // Update ID
+        $table_data[] = $row; // Add row to the end of table_data
+        $cont++;
+    }
 
     // Save data to JSON file
     file_put_contents('liquidity_data.json', json_encode($table_data));
@@ -163,16 +165,18 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 <table id='liquidityTable' class='display'>
     <thead>
         <tr>
+      
             <th>Exchange</th>
             <th>Liquidity</th>
             <th>Percentage</th>
-            <th>Plata Tokens(PLT)</th>
+            <th>Plata Token (PLT)</th>
         </tr>
     </thead>
     <tbody>";
 
     foreach ($table_data as $row) {
         echo "<tr>
+    
         <td>{$row['exchange']}</td>
         <td>" . number_format($row['liquidity'], 2, '.', ',') . "</td>
         <td>{$row['percentage']}</td>
@@ -182,7 +186,6 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
     echo "</tbody>
 </table>";
-
     ?>
 
     <script>
