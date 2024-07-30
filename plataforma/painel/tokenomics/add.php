@@ -1,3 +1,4 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
 
 require 'vendor/autoload.php'; // Load Composer's autoloader
@@ -138,7 +139,7 @@ function getTokenInfo($web3, $walletAddress, $tokenContract, &$tokenBalance, &$t
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $walletAddress = $_POST['walletAddress'];
     $tokenContract = $_POST['tokenContract'];
-   
+
 
     // Get Ethereum wallet balance
     getWalletBalance($web3, $walletAddress, $walletBalanceWei);
@@ -188,8 +189,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
         echo 'Balance: <b>' . $tokenBalance . '</b>';
         $walletname = $_POST['walletname'];
+        $walletAddress = $_POST['walletAddress'];
+        $tokenContract = $_POST['tokenContract'];
         include 'conexao.php';
-        $sql = "INSERT INTO granna80_bdlinks.tokenomics (symbol, name, decimals, balance, walletname) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO granna80_bdlinks.tokenomics (symbol, name, decimals, balance, walletname, walletAddress, tokenContract) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 
         $stmt = $conn->prepare($sql);
@@ -199,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         }
 
         // Bind the parameters
-        $stmt->bind_param("sssss", $tokenSymbol, $tokenName, $tokenDecimals, $tokenBalance, $walletname);
+        $stmt->bind_param("sssssss", $tokenSymbol, $tokenName, $tokenDecimals, $tokenBalance, $walletname, $walletAddress, $tokenContract);
 
         // Execute the statement
         if ($stmt->execute()) {
@@ -210,7 +213,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
         // Close the statement and connection
         $stmt->close();
-      
     } else {
         echo '<p>Token balance not available.</p>';
     }
@@ -232,15 +234,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 <body>
     <h2>Insert Wallet Balance</h2>
     <form method="post" action="">
-    <label for="walletAddress"> Wallet name:</label>
-    <input type="text" id="walletname" name="walletname"><br><br>
+        <label for="walletAddress"> Wallet name:</label>
+        <input type="text" id="walletname" name="walletname"><br><br>
 
         <label for="walletAddress">Ethereum Wallet Address:</label>
         <input type="text" id="walletAddress" name="walletAddress" onfocusout="isValidEtherWallet()" placeholder="Ethereum Wallet Address"><br><br>
 
         <label for="tokenContract">ERC20 Token Contract Address:</label>
         <input type="text" id="tokenContract" name="tokenContract" placeholder="ERC20 Token Contract Address"><br><br>
-
+        <a href="menu.php">Back</a>
         <input type="submit" name="submit" value="Check Balance">
     </form>
 
