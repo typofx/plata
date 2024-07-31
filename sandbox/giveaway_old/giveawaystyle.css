@@ -1,0 +1,210 @@
+body {
+    background-image: linear-gradient(90deg, #EBECF0 0%, #E5E4E2 35%, #EBECF0 100%);
+    /*background-color: #EBECF0;*/
+    font-family: 'Montserrat';
+    font-size: 13px;
+    color: black;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.hrline {
+  border-top: 1px #3D3D3D;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 180px;
+}
+
+.close {
+  font-size: 1px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button { 
+    height: 50px;
+    width: 150px;
+} 
+
+.btnConnectWallet{
+ width: 220px;
+ background-color: #3D3D3D; 
+ border-radius: 29px; 
+ border: 1px solid #3D3D3D; 
+ color: white; 
+ font-size: 16px; 
+ padding: 10px 45px; 
+ cursor: pointer; 
+ transition: 0.3s; 
+ font-family: 'Montserrat';
+ }
+ 
+ .btnConnectWallet:hover{ 
+ background-color: white; 
+ color: #081F2D; 
+ border-color: #3D3D3D; 
+ transition: 0.3s; 
+}
+
+.btnChain{
+ background: no-repeat center/40% url("maticPurple.png");
+ background-color: #EBECF0;
+ border-radius: 29px; 
+ border: 1px solid #8247E5; 
+ color: white; 
+ font-size: 16px; 
+ padding: 10px 20px; 
+ cursor: pointer; 
+ transition: 0.3s;
+ }
+ 
+ .btnChain:hover{ 
+ background-color: #EBECF0;
+ color: #081F2D; 
+ border-color: #8247E5; 
+ transition: 0.3s; 
+}
+
+.btnWrongChain{
+    background: no-repeat center/40% url("maticRed.png");
+    background-color: #EBECF0;
+    border-radius: 29px; 
+    border: 1px solid red; 
+    color: white; 
+    font-size: 16px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    transition: 0.3s;
+ }
+ 
+ .btnWrongChain:hover{
+    background: no-repeat center/40% url("maticPurple.png");
+    background-color: #EBECF0;
+    color: #081F2D; 
+    border-color: #8247E5; 
+    transition: 0.3s; 
+}
+
+.box {
+    width: 290px;
+    height: 290px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: #AAAAAA;
+    align-content: center;
+}
+
+.boxSmallButtons {
+    height: 50px;
+    width: 250px;
+    background-color: #AAAAAA;
+}
+
+.btnMenuWallet{
+ width: 230px;
+ background-color: #3D3D3D; 
+ border-radius: 6px; 
+ border: 1px solid #3D3D3D;
+ color: white; 
+ font-size: 16px; 
+ padding: 10px 45px; 
+ cursor: pointer; 
+ transition: 0.3s; 
+ font-family: 'Montserrat'; 
+ }
+ 
+ .btnMenuWallet:hover{ 
+ background-color: black; 
+ color: white; 
+ border-color: #8247E5; 
+ transition: 0.3s; 
+}
+
+.btnPower{
+ background: no-repeat center/45% url("powerButton.png");
+ background-color: #3D3D3D;
+ border-radius: 29px; 
+ border: 1px solid #3D3D3D; 
+ color: white; 
+ font-size: 16px; 
+ padding: 10px 20px; 
+ cursor: pointer; 
+ transition: 0.3s;
+ align-content: flex-end;
+ }
+ 
+ .btnPower:hover{ 
+ background-color: #2D2D2D;
+ color: #081F2D; 
+ border-color: #8247E5; 
+ transition: 0.3s; 
+}
+
+.btnCopyContract{
+ background: no-repeat center/80% url("copy.png");
+ background-color: #3D3D3D;
+ border-radius: 29px; 
+ border: 1px solid #3D3D3D; 
+ color: white; 
+ font-size: 16px; 
+ padding: 10px 20px; 
+ cursor: pointer; 
+ transition: 0.3s;
+ align-content: flex-end;
+ }
+ 
+ .btnCopyContract:hover{ 
+ background-color: #2D2D2D;
+ color: #081F2D; 
+ border-color: #8247E5; 
+ transition: 0.3s;
+ visibility: hidden;
+}
+
+.btnBlockExplorer{
+ background: no-repeat center/50% url("blockExplorer.png");
+ background-color: #3D3D3D;
+ border-radius: 29px; 
+ border: 1px solid #3D3D3D; 
+ color: white; 
+ font-size: 16px; 
+ padding: 10px 20px; 
+ cursor: pointer; 
+ transition: 0.3s;
+ align-content: flex-end;
+ visibility: hidden;
+ }
+ 
+ .btnBlockExplorer:hover{ 
+ background-color: #2D2D2D;
+ color: #081F2D; 
+ border-color: #8247E5; 
+ transition: 0.3s; 
+}

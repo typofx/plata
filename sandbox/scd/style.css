@@ -1,0 +1,29 @@
+@property --n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+} 
+@keyframes count {
+  from { --n: 99; }
+  to { --n: 0; }
+}
+
+.timer{
+    -webkit-animation: time calc(99s) steps(1000, start) forwards;
+    animation: 99s linear count;
+    counter-reset: n calc(0 + var(--n));
+}
+
+.ref::before {
+    color: blue;
+    content: counter(n);
+} 
+
+#showMe {
+  animation: cssAnimation 0s 5s forwards;
+  visibility: hidden; 
+}
+
+@keyframes cssAnimation {
+  to   { visibility: visible; }
+}
