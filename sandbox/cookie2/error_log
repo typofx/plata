@@ -1,0 +1,253 @@
+[18-May-2023 20:49:33 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 5
+[18-May-2023 20:49:33 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 6
+[18-May-2023 20:49:33 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[18-May-2023 20:49:33 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[18-May-2023 20:49:33 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:16
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(16): setcookie('', '', 1687052973, '/')
+#1 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[18-May-2023 20:49:38 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 5
+[18-May-2023 20:49:38 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 6
+[18-May-2023 20:49:38 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[18-May-2023 20:49:38 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[18-May-2023 20:49:38 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:16
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(16): setcookie('', '', 1687052978, '/')
+#1 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[18-May-2023 20:50:53 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 7
+[18-May-2023 20:50:53 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 7
+[18-May-2023 20:50:53 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:7
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(7): setcookie('', '', 1687053053, '/')
+#1 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 7
+[18-May-2023 20:51:28 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 8
+[18-May-2023 20:51:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 8
+[18-May-2023 20:57:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[18-May-2023 20:57:04 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[18-May-2023 20:57:07 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[18-May-2023 20:57:44 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 18
+[18-May-2023 20:57:51 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 18
+[18-May-2023 20:58:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 18
+[18-May-2023 20:59:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 18
+[18-May-2023 20:59:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 18
+[18-May-2023 20:59:55 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 18
+[18-May-2023 21:00:01 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 18
+[18-May-2023 21:00:37 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:01:46 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:02:08 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:02:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:02:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:02:53 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:04:35 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[18-May-2023 21:04:35 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:04:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[18-May-2023 21:04:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:04:43 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[18-May-2023 21:04:43 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:05:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[18-May-2023 21:05:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:05:45 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[18-May-2023 21:05:45 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:05:48 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[18-May-2023 21:05:48 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 21:21:49 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:21:49 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 34
+[18-May-2023 21:21:53 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:21:53 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 34
+[18-May-2023 21:21:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:21:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 34
+[18-May-2023 21:22:02 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:22:02 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 34
+[18-May-2023 21:22:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:22:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 34
+[18-May-2023 21:25:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:25:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 34
+[18-May-2023 21:25:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:25:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 34
+[18-May-2023 21:31:56 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 1
+[18-May-2023 21:32:00 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 1
+[18-May-2023 21:32:04 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 1
+[18-May-2023 21:41:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 29
+[18-May-2023 21:41:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 36
+[18-May-2023 21:41:21 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 29
+[18-May-2023 21:41:21 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 36
+[18-May-2023 21:41:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 29
+[18-May-2023 21:41:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 36
+[18-May-2023 21:48:58 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:48:58 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 35
+[18-May-2023 21:49:02 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:49:02 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 35
+[18-May-2023 21:49:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:49:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 35
+[18-May-2023 21:49:47 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:49:47 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 35
+[18-May-2023 21:49:47 America/Chicago] PHP Warning:  Undefined array key "cookieAppearance" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 44
+[18-May-2023 21:49:51 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 21:49:51 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 35
+[18-May-2023 21:49:51 America/Chicago] PHP Warning:  Undefined array key "cookieAppearance" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 44
+[18-May-2023 22:02:45 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 22:02:45 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 35
+[18-May-2023 22:02:45 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 43
+[18-May-2023 22:02:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 28
+[18-May-2023 22:02:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 35
+[18-May-2023 22:02:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 43
+[18-May-2023 22:03:26 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 1
+[18-May-2023 22:03:26 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 29
+[18-May-2023 22:03:26 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:2) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 36
+[18-May-2023 22:13:08 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[18-May-2023 22:13:08 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 23
+[18-May-2023 22:15:39 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[18-May-2023 22:15:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 23
+[18-May-2023 22:28:27 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 15
+[18-May-2023 22:28:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 22:28:34 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 15
+[18-May-2023 22:28:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 22:28:42 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 15
+[18-May-2023 22:28:42 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 20
+[18-May-2023 22:29:33 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 15
+[18-May-2023 22:29:37 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 15
+[19-May-2023 00:44:27 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 13
+[19-May-2023 00:44:27 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[19-May-2023 00:44:29 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 13
+[19-May-2023 00:44:29 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[19-May-2023 00:44:29 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 30
+[19-May-2023 00:44:41 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 13
+[19-May-2023 00:44:41 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[19-May-2023 00:44:41 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 30
+[19-May-2023 00:47:20 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 13
+[19-May-2023 00:47:20 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[19-May-2023 00:47:22 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 13
+[19-May-2023 00:47:22 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[19-May-2023 00:47:22 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 30
+[19-May-2023 00:47:27 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 13
+[19-May-2023 00:47:27 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[19-May-2023 00:47:29 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 13
+[19-May-2023 00:47:29 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[19-May-2023 00:47:32 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 13
+[19-May-2023 00:47:32 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[19-May-2023 00:47:32 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 30
+[19-May-2023 00:47:35 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 13
+[19-May-2023 00:47:35 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 14
+[19-May-2023 00:48:59 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[19-May-2023 00:48:59 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 17
+[19-May-2023 00:48:59 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 17
+[19-May-2023 00:49:07 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[19-May-2023 00:49:07 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 17
+[19-May-2023 00:49:07 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 17
+[19-May-2023 00:49:11 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[19-May-2023 00:49:11 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 17
+[19-May-2023 00:49:11 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 17
+[19-May-2023 00:49:11 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 30
+[19-May-2023 00:49:14 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 16
+[19-May-2023 00:49:14 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 17
+[19-May-2023 00:49:14 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 17
+[19-May-2023 01:15:27 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:15:30 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:15:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 25
+[19-May-2023 01:15:34 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:15:36 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:15:36 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 25
+[19-May-2023 01:47:25 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:47:26 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:47:26 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 25
+[19-May-2023 01:47:30 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:47:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 25
+[19-May-2023 01:47:46 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:47:48 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:47:48 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 25
+[19-May-2023 01:47:50 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:47:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 25
+[19-May-2023 01:52:13 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:52:17 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:52:17 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 23
+[19-May-2023 01:54:13 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:54:16 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 01:54:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 23
+[19-May-2023 02:17:05 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 02:17:07 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 02:17:07 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 24
+[19-May-2023 02:17:10 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 02:17:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 24
+[19-May-2023 06:23:26 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 06:23:27 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 11
+[19-May-2023 06:23:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 24
+[19-May-2023 06:25:41 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 4
+[19-May-2023 06:25:43 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 4
+[19-May-2023 06:25:43 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 26
+[19-May-2023 06:25:46 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 4
+[19-May-2023 06:25:46 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 26
+[19-May-2023 06:26:50 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 4
+[19-May-2023 06:26:52 America/Chicago] PHP Warning:  Undefined array key "currency" in /home2/granna80/public_html/sandbox/cookie2/index.php on line 4
+[19-May-2023 06:26:52 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:1) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 25
+[19-May-2023 06:27:37 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:6) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:28:27 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 32
+[19-May-2023 06:28:27 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 32
+[19-May-2023 06:28:27 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:32
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(32): setcookie('', '', 1687087707, '/')
+#1 /home2/granna80/public_html/sandbox/cookie2/index.php(27): button1()
+#2 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 32
+[19-May-2023 06:28:34 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 32
+[19-May-2023 06:28:34 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 32
+[19-May-2023 06:28:34 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:32
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(32): setcookie('', '', 1687087714, '/')
+#1 /home2/granna80/public_html/sandbox/cookie2/index.php(27): button1()
+#2 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 32
+[19-May-2023 06:30:10 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:30:10 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:30:10 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:33
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(33): setcookie('', '', 1687087810, '/')
+#1 /home2/granna80/public_html/sandbox/cookie2/index.php(28): button1()
+#2 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:31:51 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:31:51 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:31:51 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:33
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(33): setcookie('', '', 1687087911, '/')
+#1 /home2/granna80/public_html/sandbox/cookie2/index.php(28): button1()
+#2 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:31:57 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:31:57 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:31:57 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:33
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(33): setcookie('', '', 1687087917, '/')
+#1 /home2/granna80/public_html/sandbox/cookie2/index.php(28): button1()
+#2 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:33:05 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:33:05 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:33:05 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:33
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(33): setcookie('', '', 1687087985, '/')
+#1 /home2/granna80/public_html/sandbox/cookie2/index.php(28): button1()
+#2 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:34:15 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:34:15 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:34:15 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:33
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(33): setcookie('', '', 1687088055, '/')
+#1 /home2/granna80/public_html/sandbox/cookie2/index.php(28): button1()
+#2 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:35:10 America/Chicago] PHP Warning:  Undefined variable $cookie_name in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:35:10 America/Chicago] PHP Warning:  Undefined variable $cookie_value in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:35:10 America/Chicago] PHP Fatal error:  Uncaught ValueError: setcookie(): Argument #1 ($name) cannot be empty in /home2/granna80/public_html/sandbox/cookie2/index.php:33
+Stack trace:
+#0 /home2/granna80/public_html/sandbox/cookie2/index.php(33): setcookie('', '', 1687088110, '/')
+#1 /home2/granna80/public_html/sandbox/cookie2/index.php(28): button1()
+#2 {main}
+  thrown in /home2/granna80/public_html/sandbox/cookie2/index.php on line 33
+[19-May-2023 06:35:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:5) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 29
+[19-May-2023 06:35:40 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:5) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 29
+[19-May-2023 06:36:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:5) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 29
+[19-May-2023 06:36:25 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/sandbox/cookie2/index.php:5) in /home2/granna80/public_html/sandbox/cookie2/index.php on line 29
