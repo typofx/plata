@@ -1,0 +1,238 @@
+/*
+table, th, td {
+border: 1px solid black;
+  border-collapse: collapse;
+  
+}*/
+
+.table-footer{
+    width: 100%;
+    height: 60px;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    text-align: center;
+  vertical-align: middle;
+}
+
+h3 {
+    color: #888888;
+}
+
+html, body {
+    background-image: linear-gradient(90deg, #EBECF0 0%, #E5E4E2 35%, #EBECF0 100%);
+    /*background-color: #EBECF0;*/
+    font-family: 'Montserrat';
+    /*font-size: 15px;*/
+    overflow-x: hidden;
+    margin:0px;
+    padding:0px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    color: #2F2F2F;
+}
+
+label {
+    color: #2F2F2F;
+}
+
+.dappVersion {
+    color: #4A0086;
+    font-size: 11px;
+}
+
+input {
+  font-family: 'Montserrat';
+  font-size: 30px;
+  text-align: center;
+  width: 97%;
+  padding: 12px 4px;
+  margin: 1px 0;
+  box-sizing: border-box;
+  border: 1px solid #9897A9;
+  border-radius: 6px;
+  background-color: white;
+}
+
+input:not(:placeholder-shown) {
+  background-color: white;
+}
+
+input:placeholder-shown {
+  background-color: white;
+}
+
+.selectList {
+  font-family: 'Montserrat';
+  font-size: 14px;
+  text-align: center;
+  width: 97%;
+  padding: 12px 4px;
+  margin: 1px 0;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+
+.hrline {
+  border-top: 1px #3D3D3D;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.reduceText {
+    font-size: 1px;
+    color: #AAAAAA;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 250px;
+}
+
+.div-label {
+    text-align: left;
+    color: #2F2F2F;
+}
+
+.close {
+  font-size: 1px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+ display:none;
+ height: 1px;
+ width: 1px;
+} 
+
+.buttonBuyNow {
+ width: 230px;
+ height: 50px;
+ display: block;
+ background-color: #4A0086;
+ border-radius: 6px; 
+ border: 0px solid #3D3D3D;
+ color: white; 
+ font-size: 20px; 
+ cursor: pointer; 
+ transition: 0.3s; 
+ font-family: 'Montserrat'; 
+}
+
+.buttonBuyNow:hover {
+ width: 230px;
+ height: 50px;
+ display: block;
+ background-color: #8247E5; 
+ border-radius: 6px; 
+ border: 0px solid #3D3D3D;
+ color: white; 
+ font-size: 20px; 
+ cursor: pointer; 
+ transition: 0.3s; 
+ font-family: 'Montserrat'; 
+} 
+
+.box {
+    padding-top:15px;
+    width: 330px;
+    height: 530px;
+    border-radius: 10px;
+    border: 0px solid #9897A9;
+    background-color: #CCCCCC;
+    align-content: center;
+    
+}
+
+.boxSmallButtons {
+    height: 50px;
+    width: 300px;
+    background-color: #AAAAAA;
+}
+
+.btnMenuWallet{
+ width: 210px;
+ height: 40px;
+ visibility: visible;
+ background-color: #3D3D3D; 
+ border-radius: 6px; 
+ border: 1px solid #3D3D3D;
+ color: white; 
+ font-size: 15px; 
+ cursor: pointer; 
+ transition: 0.3s; 
+ font-family: 'Montserrat'; 
+ }
+ 
+ .btnMenuWallet:hover{ 
+ background-color: black; 
+ color: white; 
+ border-color: #8247E5; 
+ transition: 0.3s; 
+}
+
+.btnPower{
+ background: no-repeat center/45% url("powerButton.png");
+ background-color: #3D3D3D;
+ border-radius: 29px; 
+ border: 1px solid #3D3D3D; 
+ color: white; 
+ font-size: 16px; 
+ padding: 10px 20px; 
+ cursor: pointer; 
+ transition: 0.3s;
+ align-content: flex-end;
+ }
+ 
+ .btnPower:hover{ 
+ background-color: #2D2D2D;
+ color: #081F2D; 
+ border-color: #8247E5; 
+ transition: 0.3s; 
+}
+
+.btnCopyContract{
+ background: no-repeat center/80% url("copy.png");
+ background-color: #3D3D3D;
+ border-radius: 29px; 
+ border: 1px solid #3D3D3D; 
+ color: white; 
+ font-size: 16px; 
+ padding: 10px 20px; 
+ cursor: pointer; 
+ transition: 0.3s;
+ align-content: flex-end;
+ }
+ 
+ .btnCopyContract:hover{ 
+ background-color: #2D2D2D;
+ color: #081F2D; 
+ border-color: #8247E5; 
+ transition: 0.3s;
+ visibility: hidden;
+}

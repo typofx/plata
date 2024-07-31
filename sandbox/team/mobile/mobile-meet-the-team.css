@@ -1,0 +1,93 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.tb-members {
+    width: 100%;
+    height: 100vh;
+    border-collapse: separate;
+    border-spacing: 12px;
+    background-color: #cCcCcC;
+    font-family: "Montserrat", sans-serif;
+    display: table;
+}
+
+h2.title {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.link-social-icons {
+    text-decoration: none;
+}
+
+.td-tb-members {
+    padding: 5px;
+    background-color: white;
+    height: 158px;
+    text-align: left;
+    margin-top: -1px;
+    margin-left: -1px;
+    margin-bottom: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px 0px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.img-members {
+    margin: 0;
+    object-fit: cover;
+    width: 120px;
+    height: 150px;
+    padding: 4px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    position: relative;
+}
+
+.info-container {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.member-roles {
+    display: block;
+    color: rgb(0, 0, 0);
+    font-size: 8px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.member-names {
+    color: #454545;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.social-icons {
+    height: 26px;
+    width: 26px;
+    text-align: right;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.div-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto;
+    margin-bottom: -5px;
+}
