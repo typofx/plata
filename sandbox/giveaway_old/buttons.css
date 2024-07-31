@@ -1,0 +1,17 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 500px;
+}
+
+.u-section-1 .u-icon-1 {
+  width: 32px;
+  height: 32px;
+  margin: 223px auto 60px;
+  padding: 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-icon-1 {
+    transition-duration: 0.5s;
+    color: rgb(130, 71, 229) !important;
+  }
+}
