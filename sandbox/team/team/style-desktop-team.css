@@ -1,0 +1,165 @@
+/*table, th, td, div {
+
+  border: 1px solid;
+
+}*/
+
+.title-team{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 2.25rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.tr-members{
+    display: flex;
+    height: 310px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tb-members-container {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+.tb-members {
+
+    align-items: center;
+
+    width: 100%;
+
+    border-collapse: separate;
+
+    border-spacing: 15px; 
+
+    background-color: #cCcCcC;
+
+}
+
+
+
+.link-social-icons {
+    text-decoration: none;
+
+}
+
+
+
+.td-tb-members {
+
+    padding: 10px;
+
+    padding-bottom: 5px;
+
+    background-color: white;
+
+    width: 225px;
+
+    margin: auto;
+    margin-right: 7px;
+    margin-left: 7px;
+    
+    height: 292px;
+
+    text-align: center;
+
+    vertical-align: middle;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px 0px;
+
+    border-top-right-radius: 22px;
+
+    border-bottom-right-radius: 22px;
+
+}
+
+
+
+.img-members {
+
+    margin: 0 auto;
+
+    object-fit: cover;
+
+    width: 225px;
+
+    height: 210px;
+
+    border-top-right-radius: 16px;
+
+    border-bottom-right-radius: 16px;
+
+}
+
+
+
+.member-roles {
+
+    display: block;
+
+    color: gray;
+
+    font-size: 0.5rem;
+
+    font-weight: 300;
+
+    text-align: left;
+
+    margin: 0 auto;
+
+    margin-top: 10px;
+
+}
+
+
+
+.member-names {
+
+    color: #4a494a;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    text-align: left;
+
+    margin: 0 auto;
+
+    margin-top: 2px;
+
+}
+
+
+
+.social-icons {
+
+    height: 26px;
+
+    width: 26px;
+
+    text-align: right;
+
+    text-decoration: none;
+
+    margin-top: 15px;
+
+    margin-right: 4px;
+    
+}
+
+
+
+.div-icons {
+
+    margin-right: -2px;
+    text-align: end;
+
+}
+
+.space{
+    width: 20px;
+}

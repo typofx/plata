@@ -1,0 +1,52 @@
+/* Centralizar todo conteudo da pagina */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #fff;
+}
+
+/* Tamanho do grafico e bordas arredondadas */
+.donut {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+}
+
+/* Definição da cor do grafico */
+.donut-background {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Cores definidas por gradiente */
+    background: conic-gradient(
+        /* Posição inicial da primeira cor, em gradianos */
+        from 315deg,
+        /* cada cor inicia apartir da anterior e percorre a porcentagem desejada até 100% */
+        #dd137b 0% 26%,
+        #974578 26% 31%,
+        #7a7292 31% 36%,
+        #6b4f91 36% 41%,
+        #622378 41% 46%,
+        #969594 46% 50%,
+        #72706f 50% 100%
+    );
+}
+
+/* posição e tamanho do circulo central do donut */
+.donut-white {
+    width: calc(100% - 90px);
+    height: calc(100% - 90px);
+    border-radius: 50%;
+    /* a cor deve ser igual ao fundo da tela */
+    background: #fff;
+    position: absolute;
+    /* Posição do circulo exatamente no centro da tela para acompanhar o grafico */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
