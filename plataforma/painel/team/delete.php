@@ -1,20 +1,11 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
-
-ini_set('session.gc_maxlifetime', 28800);
-session_set_cookie_params(28800);
-
-session_start();
-
-if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    header("Location: ../index.php");
-    exit();
-}
 ?>
 
 <?php
 // Check if a valid ID is provided in the URL
-if(isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = $_GET['id'];
+if(isset($_GET['id']) && ($_GET['id'])) {
+    $id = base64_decode($_GET['id']);
 
     // Include database configuration file
     include "conexao.php";

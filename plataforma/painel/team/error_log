@@ -159,3 +159,43 @@ Stack trace:
 #0 /home2/granna80/public_html/plataforma/painel/team/editar.php(83): mysqli_stmt->bind_param('sssssssssssi', 'FOUNDER CEO COM...', 'Adam Soares', '+353899540823', 'uarloque', 'AdamSoares', 'uarloque', 'uarloque', 'uarloque@plata....', 'uarloque', 'adam-soares-a44...', '', 'typofx', 1, '1')
 #1 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 83
+[01-Aug-2024 13:07:50 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Column count doesn't match value count at row 1 in /home2/granna80/public_html/plataforma/painel/team/insert.php:98
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/insert.php(98): mysqli->prepare('INSERT INTO gra...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/insert.php on line 98
+[01-Aug-2024 13:13:06 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Column count doesn't match value count at row 1 in /home2/granna80/public_html/plataforma/painel/team/insert.php:98
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/insert.php(98): mysqli->prepare('INSERT INTO gra...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/insert.php on line 98
+[01-Aug-2024 17:04:51 America/Chicago] PHP Parse error:  Unmatched '}' in /home2/granna80/public_html/plataforma/painel/team/index.php on line 145
+[01-Aug-2024 17:04:54 America/Chicago] PHP Parse error:  Unmatched '}' in /home2/granna80/public_html/plataforma/painel/team/index.php on line 145
+[01-Aug-2024 19:05:12 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/team/editar.php:72
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/editar.php(72): mysqli_stmt->bind_param('sssssssssssssss...', 'uploads/66ac22b...', 'WEB3 DEVELOPER ...', 'Adriel Dias Tes...', '', '', '', '', '', '', '', '', '', '', 1, '16')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 72
+[01-Aug-2024 19:05:47 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/team/editar.php:72
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/editar.php(72): mysqli_stmt->bind_param('sssssssssssssss...', 'uploads/66ac22d...', 'WEB3 DEVELOPER ...', 'Adriel Dias Tes...', '', '', '', '', '', '', '', '', '', '', 1, '16')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 72
+[05-Aug-2024 08:19:17 America/Chicago] PHP Warning:  Undefined array key "last_modified_user" in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 35
+[05-Aug-2024 08:19:24 America/Chicago] PHP Warning:  Undefined array key "last_modified_user" in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 35
+[05-Aug-2024 08:19:32 America/Chicago] PHP Warning:  Undefined array key "last_modified_user" in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 35
+[05-Aug-2024 08:34:30 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'last_modified_date' in 'order clause' in /home2/granna80/public_html/plataforma/painel/team/editar.php:58
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/editar.php(58): mysqli->prepare('SELECT last_mod...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 58
+[05-Aug-2024 08:34:32 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'last_modified_date' in 'order clause' in /home2/granna80/public_html/plataforma/painel/team/editar.php:58
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/editar.php(58): mysqli->prepare('SELECT last_mod...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/editar.php on line 58
+[05-Aug-2024 11:58:02 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/team/active.php:23
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/team/active.php(23): mysqli->query('SELECT id, team...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/team/active.php on line 23
