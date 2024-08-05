@@ -1,14 +1,9 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
 
-ini_set('session.gc_maxlifetime', 28800);
-session_set_cookie_params(28800);
+$isGuest = ($userLevel === "guest");
 
-session_start();
 
-if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    header("Location: ../index.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -71,9 +66,13 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
 <body>
     <h2>Team Members List</h2>
-    <a href="add.php">[Add new member]</a>
-    <a href="form.php">[JSON CONFIG]</a>
-   
+    <a href="https://plata.ie/plataforma/painel/menu.php">[Control Panel]</a>
+
+    <?php if (!$isGuest) : ?>
+        <a href="add.php">[Add new member]</a>
+        <a href="form.php">[Set JSON]</a>
+        <a href="active.php">[Currently work here]</a>
+    <?php endif; ?>
     <br>
     <br>
     <table>
@@ -92,7 +91,9 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             <th class="vertical-column">TWITCH</th>
             <th class="vertical-column">MEDIUM</th>
             <th class="vertical-column">DOCS</th>
+
             <th>Actions</th>
+            <th>Work here?</th>
         </tr>
 
         <?php
@@ -101,7 +102,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         include "conexao.php";
 
         // SQL query to select all team members
-        $sql = "SELECT * FROM granna80_bdlinks.team";
+        $sql = "SELECT * FROM granna80_bdlinks.team where active = 1";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -125,10 +126,35 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
                 echo "<td><a href='https://twitter.com/" . htmlspecialchars($row['teamSocialMedia6']) . "' target='_blank'><i class='fa-brands fa-square-x-twitter' style='color: #000;'></i></a></td>";
                 echo "<td><a href='https://www.linkedin.com/in/" . htmlspecialchars($row['teamSocialMedia7']) . "' target='_blank'><i class='fa-brands fa-linkedin' style='color: #0077B5;'></i></a></td>";
                 echo "<td><a href='https://www.twitch.tv/" . htmlspecialchars($row['teamSocialMedia8']) . "' target='_blank'><i class='fa-brands fa-twitch' style='color: #9146FF;'></i></a></td>";
-                echo "<td><a href='https://medium.com/@". htmlspecialchars($row['teamSocialMedia9']) . "' target='_blank'><i class='fa-brands fa-medium' style='color: #12100E;'></i></a></td>";
+                echo "<td><a href='https://medium.com/@" . htmlspecialchars($row['teamSocialMedia9']) . "' target='_blank'><i class='fa-brands fa-medium' style='color: #12100E;'></i></a></td>";
+                $canEdit = ($userLevel === "guest" && $row['uuid'] == $userUuid) || ($userLevel !== "guest");
+
+                if ($canEdit) {
                 echo "<td><a href='docs/edit.php?id=" .  $row['id']  . "'><i class='fa-solid fa-id-card' style='color: #000;'></i></a></td>";
-                echo "<td><a href='editar.php?id=" . $row['id'] . "'><i class='fa-solid fa-pen-to-square'></i></a> | <a href='javascript:void(0);' onclick='confirmDelete(" . $row['id'] . ")'><i class='fa-solid fa-trash' style='color: red;'></i></a><br>";
-                echo "<input type='checkbox' id='active' name='active' " . ($row['active'] == 1 ? 'checked' : '') . " readonly onclick='return false;'> Currently work here</td>";
+                } else {
+                    echo "<td>";
+                    echo " ";
+                    echo "</td>";
+                }
+                if ($canEdit) {
+                    echo "<td>";
+                    $id = base64_encode($row['id']);
+
+                    echo "<a href='editar.php?id=" . $id . "'><i class='fa-solid fa-pen-to-square'></i></a>";
+
+                    if (!$isGuest) :
+                        echo " | <a href='javascript:void(0);' onclick='confirmDelete(\"" . $id . "\")'><i class='fa-solid fa-trash' style='color: red;'></i></a> ";
+                    endif;
+                    echo "</td>";
+                } else {
+
+                    echo "<td>";
+                    echo " ";
+                    echo "</td>";
+                }
+                echo "<td>";
+                echo "<input type='checkbox' id='active' name='active' " . ($row['active'] == 1 ? 'checked' : '') . " readonly onclick='return false;'>";
+                echo "</td>";
                 echo "</tr>";
             }
         } else {
