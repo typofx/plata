@@ -1,144 +1,139 @@
-<?php  include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
-
-
-// Include the file for database connection
+include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include 'conexao.php';
 
-// Checking the connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Query to select data from the English table
-$sql_en = "SELECT * FROM granna80_bdlinks.plata_texts WHERE language = 'en' AND device = 'desktop'";
-$result_en = $conn->query($sql_en);
+function fetchLanguages($conn, $visibleOnly = false) {
+    $sql = "SELECT code FROM granna80_bdlinks.languages";
+    if ($visibleOnly) {
+        $sql .= " WHERE visible = 1";
+    }
+    $result = $conn->query($sql);
 
-// Query to select data from the Spanish table
-$sql_es = "SELECT * FROM granna80_bdlinks.plata_texts WHERE language = 'es' AND device = 'desktop'";
-$result_es = $conn->query($sql_es);
+    $languages = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $languages[] = $row['code'];
+        }
+    }
+    return $languages;
+}
 
-// Query to select data from the Portuguese table
-$sql_pt = "SELECT * FROM granna80_bdlinks.plata_texts WHERE language = 'pt' AND device = 'desktop'";
-$result_pt = $conn->query($sql_pt);
+
+$visibleLanguages = fetchLanguages($conn, true);
 
 
+$allLanguages = fetchLanguages($conn);
+
+
+function organizeDataByDevice($conn, $device) {
+    $sql = "SELECT * FROM granna80_bdlinks.plata_texts WHERE device = '$device' ORDER BY uindex";
+    $result = $conn->query($sql);
+
+    $organizedData = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $uindex = $row['uindex'];
+            $language = $row['language'];
+
+            if (!isset($organizedData[$uindex])) {
+                $organizedData[$uindex] = [
+                    'name' => $row['name'],
+                    'languages' => array_fill_keys($GLOBALS['allLanguages'], null),
+                ];
+            }
+
+            $organizedData[$uindex]['languages'][$language] = $row['text'];
+        }
+    }
+    return $organizedData;
+}
+
+
+$desktopData = organizeDataByDevice($conn, 'desktop');
+
+
+$mobileData = organizeDataByDevice($conn, 'mobile');
+
+
+$desktopJsonData = [];
+$mobileJsonData = [];
 ?>
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>plata_texts </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plata Languages</title>
     <style>
         table {
             width: 100%;
             border-collapse: collapse;
         }
-
-        table,
-        th,
-        td {
+        table, th, td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
         }
-
         th {
             background-color: #f2f2f2;
         }
     </style>
 </head>
-
 <body>
-
-    <h2>plata_texts </h2>
-
+    <h2>Plata Languages</h2>
     <a href="add.php">[ Add new ]</a>
-    <br>
-    <br>
-
+    <a href="data_desktop.json" target="_blank">[ JSON Desktop ]</a>
+    <a href="data_mobile.json" target="_blank">[ JSON Mobile ]</a>
+    <a href="add_language.php" target="_blank">[ Add idiom ]</a>
+    <a href="manage_languages.php" target="_blank">[ Visible Languages ]</a>
+    <a href=" " target="_blank">[ Control Panel ]</a>
+    <br><br>
     <table>
         <tr>
-            <th>ID</th>
-            <th>TEXT NAME</th>
-            <th>ENGLISH TEXT</th>
-        
-            <th>ESPANISH TEXT</th>
-   
-            <th>PORTUGUESE TEXT</th>
-           
-
-            <th>Actions</th> <!-- New column for edit buttons -->
+            <th>#ID</th>
+            <?php foreach ($visibleLanguages as $language): ?>
+                <th><?php echo strtoupper($language); ?> Desktop Text</th>
+                <th><?php echo strtoupper($language); ?> Mobile Text</th>
+            <?php endforeach; ?>
+            <th>Actions</th>
         </tr>
-        <?php
-        // Initialize index counters
-        $index = 1;
-
-        // Loop until there are results in at least one of the tables
-        while (true) {
-            $row_en = $result_en->fetch_assoc();
-            $row_es = $result_es->fetch_assoc();
-            $row_pt = $result_pt->fetch_assoc();
-      
-
-            // If there are no more results in any of the tables, end the loop
-            if (!$row_en && !$row_es && !$row_pt) {
-                break;
+        <?php foreach ($desktopData as $uindex => $rowData): ?>
+            <tr>
+                <td><?php echo "#". $uindex; ?></td>
+                <?php foreach ($visibleLanguages as $language): ?>
+                    <td><?php echo htmlspecialchars($rowData['languages'][$language] ?? ''); ?></td>
+                    <td><?php echo htmlspecialchars($mobileData[$uindex]['languages'][$language] ?? ''); ?></td>
+                <?php endforeach; ?>
+                <td><a href="edit.php?uindex=<?php echo $uindex; ?>">Edit</a></td>
+            </tr>
+            <?php
+           
+            $row = ["uindex" => $uindex, "name" => trim($rowData['name'])];
+            foreach ($allLanguages as $language) {
+                $row[$language] = $rowData['languages'][$language] ?? 'NULL';
             }
-
-            echo "<tr>";
-            echo "<td>" . $index . "
-      </td>";
-
-      echo "<td><b>" . $row_en["name"] . "</b></td>";
-
-
-            // Check and display task goal in English
-            echo "<td>";
-            if ($row_en) {
-                echo $row_en["text"];
-            }
-            echo "</td>";
-
-     
-
-
-            // Check and display task goal in Spanish
-            echo "<td>";
-            if ($row_es) {
-                echo $row_es["text"];
-            }
-            echo "</td>";
-
-      
-
-            // Check and display task goal in Portuguese
-            echo "<td>";
-            if ($row_pt) {
-                echo $row_pt["text"];
-            }
-            echo "</td>";
-
-      
-
-
-
-
-
-
-            // Add an edit button for each row
-            echo "<td><a href='edit.php?id_en=" . ($row_en ? $row_en["id"] : "0") . "&id_es=" . ($row_es ? $row_es["id"] : "0") . "&id_pt=" . ($row_pt ? $row_pt["id"] : "0") . "'>Edit</a> | <a href='delete.php?id_en=" . ($row_en ? $row_en["id"] : "0") . "&id_es=" . ($row_es ? $row_es["id"] : "0") . "&id_pt=" . ($row_pt ? $row_pt["id"] : "0") . "'>Delete</a></td>";
-
-
-            echo "</tr>";
-
-            // Increment index counter
-            $index++;
-        }
-        ?>
+            $desktopJsonData[] = $row;
+            ?>
+        <?php endforeach; ?>
     </table>
 
-</body>
+    <?php
+   
+    file_put_contents('data_desktop.json', json_encode($desktopJsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
+  
+    foreach ($mobileData as $uindex => $rowData) {
+        $row = ["uindex" => $uindex, "name" => trim($rowData['name'])];
+        foreach ($allLanguages as $language) {
+            $row[$language] = $rowData['languages'][$language] ?? 'NULL';
+        }
+        $mobileJsonData[] = $row;
+    }
+    file_put_contents('data_mobile.json', json_encode($mobileJsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    ?>
+</body>
 </html>

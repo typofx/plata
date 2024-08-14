@@ -1,69 +1,116 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
-?>
 <?php
-?>
-<?php
-// Include the file for database connection
+include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include 'conexao.php';
 
-// Check if the IDs were passed
-if (isset($_GET['id_en']) && isset($_GET['id_es']) && isset($_GET['id_pt'])) {
-    // Get the IDs passed via GET
-    $id_en = $_GET['id_en'];
-    $id_es = $_GET['id_es'];
-    $id_pt = $_GET['id_pt'];
-  
+// Função para buscar idiomas disponíveis
+function fetchLanguages($conn) {
+    $sql = "SELECT code FROM granna80_bdlinks.languages";
+    $result = $conn->query($sql);
 
-    // Check if the form was submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get the form data
+    $languages = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $languages[] = $row['code'];
+        }
+    }
+    return $languages;
+}
 
-        $task_goal_en = $_POST['task_goal_en'];
-        $task_goal_es = $_POST['task_goal_es'];
-        $task_goal_pt = $_POST['task_goal_pt'];
-        $name = $_POST['name'];
-      
+// Buscar os idiomas disponíveis
+$languages = fetchLanguages($conn);
 
-        // Update data in the English table
-        $sql_update_en = "UPDATE granna80_bdlinks.plata_texts SET name='$name', text='$task_goal_en' WHERE id=$id_en";
-        $conn->query($sql_update_en);
+// Verificar se o 'uindex' foi passado
+$uindex = isset($_GET['uindex']) ? $_GET['uindex'] : null;
 
-        // Update data in the Spanish table
-        $sql_update_es = "UPDATE granna80_bdlinks.plata_texts SET name='$name', text='$task_goal_es' WHERE id=$id_es";
-        $conn->query($sql_update_es);
+// Verificar se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Pegar os dados do formulário
+    $name = $_POST['name'];
+    $desktopTexts = [];
+    $mobileTexts = [];
 
-        // Update data in the Portuguese table
-        $sql_update_pt = "UPDATE granna80_bdlinks.plata_texts SET name='$name', text='$task_goal_pt' WHERE id=$id_pt";
-        $conn->query($sql_update_pt);
-
-
-
-        // Redirect after update
-        echo "<script>window.location.href = 'index.php';</script>"; // Redirect
-        exit();
+    // Separar os textos para desktop e mobile
+    foreach ($languages as $language) {
+        $desktopTexts[$language] = $_POST["desktop_text_$language"];
+        $mobileTexts[$language] = $_POST["mobile_text_$language"];
     }
 
+    // Atualizar ou inserir dados para cada idioma e dispositivo
+    foreach ($languages as $language) {
+        // Lógica para o dispositivo desktop
+        $sql_check = "SELECT COUNT(*) as count FROM granna80_bdlinks.plata_texts WHERE uindex=? AND language=? AND device='desktop'";
+        $stmt_check = $conn->prepare($sql_check);
+        $stmt_check->bind_param("is", $uindex, $language);
+        $stmt_check->execute();
+        $result_check = $stmt_check->get_result();
+        $exists = $result_check->fetch_assoc()['count'] > 0;
 
-    $sql_select_en = "SELECT * FROM granna80_bdlinks.plata_texts WHERE id = $id_en";
-    $result_select_en = $conn->query($sql_select_en);
-    $row_en = $result_select_en->fetch_assoc();
+        if ($exists) {
+            // Atualizar registro existente para desktop
+            $sql_update = "UPDATE granna80_bdlinks.plata_texts SET name=?, text=? WHERE uindex=? AND language=? AND device='desktop'";
+            $stmt = $conn->prepare($sql_update);
+            $stmt->bind_param("ssis", $name, $desktopTexts[$language], $uindex, $language);
+        } else {
+            // Inserir novo registro para desktop
+            $sql_insert = "INSERT INTO granna80_bdlinks.plata_texts (name, text, language, device, uindex) VALUES (?, ?, ?, 'desktop', ?)";
+            $stmt = $conn->prepare($sql_insert);
+            $stmt->bind_param("sssi", $name, $desktopTexts[$language], $language, $uindex);
+        }
+        $stmt->execute();
 
+        // Lógica para o dispositivo mobile
+        $sql_check = "SELECT COUNT(*) as count FROM granna80_bdlinks.plata_texts WHERE uindex=? AND language=? AND device='mobile'";
+        $stmt_check = $conn->prepare($sql_check);
+        $stmt_check->bind_param("is", $uindex, $language);
+        $stmt_check->execute();
+        $result_check = $stmt_check->get_result();
+        $exists = $result_check->fetch_assoc()['count'] > 0;
 
-    $sql_select_es = "SELECT * FROM granna80_bdlinks.plata_texts WHERE id = $id_es";
-    $result_select_es = $conn->query($sql_select_es);
-    $row_es = $result_select_es->fetch_assoc();
+        if ($exists) {
+            // Atualizar registro existente para mobile
+            $sql_update = "UPDATE granna80_bdlinks.plata_texts SET name=?, text=? WHERE uindex=? AND language=? AND device='mobile'";
+            $stmt = $conn->prepare($sql_update);
+            $stmt->bind_param("ssis", $name, $mobileTexts[$language], $uindex, $language);
+        } else {
+            // Inserir novo registro para mobile
+            $sql_insert = "INSERT INTO granna80_bdlinks.plata_texts (name, text, language, device, uindex) VALUES (?, ?, ?, 'mobile', ?)";
+            $stmt = $conn->prepare($sql_insert);
+            $stmt->bind_param("sssi", $name, $mobileTexts[$language], $language, $uindex);
+        }
+        $stmt->execute();
+    }
 
-
-    $sql_select_pt = "SELECT * FROM granna80_bdlinks.plata_texts WHERE id = $id_pt";
-    $result_select_pt = $conn->query($sql_select_pt);
-    $row_pt = $result_select_pt->fetch_assoc();
-
-
- 
-} else {
-
-    echo "Error";
+    // Redirecionar após o update/insert
+    echo "<script>window.location.href = 'index.php';</script>";
     exit();
+}
+
+// Buscar dados atuais para cada idioma e dispositivo, se o uindex estiver presente
+$data = [];
+if ($uindex) {
+    foreach ($languages as $language) {
+        // Dados para desktop
+        $sql_select = "SELECT * FROM granna80_bdlinks.plata_texts WHERE uindex = ? AND language = ? AND device = 'desktop'";
+        $stmt = $conn->prepare($sql_select);
+        $stmt->bind_param("is", $uindex, $language);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data['desktop'][$language] = $result->fetch_assoc();
+
+        // Dados para mobile
+        $sql_select = "SELECT * FROM granna80_bdlinks.plata_texts WHERE uindex = ? AND language = ? AND device = 'mobile'";
+        $stmt = $conn->prepare($sql_select);
+        $stmt->bind_param("is", $uindex, $language);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data['mobile'][$language] = $result->fetch_assoc();
+    }
+} else {
+    // Valores vazios por padrão para novas entradas
+    foreach ($languages as $language) {
+        $data['desktop'][$language] = ['name' => '', 'text' => ''];
+        $data['mobile'][$language] = ['name' => '', 'text' => ''];
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -71,41 +118,42 @@ if (isset($_GET['id_en']) && isset($_GET['id_es']) && isset($_GET['id_pt'])) {
 
 <head>
     <title>Edit Task</title>
-
 </head>
 
 <body>
 
-    <h2>Edit Task</h2>
+    <h2>Edit Task</h2><br>
 
-    <!-- Example form for editing data -->
+    <h3>Desktop Texts</h3>
+
+    <!-- Formulário para editar dados -->
     <form method="POST" action="">
 
-
-
-        
-
-        <!-- Form fields to edit task data in English -->
+        <!-- Campo para editar o nome da task -->
         <label>TEXT NAME:</label>
-        <input type="text" name="name" value="<?php echo $row_en['name']; ?>"><br>
+        <input type="text" name="name" value="<?php echo htmlspecialchars($data['desktop'][$languages[0]]['name'] ?? ''); ?> " readonly><br><br><br>
 
+        <?php foreach ($languages as $language): ?>
+         
+            <label>TEXT <?php echo strtoupper($language); ?> (Desktop):</label>
+            <input type="text" name="desktop_text_<?php echo $language; ?>" value="<?php echo htmlspecialchars($data['desktop'][$language]['text'] ?? ''); ?>"><br>
 
-        <label>TEXT EN:</label>
-        <input type="text" name="task_goal_en" value="<?php echo $row_en['text']; ?>"><br>
+          
+        <?php endforeach; ?>
 
-        <!-- Form fields to edit task data in Spanish -->
-        <label>TEXT ES:</label>
-        <input type="text" name="task_goal_es" value="<?php echo $row_es['text']; ?>"><br>
+<br>
+<br>
 
-        <!-- Form fields to edit task data in Portuguese -->
-        <label>TEXT PT:</label>
-        <input type="text" name="task_goal_pt" value="<?php echo $row_pt['text']; ?>"><br>
+<h3>Mobile Texts</h3>
 
-     
+        <?php foreach ($languages as $language): ?>
+            <label>TEXT <?php echo strtoupper($language); ?> (Mobile):</label>
+            <input type="text" name="mobile_text_<?php echo $language; ?>" value="<?php echo htmlspecialchars($data['mobile'][$language]['text'] ?? ''); ?>"><br>
 
+          
+        <?php endforeach; ?>
 
-
-        <!-- Form submission button -->
+        <!-- Botões -->
         <a href="index.php">Back</a>
         <button type="submit">Save Changes</button>
     </form>

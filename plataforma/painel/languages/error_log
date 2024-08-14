@@ -796,3 +796,323 @@ Stack trace:
 #0 /home2/granna80/public_html/plataforma/painel/languages/edit.php(29): mysqli->query('UPDATE granna80...')
 #1 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/languages/edit.php on line 29
+[08-Aug-2024 13:16:56 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/languages/edit.php on line 89
+[08-Aug-2024 14:12:38 America/Chicago] PHP Warning:  opendir(base): Failed to open directory: No such file or directory in /home2/granna80/public_html/plataforma/painel/languages/add_language.php on line 10
+[08-Aug-2024 14:12:38 America/Chicago] PHP Fatal error:  Uncaught TypeError: readdir(): Argument #1 ($dir_handle) must be of type resource or null, bool given in /home2/granna80/public_html/plataforma/painel/languages/add_language.php:13
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/languages/add_language.php(13): readdir(false)
+#1 /home2/granna80/public_html/plataforma/painel/languages/add_language.php(42): copiarPasta('base', 'it')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/languages/add_language.php on line 13
+[08-Aug-2024 14:14:15 America/Chicago] PHP Warning:  opendir(base): Failed to open directory: No such file or directory in /home2/granna80/public_html/plataforma/painel/languages/add_language.php on line 10
+[08-Aug-2024 14:14:15 America/Chicago] PHP Fatal error:  Uncaught TypeError: readdir(): Argument #1 ($dir_handle) must be of type resource or null, bool given in /home2/granna80/public_html/plataforma/painel/languages/add_language.php:13
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/languages/add_language.php(13): readdir(false)
+#1 /home2/granna80/public_html/plataforma/painel/languages/add_language.php(42): copiarPasta('base', 'it')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/languages/add_language.php on line 13
+[09-Aug-2024 01:28:34 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home2/granna80/public_html/plataforma/painel/languages/index.php:33
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/languages/index.php(33): mysqli_stmt->bind_param('s', 'de')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 33
+[09-Aug-2024 01:29:17 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home2/granna80/public_html/plataforma/painel/languages/index.php:33
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/languages/index.php(33): mysqli_stmt->bind_param('s', NULL)
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 33
+[09-Aug-2024 01:29:20 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home2/granna80/public_html/plataforma/painel/languages/index.php:33
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/languages/index.php(33): mysqli_stmt->bind_param('s', NULL)
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 33
+[09-Aug-2024 10:48:37 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'visible' in 'where clause' in /home2/granna80/public_html/plataforma/painel/languages/index.php:15
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/languages/index.php(15): mysqli->query('SELECT code FRO...')
+#1 /home2/granna80/public_html/plataforma/painel/languages/index.php(27): fetchLanguages(Object(mysqli), true)
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 15
+[09-Aug-2024 11:53:21 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 33
+[09-Aug-2024 11:53:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 33
+[09-Aug-2024 11:54:49 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 33
+[09-Aug-2024 11:55:18 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 33
+[09-Aug-2024 11:55:35 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 33
+[09-Aug-2024 11:55:57 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 33
+[09-Aug-2024 11:57:15 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 33
+[09-Aug-2024 11:57:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 33
+[12-Aug-2024 00:50:37 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 45
+[12-Aug-2024 00:51:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 45
+[12-Aug-2024 00:51:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 45
+[12-Aug-2024 12:08:54 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 45
+[12-Aug-2024 14:02:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/languages/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 45
+[12-Aug-2024 14:16:11 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php:12
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php(12): mysqli->prepare('UPDATE language...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/languages/manage_languages.php on line 12
+[14-Aug-2024 09:15:10 America/Chicago] PHP Warning:  Undefined variable $allLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 47
+[14-Aug-2024 09:15:10 America/Chicago] PHP Fatal error:  Uncaught TypeError: array_fill_keys(): Argument #1 ($keys) must be of type array, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php:47
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/languages/index.php(47): array_fill_keys(NULL, NULL)
+#1 /home2/granna80/public_html/plataforma/painel/languages/index.php(58): fetchDataByDevice(Object(mysqli), 'desktop')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 47
+[14-Aug-2024 09:15:13 America/Chicago] PHP Warning:  Undefined variable $allLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 47
+[14-Aug-2024 09:15:13 America/Chicago] PHP Fatal error:  Uncaught TypeError: array_fill_keys(): Argument #1 ($keys) must be of type array, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php:47
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/languages/index.php(47): array_fill_keys(NULL, NULL)
+#1 /home2/granna80/public_html/plataforma/painel/languages/index.php(58): fetchDataByDevice(Object(mysqli), 'desktop')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 47
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 121
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 121
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  Undefined variable $visibleLanguages in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
+[14-Aug-2024 09:17:19 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/languages/index.php on line 129
