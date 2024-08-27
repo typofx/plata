@@ -1,4 +1,3 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
 include 'conexao.php';
 
@@ -43,12 +42,12 @@ $result = $conn->query($sql);
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>
                             <td>$cont</td>
-                            <td>{$row['employee']}</td>
+                           <td><a href='work_weeks.php?employee_id={$row['id']}'>{$row['employee']}</a></td>
                             <td>{$row['rate']} USDT</td>
                             <td>{$row['pay_type']}</td>
                              <td><a href='edit.php?id={$row['id']}'>edit</a>⠀<a href='delete.php?id={$row['id']}'>delete</a></td>
                           </tr>";
-                          $cont++;
+                    $cont++;
                 }
             } else {
                 echo "<tr><td colspan='4'>No records found</td></tr>";
