@@ -1,3 +1,4 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
 include 'conexao.php';
 
@@ -97,6 +98,7 @@ if (isset($_GET['employee_id'])) {
                 <th>Year</th>
                 <th>Monday - Friday</th>
                 <th>Month</th>
+                <th>Txn Hash</th>
                 <th>Status</th>
                 <th>WEEK</th>
                 <th>MONTH</th>
@@ -154,21 +156,31 @@ if (isset($_GET['employee_id'])) {
                     }
 
 
-                    $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id'><i class='fa-solid fa-receipt'></i></a>";
+                    $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' download><i class='fa-solid fa-receipt'></i></a>";
                     $invoice_icon = $is_end_of_month
-                        ? "<a href='generate_invoice.php?month=$month_to_display&employee_id=$employee_id'><i class='fa-solid fa-receipt'></i></a>"
+                        ? "<a href='generate_invoice.php?month=$month_to_display&employee_id=$employee_id' download><i class='fa-solid fa-receipt'></i></a>"
                         : '&nbsp;';
+
 
                     echo "<tr>
                         <td><b>{$row['work_week']}</b></td>
                         <td>" . date('Y', strtotime($row['start_week'])) . "</td>
                         <td>" . date('d M', strtotime($row['start_week'])) . " - " . date('d M', strtotime($row['end_week'])) . "</td>
                         <td>{$month_to_display}</td>
+                        <td>";
+
+                    if (strpos($row['hash'], 'https:') !== false) {
+                        echo '<i class="fa-solid fa-circle-check" style="color: #00ff33;"></i>';
+                    } else {
+                        echo '<i class="fa-solid fa-circle-xmark" style="color: #ff0000;"></i>';
+                    }
+
+                    echo "</td>
                         <td>{$row['status']}</td>
                         <td>{$week_receipt_icon}</td>
                         <td>{$invoice_icon}</td>
                         <td><a href='edit_week.php?week={$row['work_week']}&employee_id=$employee_id'>edit</a>⠀<a href='delete_week.php?week={$row['work_week']}&employee_id=$employee_id'>delete</a></td>
-                      </tr>";
+                    </tr>";
                 }
             } else {
                 echo "<tr><td colspan='8'>No work weeks found</td></tr>";
@@ -184,25 +196,27 @@ if (isset($_GET['employee_id'])) {
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $('#weeksTable').DataTable({
-            "lengthMenu": [
-                [50, 100, 150, 250],
-                [50, 100, 150, 250]
-            ],
-            "columnDefs": [{
-                    "width": "20px",
-                    "targets": 0
-                },
-                {
-                    "width": "20px",
-                    "targets": 7
-                }
-            ],
-            "order": [[0, 'desc']] 
+        $(document).ready(function() {
+            $('#weeksTable').DataTable({
+                "lengthMenu": [
+                    [50, 100, 150, 250],
+                    [50, 100, 150, 250]
+                ],
+                "columnDefs": [{
+                        "width": "20px",
+                        "targets": 0
+                    },
+                    {
+                        "width": "20px",
+                        "targets": 7
+                    }
+                ],
+                "order": [
+                    [0, 'desc']
+                ]
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 

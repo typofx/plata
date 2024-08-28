@@ -509,3 +509,102 @@ Stack trace:
 #0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(10): mysqli->prepare('SELECT * FROM g...')
 #1 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 10
+[28-Aug-2024 08:41:42 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 155
+[28-Aug-2024 08:41:42 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 155
+[28-Aug-2024 08:42:02 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 155
+[28-Aug-2024 08:42:02 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 155
+[28-Aug-2024 08:42:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 155
+[28-Aug-2024 08:42:27 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 155
+[28-Aug-2024 13:53:06 America/Chicago] PHP Warning:  Undefined array key "nemployee" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 58
+[28-Aug-2024 13:53:11 America/Chicago] PHP Warning:  Undefined array key "nemployee" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 58
+[28-Aug-2024 13:59:54 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function calculateMonthlyInvoice(), 4 passed in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 292 and exactly 5 expected in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:46
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(292): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 46
+[28-Aug-2024 14:03:44 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:55
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(55): mysqli->prepare('\n        SELECT...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(295): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 55
+[28-Aug-2024 14:09:05 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:64
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(64): mysqli->prepare('SELECT SUM(work...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(305): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 64
+[28-Aug-2024 14:09:57 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'date_column' in 'where clause' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:64
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(64): mysqli->prepare('SELECT SUM(work...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(305): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 64
+[28-Aug-2024 14:11:03 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:65
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(65): mysqli_stmt->bind_param('iii', '1', '08', '2024')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(305): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 65
+[28-Aug-2024 14:12:35 America/Chicago] PHP Warning:  Undefined array key "total_hours" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 71
+[28-Aug-2024 14:28:20 America/Chicago] PHP Warning:  Undefined variable $dompdf in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 316
+[28-Aug-2024 14:28:20 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function loadHtml() on null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:316
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(336): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 316
+[28-Aug-2024 14:28:21 America/Chicago] PHP Warning:  Undefined variable $dompdf in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 316
+[28-Aug-2024 14:28:21 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function loadHtml() on null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:316
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(336): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 316
+[28-Aug-2024 14:30:01 America/Chicago] PHP Warning:  Undefined variable $dompdf in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 316
+[28-Aug-2024 14:30:01 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function loadHtml() on null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:316
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(336): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 316
+[28-Aug-2024 14:30:40 America/Chicago] PHP Warning:  Undefined variable $dompdf in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 313
+[28-Aug-2024 14:30:40 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function loadHtml() on null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:313
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(331): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 313
+[28-Aug-2024 14:35:07 America/Chicago] PHP Warning:  Undefined variable $dompdf in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 125
+[28-Aug-2024 14:35:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function loadHtml() on null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:125
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(145): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 125
+[28-Aug-2024 14:35:47 America/Chicago] PHP Warning:  Undefined variable $dompdf in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 125
+[28-Aug-2024 14:35:47 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function loadHtml() on null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:125
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(145): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 125
+[28-Aug-2024 14:37:20 America/Chicago] PHP Warning:  Undefined variable $dompdf in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 308
+[28-Aug-2024 14:37:20 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function loadHtml() on null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:308
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(328): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 308
+[28-Aug-2024 14:54:31 America/Chicago] PHP Warning:  Undefined variable $html in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 275
+[28-Aug-2024 14:54:44 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function build_tree() on null in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php:562
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php(731): Dompdf\Dompdf->processHtml()
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php(278): Dompdf\Dompdf->render()
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php on line 562
+[28-Aug-2024 14:54:45 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function build_tree() on null in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php:562
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php(731): Dompdf\Dompdf->processHtml()
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php(278): Dompdf\Dompdf->render()
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php on line 562
+[28-Aug-2024 14:54:51 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function build_tree() on null in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php:562
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php(731): Dompdf\Dompdf->processHtml()
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php(278): Dompdf\Dompdf->render()
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php on line 562
