@@ -1,6 +1,6 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
-require_once 'vendor/autoload.php'; 
+require_once 'vendor/autoload.php';
 header('Content-Type: application/pdf');
 header('Content-Disposition: attachment; filename="week_receipt.pdf"');
 
@@ -10,13 +10,13 @@ use Dompdf\Options;
 
 $options = new Options();
 $options->set('isHtml5ParserEnabled', true);
-$options->set('isPhpEnabled', true); 
-$options->set('isRemoteEnabled', true); 
+$options->set('isPhpEnabled', true);
+$options->set('isRemoteEnabled', true);
 
 
 $dompdf = new Dompdf($options);
 // Include the database connection
-ob_start(); 
+ob_start();
 include 'conexao.php';
 
 
@@ -49,6 +49,8 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $rate = $row['rate'];
         $pay_type = $row['pay_type'];
         $working_hours = $row['working_hours'];
+        $amount_paid = $row['amount_paid'];
+        $currency = $row['currency'];
 
         // $working_hours;
 
@@ -121,9 +123,9 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
                 .address img {
                     float: right;
-                 
+
                     margin-left: 10px;
-                   
+
                 }
 
 
@@ -173,12 +175,22 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                     page-break-before: always;
                 }
 
-                .qr-code-container {
+                .qr-code-grid {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    margin: 60px;
-       
+                    margin: 70px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+               
+                    gap: 10px;
+                  
+                }
+
+                .qr-code-grid img {
+                    width: 100px;
+            
+                    height: 100px;
                 }
             </style>
         </head>
@@ -206,80 +218,106 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                         CRO: XXXXXX<br>
                         VAT: 1282313RA
                     </div>
-                    <?php
-                    $hash = $row['hash'];
-                    $qrCodeUrl = 'https://quickchart.io/qr?text=' . urlencode($hash);
-                    ?>
-                    <div class="qr-code-container">
-                        <img src="<?php echo $qrCodeUrl; ?>" alt="QR Code">
-                        <p>To check the transaction details, scan the QR code.</p>
+                    <div class="qr-code-grid">
+                        <?php
+
+                        $hash = $row['hash'];
+                        $hash1 = $row['hash1'];
+                        $hash2 = $row['hash2'];
+                        $hash3 = $row['hash3'];
+
+                        // Exibindo os valores dos hashes para depuração
+                        //echo "<p>Hash: $hash </p><br>";
+                        //echo "<p>Hash1: $hash1</p><br>";
+                        //echo "<p>Hash2: $hash2</p><br>";
+                        //echo "<p>Hash3: $hash3</p><br>";
+
+                        if (!empty($hash)) {
+                            $qrCodeUrl = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash);
+                            echo '<img src="' . $qrCodeUrl . '" alt="QR Code" style="height: 70px; width: 70px;">';
+                        }
+                        if (!empty($hash1)) {
+                            $qrCodeUrl1 = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash1);
+                            echo '<img src="' . $qrCodeUrl1 . '" alt="QR Code" style="height: 70px; width: 70px;">';
+                        }
+                        if (!empty($hash2)) {
+                            $qrCodeUrl2 = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash2);
+                            echo '<img src="' . $qrCodeUrl2 . '" alt="QR Code" style="height: 70px; width: 70px;">';
+                        }
+                        if (!empty($hash3)) {
+                            $qrCodeUrl3 = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash3);
+                            echo '<img src="' . $qrCodeUrl3 . '" alt="QR Code" style="height: 70px; width: 70px;">';
+                        }
+
+                        ?>
+
+                    </div>
+
+                    <div class="content">
+                        Name: <?php echo !empty($employee_name) ? $employee_name : '0'; ?> <br>
+
+                        <h1 class="content-title">Billing Invoice</h1>
+                        <br> Services Rendered: Computing Service
+                        <br> Invoice serial number: XX.XX.XX.00
+                        <br> Invoice period: <?php echo $start_date . ' - ' . $end_date; ?>
+                        <br>
+                        <h6 class="table-title">Services</h6>
+                        <table class="service">
+                            <tr>
+                                <th class="service-title border">Day</th>
+                                <th class="service-title border">Date</th>
+                                <th class="service-title border">Total</th>
+                            </tr>
+                            <tr>
+                                <td class="service-content">Monday till Friday</td>
+                                <td class="service-content"><?php echo date('d F Y'); ?></td>
+                                <td class="service-content"></td>
+                            </tr>
+                            <tr>
+                                <td class="service-content"></td>
+                                <td class="service-content"></td>
+                                <td class="service-content"></td>
+                            </tr>
+                            <tr>
+                                <td class="border">Total</td>
+                                <td class="border"></td>
+                                <td class="border"><?php echo !empty($amount_paid) ? $amount_paid : '0'; ?> USDT</td>
+                            </tr>
+                        </table>
+                        <h6 class="table-title">Invoice Total</h6>
+                        <table class="service">
+                            <tr>
+                                <th class="service-title border">Totals</th>
+                                <th class="service-title border">Total</th>
+                                <th class="service-title border">Gross</th>
+                            </tr>
+                            <tr>
+                                <td class="service-content">Worked Hours</td>
+                                <td class="service-content"><?php echo !empty($working_hours) ? $working_hours : '0'; ?> hr</td>
+                                <td class="service-content"><?php echo !empty($amount_paid) ? $amount_paid : '0'; ?> USDT</td>
+                            </tr>
+                            <tr>
+                                <td class="service-content">Transaction Fee</td>
+                                <td class="service-content">(0.00) USDT</td>
+                                <td class="service-content">(0.00) USDT</td>
+                            </tr>
+                            <tr>
+                                <td class="service-content">Adjustments</td>
+                                <td class="service-content">--</td>
+                                <td class="service-content">--</td>
+                            </tr>
+                            <tr>
+                                <td class="border">Total</td>
+                                <td class="border"></td>
+                                <td class="border"><?php echo !empty($amount_paid) ? $amount_paid : '0'; ?> USDT</td>
+                            </tr>
+                        </table>
+
+                        <h1 class="total"><b>Total fee payable: <?php echo !empty($amount_paid) ? $amount_paid : '0'; ?> USDT</b></h1>
+                        <p class="footer">This billing invoice is issued in the name, and on behalf of, the supplier <?php echo !empty($employee_name) ? $employee_name : '0'; ?> in
+                            accordance with the terms agreement between the parties</p>
                     </div>
                 </div>
-                <div class="content">
-                    Name: <?php echo !empty($employee_name) ? $employee_name : '0'; ?> <br>
-
-                    <h1 class="content-title">Billing Invoice</h1>
-                    <br> Services Rendered: Computing Service
-                    <br> Invoice serial number: XX.XX.XX.00
-                    <br> Invoice period: <?php echo $start_date . ' - ' . $end_date; ?>
-                    <br>
-                    <h6 class="table-title">Services</h6>
-                    <table class="service">
-                        <tr>
-                            <th class="service-title border">Day</th>
-                            <th class="service-title border">Date</th>
-                            <th class="service-title border">Total</th>
-                        </tr>
-                        <tr>
-                            <td class="service-content">Monday till Friday</td>
-                            <td class="service-content"><?php echo date('d F Y'); ?></td>
-                            <td class="service-content"></td>
-                        </tr>
-                        <tr>
-                            <td class="service-content"></td>
-                            <td class="service-content"></td>
-                            <td class="service-content"></td>
-                        </tr>
-                        <tr>
-                            <td class="border">Total</td>
-                            <td class="border"></td>
-                            <td class="border"><?php echo !empty($total_payment) ? $total_payment : '0'; ?> USDT</td>
-                        </tr>
-                    </table>
-                    <h6 class="table-title">Invoice Total</h6>
-                    <table class="service">
-                        <tr>
-                            <th class="service-title border">Totals</th>
-                            <th class="service-title border">Total</th>
-                            <th class="service-title border">Gross</th>
-                        </tr>
-                        <tr>
-                            <td class="service-content">Worked Hours</td>
-                            <td class="service-content"><?php echo !empty($working_hours) ? $working_hours : '0'; ?> hr</td>
-                            <td class="service-content"><?php echo !empty($total_payment) ? $total_payment : '0'; ?> USDT</td>
-                        </tr>
-                        <tr>
-                            <td class="service-content">Transaction Fee</td>
-                            <td class="service-content">(0.00) USDT</td>
-                            <td class="service-content">(0.00) USDT</td>
-                        </tr>
-                        <tr>
-                            <td class="service-content">Adjustments</td>
-                            <td class="service-content">--</td>
-                            <td class="service-content">--</td>
-                        </tr>
-                        <tr>
-                            <td class="border">Total</td>
-                            <td class="border"></td>
-                            <td class="border"><?php echo !empty($total_payment) ? $total_payment : '0'; ?> USDT</td>
-                        </tr>
-                    </table>
-
-                    <h1 class="total"><b>Total fee payable: <?php echo !empty($total_payment) ? $total_payment : '0'; ?> USDT</b></h1>
-                    <p class="footer">This billing invoice is issued in the name, and on behalf of, the supplier Adam Soares in
-                        accordance with the terms agreement between the parties</p>
-                </div>
-            </div>
         </body>
 
 
@@ -290,7 +328,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $html = ob_get_clean();
 
 
-   
+
         $dompdf->loadHtml($html);
 
 

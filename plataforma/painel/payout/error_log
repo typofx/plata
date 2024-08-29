@@ -608,3 +608,156 @@ Stack trace:
 #1 /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php(278): Dompdf\Dompdf->render()
 #2 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php on line 562
+[29-Aug-2024 09:40:53 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:37
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(37): mysqli_stmt->bind_param('ssssssssii', '2024-08-26', '2024-08-30', 'Pending', '', '', '', 'teste', 'USDT', '40', '35', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 37
+[29-Aug-2024 09:42:27 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:42
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(42): mysqli_stmt->bind_param('ssssssssii', '2024-08-26', '2024-08-30', 'Pending', '', '', '', 'teste', 'USDT', '40', '35', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 42
+[29-Aug-2024 09:43:44 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:40
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(40): mysqli_stmt->bind_param('ssssssssii', '2024-08-26', '2024-08-30', 'Pending', '', '', '', 'teste', 'USDT', '40', '35', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 40
+[29-Aug-2024 09:44:14 America/Chicago] PHP Warning:  Undefined array key "defi" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 29
+[29-Aug-2024 09:44:14 America/Chicago] PHP Warning:  Undefined array key "cex" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 30
+[29-Aug-2024 09:44:14 America/Chicago] PHP Warning:  Undefined array key "binance" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 31
+[29-Aug-2024 09:44:14 America/Chicago] PHP Warning:  Undefined array key "sepa" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 32
+[29-Aug-2024 09:44:14 America/Chicago] PHP Warning:  Undefined array key "pix" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 33
+[29-Aug-2024 14:25:02 America/Chicago] PHP Parse error:  syntax error, unexpected token "else" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 304
+[29-Aug-2024 14:27:25 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 99
+[29-Aug-2024 14:27:25 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 100
+[29-Aug-2024 14:30:42 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: array * null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:96
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(327): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 96
+[29-Aug-2024 14:30:44 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: array * null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:96
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(327): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 96
+[29-Aug-2024 14:30:49 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: array * null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:96
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(327): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 96
+[29-Aug-2024 14:30:56 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: array * null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:96
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(327): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 96
+[29-Aug-2024 14:31:00 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: array * null in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:96
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(327): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 96
+[29-Aug-2024 14:44:24 America/Chicago] PHP Warning:  Undefined array key "working_hours" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 91
+[29-Aug-2024 15:05:49 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php:159
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php(159): mysqli->prepare('UPDATE work_wee...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 159
+[29-Aug-2024 15:10:07 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'month_to_display' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php:159
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php(159): mysqli->prepare('UPDATE granna80...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 159
+[29-Aug-2024 15:19:14 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function calculateMonthlyInvoice(), 4 passed in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 325 and exactly 5 expected in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:48
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(325): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 48
+[29-Aug-2024 15:19:17 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function calculateMonthlyInvoice(), 4 passed in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 325 and exactly 5 expected in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:48
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(325): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 48
+[29-Aug-2024 15:21:16 America/Chicago] PHP Warning:  Undefined variable $month_name in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 66
+[29-Aug-2024 15:21:16 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND month = ?' at line 1 in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:68
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(68): mysqli->prepare('SELECT working_...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(325): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 68
+[29-Aug-2024 15:22:45 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND month = ?' at line 1 in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:68
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(68): mysqli->prepare('SELECT working_...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(325): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 68
+[29-Aug-2024 15:24:19 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:69
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(69): mysqli_stmt->bind_param('i', '1', NULL)
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(325): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 69
+[29-Aug-2024 15:25:51 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function calculateMonthlyInvoice(), 4 passed in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 325 and exactly 5 expected in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:48
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(325): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 48
+[29-Aug-2024 17:14:51 America/Chicago] PHP Fatal error:  Uncaught Dompdf\Exception: Parent table not found for table cell in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php:40
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\TableCell->reflow(Object(Dompdf\FrameDecorator\Block))
+#1 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#2 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+#3 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#4 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+#5 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#6 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(NULL)
+#7 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Page.php(142): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#8 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Page->reflow(NULL)
+#9 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php(808): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#10 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): Dompdf\Dompdf->render()
+#11 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php on line 40
+[29-Aug-2024 17:14:53 America/Chicago] PHP Fatal error:  Uncaught Dompdf\Exception: Parent table not found for table cell in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php:40
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\TableCell->reflow(Object(Dompdf\FrameDecorator\Block))
+#1 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#2 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+#3 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#4 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+#5 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#6 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(NULL)
+#7 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Page.php(142): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#8 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Page->reflow(NULL)
+#9 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php(808): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#10 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): Dompdf\Dompdf->render()
+#11 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php on line 40
+[29-Aug-2024 17:14:56 America/Chicago] PHP Fatal error:  Uncaught Dompdf\Exception: Parent table not found for table cell in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php:40
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\TableCell->reflow(Object(Dompdf\FrameDecorator\Block))
+#1 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#2 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+#3 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#4 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+#5 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#6 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(NULL)
+#7 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Page.php(142): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#8 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Page->reflow(NULL)
+#9 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php(808): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#10 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): Dompdf\Dompdf->render()
+#11 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php on line 40
+[29-Aug-2024 17:15:02 America/Chicago] PHP Fatal error:  Uncaught Dompdf\Exception: Parent table not found for table cell in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php:40
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\TableCell->reflow(Object(Dompdf\FrameDecorator\Block))
+#1 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#2 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+#3 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#4 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+#5 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#6 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Block->reflow(NULL)
+#7 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/Page.php(142): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#8 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(905): Dompdf\FrameReflower\Page->reflow(NULL)
+#9 /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/Dompdf.php(808): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#10 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): Dompdf\Dompdf->render()
+#11 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php on line 40

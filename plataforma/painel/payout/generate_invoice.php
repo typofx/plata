@@ -1,6 +1,6 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
-require_once 'vendor/autoload.php'; 
+require_once 'vendor/autoload.php';
 header('Content-Type: application/pdf');
 header('Content-Disposition: attachment; filename="week_receipt.pdf"');
 
@@ -11,12 +11,12 @@ use Dompdf\Options;
 $options = new Options();
 $options->set('isHtml5ParserEnabled', true);
 $options->set('isPhpEnabled', true);
-$options->set('isRemoteEnabled', true); 
+$options->set('isRemoteEnabled', true);
 
 
 $dompdf = new Dompdf($options);
 // Include the database connection
-ob_start(); 
+ob_start();
 include 'conexao.php'; // Include the database connection file
 
 if (isset($_GET['month']) && isset($_GET['employee_id'])) {
@@ -61,7 +61,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
     }
 
     // Function to calculate the total payment for the month
-    function calculateMonthlyInvoice($conn, $month_number, $year, $employee_id)
+    function calculateMonthlyInvoice($conn, $month_number, $year, $employee_id, $month_name)
     {
         $weeks_in_month = getWeeksInMonthFromDatabase($conn, $month_number, $year, $employee_id);
 
@@ -77,28 +77,99 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
             $rate = $row['rate'];
             global $name;
             $name = $row['employee'];
-            
 
-     
-            $sql_hours = "SELECT working_hours FROM granna80_bdlinks.work_weeks WHERE employee_id = ?";
+
+
+            $sql_hours = "SELECT hash, hash1, hash2, hash3, working_hours, employee_id, amount_paid FROM granna80_bdlinks.work_weeks WHERE employee_id = ? AND month = ?;";
             $stmt_hours = $conn->prepare($sql_hours);
-            $stmt_hours->bind_param('i', $employee_id);
+            $stmt_hours->bind_param('is', $employee_id, $month_name);
             $stmt_hours->execute();
             $result_hours = $stmt_hours->get_result();
 
+            $total_amount_paid = 0;
+            $total_working_hours = 0;
+
             if ($result_hours->num_rows > 0) {
-                $row_hours = $result_hours->fetch_assoc();
-                $working_hours = $row_hours['working_hours'];
+                $qrCodesHtml = '';
+                while ($row_hours = $result_hours->fetch_assoc()) {
+                    $working_hours = $row_hours['working_hours'];
 
-                // Calculate the total amount based on the number of weeks and the rate
-                $total_amount = $weeks_in_month * $rate;
+                    // Verificar e atribuir valor a amount_paid
+                    $amount_paid = isset($row_hours['amount_paid']) ? $row_hours['amount_paid'] : 0;
+                    $amount_paid = ($amount_paid === NULL || $amount_paid === '' || $amount_paid === '0') ? 0 : (float)$amount_paid;
 
-                // Convert the month number to the month name
+
+                    $hash = $row_hours['hash'];
+                    $hash1 = $row_hours['hash1'];
+                    $hash2 = $row_hours['hash2'];
+                    $hash3 = $row_hours['hash3'];
+
+                    //echo "Hash: " . $hash . "<br>";
+                    //echo "Hash1: " . $hash1 . "<br>";
+                    //echo "Hash2: " . $hash2 . "<br>";
+                    //echo "Hash3: " . $hash3 . "<br>";
+
+                    $qrCodes = [];
+
+                    // Adiciona QR codes se existirem
+                    if (!empty($hash)) {
+                        $qrCodes[] = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash);
+                    }
+                    if (!empty($hash1)) {
+                        $qrCodes[] = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash1);
+                    }
+                    if (!empty($hash2)) {
+                        $qrCodes[] = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash2);
+                    }
+                    if (!empty($hash3)) {
+                        $qrCodes[] = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash3);
+                    }
+
+                    // Número máximo de colunas
+                    $columns = 4;
+                    $rows = ceil(count($qrCodes) / $columns);
+
+
+                    $qrCodesHtml .= '<div >';
+                    $qrCodesHtml .= '<table>';
+
+                    for ($row = 0; $row < $rows; $row++) {
+                        $qrCodesHtml .= '<tr>';
+                        for ($col = 0; $col < $columns; $col++) {
+                            $index = $row * $columns + $col;
+                            if ($index < count($qrCodes)) {
+                                $qrCodeUrl = $qrCodes[$index];
+                                $qrCodesHtml .= '<td><img src="' . $qrCodeUrl . '" alt="QR Code" style="height: 70px; width: 70px;"></td>';
+                            } else {
+                                $qrCodesHtml .= '<td></td>';
+                            }
+                        }
+                        $qrCodesHtml .= '</tr>';
+                    }
+
+                    $qrCodesHtml .= '</table>';
+                    $qrCodesHtml .= '</div>';
+
+
+                    // Debugging output
+                    //echo "Working Hours: " . $working_hours . "<br>";
+                    //echo "Amount Paid: " . $amount_paid . "<br>";
+
+                    // Acumula os valores
+                    $total_amount_paid += $amount_paid;
+                    $total_working_hours += $working_hours;
+                }
+                //echo 'valor total:' . $total_amount_paid;
+                //echo 'hora total:' . $total_working_hours;
+                // Calcular o valor total baseado nas semanas e no valor total pago
+                //$total_amount = $weeks_in_month * $total_amount_paid;
+                $total_amount = $total_amount_paid;
+                $total_hours  = $total_working_hours;
+                // Converter o número do mês para o nome do mês
                 $month_name = strftime('%B', strtotime("$year-$month_number-01"));
 
                 $start_date = date("d M Y", strtotime("$year-$month_number-01"));
                 $end_date = date("d M Y", strtotime("$year-$month_number-" . date('t', strtotime($start_date))));
-
 
 
                 // Data
@@ -107,7 +178,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                 number_format($rate, 2);
                 number_format($total_amount, 2);
                 $name;
-                $total_hours = ($working_hours * $weeks_in_month);
+
 
 
 ?>
@@ -118,11 +189,16 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Invoice</title>
+
+
                     <style>
                         body {
                             font-family: Verdana, sans-serif;
                             font-size: 10px;
+                            margin: 0;
+                            padding: 0;
                         }
+
 
                         img {
                             max-width: 100px;
@@ -154,6 +230,14 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                             text-align: right;
                             font-size: 9px;
 
+
+                        }
+
+                        .address3 {
+                            top: 100px;
+                            text-align: left;
+
+
                         }
 
                         .address2 {
@@ -165,9 +249,9 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
 
                         .address img {
                             float: right;
-                   
+
                             margin-left: 10px;
-                            
+
                         }
 
 
@@ -217,11 +301,20 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                             page-break-before: always;
                         }
                     </style>
+
+
+                    <div class="qr-table-container">
+                        <table class="qr-table">
+                            <!-- O código PHP para gerar as linhas e colunas vai aqui -->
+                        </table>
+                    </div>
+
                 </head>
 
                 <body>
                     <div class="container">
                         <div class="header-address-container">
+
                             <div class="header address2">
                                 <div> Typo FX</div>
                                 <br>
@@ -232,10 +325,11 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                             <div class="address">
 
 
-                                <br>Typo FX LTD Ireland<br> <br>
-                                WorkHub Group<br>
-                                77 Camden Street Lower Saint<br>
-                                Kevin's Dublin D02 XE80 Ireland<br> <br>
+                                <br>Typo FX LTD<br> <br>
+                                Workhub Group<br>
+                                77 Camden Street Lower
+                                Saint Kevin's<br>
+                                Dublin D02 XE80 Ireland<br> <br>
                                 CRO: XXXXXX<br>
                                 VAT: 1282313RA
                             </div>
@@ -299,9 +393,20 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                                     <td class="border"><?php echo !empty(number_format($total_amount, 2)) ? number_format($total_amount, 2) : '0'; ?> USDT</td>
                                 </tr>
                             </table>
+                            <div class="page-break"></div>
+                            <?php echo $qrCodesHtml; ?>
+
+                            <table class="service">
+                                <tr>
+
+                                    <td class="border"></td>
+
+                                </tr>
+                            </table>
+
 
                             <h1 class="total"><b>Total fee payable: <?php echo !empty(number_format($total_amount, 2)) ? number_format($total_amount, 2) : '0'; ?> USDT</b></h1>
-                            <p class="footer">This billing invoice is issued in the name, and on behalf of, the supplier Adam Soares in
+                            <p class="footer">This billing invoice is issued in the name, and on behalf of, the supplier <?php echo !empty($name) ? $name : '0'; ?> in
                                 accordance with the terms agreement between the parties</p>
                         </div>
                     </div>
@@ -322,13 +427,12 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
         $stmt->close();
     }
 
-    calculateMonthlyInvoice($conn, $month_number, $year, $employee_id);
+    calculateMonthlyInvoice($conn, $month_number, $year, $employee_id, $month_name);
 
     $conn->close();
 } else {
     echo "Month and employee ID not provided.";
 }
-
 $html = ob_get_clean();
 
 
@@ -342,4 +446,5 @@ $dompdf->stream(
     'Monthly_invoice_' . (!empty($name) ? $name : '0') . '.pdf',
     array('Attachment' => 0)
 );
+
 ?>
