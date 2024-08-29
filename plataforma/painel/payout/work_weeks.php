@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
 include 'conexao.php';
 
@@ -155,10 +155,15 @@ if (isset($_GET['employee_id'])) {
                         $is_end_of_month = isLastWeekOfMonth($start_date, $end_date);
                     }
 
+                    $update_query = "UPDATE granna80_bdlinks.work_weeks SET month = ? WHERE id = ?";
+                    $stmt = $conn->prepare($update_query);
+                    $stmt->bind_param("si", $month_to_display, $row['id']);
+                    $stmt->execute();
+                    $stmt->close();
 
                     $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' download><i class='fa-solid fa-receipt'></i></a>";
                     $invoice_icon = $is_end_of_month
-                        ? "<a href='generate_invoice.php?month=$month_to_display&employee_id=$employee_id' download><i class='fa-solid fa-receipt'></i></a>"
+                        ? "<a href='generate_invoice.php?month=$month_to_display&employee_id=$employee_id' ><i class='fa-solid fa-receipt'></i></a>"
                         : '&nbsp;';
 
 
@@ -169,11 +174,12 @@ if (isset($_GET['employee_id'])) {
                         <td>{$month_to_display}</td>
                         <td>";
 
-                    if (strpos($row['hash'], 'https:') !== false) {
+                    if (strpos($row['hash'], '0x') === 0) {
                         echo '<i class="fa-solid fa-circle-check" style="color: #00ff33;"></i>';
                     } else {
                         echo '<i class="fa-solid fa-circle-xmark" style="color: #ff0000;"></i>';
                     }
+
 
                     echo "</td>
                         <td>{$row['status']}</td>
