@@ -80,7 +80,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
 
 
 
-            $sql_hours = "SELECT hash, hash1, hash2, hash3, working_hours, employee_id, amount_paid FROM granna80_bdlinks.work_weeks WHERE employee_id = ? AND month = ?;";
+            $sql_hours = "SELECT hash0, hash1, hash2, hash3, working_hours, employee_id, amount0, amount1, amount2, amount3 FROM granna80_bdlinks.work_weeks WHERE employee_id = ? AND month = ?;";
             $stmt_hours = $conn->prepare($sql_hours);
             $stmt_hours->bind_param('is', $employee_id, $month_name);
             $stmt_hours->execute();
@@ -95,11 +95,19 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                     $working_hours = $row_hours['working_hours'];
 
                     // Verificar e atribuir valor a amount_paid
-                    $amount_paid = isset($row_hours['amount_paid']) ? $row_hours['amount_paid'] : 0;
-                    $amount_paid = ($amount_paid === NULL || $amount_paid === '' || $amount_paid === '0') ? 0 : (float)$amount_paid;
+                    $amount_paid = 0;
+
+                    // Loop through each amount field
+                    for ($i = 0; $i <= 3; $i++) {
+                        $field = 'amount' . $i;
+                        $amount = isset($row_hours[$field]) ? $row_hours[$field] : 0;
+                        $amount = ($amount === NULL || $amount === '' || $amount === '0') ? 0 : (float)$amount;
+                        $amount_paid += $amount;
+                    }
 
 
-                    $hash = $row_hours['hash'];
+
+                    $hash = $row_hours['hash0'];
                     $hash1 = $row_hours['hash1'];
                     $hash2 = $row_hours['hash2'];
                     $hash3 = $row_hours['hash3'];
@@ -111,7 +119,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
 
                     $qrCodes = [];
 
-                    // Adiciona QR codes se existirem
+
                     if (!empty($hash)) {
                         $qrCodes[] = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash);
                     }
@@ -125,30 +133,31 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                         $qrCodes[] = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash3);
                     }
 
+
                     // Número máximo de colunas
-                    $columns = 4;
-                    $rows = ceil(count($qrCodes) / $columns);
+                    $columns = 12;
+                    $rows = 1;
 
 
-                    $qrCodesHtml .= '<div >';
-                    $qrCodesHtml .= '<table>';
+                    //$qrCodesHtml .= '<!--<div >-->';
+                    //$qrCodesHtml .= '<table>';
 
                     for ($row = 0; $row < $rows; $row++) {
-                        $qrCodesHtml .= '<tr>';
+                        //$qrCodesHtml .= '<!--<tr>-->';
                         for ($col = 0; $col < $columns; $col++) {
                             $index = $row * $columns + $col;
                             if ($index < count($qrCodes)) {
                                 $qrCodeUrl = $qrCodes[$index];
-                                $qrCodesHtml .= '<td><img src="' . $qrCodeUrl . '" alt="QR Code" style="height: 70px; width: 70px;"></td>';
+                                $qrCodesHtml .= '<!--<td>--><img src="' . $qrCodeUrl . '" alt="QR Code" style="height: 40px; width: 40px;"><!--</td>-->';
                             } else {
-                                $qrCodesHtml .= '<td></td>';
+                                $qrCodesHtml .= '<!--<td></td>-->';
                             }
                         }
-                        $qrCodesHtml .= '</tr>';
+                        //$qrCodesHtml .= '<!--</tr>-->';
                     }
 
-                    $qrCodesHtml .= '</table>';
-                    $qrCodesHtml .= '</div>';
+                    //$qrCodesHtml .= '<!--</table>-->';
+                    //$qrCodesHtml .= '<!--</div>-->';
 
 
                     // Debugging output
@@ -197,6 +206,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                             font-size: 10px;
                             margin: 0;
                             padding: 0;
+                            //border: 1px solid black;
                         }
 
 
@@ -316,16 +326,15 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                         <div class="header-address-container">
 
                             <div class="header address2">
-                                <div> Typo FX</div>
-                                <br>
                                 <img src="https://plata.ie/plataforma/painel/payout/typofx-2024.png" alt="Logo">
 
 
                             </div>
+
                             <div class="address">
 
 
-                                <br>Typo FX LTD<br> <br>
+                                <div></div><br>Typo FX LTD<br> <br>
                                 Workhub Group<br>
                                 77 Camden Street Lower
                                 Saint Kevin's<br>
@@ -394,7 +403,6 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                                 </tr>
                             </table>
                             <div class="page-break"></div>
-                            <?php echo $qrCodesHtml; ?>
 
                             <table class="service">
                                 <tr>
@@ -409,6 +417,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                             <p class="footer">This billing invoice is issued in the name, and on behalf of, the supplier <?php echo !empty($name) ? $name : '0'; ?> in
                                 accordance with the terms agreement between the parties</p>
                         </div>
+                        <?php echo $qrCodesHtml; ?>
                     </div>
                 </body>
 
