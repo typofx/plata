@@ -761,3 +761,806 @@ Stack trace:
 #10 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): Dompdf\Dompdf->render()
 #11 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/payout/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php on line 40
+[30-Aug-2024 00:57:14 America/Chicago] PHP Warning:  Undefined variable $rows in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 136
+[30-Aug-2024 00:57:14 America/Chicago] PHP Warning:  Undefined variable $rows in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 136
+[30-Aug-2024 00:57:14 America/Chicago] PHP Warning:  Undefined variable $rows in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 136
+[30-Aug-2024 00:57:14 America/Chicago] PHP Warning:  Undefined variable $rows in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 136
+[30-Aug-2024 00:57:55 America/Chicago] PHP Warning:  Undefined variable $rows in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 136
+[30-Aug-2024 00:57:55 America/Chicago] PHP Warning:  Undefined variable $rows in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 136
+[30-Aug-2024 00:57:55 America/Chicago] PHP Warning:  Undefined variable $rows in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 136
+[30-Aug-2024 00:57:55 America/Chicago] PHP Warning:  Undefined variable $rows in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 136
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined array key "" in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 141
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 01:00:24 America/Chicago] PHP Warning:  Undefined variable $index in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 140
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 132
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 136
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 137
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 138
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 139
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 140
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 136
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 137
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 138
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 139
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 140
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 136
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 137
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 138
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 139
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 140
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 136
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 137
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 138
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 139
+[30-Aug-2024 08:25:24 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 140
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 150
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 156
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 157
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 158
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 159
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 164
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 156
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 157
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 158
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 159
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 164
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 156
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 157
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 158
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 159
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 164
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 156
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 157
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 158
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 159
+[30-Aug-2024 08:30:50 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 164
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:36:48 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:38:46 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:39:16 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:39:30 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:40:04 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:40:42 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 203
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 209
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 210
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 211
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 212
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 219
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 220
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 221
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 227
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 209
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 210
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 211
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 212
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 219
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 220
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 221
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 227
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 209
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 210
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 211
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 212
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 219
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 220
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 221
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 227
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 209
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 210
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 211
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 212
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 219
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 220
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 221
+[30-Aug-2024 08:46:41 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 227
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:47:04 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:52:21 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:52:47 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:53:52 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:54:54 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "amount1" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "amount2" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "type3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "currency3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:56:07 America/Chicago] PHP Warning:  Undefined array key "amount3" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 08:58:45 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 09:00:01 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:51
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(51): mysqli_stmt->bind_param('sssssssssssssss...', '2024-08-19', '2024-08-23', 'Processing', '40', '35.00', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '34', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 51
+[30-Aug-2024 09:02:02 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:51
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(51): mysqli_stmt->bind_param('sssssssssssssss...', '2024-08-19', '2024-08-23', 'Processing', '40', '35.00', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '34', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 51
+[30-Aug-2024 09:04:55 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:51
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(51): mysqli_stmt->bind_param('sssssssssssssss...', '2024-08-19', '2024-08-23', 'Processing', '40', '35.00', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '34', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 51
+[30-Aug-2024 09:07:11 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:51
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(51): mysqli_stmt->bind_param('sssssssssssssss...', '2024-08-19', '2024-08-23', 'Processing', '40', '35.00', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '34', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 51
+[30-Aug-2024 09:07:17 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:51
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(51): mysqli_stmt->bind_param('sssssssssssssss...', '2024-08-19', '2024-08-23', 'Processing', '40', '35.00', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '0xb04b2fbc80cc7...', 'DeFi', 'USDT', '8.75', '34', '1')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 51
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "hash0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 146
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 151
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 152
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 153
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 154
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 155
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 160
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 161
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 162
+[30-Aug-2024 09:08:20 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 167
+[30-Aug-2024 09:13:15 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 171
+[30-Aug-2024 09:13:15 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 172
+[30-Aug-2024 09:13:15 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 173
+[30-Aug-2024 09:13:15 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 174
+[30-Aug-2024 09:13:15 America/Chicago] PHP Warning:  Undefined array key "type0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 175
+[30-Aug-2024 09:13:15 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 180
+[30-Aug-2024 09:13:15 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 181
+[30-Aug-2024 09:13:15 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 182
+[30-Aug-2024 09:13:15 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 187
+[30-Aug-2024 09:14:54 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 180
+[30-Aug-2024 09:14:54 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 181
+[30-Aug-2024 09:14:54 America/Chicago] PHP Warning:  Undefined array key "currency0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 182
+[30-Aug-2024 09:14:54 America/Chicago] PHP Warning:  Undefined array key "amount0" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 187
+[30-Aug-2024 09:17:34 America/Chicago] PHP Warning:  Undefined array key "amount_paid" in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 145
+[30-Aug-2024 09:18:31 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'amount_paid' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:50
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(50): mysqli->prepare('UPDATE granna80...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 50
+[30-Aug-2024 09:18:51 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'amount_paid' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:50
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(50): mysqli->prepare('UPDATE granna80...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 50
+[30-Aug-2024 09:19:58 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:50
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit_week.php(50): mysqli->prepare('UPDATE granna80...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 50
+[30-Aug-2024 09:20:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 177
+[30-Aug-2024 09:20:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 177
+[30-Aug-2024 09:20:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 177
+[30-Aug-2024 09:20:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 177
+[30-Aug-2024 09:20:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 177
+[30-Aug-2024 09:20:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 177
+[30-Aug-2024 09:20:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 177
+[30-Aug-2024 09:20:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 177
+[30-Aug-2024 09:20:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 177
+[30-Aug-2024 11:42:13 America/Chicago] PHP Warning:  Undefined array key "amount_paid" in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 52
+[30-Aug-2024 11:42:13 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 224
+[30-Aug-2024 11:42:42 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1', 'August')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[30-Aug-2024 11:42:43 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1', 'August')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[30-Aug-2024 11:42:49 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '07', '2024', '1', 'July')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[30-Aug-2024 11:42:51 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '07', '2024', '1', 'July')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[30-Aug-2024 14:46:05 America/Chicago] PHP Warning:  Undefined array key "amount_paid" in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 52
+[30-Aug-2024 14:46:05 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 224
+[30-Aug-2024 14:46:24 America/Chicago] PHP Warning:  Undefined array key "amount_paid" in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 52
+[30-Aug-2024 14:46:24 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 224
+[30-Aug-2024 14:47:08 America/Chicago] PHP Warning:  Undefined array key "amount_paid" in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 52
+[30-Aug-2024 14:47:08 America/Chicago] PHP Warning:  Undefined array key "hash" in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 224
+[30-Aug-2024 14:48:18 America/Chicago] PHP Warning:  Undefined array key "amount_paid" in /home2/granna80/public_html/plataforma/painel/payout/generate_week_receipt.php on line 52
+[30-Aug-2024 14:52:24 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1', 'August')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[30-Aug-2024 14:52:26 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1', 'August')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[30-Aug-2024 14:52:31 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1', 'August')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[30-Aug-2024 14:53:02 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1', 'August')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[30-Aug-2024 14:54:03 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1', 'August')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[30-Aug-2024 14:54:19 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'hash' in 'field list' in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php:84
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(84): mysqli->prepare('SELECT hash, ha...')
+#1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1', 'August')
+#2 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84

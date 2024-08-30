@@ -161,7 +161,7 @@ if (isset($_GET['employee_id'])) {
                     $stmt->execute();
                     $stmt->close();
 
-                    $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' download><i class='fa-solid fa-receipt'></i></a>";
+                    $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id'><i class='fa-solid fa-receipt'></i></a>";
                     $invoice_icon = $is_end_of_month
                         ? "<a href='generate_invoice.php?month=$month_to_display&employee_id=$employee_id' ><i class='fa-solid fa-receipt'></i></a>"
                         : '&nbsp;';
@@ -174,7 +174,7 @@ if (isset($_GET['employee_id'])) {
                         <td>{$month_to_display}</td>
                         <td>";
 
-                    if (strpos($row['hash'], '0x') === 0) {
+                    if (strpos($row['hash0'], '0x') === 0) {
                         echo '<i class="fa-solid fa-circle-check" style="color: #00ff33;"></i>';
                     } else {
                         echo '<i class="fa-solid fa-circle-xmark" style="color: #ff0000;"></i>';

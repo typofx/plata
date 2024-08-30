@@ -49,9 +49,12 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $rate = $row['rate'];
         $pay_type = $row['pay_type'];
         $working_hours = $row['working_hours'];
-        $amount_paid = $row['amount_paid'];
+        $amount0 = $row['amount0'];
+        $amount1 = $row['amount1'];
+        $amount2 = $row['amount2'];
+        $amount3 = $row['amount3'];
         $currency = $row['currency'];
-
+        $amount_paid = ($amount0 + $amount1 + $amount2 + $amount3);
         // $working_hours;
 
         // Calculate the total payment
@@ -221,7 +224,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                     <div class="qr-code-grid">
                         <?php
 
-                        $hash = $row['hash'];
+                        $hash = $row['hash0'];
                         $hash1 = $row['hash1'];
                         $hash2 = $row['hash2'];
                         $hash3 = $row['hash3'];
