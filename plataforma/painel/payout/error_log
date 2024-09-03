@@ -1564,3 +1564,55 @@ Stack trace:
 #1 /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php(433): calculateMonthlyInvoice(Object(mysqli), '08', '2024', '1', 'August')
 #2 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/payout/generate_invoice.php on line 84
+[03-Sep-2024 11:39:18 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 37
+[03-Sep-2024 11:42:52 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 37
+[03-Sep-2024 12:26:36 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string * float in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:38
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 38
+[03-Sep-2024 12:26:43 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string * float in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:38
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 38
+[03-Sep-2024 12:27:17 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string * float in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:38
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 38
+[03-Sep-2024 12:27:30 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string * float in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:38
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 38
+[03-Sep-2024 12:27:48 America/Chicago] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string * float in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php:38
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit_week.php on line 38
+[03-Sep-2024 13:20:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[03-Sep-2024 13:20:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[03-Sep-2024 13:20:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[03-Sep-2024 13:20:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[03-Sep-2024 13:20:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[03-Sep-2024 13:21:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[03-Sep-2024 13:21:38 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[03-Sep-2024 13:21:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[03-Sep-2024 13:21:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[03-Sep-2024 13:21:38 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[03-Sep-2024 13:21:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[03-Sep-2024 13:21:44 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[03-Sep-2024 13:21:44 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[03-Sep-2024 13:21:44 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[03-Sep-2024 13:21:44 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[03-Sep-2024 13:21:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[03-Sep-2024 13:21:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[03-Sep-2024 13:21:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[03-Sep-2024 13:21:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[03-Sep-2024 13:21:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[03-Sep-2024 13:22:17 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[03-Sep-2024 13:22:17 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[03-Sep-2024 13:22:17 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[03-Sep-2024 13:22:17 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[03-Sep-2024 13:22:17 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[03-Sep-2024 13:22:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[03-Sep-2024 13:22:22 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[03-Sep-2024 13:22:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[03-Sep-2024 13:22:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[03-Sep-2024 13:22:22 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114

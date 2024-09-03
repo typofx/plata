@@ -49,12 +49,22 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $rate = $row['rate'];
         $pay_type = $row['pay_type'];
         $working_hours = $row['working_hours'];
-        $amount0 = $row['amount0'];
-        $amount1 = $row['amount1'];
-        $amount2 = $row['amount2'];
-        $amount3 = $row['amount3'];
+        $amount0 = $row['pltusd0'];
+        $amount1 = $row['pltusd1'];
+        $amount2 = $row['pltusd2'];
+        $amount3 = $row['pltusd3'];
+
+        $plt0 = $row['plt0'];
+        $plt1 = $row['plt1'];
+        $plt2 = $row['plt2'];
+        $plt3 = $row['plt3'];
+
         $currency = $row['currency'];
+
+        $plt_paid = ($plt0 + $plt1 + $plt2 + $plt3);
+        $plt_paid = number_format($plt_paid , 4, '.', '');
         $amount_paid = ($amount0 + $amount1 + $amount2 + $amount3);
+        $amount_paid = number_format($amount_paid, 2, '.', '');
         // $working_hours;
 
         // Calculate the total payment
@@ -185,14 +195,14 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                     margin: 70px;
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-               
+
                     gap: 10px;
-                  
+
                 }
 
                 .qr-code-grid img {
                     width: 100px;
-            
+
                     height: 100px;
                 }
             </style>
@@ -297,7 +307,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                             <tr>
                                 <td class="service-content">Worked Hours</td>
                                 <td class="service-content"><?php echo !empty($working_hours) ? $working_hours : '0'; ?> hr</td>
-                                <td class="service-content"><?php echo !empty($amount_paid) ? $amount_paid : '0'; ?> USDT</td>
+                                <td class="service-content"><?php echo !empty($plt_paid) ? $plt_paid : '0'; ?> PLT</td>
                             </tr>
                             <tr>
                                 <td class="service-content">Transaction Fee</td>

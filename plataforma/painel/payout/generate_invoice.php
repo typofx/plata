@@ -80,12 +80,13 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
 
 
 
-            $sql_hours = "SELECT hash0, hash1, hash2, hash3, working_hours, employee_id, amount0, amount1, amount2, amount3 FROM granna80_bdlinks.work_weeks WHERE employee_id = ? AND month = ?;";
+            $sql_hours = "SELECT hash0, hash1, hash2, hash3, working_hours, employee_id, amount0, amount1, amount2, amount3, pltusd0,pltusd1,pltusd2,pltusd3, plt0, plt1, plt2, plt3 FROM granna80_bdlinks.work_weeks WHERE employee_id = ? AND month = ?;";
             $stmt_hours = $conn->prepare($sql_hours);
             $stmt_hours->bind_param('is', $employee_id, $month_name);
             $stmt_hours->execute();
             $result_hours = $stmt_hours->get_result();
 
+            $total_plt_paid = 0;
             $total_amount_paid = 0;
             $total_working_hours = 0;
 
@@ -94,17 +95,25 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                 while ($row_hours = $result_hours->fetch_assoc()) {
                     $working_hours = $row_hours['working_hours'];
 
-                    // Verificar e atribuir valor a amount_paid
+                    // Check and assign value to amount_paid
                     $amount_paid = 0;
 
                     // Loop through each amount field
                     for ($i = 0; $i <= 3; $i++) {
-                        $field = 'amount' . $i;
+                        $field = 'pltusd' . $i;
                         $amount = isset($row_hours[$field]) ? $row_hours[$field] : 0;
                         $amount = ($amount === NULL || $amount === '' || $amount === '0') ? 0 : (float)$amount;
                         $amount_paid += $amount;
                     }
 
+                    $plt_paid = 0;
+
+                    for ($i = 0; $i <= 3; $i++) {
+                        $field = 'plt' . $i;
+                        $plt = isset($row_hours[$field]) ? $row_hours[$field] : 0;
+                        $plt = ($plt === NULL || $plt === '' || $plt === '0') ? 0 : (float)$plt;
+                        $plt_paid += $plt;
+                    }
 
 
                     $hash = $row_hours['hash0'];
@@ -133,8 +142,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                         $qrCodes[] = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash3);
                     }
 
-
-                    // Número máximo de colunas
+// Maximum number of columns
                     $columns = 12;
                     $rows = 1;
 
@@ -164,14 +172,16 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                     //echo "Working Hours: " . $working_hours . "<br>";
                     //echo "Amount Paid: " . $amount_paid . "<br>";
 
-                    // Acumula os valores
+                    // Accumulates the values
                     $total_amount_paid += $amount_paid;
                     $total_working_hours += $working_hours;
+                    $total_plt_paid += $plt_paid;
                 }
                 //echo 'valor total:' . $total_amount_paid;
                 //echo 'hora total:' . $total_working_hours;
-                // Calcular o valor total baseado nas semanas e no valor total pago
+               // Calculate the total amount based on the weeks and total amount paid
                 //$total_amount = $weeks_in_month * $total_amount_paid;
+                $total_plt = $total_plt_paid;
                 $total_amount = $total_amount_paid;
                 $total_hours  = $total_working_hours;
                 // Converter o número do mês para o nome do mês
@@ -186,6 +196,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                 $weeks_in_month;
                 number_format($rate, 2);
                 number_format($total_amount, 2);
+                number_format($total_plt, 4);
                 $name;
 
 
@@ -313,11 +324,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                     </style>
 
 
-                    <div class="qr-table-container">
-                        <table class="qr-table">
-                            <!-- O código PHP para gerar as linhas e colunas vai aqui -->
-                        </table>
-                    </div>
+                 
 
                 </head>
 
@@ -384,7 +391,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                                 <tr>
                                     <td class="service-content">Worked Hours</td>
                                     <td class="service-content"><?php echo !empty($total_hours) ? $total_hours  : '0'; ?> hr</td>
-                                    <td class="service-content"><?php echo !empty(number_format($total_amount, 2)) ? number_format($total_amount, 2) : '0'; ?> USDT</td>
+                                    <td class="service-content"><?php echo !empty(number_format($total_plt, 4)) ? number_format($total_plt, 4) : '0'; ?> PLT</td>
                                 </tr>
                                 <tr>
                                     <td class="service-content">Transaction Fee</td>

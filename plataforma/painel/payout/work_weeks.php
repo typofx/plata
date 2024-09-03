@@ -161,9 +161,9 @@ if (isset($_GET['employee_id'])) {
                     $stmt->execute();
                     $stmt->close();
 
-                    $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id'><i class='fa-solid fa-receipt'></i></a>";
+                    $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' target='_blank'><i class='fa-solid fa-receipt'></i></a>";
                     $invoice_icon = $is_end_of_month
-                        ? "<a href='generate_invoice.php?month=$month_to_display&employee_id=$employee_id' ><i class='fa-solid fa-receipt'></i></a>"
+                        ? "<a href='generate_invoice.php?month=$month_to_display&employee_id=$employee_id' target='_blank'><i class='fa-solid fa-receipt'></i></a>"
                         : '&nbsp;';
 
 

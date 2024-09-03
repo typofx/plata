@@ -2,10 +2,16 @@
 <?php
 include 'conexao.php';
 
+ob_start();
+include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
+
+ob_end_clean();
+
+echo $PLTUSD;
+
 if (isset($_GET['week']) && isset($_GET['employee_id'])) {
     $week_id = $_GET['week'];
     $employee_id = $_GET['employee_id'];
-
 
     $sql_week = "SELECT * FROM granna80_bdlinks.work_weeks WHERE work_week = ? AND employee_id = ?";
     $stmt_week = $conn->prepare($sql_week);
@@ -26,51 +32,76 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $status = $_POST['status'];
         $working_hours = $_POST['working_hours'];
 
-
-      
+        
         $hash_count = $_POST['hash_count'];
         $transactions = [];
         for ($i = 0; $i < $hash_count; $i++) {
+            $currency = $_POST['currency'][$i] ?? '';
+            $amount = $_POST['amount'][$i] ?? '';
+            $amount = str_replace(',', '', $amount);
+            $amount = (float)$amount;
+            $plt_value = null;
+            $pltusd_value = null;
+
+            if ($currency === 'PLT') {
+                $plt_value = $amount;
+                $pltusd_value = $amount * $PLTUSD;
+            } else if ($currency === 'USDT') {
+                $pltusd_value = $amount;
+            } else {
+                $pltusd_value = $amount;
+            }
+
             $transactions[] = [
                 'hash' => $_POST['hash'][$i] ?? '',
                 'type' => $_POST['type'][$i] ?? '',
-                'currency' => $_POST['currency'][$i] ?? '',
-                'amount' => $_POST['amount'][$i] ?? ''
+                'currency' => $currency,
+                'amount' => $amount,
+                'plt' => $plt_value,
+                'pltusd' => $pltusd_value
             ];
         }
 
-       
         $sql_update = "UPDATE granna80_bdlinks.work_weeks 
         SET start_week = ?, end_week = ?, status = ?, working_hours = ?, 
-            hash0 = ?, type0 = ?, currency0 = ?, amount0 = ?, 
-            hash1 = ?, type1 = ?, currency1 = ?, amount1 = ?, 
-            hash2 = ?, type2 = ?, currency2 = ?, amount2 = ?, 
-            hash3 = ?, type3 = ?, currency3 = ?, amount3 = ?
+            hash0 = ?, type0 = ?, currency0 = ?, amount0 = ?, pltusd0 = ?, plt0 = ?,
+            hash1 = ?, type1 = ?, currency1 = ?, amount1 = ?, pltusd1 = ?, plt1 = ?,
+            hash2 = ?, type2 = ?, currency2 = ?, amount2 = ?, pltusd2 = ?, plt2 = ?,
+            hash3 = ?, type3 = ?, currency3 = ?, amount3 = ?, pltusd3 = ?, plt3 = ?
         WHERE work_week = ? AND employee_id = ?";
+
         $stmt_update = $conn->prepare($sql_update);
         $stmt_update->bind_param(
-            "ssssssssssssssssssssii",
+            "ssssssssssssssssssssssssssssii",
             $start_week,
             $end_week,
             $status,
             $working_hours,
-            
+
             $transactions[0]['hash'],
             $transactions[0]['type'],
             $transactions[0]['currency'],
             $transactions[0]['amount'],
+            $transactions[0]['pltusd'],
+            $transactions[0]['plt'],
             $transactions[1]['hash'],
             $transactions[1]['type'],
             $transactions[1]['currency'],
             $transactions[1]['amount'],
+            $transactions[1]['pltusd'],
+            $transactions[1]['plt'],
             $transactions[2]['hash'],
             $transactions[2]['type'],
             $transactions[2]['currency'],
             $transactions[2]['amount'],
+            $transactions[2]['pltusd'],
+            $transactions[2]['plt'],
             $transactions[3]['hash'],
             $transactions[3]['type'],
             $transactions[3]['currency'],
             $transactions[3]['amount'],
+            $transactions[3]['pltusd'],
+            $transactions[3]['plt'],
             $week_id,
             $employee_id
         );
@@ -88,6 +119,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
     exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -141,17 +173,17 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         <label for="working_hours">Hours Worked:</label><br>
         <input type="text" id="working_hours" name="working_hours" value="<?php echo htmlspecialchars($week_data['working_hours']); ?>"><br><br>
 
-      
+
 
         <label for="status">Status:</label><br>
-        <select id="status" name="status" required>
+        <select id="status" name="status">
             <option value="Paid" <?php echo $week_data['status'] == 'Paid' ? 'selected' : ''; ?>>Paid</option>
             <option value="Pending" <?php echo $week_data['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
             <option value="Processing" <?php echo $week_data['status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
         </select><br><br>
 
         <label for="hash_count">Number of Transactions:</label>
-        <select id="hash_count" name="hash_count" onchange="showHashFields()" required>
+        <select id="hash_count" name="hash_count" onchange="showHashFields()">
             <option value="1" <?php echo !empty($week_data['hash']) && empty($week_data['hash1']) ? 'selected' : ''; ?>>1</option>
             <option value="2" <?php echo !empty($week_data['hash1']) && empty($week_data['hash2']) ? 'selected' : ''; ?>>2</option>
             <option value="3" <?php echo !empty($week_data['hash2']) && empty($week_data['hash3']) ? 'selected' : ''; ?>>3</option>
@@ -165,7 +197,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                 <input style="display: inline; " type="text" name="hash[<?php echo $i - 1; ?>]" value="<?php echo htmlspecialchars($week_data['hash' . ($i - 1)]); ?>">
 
                 <label style="display: inline; " for="type[<?php echo $i - 1; ?>]">Transaction Type:</label>
-                <select style="display: inline; " id="type<?php echo $i - 1; ?>" name="type[<?php echo $i - 1; ?>]" onchange="showAmountField(<?php echo $i - 1; ?>)" required>
+                <select style="display: inline; " id="type<?php echo $i - 1; ?>" name="type[<?php echo $i - 1; ?>]" onchange="showAmountField(<?php echo $i - 1; ?>)">
                     <option value="">Select...</option>
                     <option value="DeFi" <?php echo $week_data['type' . ($i - 1)] == 'DeFi' ? 'selected' : ''; ?>>DeFi</option>
                     <option value="CEX" <?php echo $week_data['type' . ($i - 1)] == 'CEX' ? 'selected' : ''; ?>>CEX</option>
@@ -175,7 +207,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                 </select>
 
                 <label style="display: inline; " for="currency[<?php echo $i - 1; ?>]">Coin:</label>
-                <select style="display: inline; " id="currency<?php echo $i - 1; ?>" name="currency[<?php echo $i - 1; ?>]" required>
+                <select style="display: inline; " id="currency<?php echo $i - 1; ?>" name="currency[<?php echo $i - 1; ?>]">
                     <option value="USDT" <?php echo $week_data['currency' . ($i - 1)] == 'USDT' ? 'selected' : ''; ?>>USDT</option>
                     <option value="PLT" <?php echo $week_data['currency' . ($i - 1)] == 'PLT' ? 'selected' : ''; ?>>PLT</option>
                     <option value="EUR" <?php echo $week_data['currency' . ($i - 1)] == 'EUR' ? 'selected' : ''; ?>>EUR</option>
