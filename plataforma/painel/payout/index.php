@@ -22,6 +22,7 @@ $result = $conn->query($sql);
     <h1>List of Payouts</h1>
     <br>
     <br>
+    <a href="https://www.plata.ie/plataforma/painel/menu.php">[control panel]</a>
     <a href="add.php">[add new record]</a>
     <table id="payoutTable" class="display">
         <thead>
