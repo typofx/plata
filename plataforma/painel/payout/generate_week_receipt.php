@@ -59,10 +59,17 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $plt2 = $row['plt2'];
         $plt3 = $row['plt3'];
 
+        $eur0 = $row['plteur0'];
+        $eur1 = $row['plteur1'];
+        $eur2 = $row['plteur2'];
+        $eur3 = $row['plteur3'];
+
         $currency = $row['currency'];
 
+        $eur_paid = ($eur0 + $eur1 + $eur2 + $eur3);
+        $eur_paid = number_format($eur_paid, 2, '.', '');
         $plt_paid = ($plt0 + $plt1 + $plt2 + $plt3);
-        $plt_paid = number_format($plt_paid , 4, '.', '');
+        $plt_paid = number_format($plt_paid, 4, '.', '');
         $amount_paid = ($amount0 + $amount1 + $amount2 + $amount3);
         $amount_paid = number_format($amount_paid, 2, '.', '');
         // $working_hours;
@@ -224,11 +231,12 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                     <div class="address">
 
 
-                        <br>Typo FX LTD Ireland<br> <br>
-                        WorkHub Group<br>
-                        77 Camden Street Lower Saint<br>
-                        Kevin's Dublin D02 XE80 Ireland<br> <br>
-                        CRO: XXXXXX<br>
+                        <br><b>Typo FX LTD Ireland</b><br> <br>
+                        Workhub Group<br>
+                        77 Camden Street Lower<br>
+                        Saint Kevin's Dublin<br>
+                        D02 XE80 Ireland<br><br>
+                        CRO: 770759<br>
                         VAT: 1282313RA
                     </div>
                     <div class="qr-code-grid">
@@ -267,12 +275,12 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                     </div>
 
                     <div class="content">
-                        Name: <?php echo !empty($employee_name) ? $employee_name : '0'; ?> <br>
+                        <b>Name: <?php echo !empty($employee_name) ? $employee_name : '0'; ?></b> <br>
 
                         <h1 class="content-title">Billing Invoice</h1>
                         <br> Services Rendered: Computing Service
                         <br> Invoice serial number: XX.XX.XX.00
-                        <br> Invoice period: <?php echo $start_date . ' - ' . $end_date; ?>
+                        <br> Document issue date: <?php echo date('d F Y'); ?>
                         <br>
                         <h6 class="table-title">Services</h6>
                         <table class="service">
@@ -280,10 +288,11 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                                 <th class="service-title border">Day</th>
                                 <th class="service-title border">Date</th>
                                 <th class="service-title border">Total</th>
+
                             </tr>
                             <tr>
                                 <td class="service-content">Monday till Friday</td>
-                                <td class="service-content"><?php echo date('d F Y'); ?></td>
+                                <td class="service-content"><?php echo $start_date . ' - ' . $end_date; ?></td>
                                 <td class="service-content"></td>
                             </tr>
                             <tr>
@@ -295,6 +304,11 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                                 <td class="border">Total</td>
                                 <td class="border"></td>
                                 <td class="border"><?php echo !empty($amount_paid) ? $amount_paid : '0'; ?> USDT</td>
+                            </tr>
+                            <tr>
+                                <td class="service-content border">Total</td>
+                                <td class="service-content border"></td>
+                                <td class="service-content border"><?php echo !empty($plt_paid) ? $plt_paid : '0'; ?> PLT</td>
                             </tr>
                         </table>
                         <h6 class="table-title">Invoice Total</h6>
@@ -315,7 +329,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                                 <td class="service-content">(0.00) USDT</td>
                             </tr>
                             <tr>
-                                <td class="service-content">Adjustments</td>
+                                <td class="service-content">Adjustments (USDT)</td>
                                 <td class="service-content">--</td>
                                 <td class="service-content">--</td>
                             </tr>
@@ -326,7 +340,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                             </tr>
                         </table>
 
-                        <h1 class="total"><b>Total fee payable: <?php echo !empty($amount_paid) ? $amount_paid : '0'; ?> USDT</b></h1>
+                        <h1 class="total"><b>Total fee payable: <?php echo !empty($eur_paid) ? $eur_paid : '0'; ?> EUR</b></h1>
                         <p class="footer">This billing invoice is issued in the name, and on behalf of, the supplier <?php echo !empty($employee_name) ? $employee_name : '0'; ?> in
                             accordance with the terms agreement between the parties</p>
                     </div>

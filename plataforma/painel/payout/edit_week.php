@@ -7,7 +7,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
 
 ob_end_clean();
 
-echo $PLTUSD;
+echo $PLTUSD . '<br>';
+echo $USDEUR;
 
 if (isset($_GET['week']) && isset($_GET['employee_id'])) {
     $week_id = $_GET['week'];
@@ -30,9 +31,10 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $start_week = $_POST['start_week'];
         $end_week = $_POST['end_week'];
         $status = $_POST['status'];
-        $working_hours = $_POST['working_hours'];
+        $working_hours = !empty($_POST['working_hours']) && is_numeric($_POST['working_hours']) ? $_POST['working_hours'] : 0;
 
-        
+
+
         $hash_count = $_POST['hash_count'];
         $transactions = [];
         for ($i = 0; $i < $hash_count; $i++) {
@@ -46,9 +48,13 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
             if ($currency === 'PLT') {
                 $plt_value = $amount;
                 $pltusd_value = $amount * $PLTUSD;
+                $plteur_value = $pltusd_value * $USDEUR;
             } else if ($currency === 'USDT') {
+                $plt_value = ($amount / $PLTUSD);
+                $plteur_value = $amount * $USDEUR;
                 $pltusd_value = $amount;
             } else {
+                $plt_value = ($amount / $PLTUSD);
                 $pltusd_value = $amount;
             }
 
@@ -58,21 +64,22 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                 'currency' => $currency,
                 'amount' => $amount,
                 'plt' => $plt_value,
-                'pltusd' => $pltusd_value
+                'pltusd' => $pltusd_value,
+                'plteur' => $plteur_value
             ];
         }
 
         $sql_update = "UPDATE granna80_bdlinks.work_weeks 
         SET start_week = ?, end_week = ?, status = ?, working_hours = ?, 
-            hash0 = ?, type0 = ?, currency0 = ?, amount0 = ?, pltusd0 = ?, plt0 = ?,
-            hash1 = ?, type1 = ?, currency1 = ?, amount1 = ?, pltusd1 = ?, plt1 = ?,
-            hash2 = ?, type2 = ?, currency2 = ?, amount2 = ?, pltusd2 = ?, plt2 = ?,
-            hash3 = ?, type3 = ?, currency3 = ?, amount3 = ?, pltusd3 = ?, plt3 = ?
+            hash0 = ?, type0 = ?, currency0 = ?, amount0 = ?, pltusd0 = ?, plt0 = ?, plteur0 = ?,
+            hash1 = ?, type1 = ?, currency1 = ?, amount1 = ?, pltusd1 = ?, plt1 = ?, plteur1 = ?,
+            hash2 = ?, type2 = ?, currency2 = ?, amount2 = ?, pltusd2 = ?, plt2 = ?, plteur2 = ?,
+            hash3 = ?, type3 = ?, currency3 = ?, amount3 = ?, pltusd3 = ?, plt3 = ?, plteur3 = ?
         WHERE work_week = ? AND employee_id = ?";
 
         $stmt_update = $conn->prepare($sql_update);
         $stmt_update->bind_param(
-            "ssssssssssssssssssssssssssssii",
+            "ssssssssssssssssssssssssssssssssii",
             $start_week,
             $end_week,
             $status,
@@ -84,24 +91,28 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
             $transactions[0]['amount'],
             $transactions[0]['pltusd'],
             $transactions[0]['plt'],
+            $transactions[0]['plteur'],
             $transactions[1]['hash'],
             $transactions[1]['type'],
             $transactions[1]['currency'],
             $transactions[1]['amount'],
             $transactions[1]['pltusd'],
             $transactions[1]['plt'],
+            $transactions[1]['plteur'],
             $transactions[2]['hash'],
             $transactions[2]['type'],
             $transactions[2]['currency'],
             $transactions[2]['amount'],
             $transactions[2]['pltusd'],
             $transactions[2]['plt'],
+            $transactions[2]['plteur'],
             $transactions[3]['hash'],
             $transactions[3]['type'],
             $transactions[3]['currency'],
             $transactions[3]['amount'],
             $transactions[3]['pltusd'],
             $transactions[3]['plt'],
+            $transactions[3]['plteur'],
             $week_id,
             $employee_id
         );
