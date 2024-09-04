@@ -80,12 +80,13 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
 
 
 
-            $sql_hours = "SELECT hash0, hash1, hash2, hash3, working_hours, employee_id, amount0, amount1, amount2, amount3, pltusd0,pltusd1,pltusd2,pltusd3, plt0, plt1, plt2, plt3 FROM granna80_bdlinks.work_weeks WHERE employee_id = ? AND month = ?;";
+            $sql_hours = "SELECT hash0, hash1, hash2, hash3, working_hours, employee_id, amount0, amount1, amount2, amount3, pltusd0,pltusd1,pltusd2,pltusd3, plt0, plt1, plt2, plt3, plteur0, plteur1, plteur2, plteur3 FROM granna80_bdlinks.work_weeks WHERE employee_id = ? AND month = ?;";
             $stmt_hours = $conn->prepare($sql_hours);
             $stmt_hours->bind_param('is', $employee_id, $month_name);
             $stmt_hours->execute();
             $result_hours = $stmt_hours->get_result();
 
+            $total_eur_paid = 0;
             $total_plt_paid = 0;
             $total_amount_paid = 0;
             $total_working_hours = 0;
@@ -115,6 +116,14 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                         $plt_paid += $plt;
                     }
 
+                    $eur_paid = 0;
+
+                    for ($i = 0; $i <= 3; $i++) {
+                        $field = 'plteur' . $i;
+                        $eur = isset($row_hours[$field]) ? $row_hours[$field] : 0;
+                        $eur = ($eur === NULL || $eur === '' || $eur === '0') ? 0 : (float)$eur;
+                        $eur_paid += $eur;
+                    }
 
                     $hash = $row_hours['hash0'];
                     $hash1 = $row_hours['hash1'];
@@ -142,7 +151,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                         $qrCodes[] = 'https://quickchart.io/qr?text=https://polygonscan.com/tx/' . urlencode($hash3);
                     }
 
-// Maximum number of columns
+                    // Maximum number of columns
                     $columns = 12;
                     $rows = 1;
 
@@ -176,11 +185,13 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                     $total_amount_paid += $amount_paid;
                     $total_working_hours += $working_hours;
                     $total_plt_paid += $plt_paid;
+                    $total_eur_paid += $eur_paid;
                 }
                 //echo 'valor total:' . $total_amount_paid;
                 //echo 'hora total:' . $total_working_hours;
-               // Calculate the total amount based on the weeks and total amount paid
+                // Calculate the total amount based on the weeks and total amount paid
                 //$total_amount = $weeks_in_month * $total_amount_paid;
+                $total_eur = $total_eur_paid;
                 $total_plt = $total_plt_paid;
                 $total_amount = $total_amount_paid;
                 $total_hours  = $total_working_hours;
@@ -324,7 +335,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                     </style>
 
 
-                 
+
 
                 </head>
 
@@ -380,6 +391,11 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                                     <td class="border"></td>
                                     <td class="border"><?php echo !empty(number_format($total_amount, 2)) ? number_format($total_amount, 2) : '0'; ?> USDT</td>
                                 </tr>
+                                <tr>
+                                    <td class="service-content border">Total</td>
+                                    <td class="service-content border"></td>
+                                    <td class="service-content border"><?php echo !empty(number_format($total_plt, 4)) ? number_format($total_plt, 4) : '0'; ?> PLT</td>
+                                </tr>
                             </table>
                             <h6 class="table-title">Invoice Total</h6>
                             <table class="service">
@@ -420,7 +436,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                             </table>
 
 
-                            <h1 class="total"><b>Total fee payable: <?php echo !empty(number_format($total_amount, 2)) ? number_format($total_amount, 2) : '0'; ?> USDT</b></h1>
+                            <h1 class="total"><b>Total fee payable: <?php echo !empty(number_format($total_eur, 2)) ? number_format($total_eur, 2) : '0'; ?> EUR</b></h1>
                             <p class="footer">This billing invoice is issued in the name, and on behalf of, the supplier <?php echo !empty($name) ? $name : '0'; ?> in
                                 accordance with the terms agreement between the parties</p>
                         </div>
