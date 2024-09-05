@@ -6,9 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $employee = $_POST['employee'];
     $rate = $_POST['rate'];
     $pay_type = $_POST['pay_type'];
+    $employee_email = $_POST['employee_email'];
 
 
-    $sql = "INSERT INTO  granna80_bdlinks.payout (employee, rate, pay_type) VALUES ('$employee', '$rate', '$pay_type')";
+    $sql = "INSERT INTO  granna80_bdlinks.payout (employee, rate, pay_type, employee_email) VALUES ('$employee', '$rate', '$pay_type', '$employee_email')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
@@ -32,6 +33,9 @@ $conn->close();
     <form action="add.php" method="post">
         <label for="employee">Employee:</label><br>
         <input type="text" id="employee" name="employee" required><br><br>
+
+        <label for="employee_email">Email:</label><br>
+        <input type="text" id="employee_email" name="employee_email" required><br><br>
 
         <label for="rate">Rate:</label><br>
         <input type="text" id="rate" name="rate" required><br><br>

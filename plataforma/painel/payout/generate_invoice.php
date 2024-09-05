@@ -394,7 +394,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                                 <tr>
                                     <td class="service-content border">Total</td>
                                     <td class="service-content border"></td>
-                                    <td class="service-content border"><?php echo !empty(number_format($total_plt, 4)) ? number_format($total_plt, 4) : '0'; ?> PLT</td>
+                                    <td class="service-content border"><?php echo !empty(number_format($total_plt, 4, '.', ',')) ? number_format($total_plt, 4, '.', ',') : '0'; ?> PLT</td>
                                 </tr>
                             </table>
                             <h6 class="table-title">Invoice Total</h6>
@@ -407,7 +407,7 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                                 <tr>
                                     <td class="service-content">Worked Hours</td>
                                     <td class="service-content"><?php echo !empty($total_hours) ? $total_hours  : '0'; ?> hr</td>
-                                    <td class="service-content"><?php echo !empty(number_format($total_plt, 4)) ? number_format($total_plt, 4) : '0'; ?> PLT</td>
+                                    <td class="service-content"><?php echo !empty(number_format($total_plt, 4, '.', ',')) ? number_format($total_plt, 4, '.', ',') : '0'; ?> PLT</td>
                                 </tr>
                                 <tr>
                                     <td class="service-content">Transaction Fee</td>

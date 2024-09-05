@@ -14,6 +14,7 @@ if (isset($_GET['id'])) {
         $employee = $row['employee'];
         $rate = $row['rate'];
         $pay_type = $row['pay_type'];
+        $employee_email = $row['employee_email'];
     } else {
         echo "Record not found!";
         exit();
@@ -28,9 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $employee = $_POST['employee'];
     $rate = $_POST['rate'];
     $pay_type = $_POST['pay_type'];
+    $employee_email = $_POST['employee_email'];
 
 
-    $sql = "UPDATE payout SET employee='$employee', rate='$rate', pay_type='$pay_type' WHERE id=$id";
+    $sql = "UPDATE payout SET employee='$employee', rate='$rate', pay_type='$pay_type', employee_email='$employee_email' WHERE id=$id";
 
     if ($conn->query($sql) === TRUE) {
         echo "Registration updated successfully";
@@ -54,6 +56,9 @@ $conn->close();
     <form action="edit.php?id=<?php echo $id; ?>" method="post">
         <label for="employee">Employee:</label><br>
         <input type="text" id="employee" name="employee" value="<?php echo $employee; ?>" required><br><br>
+
+        <label for="employee_email">Email:</label><br>
+        <input type="text" id="employee_email" name="employee_email" value="<?php echo $employee_email; ?>" required><br><br>
 
         <label for="rate">Rate:</label><br>
         <input type="text" id="rate" name="rate" value="<?php echo $rate; ?>" required><br><br>
