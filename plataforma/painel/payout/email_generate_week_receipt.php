@@ -1,8 +1,8 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
 require_once 'vendor/autoload.php';
-header('Content-Type: application/pdf');
-header('Content-Disposition: attachment; filename="week_receipt.pdf"');
+
+
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -24,6 +24,7 @@ include 'conexao.php';
 if (isset($_GET['week']) && isset($_GET['employee_id'])) {
     $week = $_GET['week'];
     $employee_id = $_GET['employee_id'];
+    global $employee_email;
 
     // Specify the database before the table name
     $sql = "SELECT ww.*, p.employee, p.rate, p.pay_type 
@@ -43,6 +44,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
         // Receipt details
         $employee_name = $row['employee'];
+        $employee_email = $row['employee_email'];
         $start_date = date('d M Y', strtotime($row['start_week']));
         $end_date = date('d M Y', strtotime($row['end_week']));
         $status = $row['status'];
@@ -53,6 +55,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $amount1 = $row['pltusd1'];
         $amount2 = $row['pltusd2'];
         $amount3 = $row['pltusd3'];
+      
 
         $plt0 = $row['plt0'];
         $plt1 = $row['plt1'];
@@ -354,19 +357,58 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
 
         $dompdf->render();
+        $pdfContent = $dompdf->output();
+        // Enviar o PDF por e-mail
+        $to = $employee_email;
+        $subject = 'Typo FX Weekly Receipt';
+        $message = 'Please find attached the PDF receipt for the period from ' . $start_date . ' to ' . $end_date . 
+        'Employee Name: ' . (!empty($employee_name) ? $employee_name : 'N/A');
 
 
-        $dompdf->stream(
-            'Invoice_' . (!empty($employee_name) ? $employee_name : '0') . '.pdf',
-            array('Attachment' => 0)
-        );
+        $boundary = md5(uniqid(time()));
+
+        $headers = "From: Typo FX <no-reply@plata.ie>\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+
+        $body = "--$boundary\r\n";
+        $body .= "Content-Type: text/plain; charset=\"UTF-8\"\r\n";
+        $body .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+        $body .= "$message\r\n";
+
+        $body .= "--$boundary\r\n";
+        $body .= "Content-Type: application/pdf; name=\"week_receipt.pdf\"\r\n";
+        $body .= "Content-Transfer-Encoding: base64\r\n";
+        $body .= "Content-Disposition: attachment; filename=\"week_receipt.pdf\"\r\n\r\n";
+
+        $body .= chunk_split(base64_encode($pdfContent)) . "\r\n";
+        $body .= "--$boundary--";
+
+        if (mail($to, $subject, $body, $headers)) {
+            // Atualizar o banco de dados para marcar o e-mail como enviado
+            $update_sql = "UPDATE granna80_bdlinks.work_weeks SET email_sent = 1 WHERE work_week = ? AND employee_id = ?";
+            $update_stmt = $conn->prepare($update_sql);
+            if ($update_stmt === false) {
+                die('Prepare failed: ' . htmlspecialchars($conn->error));
+            }
+            $update_stmt->bind_param('si', $week, $employee_id);
+            if ($update_stmt->execute()) {
+                echo 'Email enviado e status atualizado com sucesso!';
+                echo "<script>window.location.href='work_weeks.php?employee_id=" . $employee_id . "';</script>";
+            } else {
+                echo 'Email enviado, mas falha ao atualizar o status.';
+            }
+            $update_stmt->close();
+        } else {
+            echo 'Erro ao enviar o email.';
+        }
     } else {
-        "No records found for this week and employee ID.";
+        echo "No records found for this week and employee ID.";
     }
 
     $stmt->close();
 } else {
-    "Week or employee ID not provided.";
+    echo "Week or employee ID not provided.";
 }
 
 $conn->close();
