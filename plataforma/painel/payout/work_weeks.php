@@ -2,12 +2,10 @@
 <?php
 include 'conexao.php';
 
-
 if (isset($_GET['employee_id'])) {
     $employee_id = $_GET['employee_id'];
 
-
-    $sql_employee = "SELECT employee, employee_email FROM granna80_bdlinks.payout WHERE id = ?";
+    $sql_employee = "SELECT employee, employee_email, uuid FROM granna80_bdlinks.payout WHERE id = ?";
     $stmt_employee = $conn->prepare($sql_employee);
     $stmt_employee->bind_param("i", $employee_id);
     $stmt_employee->execute();
@@ -16,13 +14,51 @@ if (isset($_GET['employee_id'])) {
     if ($result_employee->num_rows > 0) {
         $employee_data = $result_employee->fetch_assoc();
         $employee = $employee_data['employee'];
+        global $uuid;
         global $email;
-        $email = $employee_data['employee_email'];
+        $uuid = $employee_data['uuid'];
+        //echo $uuid;
     } else {
         echo "Employee not found.";
         exit();
     }
+    $search_uuid = $uuid;
+    $query_uuid = "SELECT id FROM granna80_bdlinks.team WHERE uuid = ?";
+    $prepared_stmt_uuid = $conn->prepare($query_uuid); // Prepare the query
+    $prepared_stmt_uuid->bind_param("s", $search_uuid); // Bind the UUID parameter
+    $prepared_stmt_uuid->execute(); // Execute the query
+    $result_set_uuid = $prepared_stmt_uuid->get_result(); // Get the result
 
+    if ($result_set_uuid->num_rows > 0) {
+        // If a result is found, get the ID
+        $record_uuid = $result_set_uuid->fetch_assoc();
+        $ern = $record_uuid['id'];
+        // echo "The corresponding ID for the UUID is: " . $ern;
+    } else {
+        echo "No record found for the provided UUID.";
+    }
+
+    $prepared_stmt_uuid->close();
+
+    $uuid_search = $uuid; // Replace this value with the UUID you want to search for
+
+    // Query to get the email by UUID
+    $query_uuid = "SELECT private_email FROM granna80_bdlinks.team_docs WHERE uuid = ?";
+    $prepared_stmt_uuid = $conn->prepare($query_uuid); // Prepare the query
+    $prepared_stmt_uuid->bind_param("s", $uuid_search); // Bind the UUID parameter
+    $prepared_stmt_uuid->execute(); // Execute the query
+    $result_set_uuid = $prepared_stmt_uuid->get_result(); // Get the result
+
+    if ($result_set_uuid->num_rows > 0) {
+        // If a result is found, get the email
+        $record_uuid = $result_set_uuid->fetch_assoc();
+        $email = $record_uuid['private_email'];
+        //echo "The email corresponding to the UUID is: " . $email;
+    } else {
+        echo "No record found for the provided UUID.";
+    }
+
+    $prepared_stmt_uuid->close();
 
     $sql_weeks = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = ?";
     $stmt_weeks = $conn->prepare($sql_weeks);
@@ -34,6 +70,7 @@ if (isset($_GET['employee_id'])) {
     exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,12 +130,14 @@ if (isset($_GET['employee_id'])) {
 
 <body>
     <h1>Payroll - Employee: <?php echo htmlspecialchars($employee); ?></h1>
+    <h4>Employee email: <?php echo htmlspecialchars($email); ?></h4>
     <br>
     <br>
 
     <a href="add_week.php?employee_id=<?php echo $employee_id ?>" onclick="return confirm('Are you sure you want to add a new week?')">[Add New Week]</a>
-    <a href="reset_employee_emails.php?employee_id=<?php echo $employee_id ?>" >[Reset all emails]</a>
-
+    <a href="reset_employee_emails.php?employee_id=<?php echo $employee_id ?>">[Reset all emails]</a>
+    <a href="<?php include $_SERVER['DOCUMENT_ROOT']; ?>/plataforma/painel/team/docs/edit.php?id=<?php echo $ern ?>">[DOCS]</a>
+    <a href="<?php include $_SERVER['DOCUMENT_ROOT']; ?>/plataforma/painel/payout/edit.php?id=<?php echo $employee_id ?>" onclick="return confirm('Are you sure you want to add a new week?')">[Edit Payout]</a>
     <a href="index.php">[Back]</a>
     <br><br>
     <table id="weeksTable" class="display">
@@ -205,7 +244,7 @@ if (isset($_GET['employee_id'])) {
                             $week_receipt_icon_email = "<img src='https://www.plata.ie/images/sheet-icon-email_sent.png' alt='Email Sent' style='margin-right: 10px;'>";
                         } else {
                             // Mostrar ícone de e-mail para enviar
-                            $week_receipt_icon_email = "<a style='text-decoration: none;' href='email_generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id'>
+                            $week_receipt_icon_email = "<a style='text-decoration: none;' href='email_generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' onclick='return confirmEmailSend();'>
                                                             <img src='email_tobe.png' alt='Email To Be Sent' style='margin-right: 10px;'>
                                                         </a>";
                         }
@@ -213,6 +252,7 @@ if (isset($_GET['employee_id'])) {
                         // Mostrar ícone de e-mail para enviar com estilo alterado para outros status
                         $week_receipt_icon_email = "<img src='email_tobe_b.png' alt='Email To Be Sent' style='margin-right: 10px; color: grey;'>";
                     }
+
 
 
                     // Geração do ícone de invoice (somente no final do mês)
@@ -228,7 +268,7 @@ if (isset($_GET['employee_id'])) {
                     }
 
 
-                   
+
 
 
 
@@ -278,6 +318,11 @@ if (isset($_GET['employee_id'])) {
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <!-- DataTables JS -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        function confirmEmailSend() {
+            return confirm("Are you sure you want to send the email?");
+        }
+    </script>
 
     <script>
         $(document).ready(function() {
