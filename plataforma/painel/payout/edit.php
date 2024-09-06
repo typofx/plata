@@ -58,7 +58,7 @@ $conn->close();
         <input type="text" id="employee" name="employee" value="<?php echo $employee; ?>" required><br><br>
 
         <label for="employee_email">Email:</label><br>
-        <input type="text" id="employee_email" name="employee_email" value="<?php echo $employee_email; ?>" required><br><br>
+        <input type="text" id="employee_email" name="employee_email" value="<?php echo $employee_email; ?>" readonly><br><br>
 
         <label for="rate">Rate:</label><br>
         <input type="text" id="rate" name="rate" value="<?php echo $rate; ?>" required><br><br>

@@ -2535,3 +2535,339 @@ Stack trace:
 #0 /home2/granna80/public_html/plataforma/painel/payout/reset_employee_emails.php(11): mysqli->prepare('UPDATE work_wee...')
 #1 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/payout/reset_employee_emails.php on line 11
+[05-Sep-2024 19:28:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[05-Sep-2024 19:28:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[05-Sep-2024 19:28:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[05-Sep-2024 19:28:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[05-Sep-2024 19:28:26 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[05-Sep-2024 19:28:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[05-Sep-2024 19:28:34 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[05-Sep-2024 19:28:34 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[05-Sep-2024 19:28:34 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[05-Sep-2024 19:28:34 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[05-Sep-2024 19:28:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[05-Sep-2024 19:28:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[05-Sep-2024 19:28:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[05-Sep-2024 19:28:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[05-Sep-2024 19:28:49 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:51:03 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:51:03 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:51:03 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:51:03 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:51:03 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:51:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:51:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:51:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:51:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:51:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:51:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:51:14 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:51:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:51:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:51:14 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:51:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:51:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:51:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:51:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:51:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:52:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:52:16 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:52:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:52:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:52:16 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:52:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:52:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:52:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:52:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:52:35 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:52:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:52:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:52:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:52:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:52:37 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:52:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:52:47 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:52:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:52:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:52:47 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:52:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:52:50 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:52:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:52:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:52:50 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:54:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:54:12 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:54:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:54:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:54:12 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 03:54:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 03:54:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 03:54:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 03:54:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 03:54:54 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 11:05:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 11:05:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 11:05:09 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 55
+[06-Sep-2024 11:05:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 11:05:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 11:05:09 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 11:05:24 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payout/edit.php:37
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit.php(37): mysqli->query('UPDATE payout S...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit.php on line 37
+[06-Sep-2024 11:06:03 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 11:06:03 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 11:06:03 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 55
+[06-Sep-2024 11:06:03 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 11:06:03 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 11:06:03 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 11:13:44 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:13:44 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:15:21 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:15:21 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:20:45 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:20:45 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:20:51 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:20:51 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:20:55 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:20:55 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:21:15 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:21:15 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:21:41 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:21:41 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:22:51 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:22:51 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:23:01 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:23:01 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:25:00 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:25:00 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:26:05 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:26:05 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:26:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 11:26:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 11:26:10 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 55
+[06-Sep-2024 11:26:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 11:26:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 11:26:10 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 11:26:13 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:26:13 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:26:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 11:26:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 11:26:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 55
+[06-Sep-2024 11:26:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 11:26:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 11:26:20 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 11:26:23 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:26:23 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:27:35 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payout/edit.php:37
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/edit.php(37): mysqli->query('UPDATE payout S...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/edit.php on line 37
+[06-Sep-2024 11:27:57 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:27:57 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:31:59 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:31:59 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:01 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:01 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:04 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:04 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 52
+[06-Sep-2024 11:32:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 54
+[06-Sep-2024 11:32:11 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/granna80/public_html/js/cryptoprices.php on line 55
+[06-Sep-2024 11:32:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 35
+[06-Sep-2024 11:32:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 77
+[06-Sep-2024 11:32:11 America/Chicago] PHP Warning:  Undefined variable $txtTokenMarketcap in /home2/granna80/public_html/en/mobile/price.php on line 114
+[06-Sep-2024 11:32:15 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:15 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:23 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:23 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:54 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:32:54 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:35:27 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 99
+[06-Sep-2024 11:35:27 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 99
+[06-Sep-2024 11:35:27 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 11:35:27 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 11:37:13 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:37:13 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:37:13 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 11:37:13 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 11:38:44 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:38:44 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:38:44 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 11:38:44 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 11:38:56 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:38:56 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:38:56 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 11:38:56 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 11:51:56 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:51:56 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 11:51:56 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 11:51:56 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 12:06:34 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 12:06:34 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 12:06:34 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 12:06:34 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 12:31:59 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payout/add.php:7
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/add.php(7): mysqli->query('SELECT uuid, me...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/add.php on line 7
+[06-Sep-2024 12:36:05 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payout/add.php:7
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/add.php(7): mysqli->query('SELECT uuid, me...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/add.php on line 7
+[06-Sep-2024 12:44:05 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payout/add.php:7
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/add.php(7): mysqli->query('SELECT uuid, me...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/add.php on line 7
+[06-Sep-2024 12:53:13 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 12:53:13 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 101
+[06-Sep-2024 12:53:13 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 12:53:13 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 102
+[06-Sep-2024 13:00:17 America/Chicago] PHP Warning:  Undefined array key "uuid" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 22
+[06-Sep-2024 13:00:17 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 122
+[06-Sep-2024 13:00:17 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 122
+[06-Sep-2024 13:00:17 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:00:17 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:01:14 America/Chicago] PHP Warning:  Undefined array key "uuid" in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 22
+[06-Sep-2024 13:01:14 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:01:14 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:01:14 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:01:14 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:01:34 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:01:34 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:01:34 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:01:34 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:06:50 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:06:50 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:06:50 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:06:50 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:09:09 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:09:09 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:09:09 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:09:09 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:09:21 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:09:21 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:09:21 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:09:21 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:12:41 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:12:41 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:12:41 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:12:41 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:16:10 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:16:10 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:16:10 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:16:10 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:16:27 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:16:27 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:16:27 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:16:27 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:16:28 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:16:28 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:16:28 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:16:28 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:16:31 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:16:31 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:16:31 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:16:31 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:18:45 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:18:45 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:18:45 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:18:45 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:25:44 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:25:44 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 123
+[06-Sep-2024 13:25:44 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:25:44 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:27:32 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:27:32 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:27:32 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 125
+[06-Sep-2024 13:27:32 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 125
+[06-Sep-2024 13:27:45 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:27:45 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:27:45 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 125
+[06-Sep-2024 13:27:45 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 125
+[06-Sep-2024 13:27:45 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:27:45 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:27:45 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 125
+[06-Sep-2024 13:27:45 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 125
+[06-Sep-2024 13:27:46 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:27:46 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 124
+[06-Sep-2024 13:27:46 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 125
+[06-Sep-2024 13:27:46 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 125
+[06-Sep-2024 13:28:49 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payout/delete.php:12
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payout/delete.php(12): mysqli->query('DELETE FROM pay...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payout/delete.php on line 12
+[06-Sep-2024 13:34:26 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 144
+[06-Sep-2024 13:34:26 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 144
+[06-Sep-2024 13:34:26 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 145
+[06-Sep-2024 13:34:26 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 145
+[06-Sep-2024 13:34:51 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 144
+[06-Sep-2024 13:34:51 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 144
+[06-Sep-2024 13:34:51 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 145
+[06-Sep-2024 13:34:51 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 145
+[06-Sep-2024 13:36:16 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:36:16 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:36:16 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:36:16 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:36:23 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:36:23 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:36:23 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:36:23 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:36:28 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:36:28 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:36:28 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:36:28 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:37:13 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:37:13 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:37:13 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:37:13 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:37:29 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:37:29 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:37:29 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:37:29 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:37:48 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:37:48 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:37:48 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:37:48 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:38:10 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:38:10 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:38:10 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:38:10 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:38:27 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:38:27 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:38:27 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:38:27 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:38:33 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:38:33 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:38:33 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:38:33 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:38:51 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:38:51 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:38:51 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:38:51 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:39:06 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:39:06 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:39:06 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:39:06 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:39:14 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:39:14 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:39:14 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:39:14 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:39:52 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:39:52 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:39:52 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:39:52 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:43:03 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:43:03 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:43:03 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:43:03 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:43:08 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:43:08 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 139
+[06-Sep-2024 13:43:08 America/Chicago] PHP Warning:  include(/home2/granna80/public_html): Failed to open stream: Success in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
+[06-Sep-2024 13:43:08 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payout/work_weeks.php on line 140
