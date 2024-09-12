@@ -1,14 +1,5 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
-// Set session duration to 8 hours (28800 seconds)
-ini_set('session.gc_maxlifetime', 28800);
-session_set_cookie_params(28800);
-
-session_start();
-
-if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    header("Location: ../../index.php");
-    exit();
-}
 // Include connection file
 include 'conexao.php';
 
@@ -25,6 +16,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
         $decimal_value = $_POST['decimal_value'];
         $price = $_POST['price'];
         $name = $_POST['name'];
+        $pool = $_POST['pool'];
 
         // Prepare update statement with bind values
         $query = "UPDATE granna80_bdlinks.assets SET
@@ -33,12 +25,13 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
                     ticker_symbol = ?,
                     decimal_value = ?,
                     price = ?,
-                    name = ?
+                    name = ?,
+                    pool =?
                   WHERE id = ?";
 
         if ($stmt = mysqli_prepare($conn, $query)) {
             // Bind parameters
-            mysqli_stmt_bind_param($stmt, "sssdssi", $contract_name, $aka_contract_name, $ticker_symbol, $decimal_value, $price, $name, $id);
+            mysqli_stmt_bind_param($stmt, "sssdsssi", $contract_name, $aka_contract_name, $ticker_symbol, $decimal_value, $price, $name, $pool, $id);
 
             // Execute update query
             if(mysqli_stmt_execute($stmt)) {
@@ -75,6 +68,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
             $decimal_value = $row['decimal_value'];
             $price = $row['price'];
             $name = $row['name'];
+            $pool = $row['pool'];
 
             // Form to edit data
 ?>
@@ -88,6 +82,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
                 <form action="edit.php?id=<?php echo $id; ?>" method="POST">
                     <label>Contract:</label>
                     <input type="text" name="contract_name" value="<?php echo htmlspecialchars($contract_name); ?>"><br><br>
+                    <label>Pool:</label>
+                    <input type="text" name="pool" value="<?php echo htmlspecialchars($pool); ?>"><br><br>
                     <label>Name:</label>
                     <input type="text" name="name" value="<?php echo htmlspecialchars($name); ?>"><br><br>
                     <label>AKA Contract:</label>
