@@ -7,6 +7,8 @@ ob_end_clean();
 include 'conexao.php';
 
 
+
+
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
@@ -21,24 +23,16 @@ if (!function_exists('tokenbalance')) {
     }
 }
 
-
 function calculatePrice($contract, $pool, $decimal_value)
 {
     $json_url = 'https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=ETH&api_key=6023fb8068e6f17fe63800ce08f15fb6bd88d7b3b825600d58736973a6aafd98';
+    $ar_data = json_decode( file_get_contents($json_url) );
+    $ETHUSD = 1 / $ar_data->{'ETH'}; 
+    
     $weth_contract = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619';
-
     $json_token_pool = 'https://api.polygonscan.com/api?module=account&action=tokenbalance&contractaddress=' . $contract . '&address=' . $pool . '&tag=latest&apikey=Y7KBS7GQBHUEQ3CM3JSQK1I69UIGGPDC1J';
     $json_weth_pool  = 'https://api.polygonscan.com/api?module=account&action=tokenbalance&contractaddress=' . $weth_contract . '&address=' . $pool . '&tag=latest&apikey=Y7KBS7GQBHUEQ3CM3JSQK1I69UIGGPDC1J';
-
-
-    $json = file_get_contents($json_url);
-    $ar_data = json_decode($json);
-    $ETHUSD = 1 / $ar_data->{'ETH'};
-
-
     $token_pool_value = tokenbalance($json_token_pool) / 10 ** $decimal_value;
-
-
     $weth_pool_value = tokenbalance($json_weth_pool) / 10 ** 18;
 
 
@@ -73,6 +67,7 @@ if ($result->num_rows > 0) {
         }
 
         if ($ticker_symbol == "aWBTC") {
+            $BTCUSD = (float)str_replace(',', '', $BTCUSD);
             $price = $BTCUSD;
         } else if ($ticker_symbol == "USDC.e") {
             $price = 0;
@@ -81,34 +76,47 @@ if ($result->num_rows > 0) {
         } else if ($ticker_symbol == "WMATIC") {
             $price = $MATICUSD;
         } else if ($ticker_symbol == "BRZ") {
-            $price = 0;
-        } else if ($ticker_symbol == "aEURS") {
-            $price = 0;
-        }
+            $price = $BRZUSD;
+        } else if ($ticker_symbol == "USDC") {
+            $price = $USDCUSD;
+        } else if ($ticker_symbol == "USDT") {
+            $price = $USDTUSD; 
+        } else if ($ticker_symbol == "DAI") {
+            $price = $DAIUSD; 
+        } else if ($ticker_symbol == "BUSD") {
+            $price = $BUSDUSD; 
+        } else if ($ticker_symbol == "BNB") {
+            $price = $BNBUSD; 
+        } else if ($ticker_symbol == "MATIC") {
+            $price = $MATICUSD; }
 
 
 
-        $jsonData[$id] = [
-            "name" => $name,
-            "ticker" => $ticker_symbol,
-            "contract" => $contract,
-            "decimals" => (int)$decimal_value,
-            "network" => $network,
-            "price" => floatval($price)
-        ];
+            $jsonData[$id] = [
+                "name" => $name,
+                "ticker" => $ticker_symbol,
+                "contract" => $contract,
+                "decimals" => (int)$decimal_value,
+                "network" => $network,
+                "price" => $ticker_symbol === 'PLT' ? floatval($price) : round(floatval($price), 4)
+            ];
+            
 
-        // Adicionar linha HTML
+
         $htmlRows .= "<tr>
-            <td>$id</td>
-            <td>$name</td>
-            <td>$ticker_symbol</td>
-   
-            <td><a href='https://polygonscan.com/token/" . $contract . "'>" . substr($contract, 0, 6) . "..." . substr($contract, -4) . "</a></td>
-            <td>$decimal_value</td>
-            <td>$network</td>
-            <td>$price</td>
-            <td> <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>   <a href='#' onclick='confirmDelete(" . $row["id"] . ")'><i style='color: red;' class='fa-solid fa-trash'></i></a></td>
-        </tr>";
+        <td>$id</td>
+        <td>$name</td>
+        <td>$ticker_symbol</td>
+        <td><a href='https://polygonscan.com/token/" . $contract . "'>" . substr($contract, 0, 6) . "..." . substr($contract, -4) . "</a></td>
+        <td>$decimal_value</td>
+        <td>$network</td>
+        <td>" . ($ticker_symbol === 'PLT' ? $price : number_format((float)str_replace(',', '', $price), 4)) . "</td>
+        <td><a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a> 
+            <a href='#' onclick='confirmDelete(" . $row["id"] . ")'><i style='color: red;' class='fa-solid fa-trash'></i></a>
+        </td>
+    </tr>";
+    
+    
     }
 }
 
@@ -116,7 +124,7 @@ if ($result->num_rows > 0) {
 $jsonData['timestamp'] = date('c'); // ISO 8601 timestamp
 
 
-file_put_contents('assets_data.json', json_encode($jsonData, JSON_NUMERIC_CHECK));
+file_put_contents('assets_data.json', json_encode($jsonData, ));
 
 
 $conn->close();
