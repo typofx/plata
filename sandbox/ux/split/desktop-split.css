@@ -1,97 +1,51 @@
-body {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.main-content {
+.background-ground {
+    background-image: url("https://www.plata.ie/images/background02.jpg");
+    background-color: #cccccc;
     width: 100%;
-    background: linear-gradient(to top left, #c3cbdc, #eceff4);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    height: 680px;
 }
 
-.title {
+.tb-token {
+    border-collapse: collapse;
+    color: white;
+    width: 100%;
+}
+
+.tb-subtitle {
+    width: 100%;
     text-align: center;
-    margin-bottom: 40px;
-    font-family: 'Montserrat';
-}
-
-.token-title {
+    display: none;
     font-size: 22px;
-    margin-top: -25px;
-    margin-bottom: 20px;
     font-family: 'Montserrat';
-    display: none;
+    color: black;
 }
 
-#radio-2024:checked ~ .main-content .token-title-2024,
-#radio-2023:checked ~ .main-content .token-title-2023,
-#radio-nft:checked ~ .main-content .token-title-nft,
-#radio-2022:checked ~ .main-content .token-title-2022 {
-    display: block;
+#radio-2024:checked~.background-ground .token-title-2024,
+#radio-2023:checked~.background-ground .token-title-2023,
+#radio-nft:checked~.background-ground .token-title-nft,
+#radio-2022:checked~.background-ground .token-title-2022 {
+    display: table;
 }
 
-.graph-footer {
-    margin-top: 20px;
-    margin-bottom: 30px;
-    font-family: 'Montserrat';
-    background-color: #5a5a5a;
-    color: white;
-    font-size: 14px;
-    padding: 8px;
-    border-radius: 10px;
-}
-
-.split-tables {
-    display: flex;
-    justify-content: space-between;
-}
-
-.left-column,
-.right-column {
-    flex: 1;
-    margin: 10px;
-
-}
-
-.left-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.token-list {
-    margin-left: 10px;
-    display: none;
-    flex-wrap: wrap;
-    font-size: 14px;
-    padding: 10px;
-    height: 330px;
-    width: 620px;
-    border-radius: 10px;
-    background-color: #9a9ea5;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    flex-direction: column; 
-}
-
-.token-item {
-    display: block;
-    box-sizing: border-box;
-    width: 45%;
-    margin-bottom: 10px;
-    padding: 10px;
-    font-family: 'Montserrat';
+.line-column-border {
+    border-collapse: collapse;
     color: white;
 }
 
-#radio-2024:checked ~ .main-content .token-list-2024,
-#radio-2023:checked ~ .main-content .token-list-2023,
-#radio-nft:checked ~ .main-content .token-list-nft,
-#radio-2022:checked ~ .main-content .token-list-2022 {
-    display: flex;
+.td-tb-info {
+    text-align: left;
+    color: white;
+    padding-left: 15px;
 }
 
+.td-info-top {
+    border-top: none;
+}
+
+.td-info-left {
+    border-left: none;
+}
 
 .color-box {
     display: inline-block;
@@ -101,59 +55,127 @@ body {
     vertical-align: middle;
 }
 
-.buttons-content {
-    display: flex;
-    align-items: center;
-    margin-left: 40px;
-    margin-bottom: 50px;
+.a-list {
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 6px 12px;
+    color: white;
 }
 
-.button {
+.tb-info {
+    display: none;
+    width: 90%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(105, 105, 105, 0.50);
+    height: 364px;
+    border-collapse: collapse;
+    overflow: hidden;
+    padding: 10px;
+}
+
+#radio-2024:checked~.background-ground .token-list-2024,
+#radio-2023:checked~.background-ground .token-list-2023,
+#radio-nft:checked~.background-ground .token-list-nft,
+#radio-2022:checked~.background-ground .token-list-2022 {
+    display: flex;
+}
+
+.td-token-column {
+    padding-left: 20px;
+    width: 50%;
+    padding: 1px;
+    border-radius: 5%;
+    padding-left: 20px;
+}
+
+.td-token-split {
+    text-align: center;
+}
+
+.split-table {
+    display: none;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#radio-2024:checked~.background-ground .donut-2024,
+#radio-2023:checked~.background-ground .graph-view-2023,
+#radio-nft:checked~.background-ground .graph-view-nft,
+#radio-2022:checked~.background-ground .graph-view-2022 {
+    display: table;
+}
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: 350px;
+}
+
+.split-table-buttons {
+    width: 40px;
+    border-collapse: collapse;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.tdwid {
+    width: 100px;
+}
+
+.button-year {
     width: 95px;
     height: 40px;
-    margin-right: 2px;
+    display: block;
     background-color: #6E46AE;
     border-radius: 6px;
     border: 0px solid #3D3D3D;
     color: white;
     font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: 0.3s;
     font-family: 'Montserrat';
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.button:hover {
+.button-year:hover {
     background-color: #8247E5 !important;
+    border-radius: 6px !important;
     color: white !important;
+    transition: 0.3s !important;
 }
 
-
-.radio-inv:not(:checked) ~ .main-content .label-2024,
-.radio-inv:not(:checked) ~ .main-content .label-2023,
-.radio-inv:not(:checked) ~ .main-content .label-nft,
-.radio-inv:not(:checked) ~ .main-content .label-2022 {
+.radio-inv:not(:checked)~.background-ground .label-2024,
+.radio-inv:not(:checked)~.background-ground .label-2023,
+.radio-inv:not(:checked)~.background-ground .label-nft,
+.radio-inv:not(:checked)~.background-ground .label-2022 {
     background-color: #EBECF0;
     color: #5A5A5A;
 }
 
-#radio-2024:checked ~ .main-content .label-2024,
-#radio-2023:checked ~ .main-content .label-2023,
-#radio-nft:checked ~ .main-content .label-nft,
-#radio-2022:checked ~ .main-content .label-2022 {
+#radio-2024:checked~.background-ground .label-2024,
+#radio-2023:checked~.background-ground .label-2023,
+#radio-nft:checked~.background-ground .label-nft,
+#radio-2022:checked~.background-ground .label-2022 {
     background-color: #6E46AE;
     color: white;
 }
 
-.typo-fx {
-    margin: auto;
-    color: #9a9ea5;
-    font-size: 24px;
-    font-family: 'Montserrat';
-}
 
 .donut {
     display: block;
@@ -161,6 +183,7 @@ body {
     width: 350px;
     height: 350px;
     border-radius: 50%;
+    margin: 0 auto;
 }
 
 .donut.inative {
@@ -171,7 +194,7 @@ body {
     width: calc(100% - 90px);
     height: calc(100% - 90px);
     border-radius: 50%;
-    background: #dce1eb;
+    background: #e1e6ec;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -179,27 +202,31 @@ body {
     z-index: 2;
 }
 
-.donut,
-.graph-view {
-    display: none;
+.td-suply {
+    text-align: center;
+    padding: 30px;
 }
 
-#radio-2024:checked ~ .main-content .donut-2024,
-#radio-2023:checked ~ .main-content .graph-view-2023,
-#radio-nft:checked ~ .main-content .graph-view-nft,
-#radio-2022:checked ~ .main-content .graph-view-2022 {
-    display: block;
+.gray-button {
+    display: inline-block;
+    background-color: #5A5A5A;
+    border-radius: 8px;
+    border: 0px solid #3D3D3D;
+    font-size: 13px;
+    font-family: 'Montserrat';
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 6px 12px;
+    color: white;
 }
 
-.buttons-content {
-    display: flex;
-    gap: 10px;
+.tb-typofx {
+    font-size: 22px;
+    font-family: 'Montserrat';
+    color: rgb(110, 70, 174);
 }
 
 .radio-inv {
     display: none;
-}
-
-img {
-    width: 350px;
 }

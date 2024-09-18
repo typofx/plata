@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+.body-listing {
+    background-color: #EBECF0;
+}
+
+img {
+    border: none;
+    overflow: hidden;
+}
+
+.listing {
+    background-color: #3D3D3D;
+    border-radius: 6px;
+    width: 95%;
+    margin: 0 auto;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.listing-container {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 0.7rem;
+    width: 100%;
+    background-color: #151515;
+    border-radius: 6px;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+.search-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+}
+
+.listing-container td {
+    cursor: default;
+    text-align: center;
+    padding: 5px;
+}
+
+.border-bottom1px {
+    border-bottom: none;
+}
+
+.number {
+    width: 20px;
+}
+
+.platform1 {
+    text-align: left;
+    width: auto;
+    color: #fff;
+	
+}
+
+.platform-data:hover {
+    background-color: transparent;
+}
+
+.text-number {
+    font-size: 12px;
+    color: rgb(134, 153, 184);
+}
+
+.title-plataforma {
+    text-align: center;
+}
+
+body {
+    font-family: Montserrat;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.a-listing-places:link,
+.a-listing-places:visited {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.a-listing-places:hover {
+    color: #6E46AE;
+}
+
+.a-listing-places:visited:hover {
+    color: #DBA7D8;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.button {
+    background-color: purple;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 0 1.5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+center {
+    background-color: #575757;
+    color: #fff;
+}
