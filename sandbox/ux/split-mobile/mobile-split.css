@@ -1,0 +1,162 @@
+.token-title {
+    margin-bottom: 20px;
+    display: none;
+}
+
+#radio-2024:checked~.main-content .token-title-2024,
+#radio-2023:checked~.main-content .token-title-2023,
+#radio-nft:checked~.main-content .token-title-nft,
+#radio-2022:checked~.main-content .token-title-2022 {
+    display: block;
+}
+
+.graph-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.legend {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: auto;
+    min-height: 30vh;
+}
+
+.token-list {
+    padding-inline-start: 0;
+    display: none;
+    flex-direction: column;
+}
+
+.token-item {
+    display: block;
+    margin-left: 5px;
+}
+
+#radio-2024:checked~.main-content .token-list-2024,
+#radio-2023:checked~.main-content .token-list-2023,
+#radio-nft:checked~.main-content .token-list-nft,
+#radio-2022:checked~.main-content .token-list-2022 {
+    display: flex;
+}
+
+.color-box {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.buttons-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.button {
+    width: 20vw;
+    height: 5.5vh;
+    background-color: #6e46ae;
+    border-radius: 6px;
+    border: 0px solid #3D3D3D;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:hover {
+    background-color: #8247E5 !important;
+    color: white !important;
+}
+
+
+.radio-inv:not(:checked)~.main-content .label-2024,
+.radio-inv:not(:checked)~.main-content .label-2023,
+.radio-inv:not(:checked)~.main-content .label-nft,
+.radio-inv:not(:checked)~.main-content .label-2022 {
+    background-color: #ebecf0;
+    color: #5A5A5A;
+}
+
+/* Buttons inactive Darkmode */
+.radio-inv:not(:checked)~.main-content .label-2024.darkmode,
+.radio-inv:not(:checked)~.main-content .label-2023.darkmode,
+.radio-inv:not(:checked)~.main-content .label-nft.darkmode,
+.radio-inv:not(:checked)~.main-content .label-2022.darkmode {
+    background-color: #3A3B3C;
+    color: white;
+}
+
+#radio-2024:checked~.main-content .label-2024,
+#radio-2023:checked~.main-content .label-2023,
+#radio-nft:checked~.main-content .label-nft,
+#radio-2022:checked~.main-content .label-2022 {
+    background-color: #6E46AE;
+    color: white;
+}
+
+/* Buttons active Darkmode */
+#radio-2024:checked~.main-content .label-2024.darkmode,
+#radio-2023:checked~.main-content .label-2023.darkmode,
+#radio-nft:checked~.main-content .label-nft.darkmode,
+#radio-2022:checked~.main-content .label-2022.darkmode {
+    background-color: #6E46AE;
+    color: white;
+}
+
+.donut {
+    display: none;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.donut.inative {
+    display: none;
+}
+
+.donut-hole {
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.darkmode-background{
+    background-color: #222222;
+}
+
+.graph-view {
+    display: none;
+}
+
+#radio-2024:checked~.main-content .donut-2024,
+#radio-2023:checked~.main-content .graph-view-2023,
+#radio-nft:checked~.main-content .graph-view-nft,
+#radio-2022:checked~.main-content .graph-view-2022 {
+    display: block;
+}
+
+.radio-inv {
+    display: none;
+}

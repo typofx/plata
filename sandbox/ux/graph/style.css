@@ -1,0 +1,201 @@
+#grid {
+  -moz-transform: translate(1px, 0px);
+  -ms-transform: translate(1px, 0px);
+  -webkit-transform: translate(1px, 0px);
+  transform: translate(0px, 0px);
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.legend-y {
+  position: absolute;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.legend-y.max {
+  top: 0;
+}
+
+.price-legend {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  pointer-events: none;
+}
+
+.legend-y.min {
+  bottom: 0;
+  margin-bottom: -15px;
+}
+
+.price-legend-right {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 40px;
+  height: 90%;
+  font-size: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.price-step {
+  font-size: 0.9em;
+  color: #ccc;
+  text-align: right;
+  right: -9px;
+}
+
+.time-legend {
+  font-size: 14px;
+  margin-top: -15px;
+  color: #ccc;
+  width: 100%;
+  overflow-x: visible;
+  white-space: nowrap;
+}
+
+.time-month {
+  text-align: left;
+  font-size: 0.6em;
+  display: inline-block;
+}
+
+.percentage-change {
+  position: relative;
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+.percentage-change.positive {
+  color: #00d5bd;
+}
+
+.percentage-change.negative {
+  color: #fc327d;
+}
+
+#graph-1 {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  -moz-animation: lineani 1.3s linear forwards;
+  -webkit-animation: lineani 1.3s linear forwards;
+  animation: lineani 1.3s linear forwards;
+}
+
+@-moz-keyframes lineani {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes lineani {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes lineani {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.underlay {
+  stroke-width: 5;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #24303a;
+}
+
+.charts-container {
+  margin: 0;
+  width: 100%;
+  max-width: 1024px;
+  display: inline-block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.chart {
+  width: 100%;
+  color: #4a667a;
+  text-align: left;
+  position: relative;
+  height: auto;
+  background-color: #1e2730;
+  display: inline-block;
+  margin: 0px;
+  padding: 3px 35px 11px 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.chart-svg {
+  position: relative;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.chart-line {
+  height: auto;
+  position: relative;
+  width: 100%;
+}
+
+.chart-values {
+  text-align: right;
+  font-size: 18px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+}
+
+.total-gain {
+  color: white;
+  font-size: 48px;
+}
+
+.h-value {
+  -moz-transition: ease-in-out 700ms;
+  -o-transition: ease-in-out 700ms;
+  -webkit-transition: ease-in-out 700ms;
+  transition: ease-in-out 700ms;
+}
+
+.horizontal,
+.vertical {
+  stroke-width: 0.1;
+  stroke: #4a667a;
+}
+
+/* CLEARFIX HELPER */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
