@@ -134,6 +134,42 @@ if (isset($_GET['employee_id'])) {
     <br>
     <br>
 
+
+
+    <?php
+
+
+
+$sql = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = $employee_id";
+$result = $conn->query($sql);
+
+
+$totalWage = 0;
+$totalWagePlt = 0;
+$totalWageEur = 0;
+
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $totalWage += (float) $row['pltusd0'] + (float) $row['pltusd1'] + (float) $row['pltusd2'] + (float) $row['pltusd3'];
+        $totalWagePlt += (float) $row['plt0'] + (float) $row['plt1'] + (float) $row['plt2'] + (float) $row['plt3'];
+        $totalWageEur += (float) $row['plteur0'] + (float) $row['plteur1'] + (float) $row['plteur2'] + (float) $row['plteur3'];
+    }
+}
+
+
+echo "<p>2024 : (USDT): $" . number_format($totalWage, 2) . "</p>";
+//echo "<p>Total Wage (PLT): " . number_format($totalWagePlt, 4) . "</p>";
+//echo "<p>Total Wage (EUR): " . number_format($totalWageEur, 2) . "</p>";
+
+
+$result->data_seek(0);
+
+?>
+
+
+
+
     <a href="add_week.php?employee_id=<?php echo $employee_id ?>" onclick="return confirm('Are you sure you want to add a new week?')">[Add New Week]</a>
     <a href="reset_employee_emails.php?employee_id=<?php echo $employee_id ?>">[Reset all emails]</a>
     <a href="<?php include $_SERVER['DOCUMENT_ROOT']; ?>/plataforma/painel/team/docs/edit.php?id=<?php echo $ern ?>">[DOCS]</a>
@@ -149,6 +185,9 @@ if (isset($_GET['employee_id'])) {
                 <th>Month</th>
                 <th>Txn Hash</th>
                 <th>Status</th>
+                <th>Wage</th>
+                <th>PLTUSDT</th>
+                <th>EURUSDT</th>
                 <th>WEEK</th>
                 <th>MONTH</th>
                 <th>Actions</th>
@@ -181,7 +220,7 @@ if (isset($_GET['employee_id'])) {
                     return (date('d', strtotime($start_date)) >= 25 && date('d', strtotime($start_date)) <= $last_day_of_start_month) || $is_end_of_next_month;
                 }
 
-                // Função para verificar se todas as semanas do mês estão pagas
+         
                 function allWeeksPaid($month, $employee_id, $conn)
                 {
                     $check_status_query = "SELECT COUNT(*) AS pending_count 
@@ -217,7 +256,7 @@ if (isset($_GET['employee_id'])) {
                         $is_end_of_month = isLastWeekOfMonth($start_date, $end_date);
                     }
 
-                    // Atualiza o mês no banco de dados
+                
                     $update_query = "UPDATE granna80_bdlinks.work_weeks SET month = ? WHERE id = ?";
                     $stmt = $conn->prepare($update_query);
                     $stmt->bind_param("si", $month_to_display, $row['id']);
@@ -231,7 +270,7 @@ if (isset($_GET['employee_id'])) {
                     $stmt->close();
 
 
-                    // Geração do ícone de recibo semanal
+               
                     if ($row['status'] == 'Paid') {
                         $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' target='_blank'><i class='fa-solid fa-receipt'></i></a>";
                     } else {
@@ -275,7 +314,7 @@ if (isset($_GET['employee_id'])) {
 
 
                     echo "<tr>
-        <td><b>{$row['work_week']}</b></td>
+        <td><b># {$row['work_week']}</b></td>
         <td>" . date('Y', strtotime($row['start_week'])) . "</td>
         <td>" . date('d M', strtotime($row['start_week'])) . " - " . date('d M', strtotime($row['end_week'])) . "</td>
         <td>{$month_to_display}</td>
@@ -287,9 +326,19 @@ if (isset($_GET['employee_id'])) {
                         echo '<i class="fa-solid fa-circle-xmark" style="color: #ff0000;"></i>';
                     }
 
+                    $wage = $row['pltusd0'] + $row['pltusd1'] + $row['pltusd2'] + $row['pltusd3'];
+
+                    $wageplt = $row['plt0'] + $row['plt1'] + $row['plt2'] + $row['plt3'];
+
+                    $wageeur = $row['plteur0'] + $row['plteur1'] + $row['plteur2'] + $row['plteur3'];
+
+             
 
                     echo "</td>
                     <td>{$row['status']}</td>
+                      <td>$" . number_format($wage, 2, '.', ',') . " USDT</td>
+                        <td>$" . number_format($wageplt, 4, '.', ',') . " PLT</td>
+                          <td>$" . number_format($wageeur, 2, '.', ',') . " EUR</td>
                     <td>{$week_receipt_icon}</td>
                     <td>{$invoice_icon}</td>
                     <td>
@@ -336,7 +385,7 @@ if (isset($_GET['employee_id'])) {
                         "targets": 0
                     },
                     {
-                        "width": "20px",
+                        "width": "200px",
                         "targets": 7
                     }
                 ],

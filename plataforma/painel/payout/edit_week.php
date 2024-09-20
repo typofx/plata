@@ -175,6 +175,9 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
     <h1>Edit Week</h1>
 
     <form method="post">
+        <label for="work_week"># Work week:</label><br>
+        <input type="number" id="work_week" name="work_week" value="<?php echo htmlspecialchars($week_data['work_week']); ?>"><br><br>
+
         <label for="start_week">Start of the Week:</label><br>
         <input type="date" id="start_week" name="start_week" value="<?php echo htmlspecialchars($week_data['start_week']); ?>"><br><br>
 
