@@ -2,13 +2,9 @@
 <?php
 include 'conexao.php';
 
-ob_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
 
-ob_end_clean();
 
-echo $PLTUSD . '<br>';
-echo $USDEUR;
+
 
 if (isset($_GET['week']) && isset($_GET['employee_id'])) {
     $week_id = $_GET['week'];
@@ -27,11 +23,20 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         exit();
     }
 
+    //echo $PLTUSD;
+    //echo $EURUSD;
+
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $start_week = $_POST['start_week'];
         $end_week = $_POST['end_week'];
         $status = $_POST['status'];
         $working_hours = !empty($_POST['working_hours']) && is_numeric($_POST['working_hours']) ? $_POST['working_hours'] : 0;
+        $weekly_value_pltusd = $_POST['weekly_value_pltusd'];
+        $weekly_value_plteur = $_POST['weekly_value_plteur'];
+
+        $PLTUSD = isset($week_data['weekly_value_pltusd']) ? (float)$week_data['weekly_value_pltusd'] : (float)$weekly_value_pltusd;
+        $EURUSD = isset($week_data['weekly_value_plteur']) ? (float)$week_data['weekly_value_plteur'] : (float)$weekly_value_plteur;
 
 
 
@@ -48,15 +53,16 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
             if ($currency === 'PLT') {
                 $plt_value = $amount;
                 $pltusd_value = $amount * $PLTUSD;
-                $plteur_value = $pltusd_value * $USDEUR;
+                $plteur_value = $pltusd_value / $EURUSD; // Agora dividimos por EURUSD
             } else if ($currency === 'USDT') {
                 $plt_value = ($amount / $PLTUSD);
-                $plteur_value = $amount * $USDEUR;
+                $plteur_value = $amount / $EURUSD; // Agora dividimos por EURUSD
                 $pltusd_value = $amount;
             } else {
                 $plt_value = ($amount / $PLTUSD);
                 $pltusd_value = $amount;
             }
+
 
             $transactions[] = [
                 'hash' => $_POST['hash'][$i] ?? '',
@@ -70,7 +76,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         }
 
         $sql_update = "UPDATE granna80_bdlinks.work_weeks 
-        SET start_week = ?, end_week = ?, status = ?, working_hours = ?, 
+        SET start_week = ?, end_week = ?, status = ?, working_hours = ?, weekly_value_pltusd = ?, weekly_value_plteur = ?,
             hash0 = ?, type0 = ?, currency0 = ?, amount0 = ?, pltusd0 = ?, plt0 = ?, plteur0 = ?,
             hash1 = ?, type1 = ?, currency1 = ?, amount1 = ?, pltusd1 = ?, plt1 = ?, plteur1 = ?,
             hash2 = ?, type2 = ?, currency2 = ?, amount2 = ?, pltusd2 = ?, plt2 = ?, plteur2 = ?,
@@ -79,11 +85,13 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
         $stmt_update = $conn->prepare($sql_update);
         $stmt_update->bind_param(
-            "ssssssssssssssssssssssssssssssssii",
+            "ssssssssssssssssssssssssssssssssssii",
             $start_week,
             $end_week,
             $status,
             $working_hours,
+            $weekly_value_pltusd,
+            $weekly_value_plteur,
 
             $transactions[0]['hash'],
             $transactions[0]['type'],
@@ -119,8 +127,8 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
         if ($stmt_update->execute()) {
             echo "Week updated successfully.";
-            echo "<script>window.location.href='work_weeks.php?employee_id=" . $employee_id . "';</script>";
-            exit();
+            // echo "<script>window.location.href='work_weeks.php?employee_id=" . $employee_id . "';</script>";
+            //exit();
         } else {
             echo "Error updating week: " . $conn->error;
         }
@@ -195,6 +203,15 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
             <option value="Pending" <?php echo $week_data['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
             <option value="Processing" <?php echo $week_data['status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
         </select><br><br>
+
+
+        <label for="weekly_value_plteur">PLTEUR:</label><br>
+        <input type="number" id="weekly_value_plteur" name="weekly_value_plteur" value="<?php echo htmlspecialchars($week_data['weekly_value_plteur']); ?>" step="0.0000000001" min="0"><br><br>
+
+        <label for="weekly_value_pltusd">PLTUSD:</label><br>
+        <input type="number" id="weekly_value_pltusd" name="weekly_value_pltusd" value="<?php echo htmlspecialchars($week_data['weekly_value_pltusd']); ?>" step="0.0000000001" min="0"><br><br>
+
+
 
         <label for="hash_count">Number of Transactions:</label>
         <select id="hash_count" name="hash_count" onchange="showHashFields()">

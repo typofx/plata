@@ -1,7 +1,9 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
 include 'conexao.php';
-
+ob_start();
+include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
+ob_end_clean();
 if (isset($_GET['employee_id'])) {
     $employee_id = $_GET['employee_id'];
 
@@ -30,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $status = $_POST['status'];
 
 
-    $sql_insert = "INSERT INTO granna80_bdlinks.work_weeks (employee_id, work_week, start_week, end_week, status) VALUES (?, ?, ?, ?, ?)";
+    $sql_insert = "INSERT INTO granna80_bdlinks.work_weeks (employee_id, work_week, start_week, end_week, status, weekly_value_plteur, weekly_value_pltusd) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt_insert = $conn->prepare($sql_insert);
-    $stmt_insert->bind_param("iisss", $employee_id, $week, $start_week, $end_week,  $status);
+    $stmt_insert->bind_param("iisssss", $employee_id, $week, $start_week, $end_week,  $status, $EURUSD, $PLTUSD);
 
     if ($stmt_insert->execute()) {
         echo "New week added successfully!";
@@ -71,6 +73,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Pending">Pending</option>
             <option value="Processing">Processing</option>
         </select><br><br>
+
+        <label for="PLTUSDT">PLTUSDT: <?php echo $PLTUSD ?></label><br><br>
+        <label for="PLTUSDT">EURUSDT: <?php echo $EURUSD ?></label><br><br>
 
 
         <input type="submit" value="Add Week">
