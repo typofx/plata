@@ -60,7 +60,7 @@ if (isset($_GET['employee_id'])) {
 
     $prepared_stmt_uuid->close();
 
-    $sql_weeks = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = ?";
+    $sql_weeks = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = ? ORDER BY work_week DESC";
     $stmt_weeks = $conn->prepare($sql_weeks);
     $stmt_weeks->bind_param("i", $employee_id);
     $stmt_weeks->execute();
@@ -140,32 +140,33 @@ if (isset($_GET['employee_id'])) {
 
 
 
-$sql = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = $employee_id";
-$result = $conn->query($sql);
+    $sql = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = $employee_id ORDER BY work_week DESC";
+
+    $result = $conn->query($sql);
 
 
-$totalWage = 0;
-$totalWagePlt = 0;
-$totalWageEur = 0;
+    $totalWage = 0;
+    $totalWagePlt = 0;
+    $totalWageEur = 0;
 
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $totalWage += (float) $row['pltusd0'] + (float) $row['pltusd1'] + (float) $row['pltusd2'] + (float) $row['pltusd3'];
-        $totalWagePlt += (float) $row['plt0'] + (float) $row['plt1'] + (float) $row['plt2'] + (float) $row['plt3'];
-        $totalWageEur += (float) $row['plteur0'] + (float) $row['plteur1'] + (float) $row['plteur2'] + (float) $row['plteur3'];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $totalWage += (float) $row['pltusd0'] + (float) $row['pltusd1'] + (float) $row['pltusd2'] + (float) $row['pltusd3'];
+            $totalWagePlt += (float) $row['plt0'] + (float) $row['plt1'] + (float) $row['plt2'] + (float) $row['plt3'];
+            $totalWageEur += (float) $row['plteur0'] + (float) $row['plteur1'] + (float) $row['plteur2'] + (float) $row['plteur3'];
+        }
     }
-}
 
 
-echo "<p>2024 : (USDT): $" . number_format($totalWage, 2) . "</p>";
-//echo "<p>Total Wage (PLT): " . number_format($totalWagePlt, 4) . "</p>";
-//echo "<p>Total Wage (EUR): " . number_format($totalWageEur, 2) . "</p>";
+    echo "<p>2024 : (USDT): $" . number_format($totalWage, 2) . "</p>";
+    //echo "<p>Total Wage (PLT): " . number_format($totalWagePlt, 4) . "</p>";
+    //echo "<p>Total Wage (EUR): " . number_format($totalWageEur, 2) . "</p>";
 
 
-$result->data_seek(0);
+    $result->data_seek(0);
 
-?>
+    ?>
 
 
 
@@ -179,6 +180,7 @@ $result->data_seek(0);
     <table id="weeksTable" class="display">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Week</th>
                 <th>Year</th>
                 <th>Monday - Friday</th>
@@ -188,6 +190,7 @@ $result->data_seek(0);
                 <th>Wage</th>
                 <th>PLTUSDT</th>
                 <th>EURUSDT</th>
+                <th>Generated on</th>
                 <th>WEEK</th>
                 <th>MONTH</th>
                 <th>Actions</th>
@@ -196,6 +199,7 @@ $result->data_seek(0);
         <tbody>
             <?php
             if ($result_weeks->num_rows > 0) {
+                $cont = 1;
                 function getDaysInMonthRange($start_date, $end_date, $month, $year)
                 {
                     $start = max(strtotime("first day of $month $year"), strtotime($start_date));
@@ -217,10 +221,10 @@ $result->data_seek(0);
                     $is_end_of_next_month = date('d', strtotime($end_date)) <= 7 && date('m', strtotime($start_date)) != date('m', strtotime($end_date));
 
 
-                    return (date('d', strtotime($start_date)) >= 25 && date('d', strtotime($start_date)) <= $last_day_of_start_month) || $is_end_of_next_month;
+                    return (date('d', strtotime($start_date)) >= 23 && date('d', strtotime($start_date)) <= $last_day_of_start_month) || $is_end_of_next_month;
                 }
 
-         
+
                 function allWeeksPaid($month, $employee_id, $conn)
                 {
                     $check_status_query = "SELECT COUNT(*) AS pending_count 
@@ -236,7 +240,11 @@ $result->data_seek(0);
                     return $status_row['pending_count'] == 0;
                 }
 
+
+                
+
                 while ($row = $result_weeks->fetch_assoc()) {
+
                     $start_date = $row['start_week'];
                     $end_date = $row['end_week'];
 
@@ -256,7 +264,7 @@ $result->data_seek(0);
                         $is_end_of_month = isLastWeekOfMonth($start_date, $end_date);
                     }
 
-                
+
                     $update_query = "UPDATE granna80_bdlinks.work_weeks SET month = ? WHERE id = ?";
                     $stmt = $conn->prepare($update_query);
                     $stmt->bind_param("si", $month_to_display, $row['id']);
@@ -270,7 +278,7 @@ $result->data_seek(0);
                     $stmt->close();
 
 
-               
+
                     if ($row['status'] == 'Paid') {
                         $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' target='_blank'><i class='fa-solid fa-receipt'></i></a>";
                     } else {
@@ -292,7 +300,7 @@ $result->data_seek(0);
                         $week_receipt_icon_email = "<img src='email_tobe_b.png' alt='Email To Be Sent' style='margin-right: 10px; color: grey;'>";
                     }
 
-
+                    $generated = $row['created_at'];
 
                     // Geração do ícone de invoice (somente no final do mês)
                     if ($is_end_of_month) {
@@ -314,7 +322,8 @@ $result->data_seek(0);
 
 
                     echo "<tr>
-        <td><b># {$row['work_week']}</b></td>
+                    <td><b>{$cont}</b></td>
+        <td><b>" . intval($row['work_week']) . "</b></td>
         <td>" . date('Y', strtotime($row['start_week'])) . "</td>
         <td>" . date('d M', strtotime($row['start_week'])) . " - " . date('d M', strtotime($row['end_week'])) . "</td>
         <td>{$month_to_display}</td>
@@ -332,13 +341,14 @@ $result->data_seek(0);
 
                     $wageeur = $row['plteur0'] + $row['plteur1'] + $row['plteur2'] + $row['plteur3'];
 
-             
+
 
                     echo "</td>
                     <td>{$row['status']}</td>
                       <td>$" . number_format($wage, 2, '.', ',') . " USDT</td>
-                        <td>$" . number_format($wageplt, 4, '.', ',') . " PLT</td>
-                          <td>$" . number_format($wageeur, 2, '.', ',') . " EUR</td>
+                    <td>" . (isset($row['weekly_value_pltusd']) ? $row['weekly_value_pltusd'] : 0) . "</td>
+                    <td>" . (isset($row['weekly_value_plteur']) ? $row['weekly_value_plteur'] : 0) . "</td>
+                    <td>" . substr($generated, 0, 10) . "</td>
                     <td>{$week_receipt_icon}</td>
                     <td>{$invoice_icon}</td>
                     <td>
@@ -354,6 +364,7 @@ $result->data_seek(0);
                         </a>
                     </td>
                 </tr>";
+                $cont++;
                 }
             } else {
                 echo "<tr><td colspan='8'>No work weeks found</td></tr>";
@@ -385,16 +396,16 @@ $result->data_seek(0);
                         "targets": 0
                     },
                     {
-                        "width": "200px",
+                        "width": "100px",
                         "targets": 7
-                    }
+                    },
+
                 ],
-                "order": [
-                    [0, 'desc']
-                ]
+               
             });
         });
     </script>
+
 
 </body>
 
