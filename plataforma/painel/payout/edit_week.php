@@ -28,6 +28,9 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $generated_at = $_POST['generated_at'];
+        $datetime = date('Y-m-d H:i:s', strtotime($generated_at));
+
         $start_week = $_POST['start_week'];
         $end_week = $_POST['end_week'];
         $status = $_POST['status'];
@@ -76,7 +79,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         }
 
         $sql_update = "UPDATE granna80_bdlinks.work_weeks 
-        SET start_week = ?, end_week = ?, status = ?, working_hours = ?, weekly_value_pltusd = ?, weekly_value_plteur = ?,
+        SET created_at  = ?, start_week = ?, end_week = ?, status = ?, working_hours = ?, weekly_value_pltusd = ?, weekly_value_plteur = ?,
             hash0 = ?, type0 = ?, currency0 = ?, amount0 = ?, pltusd0 = ?, plt0 = ?, plteur0 = ?,
             hash1 = ?, type1 = ?, currency1 = ?, amount1 = ?, pltusd1 = ?, plt1 = ?, plteur1 = ?,
             hash2 = ?, type2 = ?, currency2 = ?, amount2 = ?, pltusd2 = ?, plt2 = ?, plteur2 = ?,
@@ -85,7 +88,8 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
         $stmt_update = $conn->prepare($sql_update);
         $stmt_update->bind_param(
-            "ssssssssssssssssssssssssssssssssssii",
+            "sssssssssssssssssssssssssssssssssssii",
+            $datetime,
             $start_week,
             $end_week,
             $status,
@@ -127,8 +131,8 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
         if ($stmt_update->execute()) {
             echo "Week updated successfully.";
-            // echo "<script>window.location.href='work_weeks.php?employee_id=" . $employee_id . "';</script>";
-            //exit();
+             echo "<script>window.location.href='work_weeks.php?employee_id=" . $employee_id . "';</script>";
+            exit();
         } else {
             echo "Error updating week: " . $conn->error;
         }
@@ -183,6 +187,13 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
     <h1>Edit Week</h1>
 
     <form method="post">
+
+
+    <label for="generated_at">Generated At:</label><br>
+<input type="datetime-local" id="generated_at" name="generated_at" 
+       value="<?php echo htmlspecialchars(date('Y-m-d\TH:i', strtotime($week_data['created_at']))); ?>"><br><br>
+
+
         <label for="work_week"># Work week:</label><br>
         <input type="number" id="work_week" name="work_week" value="<?php echo htmlspecialchars($week_data['work_week']); ?>"><br><br>
 
@@ -198,11 +209,14 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
 
         <label for="status">Status:</label><br>
-        <select id="status" name="status">
-            <option value="Paid" <?php echo $week_data['status'] == 'Paid' ? 'selected' : ''; ?>>Paid</option>
-            <option value="Pending" <?php echo $week_data['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
-            <option value="Processing" <?php echo $week_data['status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
-        </select><br><br>
+<select id="status" name="status">
+    <option value="Paid" <?php echo $week_data['status'] == 'Paid' ? 'selected' : ''; ?>>Paid</option>
+    <option value="Pending" <?php echo $week_data['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
+    <option value="Processing" <?php echo $week_data['status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
+    <option value="Holiday" <?php echo $week_data['status'] == 'Holiday' ? 'selected' : ''; ?>>Holiday</option>
+    <option value="Holiday (Paid)" <?php echo $week_data['status'] == 'Holiday (Paid)' ? 'selected' : ''; ?>>Holiday (Paid)</option>
+</select><br><br>
+
 
 
         <label for="weekly_value_plteur">PLTEUR:</label><br>
@@ -225,7 +239,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         <?php for ($i = 1; $i <= 4; $i++): ?>
             <div id="hash<?php echo $i; ?>" style="display: <?php echo !empty($week_data['hash' . ($i - 1)]) ? 'inline' : ($i === 1 ? 'inline' : 'none'); ?>">
                 <label style="display: inline; " for="hash[<?php echo $i - 1; ?>]">Transaction Hash <?php echo $i; ?>:</label>
-                <input style="display: inline; " type="text" name="hash[<?php echo $i - 1; ?>]" value="<?php echo htmlspecialchars($week_data['hash' . ($i - 1)]); ?>">
+                <input style="display: inline; " type="text" name="hash[<?php echo $i - 1; ?>]" value="<?php echo htmlspecialchars($week_data['hash' . ($i - 1)]); ?>" size="65">
 
                 <label style="display: inline; " for="type[<?php echo $i - 1; ?>]">Transaction Type:</label>
                 <select style="display: inline; " id="type<?php echo $i - 1; ?>" name="type[<?php echo $i - 1; ?>]" onchange="showAmountField(<?php echo $i - 1; ?>)">

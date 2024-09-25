@@ -135,7 +135,6 @@ if (isset($_GET['employee_id'])) {
     <br>
 
 
-
     <?php
 
 
@@ -152,21 +151,24 @@ if (isset($_GET['employee_id'])) {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $totalWage += (float) $row['pltusd0'] + (float) $row['pltusd1'] + (float) $row['pltusd2'] + (float) $row['pltusd3'];
+            //echo $totalWage . '<br>';
+            $totalWage += ($row['pltusd0'] + $row['pltusd1'] + $row['pltusd2'] + $row['pltusd3']);
             $totalWagePlt += (float) $row['plt0'] + (float) $row['plt1'] + (float) $row['plt2'] + (float) $row['plt3'];
-            $totalWageEur += (float) $row['plteur0'] + (float) $row['plteur1'] + (float) $row['plteur2'] + (float) $row['plteur3'];
+            $totalWageEur += ((float) ($row['pltusd0'] + $row['pltusd1'] + $row['pltusd2'] + $row['pltusd3']) / $row['weekly_value_plteur']);
         }
     }
 
 
-    echo "<p>2024 : (USDT): $" . number_format($totalWage, 2) . "</p>";
-    //echo "<p>Total Wage (PLT): " . number_format($totalWagePlt, 4) . "</p>";
-    //echo "<p>Total Wage (EUR): " . number_format($totalWageEur, 2) . "</p>";
+
+    echo "<p>2024 : " . number_format($totalWage, 2, '.', '') . " (USDT) : "
+        . number_format($totalWageEur, 2, '.', '') . " (EUR) : "
+        . number_format($totalWagePlt, 4, '.', ',') . " (PLT)</p>";
 
 
     $result->data_seek(0);
 
     ?>
+
 
 
 
@@ -187,7 +189,7 @@ if (isset($_GET['employee_id'])) {
                 <th>Month</th>
                 <th>Txn Hash</th>
                 <th>Status</th>
-                <th>Wage</th>
+                <th>Wage (USDT)</th>
                 <th>PLTUSDT</th>
                 <th>EURUSDT</th>
                 <th>Generated on</th>
@@ -199,7 +201,7 @@ if (isset($_GET['employee_id'])) {
         <tbody>
             <?php
             if ($result_weeks->num_rows > 0) {
-                $cont = 1;
+                $cont = $result_weeks->num_rows;
                 function getDaysInMonthRange($start_date, $end_date, $month, $year)
                 {
                     $start = max(strtotime("first day of $month $year"), strtotime($start_date));
@@ -214,15 +216,40 @@ if (isset($_GET['employee_id'])) {
 
                 function isLastWeekOfMonth($start_date, $end_date)
                 {
-
+                    // Último dia do mês de início
                     $last_day_of_start_month = date('t', strtotime($start_date));
-
-
+                
+                    // Verifica se a semana se estende para o próximo mês
                     $is_end_of_next_month = date('d', strtotime($end_date)) <= 7 && date('m', strtotime($start_date)) != date('m', strtotime($end_date));
-
-
+                
+                    // Conta quantos dias dessa semana pertencem ao mês de início
+                    $days_in_start_month = 0;
+                    $days_in_next_month = 0;
+                
+                    // Itera por cada dia entre $start_date e $end_date
+                    $current_date = strtotime($start_date);
+                    $end_date_timestamp = strtotime($end_date);
+                
+                    while ($current_date <= $end_date_timestamp) {
+                        // Verifica se a data atual pertence ao mês de início
+                        if (date('m', $current_date) == date('m', strtotime($start_date))) {
+                            $days_in_start_month++;
+                        } else {
+                            $days_in_next_month++;
+                        }
+                        // Avança para o próximo dia
+                        $current_date = strtotime('+1 day', $current_date);
+                    }
+                
+                    // Se a maioria dos dias da semana estiver no próximo mês, não conta como última semana do mês de início
+                    if ($days_in_next_month > $days_in_start_month) {
+                        return false;
+                    }
+                
+                    // Verifica se a semana está nos últimos dias do mês de início ou se se estende para o próximo mês
                     return (date('d', strtotime($start_date)) >= 23 && date('d', strtotime($start_date)) <= $last_day_of_start_month) || $is_end_of_next_month;
                 }
+                
 
 
                 function allWeeksPaid($month, $employee_id, $conn)
@@ -240,8 +267,41 @@ if (isset($_GET['employee_id'])) {
                     return $status_row['pending_count'] == 0;
                 }
 
+                //echo $month;
+                function calculateTotalMonthlyWage($month, $employee_id, $conn)
+                {
+                    // Consulta para somar os valores pltusd0, pltusd1, pltusd2 e pltusd3 e contar as semanas
+                    $query = "
+    SELECT COUNT(*) AS week_count, 
+           SUM(COALESCE(pltusd0, 0) + COALESCE(pltusd1, 0) + COALESCE(pltusd2, 0) + COALESCE(pltusd3, 0)) AS total_wage
+    FROM granna80_bdlinks.work_weeks
+    WHERE month = ? AND employee_id = ?
+";
 
-                
+
+                    // Prepara e executa a consulta
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("si", $month, $employee_id); // Associa os parâmetros: mês e ID do funcionário
+                    $stmt->execute();
+
+                    // Obtém o resultado da consulta
+                    $result = $stmt->get_result();
+                    $row = $result->fetch_assoc();
+
+                    // Fecha a declaração
+                    $stmt->close();
+
+                    // Verifica se existem semanas no mês e retorna o valor total do salário ou 0
+                    if ($row['week_count'] > 0) {
+                        return $row['total_wage'] ?? 0;
+                    } else {
+                        return 0;
+                    }
+                }
+
+
+
+
 
                 while ($row = $result_weeks->fetch_assoc()) {
 
@@ -264,6 +324,11 @@ if (isset($_GET['employee_id'])) {
                         $is_end_of_month = isLastWeekOfMonth($start_date, $end_date);
                     }
 
+                    $update_counter_query = "UPDATE granna80_bdlinks.work_weeks SET week_counter = ? WHERE id = ?";
+                    $stmt = $conn->prepare($update_counter_query);
+                    $stmt->bind_param("ii", $cont, $row['id']);
+                    $stmt->execute();
+                    $stmt->close();
 
                     $update_query = "UPDATE granna80_bdlinks.work_weeks SET month = ? WHERE id = ?";
                     $stmt = $conn->prepare($update_query);
@@ -287,32 +352,44 @@ if (isset($_GET['employee_id'])) {
 
                     if ($row['status'] == 'Paid') {
                         if ($row['email_sent'] == 1) {
-                            // Mostrar ícone de e-mail enviado se já foi enviado
+
                             $week_receipt_icon_email = "<img src='https://www.plata.ie/images/sheet-icon-email_sent.png' alt='Email Sent' style='margin-right: 10px;'>";
                         } else {
-                            // Mostrar ícone de e-mail para enviar
+
                             $week_receipt_icon_email = "<a style='text-decoration: none;' href='email_generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' onclick='return confirmEmailSend();'>
                                                             <img src='email_tobe.png' alt='Email To Be Sent' style='margin-right: 10px;'>
                                                         </a>";
                         }
                     } else {
-                        // Mostrar ícone de e-mail para enviar com estilo alterado para outros status
+
                         $week_receipt_icon_email = "<img src='email_tobe_b.png' alt='Email To Be Sent' style='margin-right: 10px; color: grey;'>";
                     }
 
                     $generated = $row['created_at'];
 
-                    // Geração do ícone de invoice (somente no final do mês)
+
                     if ($is_end_of_month) {
                         // Verifica se todas as semanas do mês estão pagas
                         if (allWeeksPaid($month_to_display, $employee_id, $conn)) {
-                            $invoice_icon = "<a href='generate_invoice.php?month=$month_to_display&employee_id=$employee_id' target='_blank'><i class='fa-solid fa-receipt'></i> </a>";
+                            // Calcula o total do mês para todas as semanas
+                            $total_monthly_wage = calculateTotalMonthlyWage($month_to_display, $employee_id, $conn);
+
+
+                            $invoice_icon = "
+                            <span>" . number_format($total_monthly_wage, 2, '.', ',') . "</span>
+                            <a href='generate_invoice.php?month=$month_to_display&employee_id=$employee_id' target='_blank'>
+                                <i class='fa-solid fa-receipt'></i>
+                            </a>
+                        ";
                         } else {
+                            // Exibe o ícone de invoice desabilitado se nem todas as semanas foram pagas
                             $invoice_icon = "<i class='fa-solid fa-receipt' style='color: grey;'></i>"; // Ícone desabilitado
                         }
                     } else {
-                        $invoice_icon = '&nbsp;'; // Não exibe o ícone fora do final do mês
+                        // Não exibe o ícone de invoice se não for o final do mês
+                        $invoice_icon = '&nbsp;';
                     }
+
 
 
 
@@ -345,7 +422,7 @@ if (isset($_GET['employee_id'])) {
 
                     echo "</td>
                     <td>{$row['status']}</td>
-                      <td>$" . number_format($wage, 2, '.', ',') . " USDT</td>
+                      <td>" . number_format($wage, 2, '.', ',') . "</td>
                     <td>" . (isset($row['weekly_value_pltusd']) ? $row['weekly_value_pltusd'] : 0) . "</td>
                     <td>" . (isset($row['weekly_value_plteur']) ? $row['weekly_value_plteur'] : 0) . "</td>
                     <td>" . substr($generated, 0, 10) . "</td>
@@ -364,7 +441,7 @@ if (isset($_GET['employee_id'])) {
                         </a>
                     </td>
                 </tr>";
-                $cont++;
+                    $cont--;
                 }
             } else {
                 echo "<tr><td colspan='8'>No work weeks found</td></tr>";
@@ -401,7 +478,9 @@ if (isset($_GET['employee_id'])) {
                     },
 
                 ],
-               
+                "order": [
+                    [1, 'desc']
+                ]
             });
         });
     </script>
