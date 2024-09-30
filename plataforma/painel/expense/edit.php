@@ -1,16 +1,18 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
 include "conexao.php"; // Include database connection
 
 // Function to convert month name to number (January -> 01, February -> 02, etc.)
-function convertMonthToNumber($monthName) {
+function convertMonthToNumber($monthName)
+{
     return date('m', strtotime($monthName)); // Convert month name to a number
 }
 
 // Function to generate a unique hash for the file name
 // Function to generate a unique hash in the format 0000.AAAA+DATE
 // Function to generate a unique hash in the format XXXXXXXXX.XXXXXXXX (16 mixed letters and numbers)
-function generateHash() {
+function generateHash()
+{
     $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $hash = '';
 
@@ -60,8 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usdt = $_POST['usdt'];
     $pltusd = $_POST['pltusd'];
     $created_at = $_POST['created_at'];
+    $invoice = $_POST['invoice'];
+    $vat = $_POST['vat'];
 
-     // Handle PDF upload
+    // Handle PDF upload
     $pdf_path = $row['pdf_path']; // Keep the old PDF path if no new file is uploaded
     if (isset($_FILES['pdf']) && $_FILES['pdf']['error'] == 0) {
         // Define upload path
@@ -93,6 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 eurusdt = '$eurusdt',
                 created_at = '$created_at',
                 pdf_path = '$pdf_path',
+                invoice ='$invoice',
+                vat ='$vat',
                 updated_at = NOW()
             WHERE id = $id";
 
@@ -111,14 +117,16 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Expense</title>
 </head>
+
 <body>
     <h2>Edit Expense</h2>
-    
+
     <form method="POST" action="" enctype="multipart/form-data">
         <!-- Hidden input to pass the ID -->
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
@@ -133,6 +141,9 @@ $conn->close();
         <label for="good_service">Good/Service:</label><br>
         <input type="text" id="good_service" name="good_service" value="<?php echo $row['good_service']; ?>" required><br><br>
 
+        <label for="invoice">Invoice:</label><br>
+        <input type="text" id="invoice" name="invoice" value="<?php echo $row['invoice']; ?>" ><br><br>
+
         <label for="company">Company:</label><br>
         <input type="text" id="company" name="company" value="<?php echo $row['company']; ?>" required><br><br>
 
@@ -141,6 +152,15 @@ $conn->close();
             <option value="paid" <?php if ($row['status'] == 'paid') echo 'selected'; ?>>Paid</option>
             <option value="processing" <?php if ($row['status'] == 'processing') echo 'selected'; ?>>Processing</option>
             <option value="pending" <?php if ($row['status'] == 'pending') echo 'selected'; ?>>Pending</option>
+        </select><br><br>
+
+        <label for="vat">VAT Taxation:</label><br>
+        <select id="vat" name="vat" >
+            <option value="23" <?php if ($row['vat'] == '23') echo 'selected'; ?>>Standard rate 23%</option>
+            <option value="13.5" <?php if ($row['vat'] == '13.5') echo 'selected'; ?>>1st Reduced rate 13.5%</option>
+            <option value="9" <?php if ($row['vat'] == '9') echo 'selected'; ?>>2st Reduced rate 9%</option>
+            <option value="4.8" <?php if ($row['vat'] == '4.8') echo 'selected'; ?>>SPR Reduced rate 13.5%</option>
+            <option value="0" <?php if ($row['vat'] == '0') echo 'selected'; ?>>Zero-rated 0%</option>
         </select><br><br>
 
         <label for="cost_eur">Cost (EUR):</label><br>
@@ -155,10 +175,17 @@ $conn->close();
 
         <label for="pdf">Upload PDF (Payment receipt):</label><br>
         <input type="file" id="pdf" name="pdf" accept=".pdf"><br>
-        <small>Current file: <?php echo basename($row['pdf_path']); ?></small><br><br>
+        <?php if (!empty($row['pdf_path'])): ?>
+            <small>Current file: <?php echo basename($row['pdf_path']); ?></small><br><br>
+            <a href="delete_pdf.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete the PDF?');">Delete PDF</a><br><br>
+        <?php else: ?>
+            <br> <small><b>No PDF file uploaded.</b></small><br><br>
+        <?php endif; ?>
+
 
         <input type="submit" value="Update Spend">
         <a href="index.php">[back]</a>
     </form>
 </body>
+
 </html>
