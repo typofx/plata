@@ -1,6 +1,22 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
+
 <?php
-include "conexao.php"; // Include database connection
+include "conexao.php";
+
+// Query to fetch data and sum the cost_eur
+$sql = "SELECT SUM(cost_eur) as total_eur, SUM(calculated_vat) as total_paid_vat FROM granna80_bdlinks.spends";
+$result = $conn->query($sql);
+
+$total_eur = 0;
+$total_paid_vat = 0;
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $total_eur = $row['total_eur'];
+    $total_paid_vat = $row['total_paid_vat'];
+}
+
+
 
 // Query to fetch data from the spends table
 $sql = "SELECT * FROM granna80_bdlinks.spends ORDER BY created_at DESC";
@@ -12,8 +28,15 @@ if ($result->num_rows > 0) {
         // Calculate USDT as cost_eur * eurusdt
         $calculated_usdt = $row['cost_eur'] * $row['eurusdt'];
 
+        $calculated_vat = ($row['cost_eur'] * $row['vat']) / 100;
+
+        //echo $calculated_vat . '<br>';
+
         // Update USDT in the database
-        $update_sql = "UPDATE granna80_bdlinks.spends SET usdt = '$calculated_usdt' WHERE id = " . $row['id'];
+        $update_sql = "UPDATE granna80_bdlinks.spends 
+               SET usdt = '$calculated_usdt', calculated_vat = '$calculated_vat' 
+               WHERE id = " . $row['id'];
+
         $conn->query($update_sql);
     }
 }
@@ -91,6 +114,12 @@ $result = $conn->query($sql);
     <a href="https://plata.ie/plataforma/painel/menu.php">[Main menu]</a>
     <br>
     <br>
+    <strong>2024 (EUR): <?php echo number_format($total_eur, 2); ?></strong><br>
+    <strong>Paid VAT 2024 (EUR): <?php echo number_format($total_paid_vat, 2); ?></strong>
+
+    <p><var>Annual Returns Submission : 28th February 2024</var></p>
+    <br>
+    <br>
     <table id="spendsTable" class="display">
         <thead>
             <tr>
@@ -105,10 +134,11 @@ $result = $conn->query($sql);
                 <th>USDT</th>
                 <th>PLTUSD</th>
                 <th>EURUSD</th>
+                <th>VAT</th>
                 <th>Generated At</th>
+                <th>Invoice</th>
                 <th>File (PDF)</th>
                 <th>Actions</th>
-
             </tr>
         </thead>
         <tbody>
@@ -141,8 +171,9 @@ $result = $conn->query($sql);
                     echo "<td>" . number_format($row['cost_eur'] * $row['eurusdt'], 2) . "</td>";
                     echo "<td>" . $row['pltusd'] . "</td>";
                     echo "<td>" . $row['eurusdt'] . "</td>";
+                    echo "<td>" . number_format($row['calculated_vat'],2) . "</td>";
                     echo "<td>" . date('d-m-Y', strtotime($date)) . "</td>";
-
+                    echo "<td>" .  $row['invoice'] . "</td>";
                     // Display PDF download/exhibition link if PDF exists
                     if (!empty($row['pdf_path'])) {
                         // View and download links for the PDF
