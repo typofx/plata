@@ -1,0 +1,20 @@
+[07-Oct-2024 10:27:17 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:27:17 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:27:31 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:27:31 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:33:17 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:33:17 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:33:52 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:33:52 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:34:17 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:34:17 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:36:39 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:36:39 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:39:00 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:39:00 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/index.php on line 16
+[07-Oct-2024 10:44:04 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/save.php on line 8
+[07-Oct-2024 10:44:04 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/save.php on line 8
+[07-Oct-2024 10:44:22 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/save.php on line 8
+[07-Oct-2024 10:44:22 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/save.php on line 8
+[07-Oct-2024 10:44:38 America/Chicago] PHP Warning:  Undefined array key "id" in /home2/granna80/public_html/plataforma/painel/config/save.php on line 8
+[07-Oct-2024 10:44:38 America/Chicago] PHP Warning:  foreach() argument must be of type array|object, null given in /home2/granna80/public_html/plataforma/painel/config/save.php on line 8
