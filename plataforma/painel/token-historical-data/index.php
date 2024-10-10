@@ -5,15 +5,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
 ob_end_clean();
 include('conexao.php');
 
+// Definir o fuso horário no PHP
+date_default_timezone_set('UTC'); // Ajuste conforme necessário
+
 // Verifica o estado atual da API
 $query = "SELECT is_active FROM granna80_bdlinks.api_control WHERE id = 1";
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 $api_ativa = $row['is_active'];
-
-
-
-
 
 // Se o formulário foi enviado para ativar/desativar a API
 if (isset($_POST['toggle_api'])) {
@@ -27,57 +26,57 @@ if (isset($_POST['toggle_api'])) {
     $api_ativa = $novo_estado;
 }
 
-// Se a API estiver ativada, buscar os dados da API, caso contrário, usar o banco de dados
-if ($api_ativa) {
-    // Dados da requisição
-   
+// Get the current date in UTC
+$utcDate = new DateTime('now', new DateTimeZone('UTC'));
+$currentDate = $utcDate->format('Y-m-d');
+$currentDateTime = $utcDate->format('Y-m-d H:i:s');
 
+// Verifica se já existe um registro para o dia atual
+$query = "SELECT id, price, volume, market_cap FROM granna80_bdlinks.token_historical_data WHERE DATE(date) = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param('s', $currentDate);
+$stmt->execute();
+$result = $stmt->get_result();
 
+if ($result->num_rows > 0) {
+    // Se já existe, pegue os dados existentes e NÃO FAÇA REQUISIÇÃO À API
+    $row = $result->fetch_assoc();
+    $plt = $row['price'];
+    $volume = $row['volume'];
+    $market_cap = $row['market_cap'];
+} else {
+    // Se a API estiver ativada e não há dados para o dia atual, faça a requisição
+    if ($api_ativa) {
+        // Dados da requisição
+        $data = json_encode(array('currency' => 'USD', 'code' => '______PLT', 'meta' => true));
 
+        // Configurações do contexto da requisição
+        $context_options = array(
+            'http' => array(
+                'method' => 'POST',
+                'header' => "Content-type: application/json\r\n" .
+                            "x-api-key: 135b0af8-e18a-42a4-bce7-ed193b2932e6\r\n",
+                'content' => $data
+            )
+        );
 
-    $data = json_encode(array('currency' => 'USD', 'code' => '______PLT', 'meta' => true));
+        // Cria o contexto
+        $context = stream_context_create($context_options);
 
-    // Configurações do contexto da requisição
-    $context_options = array(
-        'http' => array(
-            'method' => 'POST',
-            'header' => "Content-type: application/json\r\n" .
-                "x-api-key: 135b0af8-e18a-42a4-bce7-ed193b2932e6\r\n",
-            'content' => $data
-        )
-    );
+        // Faz a requisição à API
+        $response = file_get_contents('https://api.livecoinwatch.com/coins/single', false, $context);
 
-    // Cria o contexto
-    $context = stream_context_create($context_options);
-
-    // Faz a requisição à API
-    $response = file_get_contents('https://api.livecoinwatch.com/coins/single', false, $context);
-
-    if ($response === FALSE) {
-        echo "Ocorreu um erro ao fazer a requisição.";
-    } else {
-        $json_data = json_decode($response, true);
-
-        // Pega o volume da API
-        $api_volume = isset($json_data['volume']) ? $json_data['volume'] : null;
-
-        // Armazena os dados no banco de dados
-        $plt = floatval($PLTUSD);
-        $market_cap = floatval(str_replace(',', '', $PLTmarketcapUSD));
-        $currentDateTime = (new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s');
-
-        $query = "SELECT id FROM granna80_bdlinks.token_historical_data WHERE DATE(date) = CURDATE()";
-        $result = $conn->query($query);
-
-        if ($result->num_rows > 0) {
-            // Atualiza os valores
-            $updateQuery = "UPDATE granna80_bdlinks.token_historical_data 
-                            SET price = ?, volume = ?, market_cap = ?, date = ? 
-                            WHERE DATE(date) = CURDATE()";
-            $stmt = $conn->prepare($updateQuery);
-            $stmt->bind_param('ddss', $plt, $api_volume, $market_cap, $currentDateTime);
-            $stmt->execute();
+        if ($response === FALSE) {
+            echo "Ocorreu um erro ao fazer a requisição.";
         } else {
+            $json_data = json_decode($response, true);
+            // Pega o volume da API
+            $api_volume = isset($json_data['volume']) && $json_data['volume'] != 0 ? $json_data['volume'] : 1;
+
+            // Armazena os dados no banco de dados
+            $plt = floatval($PLTUSD);
+            $market_cap = floatval(str_replace(',', '', $PLTmarketcapUSD));
+
             // Insere novos valores
             $insertQuery = "INSERT INTO granna80_bdlinks.token_historical_data (date, price, volume, market_cap) 
                             VALUES (?, ?, ?, ?)";
@@ -85,55 +84,16 @@ if ($api_ativa) {
             $stmt->bind_param('sdds', $currentDateTime, $plt, $api_volume, $market_cap);
             $stmt->execute();
         }
+    } else {
+        // Se a API estiver desativada, buscar apenas do banco de dados
+        $query = "SELECT price, volume, market_cap FROM granna80_bdlinks.token_historical_data ORDER BY date DESC LIMIT 1";
+        $result = mysqli_query($conn, $query);
+        if ($row = mysqli_fetch_assoc($result)) {
+            $plt = $row['price'];
+            $api_volume = $row['volume'];
+            $market_cap = $row['market_cap'];
+        }
     }
-
-     // Set the variable with the price value
-     $plt = floatval($PLTUSD); // Replace with the actual value
-     $volume = $api_volume; // Replace with the actual value
-     $market_cap = floatval(str_replace(',', '', $PLTmarketcapUSD));
-} else {
-    // Se a API estiver desativada, buscar apenas do banco de dados
-    $query = "SELECT price, volume, market_cap FROM granna80_bdlinks.token_historical_data ORDER BY date DESC LIMIT 1";
-    $result = mysqli_query($conn, $query);
-    if ($row = mysqli_fetch_assoc($result)) {
-        $plt = $row['price'];
-        $api_volume = $row['volume'];
-        $market_cap = $row['market_cap'];
-    }
-}
-?>
-
-<?php
-// Include the database connection file
-
-    // Get the current date in UTC
-    $utcDate = new DateTime('now', new DateTimeZone('UTC'));
-    $currentDate = $utcDate->format('Y-m-d');
-    $currentDateTime = $utcDate->format('Y-m-d H:i:s');
-
-
-// Prepare the query to check if a record for the current day already exists
-$query = "SELECT id FROM granna80_bdlinks.token_historical_data WHERE DATE(date) = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param('s', $currentDate);
-$stmt->execute();
-$result = $stmt->get_result();
-
-// Check if a record for the current day already exists
-if ($result->num_rows > 0) {
-    // Se o registro existe, atualize os valores de price, volume e market_cap
-    $updateQuery = "UPDATE granna80_bdlinks.token_historical_data SET price = ?, volume = ?, market_cap = ?, date = ? WHERE DATE(date) = ?";
-    $updateStmt = $conn->prepare($updateQuery);
-    $updateStmt->bind_param('ddsss', $plt, $volume, $market_cap, $currentDateTime, $currentDate);
-    $updateStmt->execute();
-    echo "Registration updated successfully!";
-} else {
-    // Se o registro não existe, insira um novo registro
-    $insertQuery = "INSERT INTO granna80_bdlinks.token_historical_data (date, price, volume, market_cap) VALUES (?, ?, ?, ?)";
-    $insertStmt = $conn->prepare($insertQuery);
-    $insertStmt->bind_param('sdds', $currentDateTime, $plt, $volume, $market_cap);
-    $insertStmt->execute();
-    echo "New record inserted successfully!";
 }
 
 // SQL query to select the data
@@ -159,6 +119,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 $jsonFilePath = 'token_data.json';
 file_put_contents($jsonFilePath, json_encode($data));
 ?>
+
 
 
 
