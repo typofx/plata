@@ -1,12 +1,5 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
-session_start(); // Start session
-
-// Check if the user is authenticated
-if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-        //User is not authenticated, redirect back to login page
-        header("Location: index.php");
-        exit();
-}
 $userName = $_SESSION["user_email"];
 
 include '../conexao.php';
@@ -87,6 +80,14 @@ $conn->close();
                 <label for="logo">Logo:</label>
                 <label for="logo">Select a file (allowed types: .jpg, .jpeg, .png, .ico | maximum size: 5MB):</label><br>
                 <input type="file" name="logo" id="logo" accept=".jpg, .jpeg, .png, .ico" onchange="validateFileSize(this)"><br>
+
+<br><br>
+
+
+                <img src="../../images/icolog/<?php echo $row["full_logo"]; ?>" alt="full_logo" width="200" height="200"><br>
+                <label for="full_logo">Full logo:</label>
+                <label for="full_logo">Select a file (allowed types: .jpg, .jpeg, .png, .ico, .svg | maximum size: 5MB):</label><br>
+                <input type="file" name="full_logo" id="full_logo" accept=".jpg, .jpeg, .png, .ico, .svg" onchange="validateFileSize(this)"><br><br><br>
 
                 <script>
                         function validateFileSize(input) {
@@ -300,8 +301,8 @@ $conn->close();
                                                                 } ?>>Unavailable</option>
                 </select> <br>
 
-                <label for="tokenlogo"></label>Token Logo:</label>
-                <select name="tokenlogo" id="tokenlogo" value="<?php echo $row["TokenLogo"] ?>">
+                <label for="tokenLogo"></label>Token Logo:</label>
+                <select name="tokenLogo" id="tokenLogo" value="<?php echo $row["TokenLogo"] ?>">
                         <option value="<?php echo 'K'; ?>" <?php if ($row["TokenLogo"] == 'K') {
                                                                         echo "selected";
                                                                 } ?>>Okay</option>
@@ -349,7 +350,7 @@ $conn->close();
 
 
                 <input type="submit" value="Update">
-                <a href="https://plata.ie/listingplatform/painel/painel.php">Cancel</a>
+                <a href="https://plata.ie/plataforma/painel/painel.php">Cancel</a>
         </form>
         <script>
                 function validateInput(input) {
@@ -375,7 +376,7 @@ $conn->close();
                         var price = document.getElementById("price").value;
                         var graph = document.getElementById("graph").value;
                         var holders = document.getElementById("holders").value;
-                        var tokenLogo = document.getElementById("tokenlogo").value;
+                        var tokenLogo = document.getElementById("tokenLogo").value;
                         var socialMedia = document.getElementById("socialmedia").value;
                         var metamaskButton = document.getElementById("metamaskbutton").value;
 
