@@ -1,12 +1,5 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
-session_start(); // Start the session
-
-// Check if the user is authenticated
-if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    // User is not authenticated, redirect back to the login page
-    header("Location: index.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -85,14 +78,16 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
 
 <body>
 
+    <!--
+
     <a href="https://plata.ie/listingplatform/?mode=full" class="btn btn-primary" target="_blank">Main(Index)</a>
-    <a href="insert.php" class="btn btn-primary">Add New Record</a>
+    <a href="insert.php" class="btn btn-primary">Add Record</a>
     <a href="cadastro" class="btn btn-primary">Add New user</a>
     <a href="roadmap" class="btn btn-primary">EditRoadmap</a>
     <form action="new_status.php" method="post" target="_blank">
         <button type="submit" name="status">Update Status</button>
     </form>
-
+    -->
 
     <?php
     include '../conexao.php';
@@ -100,6 +95,7 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
     $sql = "SELECT * FROM granna80_bdlinks.links ORDER BY `Score` DESC, Access DESC, Rank DESC;";
 
     $result = $conn->query($sql);
+    $links_data = [];
 
     function getTXTcolor($value)
     {
@@ -186,7 +182,8 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             <th><img src="https://www.plata.ie/images/td-socialmedia.png"></th>
             <th><img src="https://www.plata.ie/images/td-metamask.png"></th>
             <th>Obs1</th>
-            <th>Obs2</th>
+            <th>Obs2</th>]
+            <th>Full logo</th>
             <th>Last Updated</th>
             <th>Last edited by</th>
         </tr>
@@ -206,8 +203,38 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
         </style>
 
     <?php
-
+$cont = 1;
         while ($row = $result->fetch_assoc()) {
+
+            $links_data[] = [
+                "ID" => intval($cont),
+                "Platform" => !empty($row["Platform"]) ? $row["Platform"] : "update",
+                "link" => $row["Link"],
+                "Score" => round(floatval($row["Score"]), 4),
+                "Icone" => $row["logo"],
+                "Full-Logo" => $row["full_logo"],
+                "Type" => $row["Type"],
+                "Access" => intval($row["Access"]),
+                "Country" => $row["Country"],
+                "Rank" => $row["Rank"],
+                "MarketCap" => $row["MarketCap"],
+                "Liquidity" => $row["Liquidity"],
+                "FullyDilutedMKC" => $row["FullyDilutedMKC"],
+                "CirculatingSupply" => $row["CirculatingSupply"],
+                "MaxSupply" => $row["MaxSupply"],
+                "TotalSupply" => $row["TotalSupply"],
+                "Price" => $row["Price"],
+                "Graph" => $row["Graph"],
+                "Holders" => $row["Holders"],
+                "TokenLogo" => $row["TokenLogo"],
+                "SocialMedia" => $row["SocialMedia"],
+                "MetamaskButton" => $row["MetamaskButton"],
+                "Obs1" => $row["Obs1"],
+                "Obs2" => $row["Obs2"],
+                "LastUpdated" => date("d-m-Y H:i", strtotime($row["last_updated"])),
+                "EditedBy" => $row["editedBy"]
+            ];
+
             $update = 'Update';
             echo '<tr>';
             echo '<td><center>' . $row["ID"] . '</center></td>';
@@ -256,21 +283,37 @@ if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true)
             echo '<td class="colored-cell" style="' . getTXTcolor($row["TokenLogo"]) . '">█</td>';
             echo '<td class="colored-cell" style="' . getTXTcolor($row["SocialMedia"]) . '">█</td>';
             echo '<td class="colored-cell" style="' . getTXTcolor($row["MetamaskButton"]) . '">█</td>';
+           
             echo '<td style="' . setBGcolor($row["Score"]) . '">' . $row["Obs1"] . '</td>';
             echo '<td style="' . setBGcolor($row["Score"]) . '">' . $row["Obs2"] . '</td>';
+            echo '<td style="' . setBGcolor($row["Score"]) . '"><center>' . (!empty($row["full_logo"]) ? 'Yes' : 'No') . '</center></td>';
+
             echo '<td style="' . setBGcolor($row["Score"]) . '">' . date("d/m/Y H:i", strtotime($row["last_updated"])) . ' (UTC)</td>';
             echo '<td style="' . setBGcolor($row["Score"]) . '">' . $row["editedBy"] . '</td>';
             echo '<td>
                     <a href="https://t.me/' . $row["Telegram"] . '" target="_blank"><img src="https://www.plata.ie/images/telegram-logo.svg" alt="Telegram" width="20px" height="20px"></a>
                     <a href="mailto:' . $row["Email"] . '" target="_blank"><img src="https://www.plata.ie/images/sheet-icon-email.png" alt="Email"></a>
-                    <a href="edit.php?id=' . $row["ID"] . '" style="' . setBGcolor($row["Listed"]) . '"><img src="https://www.plata.ie/listingplatform/img/sheet-icon-edit.png"></a>
-                    <a href="delete.php?id=' . $row["ID"] . '" onclick="return confirm(\'Are you sure you want to delete this record?\')" style="' . setBGcolor($row["Listed"]) . '"><img src="https://www.plata.ie/listingplatform/img/sheet-icon-delete.png"></a>
+                    <a href="edit.php?id=' . $row["ID"] . '" style="' . setBGcolor($row["Listed"]) . '"><img src="https://www.plata.ie/plataforma/img/sheet-icon-edit.png"></a>
+                    <a href="delete.php?id=' . $row["ID"] . '" onclick="return confirm(\'Are you sure you want to delete this record?\')" style="' . setBGcolor($row["Listed"]) . '"><img src="https://www.plata.ie/plataforma/img/sheet-icon-delete.png"></a>
             </td>';
 
             echo '</tr>';
+            $cont++;
         }
 
         echo '</table></center><br><br>';
+        $json_data = json_encode($links_data,  JSON_NUMERIC_CHECK);
+
+
+        $file = 'links_data.json';
+
+        if (file_put_contents($file, $json_data)) {
+            echo "JSON data has been stored in 'links_data.json'.";
+        } else {
+            echo "Error writing JSON data to the file.";
+        }
+
+        echo "<p>JSON file successfully created: <a href='links_data.json' target='_blank'>[JSON]</a></p>";
     } else {
         echo "No results found.";
     }
