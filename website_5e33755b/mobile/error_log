@@ -1,0 +1,75 @@
+[28-Oct-2024 12:03:44 America/Chicago] PHP Warning:  include(/home2/granna80/public_html/website_5e33755bmobile-header.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/website_5e33755b/mobile/index.php on line 44
+[28-Oct-2024 12:03:44 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html/website_5e33755bmobile-header.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/website_5e33755b/mobile/index.php on line 44
+[28-Oct-2024 12:04:20 America/Chicago] PHP Warning:  include(/home2/granna80/public_html/website_5e33755b/mobile-header.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/website_5e33755b/mobile/index.php on line 44
+[28-Oct-2024 12:04:20 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html/website_5e33755b/mobile-header.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/website_5e33755b/mobile/index.php on line 44
+[28-Oct-2024 12:05:53 America/Chicago] PHP Warning:  include(/home2/granna80/public_html/website_5e33755b/languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 12
+[28-Oct-2024 12:05:53 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html/website_5e33755b/languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 12
+[28-Oct-2024 12:05:53 America/Chicago] PHP Warning:  include(/home2/granna80/public_html/website_5e33755b/en/mobile/cookies.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 13
+[28-Oct-2024 12:05:53 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html/website_5e33755b/en/mobile/cookies.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 13
+[28-Oct-2024 12:05:53 America/Chicago] PHP Warning:  Undefined variable $plataFont in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 24
+[28-Oct-2024 12:05:53 America/Chicago] PHP Warning:  Undefined variable $headerIconCalc in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 28
+[28-Oct-2024 12:05:53 America/Chicago] PHP Warning:  Undefined variable $headerIconTrolley in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 30
+[28-Oct-2024 12:05:53 America/Chicago] PHP Warning:  Undefined variable $headerIconBurger in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 32
+[28-Oct-2024 12:05:53 America/Chicago] PHP Warning:  Undefined variable $language in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 104
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  include(/home2/granna80/public_html/website_5e33755b/languages/languages.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 12
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html/website_5e33755b/languages/languages.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 12
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  include(/home2/granna80/public_html/website_5e33755b/en/mobile/cookies.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 13
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  include(): Failed opening '/home2/granna80/public_html/website_5e33755b/en/mobile/cookies.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 13
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $plataFont in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 24
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $headerIconCalc in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 28
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $headerIconTrolley in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 30
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $headerIconBurger in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 32
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuProject in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 56
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuRoadmap in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 64
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuTokenDistrib in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 65
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuDYOR in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 66
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuSketch in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 67
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuLitepaper in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 68
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuProducts in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 76
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtCMCupvote in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 84
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuBuyPlata in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 85
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuMerchant in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 87
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuAbout in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 96
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $language in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 104
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuMeetTheTeam in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 104
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuSocialMedia in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 105
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuReportBug in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 106
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuEmail in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 107
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuThemeDark in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 132
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuThemeLight in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 135
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuLanguage in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 144
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuBRL in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 214
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuEUR in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 215
+[28-Oct-2024 12:06:17 America/Chicago] PHP Warning:  Undefined variable $txtSandMenuUSD in /home2/granna80/public_html/website_5e33755b/mobile/mobile-header.php on line 216
+[28-Oct-2024 12:07:58 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:08:09 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:08:32 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/website_5e33755b/mobile/index.php:25) in /home2/granna80/public_html/en/mobile/cookies.php on line 14
+[28-Oct-2024 12:08:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/website_5e33755b/mobile/index.php:25) in /home2/granna80/public_html/en/mobile/cookies.php on line 14
+[28-Oct-2024 12:09:07 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:09:13 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:09:20 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:09:48 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:14:58 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:16:08 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:16:35 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:16:56 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 12:53:31 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 13:43:54 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 13:44:40 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 14:27:06 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 14:28:26 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/website_5e33755b/mobile/index.php:25) in /home2/granna80/public_html/en/mobile/cookies.php on line 14
+[28-Oct-2024 14:28:35 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/website_5e33755b/mobile/index.php:25) in /home2/granna80/public_html/en/mobile/cookies.php on line 14
+[28-Oct-2024 15:17:13 America/Chicago] PHP Warning:  Undefined array key "HTTP_ACCEPT_LANGUAGE" in /home2/granna80/public_html/en/mobile/cookies.php on line 3
+[28-Oct-2024 15:17:13 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 15:41:49 America/Chicago] PHP Warning:  Undefined array key "HTTP_ACCEPT_LANGUAGE" in /home2/granna80/public_html/en/mobile/cookies.php on line 3
+[28-Oct-2024 15:41:49 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 16:03:23 America/Chicago] PHP Warning:  Undefined array key "HTTP_ACCEPT_LANGUAGE" in /home2/granna80/public_html/en/mobile/cookies.php on line 3
+[28-Oct-2024 16:03:23 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 16:28:25 America/Chicago] PHP Warning:  Undefined array key "HTTP_ACCEPT_LANGUAGE" in /home2/granna80/public_html/en/mobile/cookies.php on line 3
+[28-Oct-2024 16:28:25 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 16:56:56 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
+[28-Oct-2024 16:56:56 America/Chicago] PHP Warning:  file_get_contents(https://plata.ie/plataforma/painel/languages/data_mobile.json): Failed to open stream: HTTP request failed! HTTP/1.1 500 Internal Server Error
+ in /home2/granna80/public_html/languages/languages.php on line 23
+[28-Oct-2024 16:56:57 America/Chicago] PHP Warning:  file_get_contents(https://plata.ie/plataforma/painel/languages/data_mobile.json): Failed to open stream: HTTP request failed! HTTP/1.1 500 Internal Server Error
+ in /home2/granna80/public_html/languages/languages.php on line 23
+[28-Oct-2024 16:57:03 America/Chicago] PHP Warning:  Undefined variable $appearance in /home2/granna80/public_html/en/mobile/cookies.php on line 17
