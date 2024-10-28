@@ -1,0 +1,244 @@
+.td-plata-font {
+    text-align: left;
+}
+
+.invert-color {
+    background-color: white;
+    filter: invert(100%);
+}
+
+.plata-font {
+    height: 40px;
+    vertical-align: middle;
+}
+
+.tableIconMenu {
+    /*border:1px solid red;*/
+    width: 100px;
+    height: 100%;
+    text-align: right;
+    padding: 0px;
+}
+
+.btn-calc {
+    background: no-repeat center/45% url("https://www.plata.ie/images/header-icon-calc.svg");
+    background-color: grey;
+    /**/
+    border-radius: 29px;
+    border: 0px solid #3D3D3D;
+    color: white;
+    font-size: 23px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    align-content: flex-end;
+}
+
+.btn-calc:hover {
+    background-color: #67458B;
+    color: #081F2D;
+    border-color: #8247E5;
+    transition: 0.3s;
+}
+
+.btn-power {
+    /*to be deleted*/
+    background: no-repeat center/45% url("https://www.plata.ie/images/wallet-icon.png");
+    background-color: grey;
+    /**/
+    border-radius: 29px;
+    border: 0px solid #3D3D3D;
+    color: white;
+    font-size: 23px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    align-content: flex-end;
+}
+
+.btn-power:hover {
+    /*to be deleted*/
+    background-color: #67458B;
+    color: #081F2D;
+    border-color: #8247E5;
+    transition: 0.3s;
+}
+
+.btnCalc {
+    background: no-repeat center/45% url("https://www.plata.ie/images/header-icon-calc.png");
+    background-color: grey;
+    /**/
+    border-radius: 29px;
+    border: 0px solid #3D3D3D;
+    color: white;
+    font-size: 23px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    align-content: flex-end;
+}
+
+.btnCalc:hover {
+    background-color: #67458B;
+    color: #081F2D;
+    border-color: #8247E5;
+    transition: 0.3s;
+}
+
+.td-menu-icons {
+    text-align: center;
+    width: 10px;
+}
+
+.img-menu {
+    vertical-align: middle;
+}
+
+.tableIconMenu {
+    vertical-align: middle;
+    width: 100px;
+    height: 100%;
+    text-align: right;
+    padding: 0px;
+}
+
+.tableBarMenu {
+    vertical-align: middle;
+    padding-left: 15px;
+    padding-right: 0px;
+    width: 100%;
+    height: 60px;
+}
+
+.tableIconMenu {
+    /*border:1px solid red;*/
+    width: 100px;
+    height: 100%;
+    text-align: right;
+    padding: 0px;
+}
+
+.sub-menu-project, .sub-menu-products, .sub-menu-about, .sub-menu-theme, .sub-menu-language, .sub-menu-currency{
+    display: none;
+}
+
+#toggle-project:checked ~ .sub-menu-project,
+#toggle-products:checked ~ .sub-menu-products,
+#toggle-about:checked ~ .sub-menu-about, 
+#toggle-theme:checked ~ .sub-menu-theme,
+#toggle-language:checked ~ .sub-menu-language,
+#toggle-currency:checked ~ .sub-menu-currency {
+    display: table-row;
+}
+
+#menu-toggle, #toggle-project, #toggle-products, #toggle-about, #toggle-theme, #toggle-language, #toggle-currency {
+    display: none;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding-top: 60px;
+}
+
+#menu-toggle:checked~.sidenav {
+    width: 280px;
+}
+
+.sidenav-background {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: width 0.5s ease;
+}
+
+#menu-toggle:checked~.sidenav-background {
+    width: 100%;
+}
+
+.sidenav-background {
+    cursor: pointer;
+}
+
+.sidenav a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 17px;
+    letter-spacing: 1.25px;
+    line-height: 26pt;
+    background: white;
+    padding-left: 20px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    transition-delay: 0s;
+    display: block;
+    opacity: 0;
+}
+
+#menu-toggle:checked~.sidenav a {
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+
+.sidenav a:hover {
+    color: #E5A0C6;
+    background-color: #E5A0C6;
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+}
+
+
+
+.sidenavAparaance {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 17px;
+    letter-spacing: 1.25px;
+    line-height: 26pt;
+    background: white;
+    padding-left: 20px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    transition: clip-path 0.5s;
+}
+
+.sidenavAparaance:hover {
+    color: #E5A0C6;
+    background-color: #E5A0C6;
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+    background-color: #E5A0C6;
+}
+
+.sub-menu {
+    display: none;
+    padding-left: 20px;
+}
+
+
+.my-table-test td a {
+    display: block;
+    background-color: #E5A0C6;
+    padding: 10px;
+    color: #333;
+    transition: clip-path 0.5s;
+}
+
+.my-table-test td a:hover {
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+    color: transparent;
+}
