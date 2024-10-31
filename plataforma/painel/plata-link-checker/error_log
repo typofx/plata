@@ -1,0 +1,24 @@
+[31-Oct-2024 12:31:46 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 3
+[31-Oct-2024 12:31:46 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 3
+[31-Oct-2024 12:34:07 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:34:07 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:35:51 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:35:51 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:36:16 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:36:16 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:37:44 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:37:44 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:37:44 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 27
+[31-Oct-2024 12:37:44 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php:27
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php(27): mysqli_query(NULL, 'INSERT INTO gra...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 27
+[31-Oct-2024 12:37:47 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:37:47 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
+[31-Oct-2024 12:50:00 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
+[31-Oct-2024 12:50:25 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
+[31-Oct-2024 12:51:14 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
+[31-Oct-2024 12:51:18 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
+[31-Oct-2024 12:52:50 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
+[31-Oct-2024 12:53:40 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
