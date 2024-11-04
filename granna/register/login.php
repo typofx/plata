@@ -35,7 +35,10 @@ if (!isset($_SESSION['page_count'])) {
      
 
         <input type="submit" value="Login">
-        <a href='../index.php'>Back</a>
+        <a href='https://www.granna.ie/register/'>[ Sign Up ]</a>
+        <a href=''>[ Forgot Password ]</a>
+        <a href='https://www.granna.ie/'>[ Go Back ]</a>
+
     </form>
 </div>
 
