@@ -52,3 +52,5 @@ Stack trace:
 [31-Oct-2024 05:38:11 America/Chicago] PHP Warning:  Undefined array key "resend_count" in /home2/granna80/public_html/granna/register/login_resend_code.php on line 40
 [01-Nov-2024 03:01:01 America/Chicago] PHP Warning:  Undefined variable $error in /home2/granna80/public_html/granna/register/verify_code.php on line 166
 [01-Nov-2024 09:39:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/granna/register/index.php:12) in /home2/granna80/public_html/granna/register/index.php on line 13
+[03-Nov-2024 20:30:15 America/Chicago] PHP Warning:  Undefined array key "resend_count" in /home2/granna80/public_html/granna/register/login_resend_code.php on line 25
+[03-Nov-2024 20:30:15 America/Chicago] PHP Warning:  Undefined array key "resend_count" in /home2/granna80/public_html/granna/register/login_resend_code.php on line 40
