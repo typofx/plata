@@ -18,7 +18,7 @@
   <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i">
 
 
-
+<html oncontextmenu="return false"></html>
 
 
   <script type="application/ld+json">
@@ -68,7 +68,7 @@
           <li class="u-nav-item"><a class="u-border-2 u-border-active-white u-border-hover-white u-border-no-bottom u-border-no-left u-border-no-top u-border-white u-button-style u-nav-link u-text-active-palette-3-light-3 u-text-hover-palette-3-light-2 u-text-white" rel="nofollow" style="padding: 0px 20px;">Contact</a>
             <div class="u-nav-popup">
               <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-                <li class="u-nav-item"><a class="u-active-custom-color-1 u-button-style u-custom-color-1 u-hover-custom-color-1 u-nav-link u-text-active-white u-text-hover-palette-3-light-2 u-text-white" href="/devteam/">Meet the Team</a>
+                <li class="u-nav-item"><a class="u-active-custom-color-1 u-button-style u-custom-color-1 u-hover-custom-color-1 u-nav-link u-text-active-white u-text-hover-palette-3-light-2 u-text-white" href="#">Meet the Team</a>
                 </li>
                 <li class="u-nav-item"><a class="u-active-custom-color-1 u-button-style u-custom-color-1 u-hover-custom-color-1 u-nav-link u-text-active-white u-text-hover-palette-3-light-2 u-text-white" href="#">Report Bug</a>
                 </li>
@@ -97,7 +97,7 @@
               <li class="u-nav-item"><a class="u-button-style u-nav-link" rel="nofollow">Contact</a>
                 <div class="u-nav-popup">
                   <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-                    <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-palette-3-light-2 u-text-white" href="/devteam/">Meet the Team</a>
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-palette-3-light-2 u-text-white" href="#">Meet the Team</a>
                     </li>
                     <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-palette-3-light-2 u-text-white" href="#">Report Bug</a>
                     </li>
@@ -142,11 +142,11 @@
                   <form action="trade/index.php" method="POST" class="u-clearfix u-form-spacing-22 u-inner-form" name="form" style="padding: 6px;">
                     <div class="u-form-group u-form-name u-label-top">
                       <label for="name-3c2f" class="u-label u-spacing-5 u-label-1">You send</label>
-                      <input type="number" placeholder="EUR" id="euroValue" name="euroValue" oninput="convertEuroToReal()" step="0.01" class="u-border-4 u-border-custom-color-3 u-input u-input-rectangle u-radius-29 u-white" required="">
+                      <input type="number" placeholder="EUR" id="euroValue" name="euroValue" oninput="convertEuroToReal()" step="0.01" value = "10.00" min="10" class="u-border-4 u-border-custom-color-3 u-input u-input-rectangle u-radius-29 u-white" required="">
                     </div>
                     <div class="u-form-email u-form-group u-label-top">
                       <label for="email-3c2f" class="u-label u-spacing-5 u-label-2">Recipient gets</label>
-                      <input type="text" placeholder="BRL" id="brlValue" name="brlValue" readonly class="u-border-4 u-border-custom-color-3 u-input u-input-rectangle u-radius-29 u-white" required="">
+                      <input type="number" placeholder="BRL" id="brlValue" name="brlValue" step="0.01" oninput="convertRealToEuro()" class="u-border-4 u-border-custom-color-3 u-input u-input-rectangle u-radius-29 u-white" required="">
                     </div>
                     <div class="u-align-right u-form-group u-form-submit">
                       <button type="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-8 u-radius-50 u-btn-1">Trade</button>
@@ -173,6 +173,12 @@
     const USDEUR = <?php echo $USDEUR; ?>;
     const USDBRL = <?php echo $USDBRL; ?>;
 
+    function convertRealToEuro() {
+        let brlValue = parseFloat(document.getElementById('brlValue').value) || 0;
+        let euroValue = (brlValue / (USDBRL / USDEUR));
+        document.getElementById('euroValue').value = euroValue.toFixed(2);
+    }
+
     function convertEuroToReal() {
       // Get the EUR value from the input field
       let euroValue = parseFloat(document.getElementById('euroValue').value) || 0;
@@ -183,6 +189,9 @@
       // Display the BRL value with two decimal places
       document.getElementById('brlValue').value = brlValue.toFixed(2);
     }
+    
+    convertEuroToReal();
+    
   </script>
 
 
