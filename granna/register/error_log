@@ -54,3 +54,42 @@ Stack trace:
 [01-Nov-2024 09:39:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/granna/register/index.php:12) in /home2/granna80/public_html/granna/register/index.php on line 13
 [03-Nov-2024 20:30:15 America/Chicago] PHP Warning:  Undefined array key "resend_count" in /home2/granna80/public_html/granna/register/login_resend_code.php on line 25
 [03-Nov-2024 20:30:15 America/Chicago] PHP Warning:  Undefined array key "resend_count" in /home2/granna80/public_html/granna/register/login_resend_code.php on line 40
+[05-Nov-2024 06:56:52 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/granna/register/forgot_password.php on line 22
+[05-Nov-2024 06:56:53 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 4
+[05-Nov-2024 06:56:58 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 4
+[05-Nov-2024 06:57:05 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/granna/register/forgot_password.php on line 22
+[05-Nov-2024 06:57:06 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 4
+[05-Nov-2024 06:57:57 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/granna/register/forgot_password.php on line 22
+[05-Nov-2024 06:57:57 America/Chicago] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 4
+[05-Nov-2024 09:23:22 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Too many connections in /home2/granna80/public_html/granna/register/conexao.php:7
+Stack trace:
+#0 /home2/granna80/public_html/granna/register/conexao.php(7): mysqli->__construct('localhost', 'granna80_user', Object(SensitiveParameterValue))
+#1 /home2/granna80/public_html/granna/register/forgot_password.php(4): include('/home2/granna80...')
+#2 {main}
+  thrown in /home2/granna80/public_html/granna/register/conexao.php on line 7
+[05-Nov-2024 09:23:25 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Too many connections in /home2/granna80/public_html/granna/register/conexao.php:7
+Stack trace:
+#0 /home2/granna80/public_html/granna/register/conexao.php(7): mysqli->__construct('localhost', 'granna80_user', Object(SensitiveParameterValue))
+#1 /home2/granna80/public_html/granna/register/forgot_password.php(4): include('/home2/granna80...')
+#2 {main}
+  thrown in /home2/granna80/public_html/granna/register/conexao.php on line 7
+[05-Nov-2024 09:23:57 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/granna/register/conexao.php:14) in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 42
+[05-Nov-2024 09:24:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/granna/register/conexao.php:14) in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 42
+[05-Nov-2024 09:24:32 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/granna/register/conexao.php:14) in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 42
+[05-Nov-2024 09:27:34 America/Chicago] PHP Warning:  Undefined variable $error in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 86
+[05-Nov-2024 09:38:42 America/Chicago] PHP Warning:  Undefined variable $error in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 86
+[05-Nov-2024 09:44:31 America/Chicago] PHP Warning:  Undefined variable $error in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 86
+[05-Nov-2024 09:49:14 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 82
+[05-Nov-2024 09:49:14 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 83
+[05-Nov-2024 09:49:23 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 82
+[05-Nov-2024 09:49:23 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 83
+[05-Nov-2024 09:49:26 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 82
+[05-Nov-2024 09:49:26 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 83
+[05-Nov-2024 09:50:33 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 82
+[05-Nov-2024 09:50:33 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 83
+[05-Nov-2024 09:50:37 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 82
+[05-Nov-2024 09:50:37 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 83
+[05-Nov-2024 09:51:00 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 82
+[05-Nov-2024 09:51:00 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 83
+[05-Nov-2024 09:51:05 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 82
+[05-Nov-2024 09:51:05 America/Chicago] PHP Warning:  Undefined array key "resends" in /home2/granna80/public_html/granna/register/forgot_verify_code.php on line 83

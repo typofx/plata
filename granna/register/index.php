@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $headers .= "Content-Type: text/plain; charset=\"UTF-8\"\r\n";
 
     if (mail($to, $subject, $message, $headers)) {
-        header("Location: verify.php");
+        
+        echo "<script>window.location.href='verify.php';</script>";
         exit();
     } else {
         echo "Failed to send email. Please try again.";
