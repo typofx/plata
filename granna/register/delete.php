@@ -32,7 +32,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         echo "Erro ao deletar o registro.";
     }
 
-    // Fechar a conexão
+
     $stmt->close();
     $conn->close();
 } else {
