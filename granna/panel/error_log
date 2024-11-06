@@ -1,0 +1,40 @@
+[06-Nov-2024 08:37:18 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/granna/panel/add_pix.php on line 3
+[06-Nov-2024 08:37:18 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/granna/panel/add_pix.php on line 3
+[06-Nov-2024 08:37:18 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/granna/panel/add_pix.php on line 27
+[06-Nov-2024 08:37:18 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in /home2/granna80/public_html/granna/panel/add_pix.php:27
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/granna/panel/add_pix.php on line 27
+[06-Nov-2024 08:37:21 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/granna/panel/add_pix.php on line 3
+[06-Nov-2024 08:37:21 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/granna/panel/add_pix.php on line 3
+[06-Nov-2024 08:37:21 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/granna/panel/add_pix.php on line 27
+[06-Nov-2024 08:37:21 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in /home2/granna80/public_html/granna/panel/add_pix.php:27
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/granna/panel/add_pix.php on line 27
+[06-Nov-2024 08:40:02 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/granna/panel/add_pix.php:15
+Stack trace:
+#0 /home2/granna80/public_html/granna/panel/add_pix.php(15): mysqli->query('SELECT pix_key,...')
+#1 {main}
+  thrown in /home2/granna80/public_html/granna/panel/add_pix.php on line 15
+[06-Nov-2024 08:40:05 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/granna/panel/add_pix.php:15
+Stack trace:
+#0 /home2/granna80/public_html/granna/panel/add_pix.php(15): mysqli->query('SELECT pix_key,...')
+#1 {main}
+  thrown in /home2/granna80/public_html/granna/panel/add_pix.php on line 15
+[06-Nov-2024 11:38:41 America/Chicago] PHP Warning:  Undefined array key "resend_attempts" in /home2/granna80/public_html/granna/panel/change_password.php on line 50
+[06-Nov-2024 11:38:41 America/Chicago] PHP Warning:  Undefined variable $subject in /home2/granna80/public_html/granna/panel/change_password.php on line 54
+[06-Nov-2024 11:38:41 America/Chicago] PHP Warning:  Undefined variable $message in /home2/granna80/public_html/granna/panel/change_password.php on line 54
+[06-Nov-2024 11:38:41 America/Chicago] PHP Warning:  Undefined variable $headers in /home2/granna80/public_html/granna/panel/change_password.php on line 54
+[06-Nov-2024 11:38:41 America/Chicago] PHP Warning:  Undefined array key "resend_attempts" in /home2/granna80/public_html/granna/panel/change_password.php on line 60
+[06-Nov-2024 11:38:44 America/Chicago] PHP Warning:  Undefined variable $subject in /home2/granna80/public_html/granna/panel/change_password.php on line 54
+[06-Nov-2024 11:38:44 America/Chicago] PHP Warning:  Undefined variable $message in /home2/granna80/public_html/granna/panel/change_password.php on line 54
+[06-Nov-2024 11:38:44 America/Chicago] PHP Warning:  Undefined variable $headers in /home2/granna80/public_html/granna/panel/change_password.php on line 54
+[06-Nov-2024 11:38:48 America/Chicago] PHP Warning:  Undefined variable $subject in /home2/granna80/public_html/granna/panel/change_password.php on line 54
+[06-Nov-2024 11:38:48 America/Chicago] PHP Warning:  Undefined variable $message in /home2/granna80/public_html/granna/panel/change_password.php on line 54
+[06-Nov-2024 11:38:48 America/Chicago] PHP Warning:  Undefined variable $headers in /home2/granna80/public_html/granna/panel/change_password.php on line 54
+[06-Nov-2024 11:48:35 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/granna/panel/reset_password.php:29
+Stack trace:
+#0 /home2/granna80/public_html/granna/panel/reset_password.php(29): mysqli->query('UPDATE granna_u...')
+#1 {main}
+  thrown in /home2/granna80/public_html/granna/panel/reset_password.php on line 29
