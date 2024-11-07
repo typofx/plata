@@ -1,0 +1,43 @@
+[07-Nov-2024 12:34:14 America/Chicago] PHP Warning:  Undefined variable $con in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 15
+[07-Nov-2024 12:34:14 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php:15
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php(15): mysqli_query(NULL, '\n    SELECT id,...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 15
+[07-Nov-2024 12:34:17 America/Chicago] PHP Warning:  Undefined variable $con in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 15
+[07-Nov-2024 12:34:17 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php:15
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php(15): mysqli_query(NULL, '\n    SELECT id,...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 15
+[07-Nov-2024 12:46:48 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:46:48 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:46:48 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:46:48 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:47:11 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:47:11 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:47:11 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:47:11 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:47:44 America/Chicago] PHP Warning:  Undefined array key "identifier" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 70
+[07-Nov-2024 12:47:44 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:47:44 America/Chicago] PHP Warning:  Undefined array key "identifier" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 70
+[07-Nov-2024 12:47:44 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:47:44 America/Chicago] PHP Warning:  Undefined array key "identifier" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 70
+[07-Nov-2024 12:47:44 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:47:44 America/Chicago] PHP Warning:  Undefined array key "identifier" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 70
+[07-Nov-2024 12:47:44 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:48:05 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:48:05 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:48:05 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:48:05 America/Chicago] PHP Warning:  Undefined array key "bank_name" in /home2/granna80/public_html/plataforma/painel/granna-account-management/index.php on line 71
+[07-Nov-2024 12:52:05 America/Chicago] PHP Warning:  Undefined variable $con in /home2/granna80/public_html/plataforma/painel/granna-account-management/edit_pix.php on line 10
+[07-Nov-2024 12:52:05 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/granna80/public_html/plataforma/painel/granna-account-management/edit_pix.php:10
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/granna-account-management/edit_pix.php on line 10
+[07-Nov-2024 12:52:35 America/Chicago] PHP Warning:  Undefined variable $con in /home2/granna80/public_html/plataforma/painel/granna-account-management/edit_pix.php on line 10
+[07-Nov-2024 12:52:35 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/granna80/public_html/plataforma/painel/granna-account-management/edit_pix.php:10
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/granna-account-management/edit_pix.php on line 10
+[07-Nov-2024 12:54:13 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/granna-account-management/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/granna-account-management/edit_pix.php on line 27
