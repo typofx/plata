@@ -10,8 +10,9 @@ if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true 
 
 // Protected page content for logged-in users
 echo "Welcome to the dashboard! <br>";
-echo $_SESSION['code_email'];
+echo "user email : <b>" . $_SESSION['code_email'] . "</b>";
 
+include 'conexao.php';
 ?>
 
 <!DOCTYPE html>
@@ -33,16 +34,18 @@ echo $_SESSION['code_email'];
 <body>
     <br>
     <br>
-<a href="javascript:void(0);" onclick="toggleLinks()">[ Add recipient ]</a>
+<a href="javascript:void(0);" onclick="toggleLinks()">[ Recipients ]</a>
 
 <div class="extra-links" id="extraLinks">
         <ul>
-            <a href="add_pix.php">[ Add pix key ]</a><br>
+            <a href="manage_accounts.php">[ Manage Added accounts ]</a><br>
+            <a href="add_pix.php">[ Add PIX key ]</a><br>
             <a href="add_bank.php">[ Add Brazilian bank account ]</a>
         </ul>
     </div>
 <br>
-<a href="change_password.php">[ Change password ]</a>
+<a href="change_password.php">[ Change password ]</a><br>
+--------<br>
 <a href="logout.php">[ logout ]</a>
 
 <script>

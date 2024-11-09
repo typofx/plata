@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <span id="passwordMessage"></span><br><br>
     
     <input type="hidden" id="recaptchaChecked" name="recaptchaChecked" value="0">
-    <div id="recaptcha-container" class="g-recaptcha" data-callback="recaptchaChecked" data-sitekey=""></div><br>
+    <div id="recaptcha-container" class="g-recaptcha" data-callback="recaptchaChecked" data-sitekey="6LebDiIoAAAAADxJucIc0n8is7A6L_Yt6DZRZ2R_"></div><br>
 
     <button type="submit">Confirm</button><br>
     <a href="index.php">[ Cancel ]</a>
