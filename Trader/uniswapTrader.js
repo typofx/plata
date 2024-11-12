@@ -67,8 +67,8 @@ async function main() {
     )
 
     const params = {
-        tokenIn: immutables.token1,
-        tokenOut: immutables.token0,
+        tokenIn: immutables.token0,
+        tokenOut: immutables.token1,
         fee: immutables.fee,
         recipient: WALLET_ADDRESS,
         deadline: Math.floor(Date.now()/ 1000) + (60 * 10),
@@ -80,13 +80,24 @@ async function main() {
 
     const transaction = swapRouterContract.connect(connectedWallet).exactInputSingle(
         params, {
+            //gasLimit: 3000000,
+            //maxPriorityFeePerGas: 3000000,
+            //maxFeePerGas: 3000000,
             tokenIn: symbol1,
             tokenOut: symbol0,
         }
 
-    ).then ( transaction => { console.log(transaction) }
+    ).then ( transaction => { console.log(transaction) }
 )
+
+
+
 
 }
 
-main()
+function startInterval() {
+    main(); // Executa a primeira vez imediatamente
+    setInterval(main, 10000); // 30000 ms = 30 segundos
+}
+
+startInterval();
