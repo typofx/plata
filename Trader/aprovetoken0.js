@@ -43,4 +43,4 @@ async function aproveToken0() {
     
 }
 
-setTimeout(() => { aproveToken0() }, 5000)
+aproveToken0()
