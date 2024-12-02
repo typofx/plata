@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt_insert->execute()) {
         echo "New week added successfully!";
-        echo "<script>window.location.href='work_weeks.php?employee_id=" . $employee_id . "';</script>";
+        echo "<script>window.location.href='work_weeks_ireland.php?employee_id=" . $employee_id . "';</script>";
         exit();
     } else {
         echo "Error: " . $stmt_insert->error;
@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="EURUSDT">EURUSDT: <?php echo $EURUSD ?></label><br><br>
 
         <input type="submit" value="Add Week">
-        <a href='work_weeks.php?employee_id=<?php echo $employee_id; ?>'>[back]</a>
+        <a href='edit_week_ireland.php?employee_id=<?php echo $employee_id; ?>'>[back]</a>
     </form>
 </body>
 </html>

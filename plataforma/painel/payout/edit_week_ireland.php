@@ -229,7 +229,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
         if ($stmt_update->execute()) {
             echo "Week updated successfully.";
-            echo "<script>window.location.href='work_weeks.php?employee_id=" . $employee_id . "';</script>";
+            echo "<script>window.location.href='work_weeks_ireland.php?employee_id=" . $employee_id . "';</script>";
             exit();
         } else {
             echo "Error updating week: " . $conn->error;
@@ -361,6 +361,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                     <option value="Binance" <?php echo $week_data['type' . ($i - 1)] == 'Binance' ? 'selected' : ''; ?>>Binance</option>
                     <option value="SEPA" <?php echo $week_data['type' . ($i - 1)] == 'SEPA' ? 'selected' : ''; ?>>SEPA</option>
                     <option value="Pix" <?php echo $week_data['type' . ($i - 1)] == 'Pix' ? 'selected' : ''; ?>>Pix</option>
+                    <option value="Cash" <?php echo $week_data['type' . ($i - 1)] == 'Cash' ? 'selected' : ''; ?>>Cash</option>
                 </select>
 
                 <label style="display: inline; " for="currency[<?php echo $i - 1; ?>]">Coin:</label>
@@ -395,7 +396,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
     </form>
 
     <br>
-    <a href="work_weeks.php?employee_id=<?php echo $employee_id; ?>">Back</a>
+    <a href="work_weeks_ireland.php?employee_id=<?php echo $employee_id; ?>">Back</a>
 
 </body>
 

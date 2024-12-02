@@ -1,12 +1,11 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
 include 'conexao.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-
-    $sql = "SELECT * FROM  granna80_bdlinks.payout WHERE id = $id";
+    $sql = "SELECT * FROM granna80_bdlinks.payout WHERE id = $id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -14,6 +13,7 @@ if (isset($_GET['id'])) {
         $employee = $row['employee'];
         $rate = $row['rate'];
         $pay_type = $row['pay_type'];
+        $type = $row['type']; // Adicionado o campo type
         $employee_email = $row['employee_email'];
     } else {
         echo "Record not found!";
@@ -24,15 +24,16 @@ if (isset($_GET['id'])) {
     exit();
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $employee = $_POST['employee'];
     $rate = $_POST['rate'];
     $pay_type = $_POST['pay_type'];
+    $type = $_POST['type']; // Obter o campo type do formulário
     $employee_email = $_POST['employee_email'];
 
-
-    $sql = "UPDATE payout SET employee='$employee', rate='$rate', pay_type='$pay_type', employee_email='$employee_email' WHERE id=$id";
+    $sql = "UPDATE granna80_bdlinks.payout 
+            SET employee='$employee', rate='$rate', pay_type='$pay_type', type='$type', employee_email='$employee_email' 
+            WHERE id=$id";
 
     if ($conn->query($sql) === TRUE) {
         echo "Registration updated successfully";
@@ -68,6 +69,12 @@ $conn->close();
             <option value="Hourly" <?php if ($pay_type == 'Hourly') echo 'selected'; ?>>Hourly</option>
             <option value="Weekly" <?php if ($pay_type == 'Weekly') echo 'selected'; ?>>Weekly</option>
             <option value="Biweekly" <?php if ($pay_type == 'Biweekly') echo 'selected'; ?>>Biweekly</option>
+        </select><br><br>
+
+        <label for="type">Type:</label><br>
+        <select id="type" name="type" required>
+            <option value="Ireland" <?php if ($type == 'Ireland') echo 'selected'; ?>>Ireland</option>
+            <option value="Offshore" <?php if ($type == 'Offshore') echo 'selected'; ?>>Offshore</option>
         </select><br><br>
 
         <input type="submit" value="Update Payout">

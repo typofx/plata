@@ -47,6 +47,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $employee_email = $row['employee_email'];
         $start_date = date('d M Y', strtotime($row['start_week']));
         $end_date = date('d M Y', strtotime($row['end_week']));
+        $isuedate = $row['created_at'];
         $status = $row['status'];
         $rate = $row['rate'];
         $pay_type = $row['pay_type'];
@@ -67,6 +68,9 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $eur2 = $row['plteur2'];
         $eur3 = $row['plteur3'];
 
+        $eur = $row['weekly_value_plteur'];
+        $plt = $row['weekly_value_pltusd'];
+
         $currency = $row['currency'];
 
         $eur_paid = ($eur0 + $eur1 + $eur2 + $eur3);
@@ -77,6 +81,12 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
         $amount_paid = number_format($amount_paid, 2, '.', '');
         // $working_hours;
 
+
+        $weekly_value_plteur =  $amount_paid / $eur;
+        $weekly_value_pltusd = $amount_paid / $plt;
+
+        $weekly_value_plteur = number_format($weekly_value_plteur, 2, '.', '');
+        $weekly_value_pltusd = number_format($weekly_value_pltusd, 2, '.', ',');
         // Calculate the total payment
         $total_payment = ($pay_type == 'Hourly') ? ($rate * $hours_worked) : $rate;
 
@@ -283,7 +293,10 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                         <h1 class="content-title">Billing Invoice</h1>
                         <br> Services Rendered: Computing Service
                         <br> Invoice serial number: XX.XX.XX.00
-                        <br> Document issue date: <?php echo date('d F Y'); ?>
+                        <?php $date = new DateTime($isuedate);
+                        $formattedDate = $date->format('d F Y'); 
+                        ?>
+                        <br> Document issue date: <?php echo $formattedDate; ?>
                         <br>
                         <h6 class="table-title">Services</h6>
                         <table class="service">
@@ -305,7 +318,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                             <tr>
                                 <td class="border">Plata Token Assets<br>Stablecoin</td>
                                 <td class="border"></td>
-                                <td class="service-content border"><?php echo !empty($plt_paid) ? $plt_paid : '0'; ?> PLT<br><?php echo !empty($amount_paid) ? $amount_paid : '0'; ?> USDT</td>
+                                <td class="service-content border"><?php echo !empty($weekly_value_pltusd) ? $weekly_value_pltusd : '0'; ?> PLT<br><?php echo !empty($amount_paid) ? $amount_paid : '0'; ?> USDT</td>
                             </tr>
                         </table>
                         <h6 class="table-title">Invoice Total</h6>
@@ -318,7 +331,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                             <tr>
                                 <td class="service-content">Worked Hours</td>
                                 <td class="service-content"><?php echo !empty($working_hours) ? $working_hours : '0'; ?> hr</td>
-                                <td class="service-content"><?php echo !empty($plt_paid) ? $plt_paid : '0'; ?> PLT</td>
+                                <td class="service-content"><?php echo !empty($weekly_value_pltusd) ? $weekly_value_pltusd : '0'; ?> PLT</td>
                             </tr>
                             <tr>
                                 <td class="service-content">Transaction Fee</td>
@@ -337,7 +350,7 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
                             </tr>
                         </table>
 
-                        <h1 class="total"><b>Total fee payable: <?php echo !empty($eur_paid) ? $eur_paid : '0'; ?> EUR</b></h1>
+                        <h1 class="total"><b>Total fee payable: <?php echo !empty($weekly_value_plteur) ? $weekly_value_plteur : '0'; ?> EUR</b></h1>
                         <p class="footer">This billing invoice is issued in the name, and on behalf of, the supplier <?php echo !empty($employee_name) ? $employee_name : '0'; ?> in
                             accordance with the terms agreement between the parties</p>
                     </div>
