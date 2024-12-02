@@ -43,7 +43,7 @@ if (isset($_GET['employee_id'])) {
     $uuid_search = $uuid; // Replace this value with the UUID you want to search for
 
     // Query to get the email by UUID
-    $query_uuid = "SELECT private_email FROM granna80_bdlinks.team_docs WHERE uuid = ?";
+    $query_uuid = "SELECT private_email, cpf, taxida FROM granna80_bdlinks.team_docs WHERE uuid = ?";
     $prepared_stmt_uuid = $conn->prepare($query_uuid); // Prepare the query
     $prepared_stmt_uuid->bind_param("s", $uuid_search); // Bind the UUID parameter
     $prepared_stmt_uuid->execute(); // Execute the query
@@ -53,6 +53,7 @@ if (isset($_GET['employee_id'])) {
         // If a result is found, get the email
         $record_uuid = $result_set_uuid->fetch_assoc();
         $email = $record_uuid['private_email'];
+        $pps = $record_uuid['taxida'];
         //echo "The email corresponding to the UUID is: " . $email;
     } else {
         echo "No record found for the provided UUID.";
@@ -131,6 +132,7 @@ if (isset($_GET['employee_id'])) {
 <body>
     <h1>Payroll - Employee: <?php echo htmlspecialchars($employee); ?></h1>
     <h4>Employee email: <?php echo htmlspecialchars($email); ?></h4>
+    <h4>Employee PPS/CPF: <?php echo htmlspecialchars($pps); ?></h4>
     <br>
     <br>
 
@@ -173,7 +175,7 @@ if (isset($_GET['employee_id'])) {
 
 
 
-    <a href="add_week.php?employee_id=<?php echo $employee_id ?>" onclick="return confirm('Are you sure you want to add a new week?')">[Add New Week]</a>
+    <a href="add_week_ireland.php?employee_id=<?php echo $employee_id ?>" onclick="return confirm('Are you sure you want to add a new week?')">[Add New Week]</a>
     <a href="reset_employee_emails.php?employee_id=<?php echo $employee_id ?>">[Reset all emails]</a>
     <a href="<?php include $_SERVER['DOCUMENT_ROOT']; ?>/plataforma/painel/team/docs/edit.php?id=<?php echo $ern ?>">[DOCS]</a>
     <a href="<?php include $_SERVER['DOCUMENT_ROOT']; ?>/plataforma/painel/payout/edit.php?id=<?php echo $employee_id ?>" onclick="return confirm('Are you sure you want to add a new week?')">[Edit Payout]</a>
@@ -192,6 +194,12 @@ if (isset($_GET['employee_id'])) {
                 <th>Wage (USDT)</th>
                 <th>PLTUSDT</th>
                 <th>EURUSDT</th>
+                <th>EUR</th>
+                <th>PAYE</th>
+                <th>PAYE50</th>
+                <th>PRSI</th>
+                <th>USC</th>
+                <th>NETT</th>
                 <th>Generated on</th>
                 <th>WEEK</th>
                 <th>MONTH</th>
@@ -345,7 +353,7 @@ if (isset($_GET['employee_id'])) {
 
 
                     if ($row['status'] == 'Paid') {
-                        $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' target='_blank'><i class='fa-solid fa-receipt'></i></a>";
+                        $week_receipt_icon = "<a href='generate_week_receipt_ireland.php?week={$row['work_week']}&employee_id=$employee_id' target='_blank'><i class='fa-solid fa-receipt'></i></a>";
                     } else {
                         $week_receipt_icon = "<i class='fa-solid fa-receipt' style='color: grey;'></i>";
                     }
@@ -419,46 +427,90 @@ if (isset($_GET['employee_id'])) {
                     $wageeur = $row['plteur0'] + $row['plteur1'] + $row['plteur2'] + $row['plteur3'];
 
 
-                    $plt_total = 
-                    (isset($row['current_plt_price0']) ? (float)$row['current_plt_price0'] : 0) +
-                    (isset($row['current_plt_price1']) ? (float)$row['current_plt_price1'] : 0) +
-                    (isset($row['current_plt_price2']) ? (float)$row['current_plt_price2'] : 0) +
-                    (isset($row['current_plt_price3']) ? (float)$row['current_plt_price3'] : 0);
-            
-                $plt_count = 
-                    (isset($row['current_plt_price0']) ? 1 : 0) +
-                    (isset($row['current_plt_price1']) ? 1 : 0) +
-                    (isset($row['current_plt_price2']) ? 1 : 0) +
-                    (isset($row['current_plt_price3']) ? 1 : 0);
-            
-                $PLTVALUE = number_format($plt_count > 0 ? $plt_total / $plt_count : 0, 10);
-            
-                // Cálculo para current_eur_price
-                $eur_total = 
-                    (isset($row['current_eur_price0']) ? (float)$row['current_eur_price0'] : 0) +
-                    (isset($row['current_eur_price1']) ? (float)$row['current_eur_price1'] : 0) +
-                    (isset($row['current_eur_price2']) ? (float)$row['current_eur_price2'] : 0) +
-                    (isset($row['current_eur_price3']) ? (float)$row['current_eur_price3'] : 0);
-            
-                $eur_count = 
-                    (isset($row['current_eur_price0']) ? 1 : 0) +
-                    (isset($row['current_eur_price1']) ? 1 : 0) +
-                    (isset($row['current_eur_price2']) ? 1 : 0) +
-                    (isset($row['current_eur_price3']) ? 1 : 0);
-            
-                $EURVALUE = number_format($eur_count > 0 ? $eur_total / $eur_count : 0, 4);
+                    $plt_total =
+                        (isset($row['current_plt_price0']) ? (float)$row['current_plt_price0'] : 0) +
+                        (isset($row['current_plt_price1']) ? (float)$row['current_plt_price1'] : 0) +
+                        (isset($row['current_plt_price2']) ? (float)$row['current_plt_price2'] : 0) +
+                        (isset($row['current_plt_price3']) ? (float)$row['current_plt_price3'] : 0);
+
+                    $plt_count =
+                        (isset($row['current_plt_price0']) ? 1 : 0) +
+                        (isset($row['current_plt_price1']) ? 1 : 0) +
+                        (isset($row['current_plt_price2']) ? 1 : 0) +
+                        (isset($row['current_plt_price3']) ? 1 : 0);
+
+                    $PLTVALUE = number_format($plt_count > 0 ? $plt_total / $plt_count : 0, 10);
+
+
+                    $eur_total =
+                        (isset($row['current_eur_price0']) ? (float)$row['current_eur_price0'] : 0) +
+                        (isset($row['current_eur_price1']) ? (float)$row['current_eur_price1'] : 0) +
+                        (isset($row['current_eur_price2']) ? (float)$row['current_eur_price2'] : 0) +
+                        (isset($row['current_eur_price3']) ? (float)$row['current_eur_price3'] : 0);
+
+                    $eur_count =
+                        (isset($row['current_eur_price0']) ? 1 : 0) +
+                        (isset($row['current_eur_price1']) ? 1 : 0) +
+                        (isset($row['current_eur_price2']) ? 1 : 0) +
+                        (isset($row['current_eur_price3']) ? 1 : 0);
+
+                    $EURVALUE = number_format($eur_count > 0 ? $eur_total / $eur_count : 0, 4);
+                    $euroWage = $EURVALUE > 0 ? $wage / $EURVALUE : 0;
+
+
+                    $percentagePAYE = 10;
+                    $resultPAYE = ($euroWage > 0) ? (($euroWage * $percentagePAYE) / 100) : 0;
+
+
+                    $percentagePRSI = 4.10;
+                    $PRSI = 0;
+
+
+                    if ($euroWage > 352) {
+                        $PRSI = ($euroWage * $percentagePRSI) / 100;
+                    }
+
+                    $percentageUSC = 5;
+                    $USC = ($euroWage > 0) ? ($euroWage * $percentageUSC) / 100 : 0;
+
+                    $NETT = ($resultPAYE + $PRSI + $USC);
+
+                    $finalNett = $euroWage -  $NETT;
+
+                    $update_query = "UPDATE granna80_bdlinks.work_weeks 
+                    SET 
+                     
+                        PAYE = ?, 
+                        PRSI = ?, 
+                        USC = ?, 
+                        NETT = ?,
+                        eur = ?,
+                        pps = ?
+                    WHERE id = ?";
+
+                    $stmt = $conn->prepare($update_query);
+                    $stmt->bind_param("ssssssi", $resultPAYE, $PRSI, $USC, $finalNett, $euroWage, $pps, $row['id']);
+                    $stmt->execute();
+                    $stmt->close();
 
 
                     echo "</td>
                     <td>{$row['status']}</td>
-                      <td>" . number_format($wage, 2, '.', ',') . "</td>
+                    <td>" . number_format($wage, 2, '.', ',') . "</td>
                     <td>" . $PLTVALUE . "</td>
                     <td>" . $EURVALUE . "</td>
+                    <td>" . number_format($euroWage, 2, '.', ',')  . "</td>
+                    <td>" . number_format($resultPAYE, 2, '.', ',') . "</td>
+                     <td>" . number_format($resultPAYE, 2, '.', ',') . "</td>
+                    <td>" . number_format($PRSI, 2, '.', ',') . "</td>
+                    <td>" . number_format($USC, 2, '.', ',') . "</td>
+                    
+                    <td>" . number_format($finalNett, 2, '.', ',')  . "</td>
                     <td>" . substr($generated, 0, 10) . "</td>
                     <td>{$week_receipt_icon}</td>
                     <td>{$invoice_icon}</td>
                     <td>
-                        <a href='edit_week.php?week={$row['work_week']}&employee_id=$employee_id' style='text-decoration: none;'>
+                        <a href='edit_week_ireland.php?week={$row['work_week']}&employee_id=$employee_id' style='text-decoration: none;'>
                             <img src='https://www.plata.ie/plataforma/img/sheet-icon-edit.png' alt='Edit' style='margin-right: 10px;'>
                         </a>
            

@@ -357,8 +357,8 @@ if (isset($_GET['month']) && isset($_GET['employee_id'])) {
                                 77 Camden Street Lower
                                 Saint Kevin's<br>
                                 Dublin D02 XE80 Ireland<br> <br>
-                                CRO: XXXXXX<br>
-                                VAT: 1282313RA
+                                CRO: 770759<br>
+                                VAT: IE 04325859TH
                             </div>
                         </div>
                         <div class="content">

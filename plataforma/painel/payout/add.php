@@ -7,10 +7,11 @@ $sql_team = "SELECT uuid, member_name, private_email FROM granna80_bdlinks.team_
 $result_team = $conn->query($sql_team);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obter o UUID selecionado no formulário
+    // Obter os valores do formulário
     $employee_uuid = $_POST['employee'];
     $rate = $_POST['rate'];
     $pay_type = $_POST['pay_type'];
+    $type = $_POST['type']; // Novo campo type
 
     // Agora, buscar o nome do funcionário e o e-mail com base no UUID
     $sql_employee = "SELECT member_name, private_email FROM granna80_bdlinks.team_docs WHERE uuid = '$employee_uuid'";
@@ -21,9 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $employee_name = $row_employee['member_name'];
         $employee_email = $row_employee['private_email'];
 
-        // Inserir os dados no banco incluindo o UUID
-        $sql = "INSERT INTO granna80_bdlinks.payout (uuid, employee, rate, pay_type, employee_email) 
-                VALUES ('$employee_uuid', '$employee_name', '$rate', '$pay_type', '$employee_email')";
+        // Inserir os dados no banco incluindo o UUID e o type
+        $sql = "INSERT INTO granna80_bdlinks.payout (uuid, employee, rate, pay_type, type, employee_email) 
+                VALUES ('$employee_uuid', '$employee_name', '$rate', '$pay_type', '$type', '$employee_email')";
 
         if ($conn->query($sql) === TRUE) {
             echo "Novo registro criado com sucesso.";
@@ -71,6 +72,12 @@ $conn->close();
             <option value="Hourly">Hourly</option>
             <option value="Weekly">Weekly</option>
             <option value="Biweekly">Biweekly</option>
+        </select><br><br>
+
+        <label for="type">Type:</label><br>
+        <select id="type" name="type" required>
+            <option value="Ireland">Ireland</option>
+            <option value="Offshore">Offshore</option>
         </select><br><br>
 
         <input type="submit" value="Add Payout">
