@@ -1,0 +1,135 @@
+[24-May-2024 12:19:41 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:41 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:41 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:19:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/plataforma/painel/payments/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:19:46 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:46 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 3
+[24-May-2024 12:19:46 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:19:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/plataforma/painel/payments/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 7
+[24-May-2024 12:27:32 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function </td>
+                <td>() in /home2/granna80/public_html/plataforma/painel/payments/index.php:58
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 58
+[24-May-2024 14:15:27 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payments/edit.php:45
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/edit.php(45): mysqli_stmt->bind_param('ssssdsssssi', '2011-03-15 00:0...', 'PIX', '456,204.3796', '10.00', 'BRL', '0x57Cc6e9bc56e2...', 'polygon', 'softgamebr4@gma...', 'Completed', '2')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 45
+[24-May-2024 14:17:08 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payments/edit.php:45
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/edit.php(45): mysqli_stmt->bind_param('ssssssssssi', '2011-03-15 00:0...', 'PIX', '456,204.3796', '10.00', 'BRL', '0x57Cc6e9bc56e2...', 'polygon', 'softgamebr4@gma...', 'Completed', '2')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 45
+[24-May-2024 14:18:16 America/Chicago] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home2/granna80/public_html/plataforma/painel/payments/edit.php:45
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/edit.php(45): mysqli_stmt->bind_param('ssssdsssssi', '2011-03-15 00:0...', 'PIX', '456,204.3796', 10.0, 'BRL', '0x57Cc6e9bc56e2...', 'polygon', 'softgamebr4@gma...', 'Completed', '2')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 45
+[24-May-2024 14:34:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/payments/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/payments/delete.php on line 14
+[24-May-2024 14:37:41 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/payments/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/payments/delete.php on line 16
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $subject in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 70
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $message in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 71
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $headers in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 72
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $subject in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 73
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $message in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 73
+[04-Jun-2024 08:07:40 America/Chicago] PHP Warning:  Undefined variable $headers in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 73
+[04-Jun-2024 08:09:24 America/Chicago] PHP Warning:  Undefined variable $code in /home2/granna80/public_html/plataforma/painel/payments/edit.php on line 67
+[04-Jun-2024 08:37:26 America/Chicago] PHP Warning:  Undefined variable $code in /home2/granna80/public_html/plataforma/painel/payments/send_email.php on line 19
+[04-Jun-2024 12:04:56 America/Chicago] PHP Warning:  Undefined variable $email1 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:04:56 America/Chicago] PHP Warning:  Undefined variable $email2 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:04:56 America/Chicago] PHP Warning:  Undefined variable $email1 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:04:56 America/Chicago] PHP Warning:  Undefined variable $email2 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:04:56 America/Chicago] PHP Warning:  Undefined variable $email1 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:04:56 America/Chicago] PHP Warning:  Undefined variable $email2 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:04:56 America/Chicago] PHP Warning:  Undefined variable $email1 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:04:56 America/Chicago] PHP Warning:  Undefined variable $email2 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:05:03 America/Chicago] PHP Warning:  Undefined variable $email1 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:05:03 America/Chicago] PHP Warning:  Undefined variable $email2 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:05:03 America/Chicago] PHP Warning:  Undefined variable $email1 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:05:03 America/Chicago] PHP Warning:  Undefined variable $email2 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:05:03 America/Chicago] PHP Warning:  Undefined variable $email1 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:05:03 America/Chicago] PHP Warning:  Undefined variable $email2 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:05:03 America/Chicago] PHP Warning:  Undefined variable $email1 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[04-Jun-2024 12:05:03 America/Chicago] PHP Warning:  Undefined variable $email2 in /home2/granna80/public_html/plataforma/painel/payments/index.php on line 69
+[17-Jun-2024 10:24:59 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payments/delete2.php:27
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/delete2.php(27): mysqli->prepare('DELETE FROM pay...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/delete2.php on line 27
+[17-Jun-2024 10:25:18 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/payments/delete2.php:27
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/payments/delete2.php(27): mysqli->prepare('DELETE FROM pay...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/payments/delete2.php on line 27
+[25-Nov-2024 07:03:36 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 11:51:24 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 11:56:36 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 11:57:02 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 11:58:26 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:02:17 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:02:21 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:02:22 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:04:05 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:05:26 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:05:42 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:06:16 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:06:17 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:09:10 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:10:22 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:11:42 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:12:21 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:12:21 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 12:13:25 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[09-Dec-2024 21:05:03 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:10:35 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:10:46 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:10:47 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:10:52 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:10:53 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:10:56 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:10:56 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:11:03 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:11:03 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:11:10 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:11:11 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:33:38 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:33:43 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:33:46 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:33:49 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:35:05 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:35:09 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:35:10 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:35:13 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:35:13 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:37:33 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 10:41:59 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:08:20 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:08:27 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:30:51 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:30:53 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:30:56 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:33:28 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:33:30 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:34:27 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:35:36 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:36:23 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:37:13 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:37:18 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:37:23 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[13-Dec-2024 12:37:31 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[15-Dec-2024 22:20:46 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[15-Dec-2024 22:22:26 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[15-Dec-2024 22:22:38 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[15-Dec-2024 22:34:55 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[16-Dec-2024 01:59:08 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[16-Dec-2024 02:00:36 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[16-Dec-2024 10:45:23 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[16-Dec-2024 10:45:42 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+[16-Dec-2024 10:45:43 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
