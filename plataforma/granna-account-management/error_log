@@ -41,3 +41,4 @@ Stack trace:
 #0 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/granna-account-management/edit_pix.php on line 10
 [07-Nov-2024 12:54:13 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/granna-account-management/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/granna-account-management/edit_pix.php on line 27
+[09-Dec-2024 09:03:49 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
