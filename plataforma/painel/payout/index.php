@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
 
 ob_start();
@@ -50,26 +50,27 @@ $result = $conn->query($sql);
             <?php
             if ($result->num_rows > 0) {
                 $cont = 1;
+                $currentYear = date('Y');
                 while ($row = $result->fetch_assoc()) {
-
                     $page = ($row['type'] === 'Ireland') ? 'work_weeks_ireland.php' : 'work_weeks.php';
 
                     echo "<tr>
-                            <td>$cont</td>
-                           <td>{$row['uuid']}</a></td>
-                            <td><a href='{$page}?employee_id={$row['id']}'>{$row['employee']}</a></td>
-                            <td>{$row['type']}</td>
-                            <td>{$row['rate']} USDT</td>
-                        <td>" . number_format($row['rate'] / $EURUSD, 2) . " </td>
-                            <td>{$row['pay_type']}</td>
-                             <td><a href='edit.php?id={$row['id']}'>edit</a>⠀<a href='delete.php?id={$row['id']}'>delete</a></td>
-                          </tr>";
+                <td>$cont</td>
+                <td>{$row['uuid']}</td>
+                <td><a href='{$page}?employee_id={$row['id']}&year={$currentYear}'>{$row['employee']}</a></td>
+                <td>{$row['type']}</td>
+                <td>{$row['rate']} USDT</td>
+                <td>" . number_format($row['rate'] / $EURUSD, 2) . "</td>
+                <td>{$row['pay_type']}</td>
+                <td><a href='edit.php?id={$row['id']}'>edit</a>⠀<a href='delete.php?id={$row['id']}'>delete</a></td>
+              </tr>";
                     $cont++;
                 }
             } else {
                 echo "<tr><td colspan='4'>No records found</td></tr>";
             }
             ?>
+
         </tbody>
     </table>
 

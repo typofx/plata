@@ -4,6 +4,7 @@ include 'conexao.php';
 
 if (isset($_GET['employee_id'])) {
     $employee_id = $_GET['employee_id'];
+    $year_date = isset($_GET['year']) ? $_GET['year'] : date('Y');
 
     $sql_employee = "SELECT employee, employee_email, uuid FROM granna80_bdlinks.payout WHERE id = ?";
     $stmt_employee = $conn->prepare($sql_employee);
@@ -60,9 +61,14 @@ if (isset($_GET['employee_id'])) {
 
     $prepared_stmt_uuid->close();
 
-    $sql_weeks = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = ? ORDER BY work_week DESC";
+    $sql_weeks = "SELECT * 
+    FROM granna80_bdlinks.work_weeks 
+    WHERE employee_id = ? 
+    AND YEAR(end_week) = ? 
+    ORDER BY work_week DESC";
+
     $stmt_weeks = $conn->prepare($sql_weeks);
-    $stmt_weeks->bind_param("i", $employee_id);
+    $stmt_weeks->bind_param("ii", $employee_id, $year_date);
     $stmt_weeks->execute();
     $result_weeks = $stmt_weeks->get_result();
 } else {
@@ -125,6 +131,15 @@ if (isset($_GET['employee_id'])) {
             margin-right: 10px;
 
         }
+
+        .status-column {
+            display: flex;
+            align-items: center;
+     
+         
+            gap: 8px;
+ 
+        }
     </style>
 </head>
 
@@ -134,40 +149,62 @@ if (isset($_GET['employee_id'])) {
     <br>
     <br>
 
+    <?php
+
+    $current_year = isset($_GET['year']) ? $_GET['year'] : '2024';
+
+
+    $years = ['2024', '2025'];
+
+
+    $employee_id = isset($_GET['employee_id']) ? $_GET['employee_id'] : '1';
+    ?>
+
+    <form method="GET" action="">
+        <input type="hidden" name="employee_id" value="<?php echo htmlspecialchars($employee_id); ?>">
+        <select name="year" onchange="this.form.submit()">
+            <?php foreach ($years as $year) : ?>
+                <option value="<?php echo $year; ?>" <?php echo $year == $current_year ? 'selected' : ''; ?>>
+                    <?php echo $year; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </form>
 
     <?php
 
+    $current_year = isset($_GET['year']) ? $_GET['year'] : '2025';
 
 
-    $sql = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = $employee_id ORDER BY work_week DESC";
+    $sql = "SELECT * 
+    FROM granna80_bdlinks.work_weeks 
+    WHERE employee_id = $employee_id 
+    AND YEAR(end_week) = '$current_year' 
+    ORDER BY work_week DESC";
+
+
 
     $result = $conn->query($sql);
-
 
     $totalWage = 0;
     $totalWagePlt = 0;
     $totalWageEur = 0;
 
-
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            //echo $totalWage . '<br>';
             $totalWage += ($row['pltusd0'] + $row['pltusd1'] + $row['pltusd2'] + $row['pltusd3']);
             $totalWagePlt += (float) $row['plt0'] + (float) $row['plt1'] + (float) $row['plt2'] + (float) $row['plt3'];
             $totalWageEur += ((float) ($row['pltusd0'] + $row['pltusd1'] + $row['pltusd2'] + $row['pltusd3']) / $row['weekly_value_plteur']);
         }
     }
 
-
-
-    echo "<p>2024 : " . number_format($totalWage, 2, '.', '') . " (USDT) : "
+    echo "<p>$current_year : " . number_format($totalWage, 2, '.', '') . " (USDT) : "
         . number_format($totalWageEur, 2, '.', '') . " (EUR) : "
         . number_format($totalWagePlt, 4, '.', ',') . " (PLT)</p>";
 
-
     $result->data_seek(0);
-
     ?>
+
 
 
 
@@ -187,7 +224,7 @@ if (isset($_GET['employee_id'])) {
                 <th>Year</th>
                 <th>Monday - Friday</th>
                 <th>Month</th>
-                <th>Txn Hash</th>
+
                 <th>Status</th>
                 <th>Wage (USDT)</th>
                 <th>PLTUSDT</th>
@@ -344,6 +381,8 @@ if (isset($_GET['employee_id'])) {
 
 
 
+
+
                     if ($row['status'] == 'Paid') {
                         $week_receipt_icon = "<a href='generate_week_receipt.php?week={$row['work_week']}&employee_id=$employee_id' target='_blank'><i class='fa-solid fa-receipt'></i></a>";
                     } else {
@@ -387,7 +426,7 @@ if (isset($_GET['employee_id'])) {
                         }
                     } else {
                         // Não exibe o ícone de invoice se não for o final do mês
-                        $invoice_icon = '&nbsp;';
+                        $invoice_icon = '';
                     }
 
 
@@ -395,22 +434,22 @@ if (isset($_GET['employee_id'])) {
 
 
 
+                    $year = date('Y', strtotime($row['end_week']));
 
-
+                    $update_query = "UPDATE granna80_bdlinks.work_weeks SET year_date = ? WHERE id = ?";
+                    $stmt = $conn->prepare($update_query);
+                    $stmt->bind_param("si",  $year, $row['id']);
+                    $stmt->execute();
+                    $stmt->close();
 
                     echo "<tr>
                     <td><b>{$cont}</b></td>
         <td><b>" . intval($row['work_week']) . "</b></td>
-        <td>" . date('Y', strtotime($row['start_week'])) . "</td>
+        <td>" . $year . "</td>
         <td>" . date('d M', strtotime($row['start_week'])) . " - " . date('d M', strtotime($row['end_week'])) . "</td>
-        <td>{$month_to_display}</td>
-        <td>";
+        <td>{$month_to_display}</td>";
 
-                    if (strpos($row['hash0'], '0x') === 0) {
-                        echo '<i class="fa-solid fa-circle-check" style="color: #00ff33;"></i>';
-                    } else {
-                        echo '<i class="fa-solid fa-circle-xmark" style="color: #ff0000;"></i>';
-                    }
+
 
                     $wage = $row['pltusd0'] + $row['pltusd1'] + $row['pltusd2'] + $row['pltusd3'];
 
@@ -419,38 +458,53 @@ if (isset($_GET['employee_id'])) {
                     $wageeur = $row['plteur0'] + $row['plteur1'] + $row['plteur2'] + $row['plteur3'];
 
 
-                    $plt_total = 
-                    (isset($row['current_plt_price0']) ? (float)$row['current_plt_price0'] : 0) +
-                    (isset($row['current_plt_price1']) ? (float)$row['current_plt_price1'] : 0) +
-                    (isset($row['current_plt_price2']) ? (float)$row['current_plt_price2'] : 0) +
-                    (isset($row['current_plt_price3']) ? (float)$row['current_plt_price3'] : 0);
-            
-                $plt_count = 
-                    (isset($row['current_plt_price0']) ? 1 : 0) +
-                    (isset($row['current_plt_price1']) ? 1 : 0) +
-                    (isset($row['current_plt_price2']) ? 1 : 0) +
-                    (isset($row['current_plt_price3']) ? 1 : 0);
-            
-                $PLTVALUE = number_format($plt_count > 0 ? $plt_total / $plt_count : 0, 10);
-            
-                // Cálculo para current_eur_price
-                $eur_total = 
-                    (isset($row['current_eur_price0']) ? (float)$row['current_eur_price0'] : 0) +
-                    (isset($row['current_eur_price1']) ? (float)$row['current_eur_price1'] : 0) +
-                    (isset($row['current_eur_price2']) ? (float)$row['current_eur_price2'] : 0) +
-                    (isset($row['current_eur_price3']) ? (float)$row['current_eur_price3'] : 0);
-            
-                $eur_count = 
-                    (isset($row['current_eur_price0']) ? 1 : 0) +
-                    (isset($row['current_eur_price1']) ? 1 : 0) +
-                    (isset($row['current_eur_price2']) ? 1 : 0) +
-                    (isset($row['current_eur_price3']) ? 1 : 0);
-            
-                $EURVALUE = number_format($eur_count > 0 ? $eur_total / $eur_count : 0, 4);
+                    $plt_total =
+                        (isset($row['current_plt_price0']) ? (float)$row['current_plt_price0'] : 0) +
+                        (isset($row['current_plt_price1']) ? (float)$row['current_plt_price1'] : 0) +
+                        (isset($row['current_plt_price2']) ? (float)$row['current_plt_price2'] : 0) +
+                        (isset($row['current_plt_price3']) ? (float)$row['current_plt_price3'] : 0);
+
+                    $plt_count =
+                        (isset($row['current_plt_price0']) ? 1 : 0) +
+                        (isset($row['current_plt_price1']) ? 1 : 0) +
+                        (isset($row['current_plt_price2']) ? 1 : 0) +
+                        (isset($row['current_plt_price3']) ? 1 : 0);
+
+                    $PLTVALUE = number_format($plt_count > 0 ? $plt_total / $plt_count : 0, 10);
+
+                    // Cálculo para current_eur_price
+                    $eur_total =
+                        (isset($row['current_eur_price0']) ? (float)$row['current_eur_price0'] : 0) +
+                        (isset($row['current_eur_price1']) ? (float)$row['current_eur_price1'] : 0) +
+                        (isset($row['current_eur_price2']) ? (float)$row['current_eur_price2'] : 0) +
+                        (isset($row['current_eur_price3']) ? (float)$row['current_eur_price3'] : 0);
+
+                    $eur_count =
+                        (isset($row['current_eur_price0']) ? 1 : 0) +
+                        (isset($row['current_eur_price1']) ? 1 : 0) +
+                        (isset($row['current_eur_price2']) ? 1 : 0) +
+                        (isset($row['current_eur_price3']) ? 1 : 0);
+
+                    $EURVALUE = number_format($eur_count > 0 ? $eur_total / $eur_count : 0, 4);
+
+                    $status_icons = [
+                        'Paid' => "<i class='fa-solid fa-circle-check' style='color: #00ff33;'></i>",
+                        'Pending' => "<i class='fa-solid fa-circle-xmark' style='color: #ff0000;'></i>",
+                        'Processing' => "<i class='fa-solid fa-hourglass-half' style='color: #ffaa00;'></i>",
+                        'Holiday' => "<i class='fa-solid fa-umbrella-beach' style='color: #007bff;'></i>",
+                        'Holiday (Paid)' => "<i class='fa-solid fa-sun' style='color: #00ff33;'></i>",
+                        'Holiday (Off)' => "<i class='fa-solid fa-sun' style='color: #ff9900;'></i>",
+                        'Running' => "<i class='fa-solid fa-gears' style='color: #808080;'></i>",
+                        'Off' => "<i class='fa-solid fa-power-off' style='color: #cccccc;'></i>"
+                    ];
+
+                    // Get the icon for the current status
+                    $status_icon = isset($status_icons[$row['status']]) ? $status_icons[$row['status']] : '';
 
 
-                    echo "</td>
-                    <td>{$row['status']}</td>
+
+                    echo "
+                <td class='status-column'>⠀⠀⠀⠀⠀{$status_icon}<span class='status-text'>{$row['status']}</span></td>
                       <td>" . number_format($wage, 2, '.', ',') . "</td>
                     <td>" . $PLTVALUE . "</td>
                     <td>" . $EURVALUE . "</td>
@@ -473,7 +527,7 @@ if (isset($_GET['employee_id'])) {
                     $cont--;
                 }
             } else {
-                echo "<tr><td colspan='8'>No work weeks found</td></tr>";
+                //echo "<tr><td colspan='8'>No work weeks found</td></tr>";
             }
             ?>
         </tbody>
@@ -509,7 +563,10 @@ if (isset($_GET['employee_id'])) {
                 ],
                 "order": [
                     [1, 'desc']
-                ]
+                ],
+            "language": {
+                "emptyTable": "There is no data for the selected year!" 
+            }
             });
         });
     </script>

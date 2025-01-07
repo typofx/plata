@@ -4,6 +4,7 @@ include 'conexao.php';
 
 if (isset($_GET['employee_id'])) {
     $employee_id = $_GET['employee_id'];
+    $year_date = isset($_GET['year']) ? $_GET['year'] : date('Y');
 
     $sql_employee = "SELECT employee, employee_email, uuid FROM granna80_bdlinks.payout WHERE id = ?";
     $stmt_employee = $conn->prepare($sql_employee);
@@ -61,9 +62,14 @@ if (isset($_GET['employee_id'])) {
 
     $prepared_stmt_uuid->close();
 
-    $sql_weeks = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = ? ORDER BY work_week DESC";
+    $sql_weeks = "SELECT * 
+    FROM granna80_bdlinks.work_weeks 
+    WHERE employee_id = ? 
+    AND YEAR(end_week) = ? 
+    ORDER BY work_week DESC";
+
     $stmt_weeks = $conn->prepare($sql_weeks);
-    $stmt_weeks->bind_param("i", $employee_id);
+    $stmt_weeks->bind_param("ii", $employee_id, $year_date);
     $stmt_weeks->execute();
     $result_weeks = $stmt_weeks->get_result();
 } else {
@@ -126,6 +132,13 @@ if (isset($_GET['employee_id'])) {
             margin-right: 10px;
 
         }
+
+        .status-column {
+
+            text-align: left !important;
+            gap: 5px;
+
+        }
     </style>
 </head>
 
@@ -139,9 +152,37 @@ if (isset($_GET['employee_id'])) {
 
     <?php
 
+    $current_year = isset($_GET['year']) ? $_GET['year'] : '2025';
 
 
-    $sql = "SELECT * FROM granna80_bdlinks.work_weeks WHERE employee_id = $employee_id ORDER BY work_week DESC";
+    $years = ['2024', '2025'];
+
+
+    $employee_id = isset($_GET['employee_id']) ? $_GET['employee_id'] : '0';
+    ?>
+
+    <form method="GET" action="">
+        <input type="hidden" name="employee_id" value="<?php echo htmlspecialchars($employee_id); ?>">
+        <select name="year" onchange="this.form.submit()">
+            <?php foreach ($years as $year) : ?>
+                <option value="<?php echo $year; ?>" <?php echo $year == $current_year ? 'selected' : ''; ?>>
+                    <?php echo $year; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </form>
+
+
+
+    <?php
+
+
+
+    $sql = "SELECT * 
+FROM granna80_bdlinks.work_weeks 
+WHERE employee_id = $employee_id 
+AND YEAR(end_week) = '$current_year' 
+ORDER BY work_week DESC";
 
     $result = $conn->query($sql);
 
@@ -162,7 +203,7 @@ if (isset($_GET['employee_id'])) {
 
 
 
-    echo "<p>2024 : " . number_format($totalWage, 2, '.', '') . " (USDT) : "
+    echo "<p>$current_year : " . number_format($totalWage, 2, '.', '') . " (USDT) : "
         . number_format($totalWageEur, 2, '.', '') . " (EUR) : "
         . number_format($totalWagePlt, 4, '.', ',') . " (PLT)</p>";
 
@@ -189,7 +230,7 @@ if (isset($_GET['employee_id'])) {
                 <th>Year</th>
                 <th>Monday - Friday</th>
                 <th>Month</th>
-                <th>Txn Hash</th>
+
                 <th>Status</th>
                 <th>Wage (USDT)</th>
                 <th>PLTUSDT</th>
@@ -401,7 +442,13 @@ if (isset($_GET['employee_id'])) {
 
 
 
+                    $year = date('Y', strtotime($row['end_week']));
 
+                    $update_query = "UPDATE granna80_bdlinks.work_weeks SET year_date = ? WHERE id = ?";
+                    $stmt = $conn->prepare($update_query);
+                    $stmt->bind_param("si",  $year, $row['id']);
+                    $stmt->execute();
+                    $stmt->close();
 
 
 
@@ -409,16 +456,22 @@ if (isset($_GET['employee_id'])) {
                     echo "<tr>
                     <td><b>{$cont}</b></td>
         <td><b>" . intval($row['work_week']) . "</b></td>
-        <td>" . date('Y', strtotime($row['start_week'])) . "</td>
+        <td>" . date('Y', strtotime($row['end_week'])) . "</td>
         <td>" . date('d M', strtotime($row['start_week'])) . " - " . date('d M', strtotime($row['end_week'])) . "</td>
-        <td>{$month_to_display}</td>
-        <td>";
+        <td>{$month_to_display}</td>";
 
-                    if (strpos($row['hash0'], '0x') === 0) {
-                        echo '<i class="fa-solid fa-circle-check" style="color: #00ff33;"></i>';
-                    } else {
-                        echo '<i class="fa-solid fa-circle-xmark" style="color: #ff0000;"></i>';
-                    }
+                    $status_icons = [
+                        'Paid' => "<i class='fa-solid fa-circle-check' style='color: #00ff33;'></i>",
+                        'Pending' => "<i class='fa-solid fa-circle-xmark' style='color: #ff0000;'></i>",
+                        'Processing' => "<i class='fa-solid fa-hourglass-half' style='color: #ffaa00;'></i>",
+                        'Holiday' => "<i class='fa-solid fa-umbrella-beach' style='color: #007bff;'></i>",
+                        'Holiday (Paid)' => "<i class='fa-solid fa-sun' style='color: #00ff33;'></i>",
+                        'Holiday (Off)' => "<i class='fa-solid fa-sun' style='color: #ff9900;'></i>",
+                        'Running' => "<i class='fa-solid fa-gears' style='color: #808080;'></i>",
+                        'Off' => "<i class='fa-solid fa-power-off' style='color: #cccccc;'></i>"
+                    ];
+                    $status_icon = isset($status_icons[$row['status']]) ? $status_icons[$row['status']] : '';
+
 
                     $wage = $row['pltusd0'] + $row['pltusd1'] + $row['pltusd2'] + $row['pltusd3'];
 
@@ -494,8 +547,8 @@ if (isset($_GET['employee_id'])) {
                     $stmt->close();
 
 
-                    echo "</td>
-                    <td>{$row['status']}</td>
+                    echo "
+                     <td class='status-column'>⠀⠀{$status_icon}<span class='status-text'>⠀{$row['status']}</span></td>
                     <td>" . number_format($wage, 2, '.', ',') . "</td>
                     <td>" . $PLTVALUE . "</td>
                     <td>" . $EURVALUE . "</td>
@@ -517,7 +570,7 @@ if (isset($_GET['employee_id'])) {
                             $week_receipt_icon_email
 
                   
-                        <a href='delete_week.php?week={$row['work_week']}&employee_id=$employee_id' style='text-decoration: none;'>
+                        <a href='delete_week_ireland.php?week={$row['work_week']}&employee_id=$employee_id' style='text-decoration: none;'>
                             <img src='https://www.plata.ie/plataforma/img/sheet-icon-delete.png' alt='Delete'>
                         </a>
                     </td>
@@ -525,7 +578,8 @@ if (isset($_GET['employee_id'])) {
                     $cont--;
                 }
             } else {
-                echo "<tr><td colspan='8'>No work weeks found</td></tr>";
+                //echo "No work weeks found";
+                
             }
             ?>
         </tbody>
@@ -557,11 +611,18 @@ if (isset($_GET['employee_id'])) {
                         "width": "100px",
                         "targets": 7
                     },
+                    {
+                        "width": "200px",
+                        "targets": 5
+                    },
 
                 ],
                 "order": [
                     [1, 'desc']
-                ]
+                ],
+            "language": {
+                "emptyTable": "There is no data for the selected year!" 
+            }
             });
         });
     </script>
