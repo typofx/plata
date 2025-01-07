@@ -1,5 +1,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
-<?php ob_start(); include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php'; ob_end_clean(); ?>
+<?php ob_start();
+include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
+ob_end_clean(); ?>
 
 <?php
 $jsonUrl = "https://plata.ie/plataforma/painel/token-historical-data/token_data.json";
@@ -11,7 +13,7 @@ $currentEntryDate = '';
 
 foreach ($dataArray as $entry) {
     $entryDate = date('Y-m-d', strtotime($entry['date']));
-    
+
     if ($entryDate === $currentDate) {
         $currentPrice = $entry['price'];
         $currentEntryDate = $entry['date'];
@@ -35,7 +37,7 @@ $currentEntryDateEURUSD = '0';
 
 foreach ($dataArrayEURUSD as $entryEURUSD) {
     $entryDateEURUSD = date('Y-m-d', strtotime($entryEURUSD['date']));
-    
+
     if ($entryDateEURUSD === $currentDateEURUSD) {
         $currentPriceEURUSD = $entryEURUSD['price'];
         $currentEntryDateEURUSD = $entryEURUSD['date'];
@@ -111,33 +113,48 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
             $current_plt_price = 0;
 
 
-            if (!empty($transaction_date)) {
-                // Pesquisar preço do EUR no JSON com base na data
-                foreach ($eur_json as $eur) {
-                    if (strpos($eur['date'], $transaction_date) === 0) {
-                        $current_eur_price = $eur['price'];
-                        $current_eur_price = number_format($current_eur_price, 4, '.', '');
-                        break;
-                    }
-                }
+            if (empty($transaction_date)) {
+                $transaction_date = date('Y-m-d');
+            }
 
-                // Pesquisar preço do PLT no JSON com base na data
-                foreach ($plt_json as $plt) {
-                    if (strpos($plt['date'], $transaction_date) === 0) {
-                        $current_plt_price = $plt['price'];
-                        $current_plt_price = number_format($current_plt_price, 10, '.', '');
-                        break;
-                    }
+
+            foreach ($eur_json as $eur) {
+                if (strpos($eur['date'], $transaction_date) === 0) {
+                    $current_eur_price = $eur['price'];
+                    $current_eur_price = number_format($current_eur_price, 4, '.', '');
+                    break;
                 }
             }
+
+
+            if (empty($current_eur_price)) {
+                $latest_eur = end($eur_json);
+                $current_eur_price = number_format($latest_eur['price'], 4, '.', '');
+            }
+
+
+            foreach ($plt_json as $plt) {
+                if (strpos($plt['date'], $transaction_date) === 0) {
+                    $current_plt_price = $plt['price'];
+                    $current_plt_price = number_format($current_plt_price, 10, '.', '');
+                    break;
+                }
+            }
+
+
+            if (empty($current_plt_price)) {
+                $latest_plt = end($plt_json);
+                $current_plt_price = number_format($latest_plt['price'], 10, '.', '');
+            }
+
 
             if ($currency === 'PLT') {
                 $plt_value = $amount;
                 $pltusd_value = $amount * $PLTUSD;
-                $plteur_value = $pltusd_value / $EURUSD; // Agora dividimos por EURUSD
+                $plteur_value = $pltusd_value / $EURUSD;
             } else if ($currency === 'USDT') {
                 $plt_value = ($amount / $PLTUSD);
-                $plteur_value = $amount / $EURUSD; // Agora dividimos por EURUSD
+                $plteur_value = $amount / $EURUSD;
                 $pltusd_value = $amount;
             } else {
                 $plt_value = ($amount / $PLTUSD);
@@ -322,6 +339,9 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
             <option value="Processing" <?php echo $week_data['status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
             <option value="Holiday" <?php echo $week_data['status'] == 'Holiday' ? 'selected' : ''; ?>>Holiday</option>
             <option value="Holiday (Paid)" <?php echo $week_data['status'] == 'Holiday (Paid)' ? 'selected' : ''; ?>>Holiday (Paid)</option>
+            <option value="Holiday (Off)" <?php echo $week_data['status'] == 'Holiday (Off)' ? 'selected' : ''; ?>>Holiday (Off)</option>
+            <option value="Running" <?php echo $week_data['status'] == 'Running' ? 'selected' : ''; ?>>Running</option>
+            <option value="Off" <?php echo $week_data['status'] == 'Off' ? 'selected' : ''; ?>>Off</option>
         </select><br><br>
 
 
@@ -378,11 +398,11 @@ if (isset($_GET['week']) && isset($_GET['employee_id'])) {
 
                 <label style="display: inline;" for="current_plt_price[<?php echo $i - 1; ?>]">PLT Price:</label>
                 <input style="display: inline;" type="text" id="current_plt_price<?php echo $i; ?>" name="current_plt_price[<?php echo $i - 1; ?>]"
-                    value="<?php echo htmlspecialchars($week_data['current_plt_price' . ($i - 1)]); ?>" step="0.0000000001" min="0"  size="10">
+                    value="<?php echo htmlspecialchars($week_data['current_plt_price' . ($i - 1)]); ?>" step="0.0000000001" min="0" size="10">
 
                 <label style="display: inline;" for="current_eur_price[<?php echo $i - 1; ?>]">EUR Price:</label>
                 <input style="display: inline;" type="text" id="current_eur_price<?php echo $i; ?>" name="current_eur_price[<?php echo $i - 1; ?>]"
-                    value="<?php echo htmlspecialchars($week_data['current_eur_price' . ($i - 1)]); ?>"step="0.0000000001" min="0"  size="5">
+                    value="<?php echo htmlspecialchars($week_data['current_eur_price' . ($i - 1)]); ?>" step="0.0000000001" min="0" size="5">
 
 
 
