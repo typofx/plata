@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
 
 // Include database connection file
@@ -7,7 +7,7 @@ include 'conexao.php';
 // Initialize variables
 $last_edited_by = $userEmail;
 
-$name = $link = $status = $obs =  "";
+$name = $link = $status = $obs = $platform = "";
 $success_message = $error_message = "";
 
 // Check if an ID was passed in the URL
@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
         $link = $row['link'];
         $status = $row['status'];
         $obs = $row['obs'];
-        
+        $platform = $row['platform']; // Fetch platform value
     } else {
         $error_message = "Record not found.";
     }
@@ -38,11 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     $link = $_POST['link'];
     $status = $_POST['status'];
     $obs = $_POST['obs'];
-  
+    $platform = $_POST['platform']; // Capture platform value
 
     // Update the record
     $updateQuery = "UPDATE granna80_bdlinks.plata_link_checker 
-                    SET name='$name', link='$link', status='$status', obs='$obs', last_edited_by='$last_edited_by' 
+                    SET name='$name', link='$link', status='$status', obs='$obs', platform='$platform', last_edited_by='$last_edited_by' 
                     WHERE id=$id";
 
     if (mysqli_query($conn, $updateQuery)) {
@@ -89,12 +89,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
             <option value="fail" <?php if ($status == 'fail') echo 'selected'; ?>>Fail</option>
         </select><br><br>
 
+        <label>Platform:</label><br>
+        <select name="platform" required>
+            <option value="mobile" <?php if ($platform == 'mobile') echo 'selected'; ?>>Mobile</option>
+            <option value="desktop" <?php if ($platform == 'desktop') echo 'selected'; ?>>Desktop</option>
+        </select><br><br>
+
         <label>Observations (obs):</label><br>
         <textarea name="obs"><?php echo $obs; ?></textarea><br><br>
 
-       
-
         <button type="submit">Update Record</button>
+        <a href="index.php">[back]</a>
     </form>
 </body>
 </html>
