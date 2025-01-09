@@ -1,13 +1,12 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 
 <?php
 // Include database connection file
 include 'conexao.php';
 
 // Initialize variables to store form data and messages
-$name = $link = $status = $obs =  "";
+$name = $link = $status = $obs = $platform = "";
 $success_message = $error_message = "";
-
 
 $last_edited_by = $userEmail;
 
@@ -18,11 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $link = $_POST['link'];
     $status = $_POST['status'];
     $obs = $_POST['obs'];
-   
+    $platform = $_POST['platform']; // Capturing platform value
 
     // Insert data into the database
-    $insertQuery = "INSERT INTO granna80_bdlinks.plata_link_checker (name, link, status, obs, last_edited_by) 
-                    VALUES ('$name', '$link', '$status', '$obs', '$last_edited_by')";
+    $insertQuery = "INSERT INTO granna80_bdlinks.plata_link_checker (name, link, status, obs, platform, last_edited_by) 
+                    VALUES ('$name', '$link', '$status', '$obs', '$platform', '$last_edited_by')";
 
     if (mysqli_query($conn, $insertQuery)) {
         $success_message = "Record added successfully.";
@@ -66,10 +65,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <option value="fail" <?php if($status == "fail") echo "selected"; ?>>Fail</option>
         </select><br><br>
 
+        <label>Platform:</label><br>
+        <select name="platform" required>
+            <option value="mobile" <?php if($platform == "mobile") echo "selected"; ?>>Mobile</option>
+            <option value="desktop" <?php if($platform == "desktop") echo "selected"; ?>>Desktop</option>
+        </select><br><br>
+
         <label>Observations (obs):</label><br>
         <textarea name="obs"><?php echo $obs; ?></textarea><br><br>
-
-     
 
         <button type="submit">Add Record</button>
         <a href="index.php">[back]</a>
