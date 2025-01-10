@@ -1,0 +1,35 @@
+[10-Jan-2025 06:55:22 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/scrapyard/register_models.php:29
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/scrapyard/register_models.php(29): mysqli->query('SELECT brand_id...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/scrapyard/register_models.php on line 29
+[10-Jan-2025 06:55:29 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/scrapyard/register_brands.php:12
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/scrapyard/register_brands.php(12): mysqli->prepare('INSERT INTO scr...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/scrapyard/register_brands.php on line 12
+[10-Jan-2025 07:07:05 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/scrapyard/add_new_equipment.php:39
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/scrapyard/add_new_equipment.php(39): mysqli->query('SELECT brand_id...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/scrapyard/add_new_equipment.php on line 39
+[10-Jan-2025 07:07:07 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/scrapyard/add_new_equipment.php:39
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/scrapyard/add_new_equipment.php(39): mysqli->query('SELECT brand_id...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/scrapyard/add_new_equipment.php on line 39
+[10-Jan-2025 07:41:36 America/Chicago] PHP Warning:  Undefined array key "brand_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 98
+[10-Jan-2025 07:41:36 America/Chicago] PHP Warning:  Undefined array key "model_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 108
+[10-Jan-2025 07:41:39 America/Chicago] PHP Warning:  Undefined array key "brand_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 98
+[10-Jan-2025 07:41:39 America/Chicago] PHP Warning:  Undefined array key "model_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 108
+[10-Jan-2025 07:46:16 America/Chicago] PHP Warning:  Undefined array key "brand_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 100
+[10-Jan-2025 07:48:02 America/Chicago] PHP Warning:  Undefined array key "brand_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 100
+[10-Jan-2025 07:48:02 America/Chicago] PHP Warning:  Undefined array key "model_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 110
+[10-Jan-2025 07:48:05 America/Chicago] PHP Warning:  Undefined array key "brand_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 100
+[10-Jan-2025 07:48:05 America/Chicago] PHP Warning:  Undefined array key "model_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 110
+[10-Jan-2025 07:48:07 America/Chicago] PHP Warning:  Undefined array key "brand_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 100
+[10-Jan-2025 07:48:07 America/Chicago] PHP Warning:  Undefined array key "model_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 110
+[10-Jan-2025 07:49:27 America/Chicago] PHP Warning:  Undefined array key "brand_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 100
+[10-Jan-2025 07:49:27 America/Chicago] PHP Warning:  Undefined array key "model_name" in /home2/granna80/public_html/plataforma/painel/scrapyard/edit_equipment.php on line 112
+[10-Jan-2025 08:10:28 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 25
+[10-Jan-2025 08:13:27 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 25
