@@ -1,0 +1,5 @@
+[13-Jan-2025 09:29:36 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/scrapyard/index.php:127
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/scrapyard/index.php(127): mysqli->query('\n            SE...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/scrapyard/index.php on line 127
