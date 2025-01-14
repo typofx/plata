@@ -1,20 +1,35 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
-// Include database connection
+include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include 'conexao.php';
 
 // Function to sanitize input data
-function sanitizeInput($data) {
+function sanitizeInput($data)
+{
     return htmlspecialchars(trim($data));
 }
 
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize form data
-    $ebay = sanitizeInput($_POST['ebay'] ?? null);
+    print_r($_POST);
+    // Retrieve and sanitize form data
     $conditions = sanitizeInput($_POST['conditions'] ?? null);
     $column_4 = sanitizeInput($_POST['column_4'] ?? null);
     $equipment = sanitizeInput($_POST['equipment'] ?? null);
+
+    $equipmentId = sanitizeInput($_POST['equipment'] ?? null);
+
+
+    if ($equipmentId) {
+        $stmt = $conn->prepare("SELECT name FROM granna80_bdlinks.scrapyard_equipment WHERE id = ?");
+        $stmt->bind_param("i", $equipmentId);
+        $stmt->execute();
+        $stmt->bind_result($equipmentName);
+        $stmt->fetch();
+        $stmt->close();
+    }
+
+
+
     $brand_id = intval($_POST['brand_id'] ?? 0);
     $model_id = intval($_POST['model_id'] ?? 0);
     $config = sanitizeInput($_POST['config'] ?? null);
@@ -25,37 +40,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $eur = sanitizeInput($_POST['eur'] ?? null);
     $returns = sanitizeInput($_POST['returns'] ?? null);
 
-    // Validate required fields
-    if (empty($equipment) || $brand_id <= 0 || $model_id <= 0) {
-        echo "Please fill in all required fields (Equipment, Brand, and Model).";
-    } else {
-        // Insert data into scrapyard table
-        $query = "INSERT INTO granna80_bdlinks.scrapyard 
-                  (eBay, Conditions, Column_4, Equipment, Brand, Model, Config, Code, Description, Price, IRE, EUR, Returns, brand_id, model_id) 
-                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $conn->prepare($query);
+    $eshop_ids = $_POST['eshops'];
+    $product_codes = $_POST['product_codes'] ?? []; 
+    $eshop_data = [];
+    
+    foreach ($eshop_ids as $eshop_id) {
 
-        if ($stmt) {
-            // Bind parameters
-            $stmt->bind_param(
-                "sssssssssssssii", 
-                $ebay, $conditions, $column_4, $equipment, 
-                $brand_id, $model_id, $config, $code, 
-                $description, $price, $ire, $eur, 
-                $returns, $brand_id, $model_id
-            );
+        $eshop_product_code = sanitizeInput($product_codes[$eshop_id] ?? '');
+    
+   
+        $eshop_data[] = "$eshop_id:$eshop_product_code";
+    }
+    
+    $eshop_data_string = implode(',', $eshop_data);
+    
 
-            // Execute the query
-            if ($stmt->execute()) {
-                echo "Equipment added successfully!";
-            } else {
-                echo "Error adding the equipment: " . $stmt->error;
-            }
+    echo $eshop_data_string;
 
-            $stmt->close();
+    // Fetch brand and model names based on IDs
+    $brand_name = '';
+    $model_name = '';
+
+    if ($brand_id > 0) {
+        $brand_result = $conn->query("SELECT brand_name FROM granna80_bdlinks.scrapyard_brands WHERE brand_id = $brand_id");
+        $brand_name = $brand_result->fetch_assoc()['brand_name'] ?? '';
+    }
+
+    if ($model_id > 0) {
+        $model_result = $conn->query("SELECT model_name FROM granna80_bdlinks.scrapyard_models WHERE model_id = $model_id");
+        $model_name = $model_result->fetch_assoc()['model_name'] ?? '';
+    }
+
+    // Insert data into scrapyard table
+    $query = "INSERT INTO granna80_bdlinks.scrapyard 
+              (Conditions, Column_4, Equipment, Brand, Model, Config, Code, Description, Price, IRE, EUR, Returns, brand_id, model_id, eshop_data) 
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+
+    if ($stmt) {
+        $stmt->bind_param(
+            "sssssssssssssss",
+            $conditions,
+            $column_4,
+            $equipmentName,
+            $brand_name,
+            $model_name,
+            $config,
+            $code,
+            $description,
+            $price,
+            $ire,
+            $eur,
+            $returns,
+            $brand_id,
+            $model_id,
+            $eshop_data_string
+        );
+
+        if ($stmt->execute()) {
+            echo "Equipment added successfully!";
         } else {
-            echo "Error preparing the query: " . $conn->error;
+            echo "Error adding the equipment: " . $stmt->error;
         }
+
+        $stmt->close();
+    } else {
+        echo "Error preparing the query: " . $conn->error;
     }
 }
 
@@ -64,20 +114,29 @@ $brands = $conn->query("SELECT brand_id, brand_name FROM granna80_bdlinks.scrapy
 
 // Fetch models for the dropdown
 $models = $conn->query("SELECT model_id, model_name FROM granna80_bdlinks.scrapyard_models ORDER BY model_name");
+
+// Fetch e-shops for checkboxes
+$eshops = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_eshops ORDER BY name");
+
+$equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equipment ORDER BY name");
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Equipment</title>
 </head>
+
 <body>
     <h1>Add New Equipment</h1>
     <form method="POST">
-        <label for="ebay">eBay:</label>
-        <input type="text" id="ebay" name="ebay"><br><br>
+
 
         <label for="conditions">Condition:</label>
         <select id="conditions" name="conditions">
@@ -92,10 +151,20 @@ $models = $conn->query("SELECT model_id, model_name FROM granna80_bdlinks.scrapy
             <option value="OEM">OEM</option>
         </select><br><br>
 
-        <label for="equipment">Equipment:</label>
-        <input type="text" id="equipment" name="equipment" required><br><br>
 
-        <label for="brand_id">Brand:</label>
+        <label for="equipment">Select equipment:</label><br>
+        <select id="equipment" name="equipment">
+            <option value="">-- Select an equipment --</option>
+            <?php while ($equipament = $equipaments->fetch_assoc()): ?>
+                <option value="<?= $equipament['id'] ?>" data-name="<?= htmlspecialchars($equipament['name']) ?>">
+                    <?= htmlspecialchars($equipament['name']) ?>
+                </option>
+            <?php endwhile; ?>
+        </select>
+
+
+
+        <br><br><label for="brand_id">Brand:</label>
         <select id="brand_id" name="brand_id" required>
             <option value="">Select Brand</option>
             <?php while ($brand = $brands->fetch_assoc()): ?>
@@ -111,7 +180,19 @@ $models = $conn->query("SELECT model_id, model_name FROM granna80_bdlinks.scrapy
             <?php endwhile; ?>
         </select><br><br>
 
-        <label for="config">Configuration:</label>
+
+
+        <label>Select E-shops:</label><br>
+        <?php while ($eshop = $eshops->fetch_assoc()): ?>
+            <input type="checkbox" name="eshops[]" value="<?= $eshop['id'] ?>">
+            <?= htmlspecialchars($eshop['name']) ?>
+            <input type="text" name="product_codes[<?= $eshop['id'] ?>]" placeholder="Product Code <?= $eshop['id'] ?>"><br>
+        <?php endwhile; ?>
+
+
+
+
+        <br><label for="config">Configuration:</label>
         <input type="text" id="config" name="config"><br><br>
 
         <label for="code">Code:</label>
@@ -136,4 +217,5 @@ $models = $conn->query("SELECT model_id, model_name FROM granna80_bdlinks.scrapy
         <a href="index.php">[ Back ]</a>
     </form>
 </body>
+
 </html>
