@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
 <?php
 include 'conexao.php';
 
@@ -41,10 +41,10 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             justify-content: center;
         }
     </style>
-        <style>
+    <style>
         body {
             font-family: Arial, sans-serif;
-       
+
             background-color: #fff;
         }
 
@@ -83,12 +83,15 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
 
     <a href="register_brands.php">[ Register Brands ]</a><br>
     <a href="register_models.php">[ Register Models ]</a><br>
-    <a href="add_new_equipment.php">[ Add new equipment ]</a>
+    <a href="add_new_equipment.php">[ Add new product ]</a>
+    <a href="register_eshop.php">[ Register eShop ]</a>
+    <a href="register_equipament.php">[ Register equipment ]</a>
+    <a href="https://plata.ie/plataforma/painel/menu.php">[ Back ]</a>
     <table id="scrapyardTable" class="display">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>eBay</th>
+                <th>Eshop</th>
                 <th>Condition</th>
                 <th>OEM</th>
                 <th>Equipment</th>
@@ -106,20 +109,97 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
         </thead>
         <tbody>
             <?php
+            $uploadDir = '/images/uploads-scrapyard/';
+            $query = "
+            SELECT 
+                scrapyard.*,
+                scrapyard_brands.brand_image AS brand_logo
+            FROM granna80_bdlinks.scrapyard
+            LEFT JOIN granna80_bdlinks.scrapyard_brands 
+                ON TRIM(LOWER(scrapyard.Brand)) = TRIM(LOWER(scrapyard_brands.brand_name))
+            ORDER BY scrapyard.ID ASC
+        ";
+
+            $result = $conn->query($query);
             $cont = 1;
-            while ($row = $result->fetch_assoc()): ?>
+
+            while ($row = $result->fetch_assoc()):
+                $eshop_data = $row['eshop_data'];
+                $eshops = [];
+
+
+                if (!empty($eshop_data)) {
+                    $eshop_entries = explode(',', $eshop_data);
+                    foreach ($eshop_entries as $entry) {
+                        [$eshop_id, $product_code] = explode(':', $entry);
+                        $eshops[] = [
+                            'id' => $eshop_id,
+                            'product_code' => $product_code,
+                        ];
+                    }
+                }
+            ?>
                 <tr>
                     <td><?= $cont ?></td>
-                    <td><?= htmlspecialchars($row['eBay']) ?></td>
+                    <td>
+                        <div style="display: flex; gap: 10px;">
+                            <?php foreach ($eshops as $eshop):
+                               
+                                $eshop_name_query = $conn->query("SELECT name, logo, link FROM granna80_bdlinks.scrapyard_eshops WHERE id = " . intval($eshop['id']));
+                                $eshop_data = $eshop_name_query->fetch_assoc();
+
+                                $eshop_name = $eshop_data['name'] ?? '';
+                                $eshop_logo = $eshop_data['logo'] ?? '';
+                                $base_url = $eshop_data['link'] ?? '';
+                                $product_url = '';
+
+                                if (!empty($base_url) && !empty($eshop['product_code'])) {
+                                    $product_url = rtrim($base_url, '/') . '/' . urlencode($eshop['product_code']);
+                                }
+
+                                error_log("Eshop Name: $eshop_name, Product Code: {$eshop['product_code']}, Product URL: $product_url, Logo: $eshop_logo");
+                            ?>
+                                <?php if ($eshop_logo): ?>
+                                    <?php if (!empty($eshop['product_code'])): ?>
+                                        
+                                        <a href="<?= htmlspecialchars($product_url) ?>" target="_blank" title="<?= htmlspecialchars($eshop_name) ?>">
+                                            <img
+                                                src="<?= htmlspecialchars($uploadDir . $eshop_logo) ?>"
+                                                alt="<?= htmlspecialchars($eshop_name) ?>"
+                                                style="height: 30px;">
+                                        </a>
+                                    <?php else: ?>
+                                      
+                                        <img
+                                            src="<?= htmlspecialchars($uploadDir . $eshop_logo) ?>"
+                                            alt="<?= htmlspecialchars($eshop_name) ?>"
+                                            title="Product code unavailable"
+                                            style="height: 30px; filter: grayscale(100%) brightness(50%); cursor: not-allowed;">
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+
+
+                        </div>
+                    </td>
                     <td><?= htmlspecialchars($row['Conditions']) ?></td>
                     <td><?= htmlspecialchars($row['Column_4']) ?></td>
                     <td><?= htmlspecialchars($row['Equipment']) ?></td>
-                    <td><?= htmlspecialchars($row['Brand']) ?></td>
+                    <td>
+                        <?php if (!empty($row['brand_logo'])): ?>
+                            <img
+                                src="/images/uploads-scrapyard/brands/<?= htmlspecialchars($row['brand_logo']) ?>"
+                                alt="<?= htmlspecialchars($row['Brand']) ?>"
+                                style="height: 30px;">
+                        <?php else: ?>
+                            <?= htmlspecialchars($row['Brand']) ?>
+                        <?php endif; ?>
+                    </td>
                     <td><?= htmlspecialchars($row['Model']) ?></td>
                     <td><?= htmlspecialchars($row['Config']) ?></td>
                     <td><?= htmlspecialchars($row['Code']) ?></td>
                     <td><?= htmlspecialchars($row['Description']) ?></td>
-                    <td><?= htmlspecialchars($row['Price']) ?></td>
+                    <td><?= number_format((float)$row['Price'], 2) ?></td>
                     <td><?= htmlspecialchars($row['IRE']) ?></td>
                     <td><?= htmlspecialchars($row['EUR']) ?></td>
                     <td><?= htmlspecialchars($row['Returns']) ?></td>
@@ -134,10 +214,12 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                 </tr>
             <?php
                 $cont++;
-
-            endwhile; ?>
+            endwhile;
+            ?>
         </tbody>
     </table>
+
+
 
     <script>
         $(document).ready(function() {
