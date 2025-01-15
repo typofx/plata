@@ -148,7 +148,8 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
 
         <label for="column_4">OEM:</label>
         <select id="column_4" name="column_4">
-            <option value="OEM">OEM</option>
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
         </select><br><br>
 
 

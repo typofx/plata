@@ -143,25 +143,34 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                     <td><?= $cont ?></td>
                     <td>
                         <div style="display: flex; gap: 10px;">
-                            <?php foreach ($eshops as $eshop):
-                               
-                                $eshop_name_query = $conn->query("SELECT name, logo, link FROM granna80_bdlinks.scrapyard_eshops WHERE id = " . intval($eshop['id']));
-                                $eshop_data = $eshop_name_query->fetch_assoc();
+                            <?php
+                            // Query para obter todos os eShops cadastrados
+                            $eshop_query = $conn->query("SELECT id, name, logo, link FROM granna80_bdlinks.scrapyard_eshops");
 
-                                $eshop_name = $eshop_data['name'] ?? '';
-                                $eshop_logo = $eshop_data['logo'] ?? '';
+                            // Loop para exibir os ícones
+                            while ($eshop_data = $eshop_query->fetch_assoc()):
+                                $eshop_id = intval($eshop_data['id']);
+                                $eshop_name = $eshop_data['name'] ?? 'Unknown eShop';
+                                $eshop_logo = $eshop_data['logo'] ?? 'default-logo.png'; // Fallback para logo padrão
                                 $base_url = $eshop_data['link'] ?? '';
-                                $product_url = '';
 
-                                if (!empty($base_url) && !empty($eshop['product_code'])) {
-                                    $product_url = rtrim($base_url, '/') . '/' . urlencode($eshop['product_code']);
+                                // Verifica se o eShop atual tem um produto associado no array $eshops
+                                $product_code = '';
+                                foreach ($eshops as $eshop) {
+                                    if ($eshop['id'] == $eshop_id) {
+                                        $product_code = $eshop['product_code'] ?? '';
+                                        break;
+                                    }
                                 }
 
-                                error_log("Eshop Name: $eshop_name, Product Code: {$eshop['product_code']}, Product URL: $product_url, Logo: $eshop_logo");
+                                $product_url = '';
+                                if (!empty($base_url) && !empty($product_code)) {
+                                    $product_url = rtrim($base_url, '/') . '/' . urlencode($product_code);
+                                }
                             ?>
-                                <?php if ($eshop_logo): ?>
-                                    <?php if (!empty($eshop['product_code'])): ?>
-                                        
+                                <div style="display: inline-block; margin: 1px; text-align: center;">
+                                    <?php if (!empty($product_code)): ?>
+                                        <!-- Link ativo para eShops com product_code -->
                                         <a href="<?= htmlspecialchars($product_url) ?>" target="_blank" title="<?= htmlspecialchars($eshop_name) ?>">
                                             <img
                                                 src="<?= htmlspecialchars($uploadDir . $eshop_logo) ?>"
@@ -169,21 +178,23 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                                                 style="height: 30px;">
                                         </a>
                                     <?php else: ?>
-                                      
+                                        <!-- Ícone bloqueado para eShops sem product_code -->
                                         <img
                                             src="<?= htmlspecialchars($uploadDir . $eshop_logo) ?>"
                                             alt="<?= htmlspecialchars($eshop_name) ?>"
                                             title="Product code unavailable"
-                                            style="height: 30px; filter: grayscale(100%) brightness(50%); cursor: not-allowed;">
+                                            style="height: 30px; filter: grayscale(100%) brightness(50%) invert(75%) sepia(20%) saturate(0%); cursor: not-allowed;">
                                     <?php endif; ?>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
+                                    <div style="font-size: 12px; color: #666;"></div>
+                                </div>
+                            <?php endwhile; ?>
+
 
 
                         </div>
                     </td>
                     <td><?= htmlspecialchars($row['Conditions']) ?></td>
-                    <td><?= htmlspecialchars($row['Column_4']) ?></td>
+                    <td><?= htmlspecialchars($row['Column_4'] === 'yes' ? 'OEM' : 'NO') ?></td>
                     <td><?= htmlspecialchars($row['Equipment']) ?></td>
                     <td>
                         <?php if (!empty($row['brand_logo'])): ?>
