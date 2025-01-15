@@ -52,10 +52,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Register E-shop</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <title>Register E-shop</title>
 </head>
+
 <body>
     <h1>Register E-shop</h1>
     <form method="POST" enctype="multipart/form-data">
@@ -71,5 +77,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Register</button>
         <a href="index.php">[ Back ]</a>
     </form>
+
+    <h2>Manage E-shop</h2>
+    <table id="eshopsTable" class="display">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Logo</th>
+                <th>Link</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $query = "SELECT id, name, logo, link FROM granna80_bdlinks.scrapyard_eshops";
+            $result = $conn->query($query);
+
+            if ($result && $result->num_rows > 0) {
+                $cont = 1;
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                        <td>{$cont}</td>
+                        <td>{$row['name']}</td>
+                        <td><img src='/images/uploads-scrapyard/{$row['logo']}' alt='Logo' style='width:50px; height:50px;'></td>
+                        <td><a href='{$row['link']}' target='_blank'>{$row['link']}</a></td>
+                        <td>
+                            <a href='edit_eshop.php?id={$row['id']}'>Edit</a> |
+                            <a href='delete_eshop.php?id={$row['id']}' onclick='return confirm(\"Are you sure you want to delete this e-shop?\")'>Delete</a>
+                        </td>
+                    </tr>";
+                    $cont++;
+                }
+            } else {
+                echo "<tr><td colspan='5'>No e-shops registered.</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#eshopsTable').DataTable();
+        });
+    </script>
 </body>
+
 </html>

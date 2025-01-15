@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $eshop_product_code = sanitizeInput($product_codes[$eshop_id] ?? '');
 
-        
+
         $eshop_data[] = "$eshop_id:$eshop_product_code";
     }
 
@@ -145,9 +145,13 @@ if (!empty($equipment['eshop_data'])) {
 
         <!-- OEM -->
         <label for="column_4">OEM:</label>
-        <select id="column_4" name="column_4">
-            <option value="OEM" <?= $equipment['Column_4'] === 'OEM' ? 'selected' : '' ?>>OEM</option>
-        </select><br><br>
+        <select id="column_4" name="column_4" required>
+            <option value="" disabled <?= empty($equipment['Column_4']) ? 'selected' : '' ?>>-- Select --</option>
+            <option value="yes" <?= $equipment['Column_4'] === 'yes' ? 'selected' : '' ?>>YES</option>
+            <option value="no" <?= $equipment['Column_4'] === 'no' ? 'selected' : '' ?>>NO</option>
+        </select>
+        <br><br>
+
 
 
         <label for="equipment">Select Equipment:</label><br>
