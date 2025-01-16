@@ -39,6 +39,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $eur = sanitizeInput($_POST['eur'] ?? null);
     $returns = sanitizeInput($_POST['returns'] ?? null);
 
+
+    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/images/uploads-scrapyard/equipaments/';
+    $imagePaths = [];
+    for ($i = 0; $i < 5; $i++) {
+        if (!empty($_FILES['images']['tmp_name'][$i])) {
+            $fileName = basename($_FILES['images']['name'][$i]);
+            $fileSize = $_FILES['images']['size'][$i];
+            $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+            // Validate file type and size
+            if (in_array($fileType, ['png', 'jpg', 'jpeg']) && $fileSize <= 10 * 1024 * 1024) {
+                $newFileName = uniqid() . '.' . $fileType;
+                $filePath = $uploadDir . $newFileName;
+
+                if (move_uploaded_file($_FILES['images']['tmp_name'][$i], $filePath)) {
+                    $imagePaths[] = $newFileName;
+                } else {
+                    $imagePaths[] = $equipment["image" . ($i + 1)] ?? null; // Keep existing file
+                }
+            } else {
+                $imagePaths[] = $equipment["image" . ($i + 1)] ?? null; // Keep existing file
+            }
+        } else {
+            $imagePaths[] = $equipment["image" . ($i + 1)] ?? null; // Keep existing file
+        }
+    }
+
     $eshop_ids = array_keys($_POST['eshops'] ?? []);
     $product_codes = $_POST['product_codes'] ?? [];
     $eshop_data = [];
@@ -68,13 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $query = "UPDATE granna80_bdlinks.scrapyard 
-              SET Conditions = ?, Column_4 = ?, Equipment = ?, Brand = ?, Model = ?, Config = ?, Code = ?, Description = ?, Price = ?, IRE = ?, EUR = ?, Returns = ?, brand_id = ?, model_id = ?, eshop_data = ? 
+              SET Conditions = ?, Column_4 = ?, Equipment = ?, Brand = ?, Model = ?, Config = ?, Code = ?, Description = ?, Price = ?, IRE = ?, EUR = ?, Returns = ?, brand_id = ?, model_id = ?, eshop_data = ?, image1 = ?, image2 = ?, image3 = ?, image4 = ?, image5 = ?
               WHERE ID = ?";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
         $stmt->bind_param(
-            "sssssssssssssssi",
+            "ssssssssssssssssssssi",
             $conditions,
             $column_4,
             $equipment_name,
@@ -90,6 +117,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $brand_id,
             $model_id,
             $eshop_data_string,
+            $imagePaths[0],
+            $imagePaths[1],
+            $imagePaths[2],
+            $imagePaths[3],
+            $imagePaths[4],
             $id
         );
 
@@ -134,9 +166,24 @@ if (!empty($equipment['eshop_data'])) {
 
 <body>
     <h1>Edit Equipment</h1>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
 
-        <label for="conditions">Condition:</label>
+        <label>Upload Images (max 5 images, 10MB each):</label><br>
+        <?php for ($i = 0; $i < 5; $i++): ?>
+            <label for="image<?= $i ?>">Image <?= $i + 1 ?>:</label>
+            <input type="file" name="images[]" id="image<?= $i ?>"><br>
+            <p>
+                Current Image:
+                <a href="/images/uploads-scrapyard/equipaments/<?= !empty($equipment["image" . ($i + 1)]) ? $equipment["image" . ($i + 1)] : 'no-image-icon.png' ?>" target="_blank">
+                    <img src="/images/uploads-scrapyard/equipaments/<?= !empty($equipment["image" . ($i + 1)]) ? $equipment["image" . ($i + 1)] : 'no-image-icon.png' ?>"
+                        alt="Current Image"
+                        style="width: 30px; height: 30px; object-fit: cover;">
+                </a>
+            </p>
+        <?php endfor; ?>
+
+
+        <br><br><label for="conditions">Condition:</label>
         <select id="conditions" name="conditions">
             <option value="Used" <?= $equipment['Conditions'] === 'Used' ? 'selected' : '' ?>>Used</option>
             <option value="Used Working" <?= $equipment['Conditions'] === 'Used Working' ? 'selected' : '' ?>>Used Working</option>
@@ -148,7 +195,7 @@ if (!empty($equipment['eshop_data'])) {
         <select id="column_4" name="column_4" required>
             <option value="" disabled <?= empty($equipment['Column_4']) ? 'selected' : '' ?>>-- Select --</option>
             <option value="yes" <?= $equipment['Column_4'] === 'yes' ? 'selected' : '' ?>>YES</option>
-            <option value="no" <?= $equipment['Column_4'] === 'no' ? 'selected' : '' ?>>NO</option>
+
         </select>
         <br><br>
 
@@ -159,7 +206,7 @@ if (!empty($equipment['eshop_data'])) {
             <option value="">-- Select Equipment --</option>
             <?php while ($equip_item = $equipments->fetch_assoc()): ?>
                 <!-- Comparando pelo nome do equipamento -->
-                <option value="<?= $equip_item['name'] ?>" <?= $equip_item['name'] == $equipment['Equipment'] ? 'selected' : '' ?>>
+                <option value="<?= $equip_item['id'] ?>" <?= $equip_item['id'] == $equipment['Equipment'] ? 'selected' : '' ?>>
                     <?= htmlspecialchars($equip_item['name']) ?>
                 </option>
             <?php endwhile; ?>
