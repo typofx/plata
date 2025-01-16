@@ -8,28 +8,16 @@ function sanitizeInput($data)
     return htmlspecialchars(trim($data));
 }
 
+// Directory to store uploaded images
+$uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/images/uploads-scrapyard/equipaments/';
+
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    print_r($_POST);
     // Retrieve and sanitize form data
     $conditions = sanitizeInput($_POST['conditions'] ?? null);
     $column_4 = sanitizeInput($_POST['column_4'] ?? null);
     $equipment = sanitizeInput($_POST['equipment'] ?? null);
-
-    $equipmentId = sanitizeInput($_POST['equipment'] ?? null);
-
-
-    if ($equipmentId) {
-        $stmt = $conn->prepare("SELECT name FROM granna80_bdlinks.scrapyard_equipment WHERE id = ?");
-        $stmt->bind_param("i", $equipmentId);
-        $stmt->execute();
-        $stmt->bind_result($equipmentName);
-        $stmt->fetch();
-        $stmt->close();
-    }
-
-
-
+    
     $brand_id = intval($_POST['brand_id'] ?? 0);
     $model_id = intval($_POST['model_id'] ?? 0);
     $config = sanitizeInput($_POST['config'] ?? null);
@@ -39,25 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ire = sanitizeInput($_POST['ire'] ?? null);
     $eur = sanitizeInput($_POST['eur'] ?? null);
     $returns = sanitizeInput($_POST['returns'] ?? null);
-
     $eshop_ids = $_POST['eshops'];
-    $product_codes = $_POST['product_codes'] ?? []; 
+    $product_codes = $_POST['product_codes'] ?? [];
     $eshop_data = [];
-    
-    foreach ($eshop_ids as $eshop_id) {
 
+    foreach ($eshop_ids as $eshop_id) {
         $eshop_product_code = sanitizeInput($product_codes[$eshop_id] ?? '');
-    
-   
         $eshop_data[] = "$eshop_id:$eshop_product_code";
     }
-    
     $eshop_data_string = implode(',', $eshop_data);
-    
 
-    echo $eshop_data_string;
-
-    // Fetch brand and model names based on IDs
     $brand_name = '';
     $model_name = '';
 
@@ -71,18 +50,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $model_name = $model_result->fetch_assoc()['model_name'] ?? '';
     }
 
+    // Handle image uploads
+    $imagePaths = [];
+    for ($i = 0; $i < 5; $i++) {
+        if (!empty($_FILES['images']['tmp_name'][$i])) {
+            $fileName = basename($_FILES['images']['name'][$i]);
+            $fileSize = $_FILES['images']['size'][$i];
+            $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+            // Validate file type and size
+            if (in_array($fileType, ['png', 'jpg', 'jpeg']) && $fileSize <= 10 * 1024 * 1024) {
+                $newFileName = uniqid() . '.' . $fileType;
+                $filePath = $uploadDir . $newFileName;
+
+                if (move_uploaded_file($_FILES['images']['tmp_name'][$i], $filePath)) {
+                    $imagePaths[] = $newFileName;
+                } else {
+                    $imagePaths[] = null; // Add null for missing files
+                }
+            } else {
+                $imagePaths[] = null;
+            }
+        } else {
+            $imagePaths[] = null;
+        }
+    }
+
+    // Fill empty slots in case fewer than 5 images are uploaded
+    while (count($imagePaths) < 5) {
+        $imagePaths[] = null;
+    }
+
     // Insert data into scrapyard table
     $query = "INSERT INTO granna80_bdlinks.scrapyard 
-              (Conditions, Column_4, Equipment, Brand, Model, Config, Code, Description, Price, IRE, EUR, Returns, brand_id, model_id, eshop_data) 
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+              (Conditions, Column_4, Equipment, Brand, Model, Config, Code, Description, Price, IRE, EUR, Returns, brand_id, model_id, eshop_data, image1, image2, image3, image4, image5) 
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
         $stmt->bind_param(
-            "sssssssssssssss",
+            "ssssssssssssssssssss",
             $conditions,
             $column_4,
-            $equipmentName,
+            $equipment,
             $brand_name,
             $model_name,
             $config,
@@ -94,7 +104,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $returns,
             $brand_id,
             $model_id,
-            $eshop_data_string
+            $eshop_data_string,
+            $imagePaths[0],
+            $imagePaths[1],
+            $imagePaths[2],
+            $imagePaths[3],
+            $imagePaths[4]
         );
 
         if ($stmt->execute()) {
@@ -109,15 +124,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Fetch brands for the dropdown
+// Fetch brands, models, e-shops, and equipment
 $brands = $conn->query("SELECT brand_id, brand_name FROM granna80_bdlinks.scrapyard_brands ORDER BY brand_name");
-
-// Fetch models for the dropdown
 $models = $conn->query("SELECT model_id, model_name FROM granna80_bdlinks.scrapyard_models ORDER BY model_name");
-
-// Fetch e-shops for checkboxes
 $eshops = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_eshops ORDER BY name");
-
 $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equipment ORDER BY name");
 ?>
 
@@ -135,7 +145,10 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
 
 <body>
     <h1>Add New Equipment</h1>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
+
+        <label for="images">Upload Images (max 5 images, 10MB each):</label><br>
+        <input type="file" name="images[]" id="images" multiple accept="image/png, image/jpeg, image/jpg"><br><br>
 
 
         <label for="conditions">Condition:</label>
@@ -149,7 +162,7 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
         <label for="column_4">OEM:</label>
         <select id="column_4" name="column_4">
             <option value="yes">YES</option>
-            <option value="no">NO</option>
+
         </select><br><br>
 
 

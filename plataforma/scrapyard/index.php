@@ -91,6 +91,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Images</th>
                 <th>Eshop</th>
                 <th>Condition</th>
                 <th>OEM</th>
@@ -104,6 +105,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                 <th>IRE</th>
                 <th>EUR</th>
                 <th>Returns</th>
+                <th>Copy</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -113,12 +115,15 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             $query = "
             SELECT 
                 scrapyard.*,
-                scrapyard_brands.brand_image AS brand_logo
+                scrapyard_brands.brand_image AS brand_logo,
+                scrapyard_equipment.name AS equipment_name
             FROM granna80_bdlinks.scrapyard
             LEFT JOIN granna80_bdlinks.scrapyard_brands 
                 ON TRIM(LOWER(scrapyard.Brand)) = TRIM(LOWER(scrapyard_brands.brand_name))
+            LEFT JOIN granna80_bdlinks.scrapyard_equipment
+                ON scrapyard.Equipment = scrapyard_equipment.id
             ORDER BY scrapyard.ID ASC
-        ";
+            ";
 
             $result = $conn->query($query);
             $cont = 1;
@@ -142,19 +147,46 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                 <tr>
                     <td><?= $cont ?></td>
                     <td>
+                    
+                        <div style="display: flex; gap: 10px;">
+                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                <?php
+                                $hasImage = !empty($row["image$i"]); 
+                                $imagePath = $hasImage ? $uploadDir . htmlspecialchars($row["image$i"]) : '#'; 
+                                ?>
+                                <?php if ($hasImage): ?>
+                           
+                                    <a href="view_image.php?image=<?= urlencode($row["image$i"]) ?>" target="_blank" title="View Image <?= $i ?>" style="text-decoration: none;">
+                                        <div style="width: 30px; height: 30px; background-color: #00cc00; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white;">
+                                            <i class="fa-solid fa-image"></i>
+                                        </div>
+                                    </a>
+                                <?php else: ?>
+                                
+                                    <div style="width: 30px; height: 30px; background-color: #999999; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; cursor: not-allowed;">
+                                        <i class="fa-solid fa-image"></i>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+                        </div>
+
+
+
+                    </td>
+                    <td>
                         <div style="display: flex; gap: 10px;">
                             <?php
-                            // Query para obter todos os eShops cadastrados
+
                             $eshop_query = $conn->query("SELECT id, name, logo, link FROM granna80_bdlinks.scrapyard_eshops");
 
-                            // Loop para exibir os ícones
+                        
                             while ($eshop_data = $eshop_query->fetch_assoc()):
                                 $eshop_id = intval($eshop_data['id']);
                                 $eshop_name = $eshop_data['name'] ?? 'Unknown eShop';
-                                $eshop_logo = $eshop_data['logo'] ?? 'default-logo.png'; // Fallback para logo padrão
+                                $eshop_logo = $eshop_data['logo'] ?? 'default-logo.png'; 
                                 $base_url = $eshop_data['link'] ?? '';
 
-                                // Verifica se o eShop atual tem um produto associado no array $eshops
+                                
                                 $product_code = '';
                                 foreach ($eshops as $eshop) {
                                     if ($eshop['id'] == $eshop_id) {
@@ -170,7 +202,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                             ?>
                                 <div style="display: inline-block; margin: 1px; text-align: center;">
                                     <?php if (!empty($product_code)): ?>
-                                        <!-- Link ativo para eShops com product_code -->
+                                        
                                         <a href="<?= htmlspecialchars($product_url) ?>" target="_blank" title="<?= htmlspecialchars($eshop_name) ?>">
                                             <img
                                                 src="<?= htmlspecialchars($uploadDir . $eshop_logo) ?>"
@@ -178,7 +210,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                                                 style="height: 30px;">
                                         </a>
                                     <?php else: ?>
-                                        <!-- Ícone bloqueado para eShops sem product_code -->
+                                     
                                         <img
                                             src="<?= htmlspecialchars($uploadDir . $eshop_logo) ?>"
                                             alt="<?= htmlspecialchars($eshop_name) ?>"
@@ -194,8 +226,8 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                         </div>
                     </td>
                     <td><?= htmlspecialchars($row['Conditions']) ?></td>
-                    <td><?= htmlspecialchars($row['Column_4'] === 'yes' ? 'OEM' : 'NO') ?></td>
-                    <td><?= htmlspecialchars($row['Equipment']) ?></td>
+                    <td><?= htmlspecialchars($row['Column_4'] === 'yes' ? 'OEM' : '') ?></td>
+                    <td><?= htmlspecialchars($row['equipment_name']) ?></td>
                     <td>
                         <?php if (!empty($row['brand_logo'])): ?>
                             <img
@@ -214,6 +246,23 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                     <td><?= htmlspecialchars($row['IRE']) ?></td>
                     <td><?= htmlspecialchars($row['EUR']) ?></td>
                     <td><?= htmlspecialchars($row['Returns']) ?></td>
+                    <td>
+                        <button
+                            class="copy-btn"
+                            data-content="<?= htmlspecialchars(json_encode([
+                                                'Condition' => $row['Conditions'],
+                                                'OEM' => $row['Column_4'] === 'yes' ? 'OEM' : '',
+                                                'Equipment' => $row['equipment_name'],
+                                                'Brand' => $row['Brand'],
+                                                'Model' => $row['Model'],
+                                                'Configuration' => $row['Config'],
+                                                'Code' => $row['Code'],
+                                                'Description' => $row['Description'],
+                                            ])) ?>"
+                            data-logo="<?= htmlspecialchars($uploadDir . $row['brand_logo'] ?? '') ?>">
+                            Copy
+                        </button>
+                    </td>
                     <td class="action-icons">
                         <a href="edit_equipment.php?id=<?= $row['ID'] ?>" title="Edit">
                             <i class="fas fa-edit edit-icon"></i>
@@ -229,8 +278,46 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             ?>
         </tbody>
     </table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const data = JSON.parse(this.dataset.content);
+                    const logoUrl = this.dataset.logo;
+                    let content = `
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="${logoUrl}" alt="Logo" style="height: 30px;">
+                        <span>${data.Condition} ${data.OEM} ${data.Equipment} ${data.Brand} ${data.Model} ${data.Configuration} ${data.Code} ${data.Description}</span>
+                    </div>
+                `;
 
+                    // Create a temporary element to copy the HTML
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = content;
+                    document.body.appendChild(tempDiv);
 
+                    // Use Range and Selection API to copy HTML content
+                    const range = document.createRange();
+                    range.selectNodeContents(tempDiv);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+
+                    try {
+                        document.execCommand('copy');
+                        alert('Content copied to clipboard!');
+                    } catch (err) {
+                        alert('Failed to copy content.');
+                        console.error(err);
+                    }
+
+                    // Cleanup
+                    selection.removeAllRanges();
+                    document.body.removeChild(tempDiv);
+                });
+            });
+        });
+    </script>
 
     <script>
         $(document).ready(function() {
