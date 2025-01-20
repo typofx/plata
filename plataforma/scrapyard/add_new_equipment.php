@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conditions = sanitizeInput($_POST['conditions'] ?? null);
     $column_4 = sanitizeInput($_POST['column_4'] ?? null);
     $equipment = sanitizeInput($_POST['equipment'] ?? null);
-    
+
     $brand_id = intval($_POST['brand_id'] ?? 0);
     $model_id = intval($_POST['model_id'] ?? 0);
     $config = sanitizeInput($_POST['config'] ?? null);
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ire = sanitizeInput($_POST['ire'] ?? null);
     $eur = sanitizeInput($_POST['eur'] ?? null);
     $returns = sanitizeInput($_POST['returns'] ?? null);
-    $eshop_ids = $_POST['eshops'];
+    $eshop_ids = $_POST['eshops'] ?? [];
     $product_codes = $_POST['product_codes'] ?? [];
     $eshop_data = [];
 
@@ -50,9 +50,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $model_name = $model_result->fetch_assoc()['model_name'] ?? '';
     }
 
-    // Handle image uploads
+    // Handle image uploads and cropped images
     $imagePaths = [];
-    for ($i = 0; $i < 5; $i++) {
+
+    // Check for cropped images
+    if (isset($_POST['cropped_images']) && is_array($_POST['cropped_images'])) {
+        foreach ($_POST['cropped_images'] as $index => $base64Image) {
+            if (!empty($base64Image)) {
+                // Decode the Base64 string
+                $imageData = explode(',', $base64Image);
+                if (count($imageData) == 2) {
+                    $imageBase64 = $imageData[1];
+                    $imageDecoded = base64_decode($imageBase64);
+
+                    // Save the decoded image
+                    $newFileName = uniqid() . '.png';
+                    $filePath = $uploadDir . $newFileName;
+
+                    if (file_put_contents($filePath, $imageDecoded)) {
+                        $imagePaths[] = $newFileName;
+                    } else {
+                        $imagePaths[] = null;
+                    }
+                }
+            } else {
+                $imagePaths[] = null;
+            }
+        }
+    }
+
+    // Handle traditional file uploads
+    for ($i = count($imagePaths); $i < 5; $i++) {
         if (!empty($_FILES['images']['tmp_name'][$i])) {
             $fileName = basename($_FILES['images']['name'][$i]);
             $fileSize = $_FILES['images']['size'][$i];
@@ -134,21 +162,233 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Equipment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+    <title>Add New Product</title>
+    <style>
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 9999;
+            /* Sit on top */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+         
+            width: 20%;
+
+        }
+
+        .modal-overlay {
+            display: none;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+
+            z-index: 9998;
+
+        }
+
+
+        .modal-content {
+            position: relative;
+            z-index: 9999;
+      
+            margin: auto;
+            padding: 20px;
+
+            text-align: center;
+
+        }
+
+        .cropper-modal {
+            background-color: transparent;
+            opacity: 1;
+        }
+
+
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .modal-content button {
+            margin: 5px;
+            padding: 8px 12px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        .modal-content button:last-child {
+            background-color: #dc3545;
+        }
+
+        .modal-content button:last-child:hover {
+            background-color: #b21f2d;
+        }
+
+        /* Container for all image cards */
+        .image-cards-container {
+            display: flex;
+
+            gap: 20px;
+            /* Spacing between cards */
+        }
+
+        /* Each individual image card */
+        .image-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            background-color: #ddd;
+            /* Fixed width for each card */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card style for image preview */
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            /* Fixed width for image preview */
+            height: 100px;
+            /* Fixed height for image preview */
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+
+        .card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Optional: Add a hover effect on cards */
+        .card:hover {
+            border-color: #3b82f6;
+            background-color: #e0f3ff;
+        }
+
+        /* Optional: Center the upload labels */
+        label {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+
+
+        .upload-controls input[type="file"] {
+            font-size: 12px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Add New Equipment</h1>
+    <h1>Add New Product</h1>
     <form method="POST" enctype="multipart/form-data">
 
-        <label for="images">Upload Images (max 5 images, 10MB each):</label><br>
-        <input type="file" name="images[]" id="images" multiple accept="image/png, image/jpeg, image/jpg"><br><br>
+        <div class="image-cards-container">
+            <div class="image-card">
+                <label for="image1">Upload Image 1:</label><br>
+                <div class="upload-controls">
+                    <input type="file" name="images[]" id="image1" accept="image/png, image/jpeg, image/jpg" onchange="previewAndCrop(this, 1)">
+                </div>
+                <div class="card">
+                    <img id="preview1" alt="Preview 1" style="display: none;">
+                    <input type="hidden" id="cropped-image-1" name="cropped_images[0]">
+                </div>
+            </div>
+
+            <div class="image-card">
+
+                <label for="image2">Upload Image 2:</label><br>
+                <div class="upload-controls">
+                    <input type="file" name="images[]" id="image2" accept="image/png, image/jpeg, image/jpg" onchange="previewAndCrop(this, 2)">
+                </div>
+                <div class="card">
+                    <img id="preview2" alt="Preview 2" style="display: none;">
+                    <input type="hidden" id="cropped-image-2" name="cropped_images[1]">
+                </div>
+            </div>
+
+            <div class="image-card">
+                <label for="image3">Upload Image 3:</label><br>
+                <div class="upload-controls">
+                    <input type="file" name="images[]" id="image3" accept="image/png, image/jpeg, image/jpg" onchange="previewAndCrop(this, 3)">
+                </div>
+                <div class="card">
+                    <img id="preview3" alt="Preview 3" style="display: none;">
+                    <input type="hidden" id="cropped-image-3" name="cropped_images[2]">
+                </div>
+            </div>
+
+            <div class="image-card">
+
+                <label for="image4">Upload Image 4:</label><br>
+                <div class="upload-controls">
+                    <input type="file" name="images[]" id="image4" accept="image/png, image/jpeg, image/jpg" onchange="previewAndCrop(this, 4)">
+                </div>
+                <div class="card">
+                    <img id="preview4" alt="Preview 4" style="display: none;">
+                    <input type="hidden" id="cropped-image-4" name="cropped_images[3]">
+                </div>
+            </div>
+
+            <div class="image-card">
+                <label for="image5">Upload Image 5:</label><br>
+                <div class="upload-controls">
+                    <input type="file" name="images[]" id="image5" accept="image/png, image/jpeg, image/jpg" onchange="previewAndCrop(this, 5)">
+                </div>
+                <div class="card">
+                    <img id="preview5" alt="Preview 5" style="display: none;">
+                    <input type="hidden" id="cropped-image-5" name="cropped_images[4]">
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+
 
 
         <label for="conditions">Condition:</label>
@@ -230,6 +470,100 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
         <button type="submit">Add Equipment</button>
         <a href="index.php">[ Back ]</a>
     </form>
+
+    <!-- Cropper Modal -->
+    <div class="modal-overlay"></div>
+    <div id="cropperModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeCropper()">&times;</span>
+            <img id="cropperImage" style="max-width: 100%; height: auto; margin-bottom: 10px;" />
+            <button onclick="saveCrop()">Save</button>
+            <button onclick="closeCropper()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script>
+        let cropper;
+        let currentImageId;
+        let currentIndex;
+        const cropperModal = document.getElementById('cropperModal');
+        const cropperImage = document.getElementById('cropperImage');
+
+        function previewAndCrop(input, index) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById(`preview${index}`);
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+
+                 
+                    openCropper(preview.id, index);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function openCropper(imageId, index) {
+            const modal = document.getElementById("cropperModal");
+            const overlay = document.querySelector(".modal-overlay");
+
+            modal.style.display = "block";
+            overlay.style.display = "block";
+            currentImageId = imageId;
+            currentIndex = index;
+
+            const imgElement = document.getElementById(imageId);
+            cropperImage.src = imgElement.src;
+            cropperModal.style.display = 'block';
+
+     
+            cropper = new Cropper(cropperImage, {
+                aspectRatio: NaN,
+                viewMode: 0,
+                dragMode: 'move',
+                autoCropArea: 1,
+                cropBoxResizable: true,
+                zoomable: true,
+                scalable: true,
+            });
+        }
+
+        function saveCrop() {
+            if (!cropper) return;
+
+            const croppedCanvas = cropper.getCroppedCanvas({
+                fillColor: '#fff',
+            });
+            const croppedDataUrl = croppedCanvas.toDataURL();
+
+           
+            const preview = document.getElementById(currentImageId);
+            const hiddenInput = document.getElementById(`cropped-image-${currentIndex}`);
+            preview.src = croppedDataUrl;
+            hiddenInput.value = croppedDataUrl;
+
+  
+            closeCropper();
+        }
+
+        function closeCropper() {
+            const modal = document.getElementById("cropperModal");
+            const overlay = document.querySelector(".modal-overlay");
+
+            modal.style.display = "none";
+            overlay.style.display = "none";
+            if (cropper) {
+                cropper.destroy();
+                cropper = null;
+            }
+            cropperModal.style.display = 'none';
+        }
+    </script>
+
 </body>
 
 </html>

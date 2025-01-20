@@ -2,6 +2,17 @@
 <?php
 include 'conexao.php';
 
+
+$query = "SELECT SUM(CAST(Price AS DECIMAL(10, 2))) AS total_price FROM granna80_bdlinks.scrapyard";
+$result = mysqli_query($conn, $query);
+
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+   // echo "The total sum of all prices is: " . $row['total_price'];
+} else {
+    echo "Error: " . mysqli_error($conn);
+}
+
 // Fetch all records from the scrapyard table
 $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
 ?>
@@ -87,6 +98,8 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
     <a href="register_eshop.php">[ Register eShop ]</a>
     <a href="register_equipament.php">[ Register equipment ]</a>
     <a href="https://plata.ie/plataforma/painel/menu.php">[ Back ]</a>
+    <br><br>
+    <p>Total of the Products: <?php echo $row['total_price'];  ?></p>
     <table id="scrapyardTable" class="display">
         <thead>
             <tr>
@@ -148,27 +161,44 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                     <td><?= $cont ?></td>
                     <td>
 
-                        <div style="display: flex; gap: 10px;">
-                            <?php for ($i = 1; $i <= 5; $i++): ?>
-                                <?php
-                                $hasImage = !empty($row["image$i"]);
-                                $imagePath = $hasImage ? $uploadDir . htmlspecialchars($row["image$i"]) : '#';
-                                ?>
-                                <?php if ($hasImage): ?>
+                    <div style="display: flex; gap: 10px;">
+    <?php for ($i = 1; $i <= 5; $i++): ?>
+        <?php
+        $hasImage = !empty($row["image$i"]);
+        $imagePath = $hasImage ? $uploadDir ."/equipaments/". htmlspecialchars($row["image$i"]) : '';
+        ?>
+        <?php if ($hasImage): ?>
+        
+            <div style="position: relative; width: 30px; height: 30px;">
+      
+                <img
+                    src="<?= $imagePath ?>"
+                    alt="Image <?= $i ?>"
+                    title="Image <?= $i ?>"
+                    draggable="true"
+                    ondragstart="event.dataTransfer.setData('text/plain', '<?= $imagePath ?>');"
+                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; cursor: grab;" />
 
-                                    <a href="/images/uploads-scrapyard/equipaments/<?= urlencode($row["image$i"]) ?>" target="_blank" title="View Image <?= $i ?>" style="text-decoration: none;">
-                                        <div style="width: 30px; height: 30px; background-color: #00cc00; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white;">
-                                            <i class="fa-solid fa-image"></i>
-                                        </div>
-                                    </a>
-                                <?php else: ?>
+          
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 4px; pointer-events: none;">
+                    <i class="fa-solid fa-image" style="color: green; font-size: 30px;"></i>
+                </div>
+            </div>
+        <?php else: ?>
+         
+            <div
+                style="width: 30px; height: 30px; background-color: #999999; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; cursor: not-allowed;"
+                title="No Image Available">
+                <i class="fa-solid fa-image"></i>
+            </div>
+        <?php endif; ?>
+    <?php endfor; ?>
+</div>
 
-                                    <div style="width: 30px; height: 30px; background-color: #999999; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; cursor: not-allowed;">
-                                        <i class="fa-solid fa-image"></i>
-                                    </div>
-                                <?php endif; ?>
-                            <?php endfor; ?>
-                        </div>
+
+
+
 
 
 
@@ -279,47 +309,47 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
         </tbody>
     </table>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.copy-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const data = JSON.parse(this.dataset.content);
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const data = JSON.parse(this.dataset.content);
 
-             
-               
 
-                let content = `
+
+
+                    let content = `
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <span>${data.Condition} ${data.OEM} ${data.Equipment} ${data.Brand} ${data.Model} ${data.Configuration} ${data.Code} ${data.Description}</span>
                 </div>
                 `;
 
-                // Create a temporary element to copy the HTML
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = content;
-                document.body.appendChild(tempDiv);
+                    // Create a temporary element to copy the HTML
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = content;
+                    document.body.appendChild(tempDiv);
 
-                // Use Range and Selection API to copy HTML content
-                const range = document.createRange();
-                range.selectNodeContents(tempDiv);
-                const selection = window.getSelection();
-                selection.removeAllRanges();
-                selection.addRange(range);
+                    // Use Range and Selection API to copy HTML content
+                    const range = document.createRange();
+                    range.selectNodeContents(tempDiv);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
 
-                try {
-                    document.execCommand('copy');
-                    alert('Content copied to clipboard!');
-                } catch (err) {
-                    alert('Failed to copy content.');
-                    console.error(err);
-                }
+                    try {
+                        document.execCommand('copy');
+                        alert('Content copied to clipboard!');
+                    } catch (err) {
+                        alert('Failed to copy content.');
+                        console.error(err);
+                    }
 
-                // Cleanup
-                selection.removeAllRanges();
-                document.body.removeChild(tempDiv);
+                    // Cleanup
+                    selection.removeAllRanges();
+                    document.body.removeChild(tempDiv);
+                });
             });
         });
-    });
-</script>
+    </script>
 
 
 
