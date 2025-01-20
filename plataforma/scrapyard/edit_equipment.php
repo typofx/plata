@@ -2,7 +2,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include 'conexao.php';
 
-// Função para sanitizar os dados de entrada
+
 function sanitizeInput($data)
 {
     return htmlspecialchars(trim($data));
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/images/uploads-scrapyard/equipaments/';
     $imagePaths = [];
 
-    // Processar imagens cortadas enviadas pelo formulário
+
     if (!empty($_POST['cropped_images'])) {
         foreach ($_POST['cropped_images'] as $index => $croppedImage) {
             $data = explode(',', $croppedImage);
@@ -50,18 +50,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (file_put_contents($filePath, $imageData)) {
                 $imagePaths[] = $fileName;
             } else {
-                $imagePaths[] = $equipment["image" . ($index + 1)] ?? null; // Manter imagem existente
+                $imagePaths[] = $equipment["image" . ($index + 1)] ?? null;
             }
         }
     } else {
-        // Processar imagens normais enviadas pelo formulário
+
         for ($i = 0; $i < 5; $i++) {
             if (!empty($_FILES['images']['tmp_name'][$i])) {
                 $fileName = basename($_FILES['images']['name'][$i]);
                 $fileSize = $_FILES['images']['size'][$i];
                 $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-                // Validar tipo de arquivo e tamanho
+ 
                 if (in_array($fileType, ['png', 'jpg', 'jpeg']) && $fileSize <= 10 * 1024 * 1024) {
                     $newFileName = uniqid() . '.' . $fileType;
                     $filePath = $uploadDir . $newFileName;
@@ -69,13 +69,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (move_uploaded_file($_FILES['images']['tmp_name'][$i], $filePath)) {
                         $imagePaths[] = $newFileName;
                     } else {
-                        $imagePaths[] = $equipment["image" . ($i + 1)] ?? null; // Manter imagem existente
+                        $imagePaths[] = $equipment["image" . ($i + 1)] ?? null;
                     }
                 } else {
-                    $imagePaths[] = $equipment["image" . ($i + 1)] ?? null; // Manter imagem existente
+                    $imagePaths[] = $equipment["image" . ($i + 1)] ?? null;
                 }
             } else {
-                $imagePaths[] = $equipment["image" . ($i + 1)] ?? null; // Manter imagem existente
+                $imagePaths[] = $equipment["image" . ($i + 1)] ?? null; 
             }
         }
     }
@@ -137,6 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt->execute()) {
             echo "Equipment updated successfully!";
+            echo "<script>window.location.href='edit_equipment.php?id=$id';</script>";
         } else {
             echo "Error updating the equipment: " . $stmt->error;
         }
@@ -181,37 +182,37 @@ if (!empty($equipment['eshop_data'])) {
         }
 
         .cropper-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0.3s, opacity 0.3s;
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.3s, opacity 0.3s;
+        }
 
-.cropper-modal.active {
-    visibility: visible;
-    opacity: 1;
-}
+        .cropper-modal.active {
+            visibility: visible;
+            opacity: 1;
+        }
 
-.cropper-content {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+        .cropper-content {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
 
 
@@ -234,20 +235,20 @@ if (!empty($equipment['eshop_data'])) {
             border-radius: 5px;
             background-color: #f9f9f9;
             width: 150px;
-            /* Define a largura fixa do contêiner */
+   
             height: 160px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .image-container img {
             width: 130px;
-            /* Largura fixa da imagem */
+
             height: 100px;
-            /* Altura fixa da imagem */
+      
             border-radius: 5px;
             border: 1px solid #ccc;
             object-fit: cover;
-            /* Faz a imagem preencher o espaço sem distorção */
+           
         }
 
         .upload-controls {
@@ -292,7 +293,7 @@ if (!empty($equipment['eshop_data'])) {
 
 <body>
     <h1>Edit Equipment</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <form id="form1" method="POST" enctype="multipart/form-data">
 
         <label for="uploadImages">Upload Images (max 5 images, 10MB each):</label>
         <div id="images-container" class="images-grid">
@@ -348,7 +349,7 @@ if (!empty($equipment['eshop_data'])) {
         <select name="equipment" id="equipment" required>
             <option value="">-- Select Equipment --</option>
             <?php while ($equip_item = $equipments->fetch_assoc()): ?>
-                <!-- Comparando pelo nome do equipamento -->
+      
                 <option value="<?= $equip_item['id'] ?>" <?= $equip_item['id'] == $equipment['Equipment'] ? 'selected' : '' ?>>
                     <?= htmlspecialchars($equip_item['name']) ?>
                 </option>
@@ -416,6 +417,18 @@ if (!empty($equipment['eshop_data'])) {
         <a href="index.php">[ Back ]</a>
     </form>
 
+    <!-- Cropper Modal -->
+    <div class="cropper-modal" id="cropperModal">
+        <div class="cropper-content">
+
+            <img id="cropperImage" style="max-width: 100%; height: auto;">
+            <br><br>
+            <button onclick="saveCrop()">Crop and Save</button>
+            <button onclick="saveCropG()">Crop</button>
+            <button onclick="closeCropper()">Cancel</button>
+        </div>
+    </div>
+
 
     <script>
         let croppers = [];
@@ -429,14 +442,15 @@ if (!empty($equipment['eshop_data'])) {
                     preview.src = e.target.result;
                     preview.style.display = 'block';
 
-                    // Inicializar Cropper.js
+               
                     if (croppers[index]) {
                         croppers[index].destroy();
                     }
-                    croppers[index] = new Cropper(preview, {
-                        aspectRatio: 1, // Exemplo de proporção quadrada
-                        viewMode: 1,
+                    ccroppers[index] = new Cropper(preview, {
+                        aspectRatio: 1, 
+
                     });
+
                 };
                 reader.readAsDataURL(file);
             }
@@ -446,7 +460,9 @@ if (!empty($equipment['eshop_data'])) {
             const croppedData = [];
             croppers.forEach((cropper, index) => {
                 if (cropper) {
-                    const canvas = cropper.getCroppedCanvas();
+                    const canvas = cropper.getCroppedCanvas({
+                        fillColor: '#fff', 
+                    });
                     croppedData.push(canvas.toDataURL());
                     const cropCanvas = document.getElementById(`cropCanvas${index}`);
                     cropCanvas.style.display = 'block';
@@ -472,16 +488,7 @@ if (!empty($equipment['eshop_data'])) {
         });
     </script>
 
-    <!-- Cropper Modal -->
-    <div class="cropper-modal" id="cropperModal">
-        <div class="cropper-content">
-          
-            <img id="cropperImage" style="max-width: 100%; height: auto;">
-            <br><br>
-            <button onclick="saveCrop()">Crop</button>
-            <button onclick="closeCropper()">Close</button>
-        </div>
-    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
     <script>
@@ -500,8 +507,14 @@ if (!empty($equipment['eshop_data'])) {
             cropperImage.src = imgElement.src;
             cropperModal.classList.add('active');
             cropper = new Cropper(cropperImage, {
-                aspectRatio: 16 / 9,
-                viewMode: 1,
+                aspectRatio: NaN,
+                viewMode: 0, 
+
+                dragMode: 'move',
+                autoCropArea: 1,
+                cropBoxResizable: true,
+                zoomable: true,
+                scalable: true,
             });
         }
 
@@ -510,7 +523,9 @@ if (!empty($equipment['eshop_data'])) {
             if (!cropper) return;
 
             // Get cropped image as base64 string
-            const croppedCanvas = cropper.getCroppedCanvas();
+            const croppedCanvas = cropper.getCroppedCanvas({
+                fillColor: '#fff', 
+            });
             const croppedDataUrl = croppedCanvas.toDataURL();
 
             // Update the hidden input and the preview image
@@ -523,8 +538,38 @@ if (!empty($equipment['eshop_data'])) {
             cropper.destroy();
             cropper = null;
             cropperModal.classList.remove('active');
+
+            // Submit the form
+            const form = document.getElementById('form1');
+            form.submit();
+
+
         }
 
+        function saveCropG() {
+            if (!cropper) return;
+
+            // Get cropped image as base64 string
+            const croppedCanvas = cropper.getCroppedCanvas({
+                fillColor: '#fff', 
+            });
+            const croppedDataUrl = croppedCanvas.toDataURL();
+
+            // Update the hidden input and the preview image
+            const hiddenInput = document.getElementById(`cropped-image-${currentIndex}`);
+            const imgElement = document.getElementById(currentImageId);
+            hiddenInput.value = croppedDataUrl;
+            imgElement.src = croppedDataUrl;
+
+            // Destroy the cropper and close the modal
+            cropper.destroy();
+            cropper = null;
+            cropperModal.classList.remove('active');
+
+ 
+
+
+        }
         // Function to close the cropper without saving
         function closeCropper() {
             if (cropper) {
