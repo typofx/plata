@@ -8,7 +8,7 @@ $result = mysqli_query($conn, $query);
 
 if ($result) {
     $row = mysqli_fetch_assoc($result);
-   // echo "The total sum of all prices is: " . $row['total_price'];
+    // echo "The total sum of all prices is: " . $row['total_price'];
 } else {
     echo "Error: " . mysqli_error($conn);
 }
@@ -119,6 +119,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                 <th>EUR</th>
                 <th>Returns</th>
                 <th>Copy</th>
+                <th>eBay</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -161,40 +162,40 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                     <td><?= $cont ?></td>
                     <td>
 
-                    <div style="display: flex; gap: 10px;">
-    <?php for ($i = 1; $i <= 5; $i++): ?>
-        <?php
-        $hasImage = !empty($row["image$i"]);
-        $imagePath = $hasImage ? $uploadDir ."/equipaments/". htmlspecialchars($row["image$i"]) : '';
-        ?>
-        <?php if ($hasImage): ?>
-        
-            <div style="position: relative; width: 30px; height: 30px;">
-      
-                <img
-                    src="<?= $imagePath ?>"
-                    alt="Image <?= $i ?>"
-                    title="Image <?= $i ?>"
-                    draggable="true"
-                    ondragstart="event.dataTransfer.setData('text/plain', '<?= $imagePath ?>');"
-                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; cursor: grab;" />
+                        <div style="display: flex; gap: 10px;">
+                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                <?php
+                                $hasImage = !empty($row["image$i"]);
+                                $imagePath = $hasImage ? $uploadDir . "/equipaments/" . htmlspecialchars($row["image$i"]) : '';
+                                ?>
+                                <?php if ($hasImage): ?>
 
-          
-                <div
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 4px; pointer-events: none;">
-                    <i class="fa-solid fa-image" style="color: green; font-size: 30px;"></i>
-                </div>
-            </div>
-        <?php else: ?>
-         
-            <div
-                style="width: 30px; height: 30px; background-color: #999999; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; cursor: not-allowed;"
-                title="No Image Available">
-                <i class="fa-solid fa-image"></i>
-            </div>
-        <?php endif; ?>
-    <?php endfor; ?>
-</div>
+                                    <div style="position: relative; width: 30px; height: 30px;">
+
+                                        <img
+                                            src="<?= $imagePath ?>"
+                                            alt="Image <?= $i ?>"
+                                            title="Image <?= $i ?>"
+                                            draggable="true"
+                                            ondragstart="event.dataTransfer.setData('text/plain', '<?= $imagePath ?>');"
+                                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; cursor: grab;" />
+
+
+                                        <div
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 4px; pointer-events: none;">
+                                            <i class="fa-solid fa-image" style="color: green; font-size: 30px;"></i>
+                                        </div>
+                                    </div>
+                                <?php else: ?>
+
+                                    <div
+                                        style="width: 30px; height: 30px; background-color: #999999; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; cursor: not-allowed;"
+                                        title="No Image Available">
+                                        <i class="fa-solid fa-image"></i>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+                        </div>
 
 
 
@@ -292,6 +293,37 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                             Copy
                         </button>
                     </td>
+
+                    <?php
+
+
+
+                    $price = number_format((float)$row['Price'], 2);
+
+                    $title_parts = [
+                        $row['Conditions'],
+                        $row['Column_4'] === 'yes' ? 'OEM' : '',
+                        $row['equipment_name'],
+                        $row['Brand'],
+                        $row['Model'] === 'Null' ? '' : $row['Model'],
+                        $row['Config'],
+                        $row['Code'],
+                        $row['Description']
+                    ];
+
+
+                    $title = rawurlencode(implode(' ', array_filter($title_parts)));
+                    $ebay_url = "https://www.ebay.ie/lstng?mode=AddItem&price={$price}&categoryId=168061&aspects=eJyLjgUAARUAuQ%3D%3D&condition=3000&title={$title}";
+
+
+                    ?>
+                    <td>
+                        <!-- Link eBay -->
+                        <a href="<?= $ebay_url ?>" target="_blank" title="Add to eBay">
+                            <i class="fab fa-ebay" style="font-size: 20px; color: #0064D2;"></i>
+                        </a>
+                    </td>
+
 
                     <td class="action-icons">
                         <a href="edit_equipment.php?id=<?= $row['ID'] ?>" title="Edit">

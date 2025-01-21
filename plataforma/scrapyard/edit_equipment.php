@@ -426,6 +426,7 @@ if (!empty($equipment['eshop_data'])) {
             <button onclick="saveCrop()">Crop and Save</button>
             <button onclick="saveCropG()">Crop</button>
             <button onclick="closeCropper()">Cancel</button>
+            <button type="button" onclick="rotateImage(90)">Rotate 90°</button>
         </div>
     </div>
 
@@ -591,6 +592,12 @@ if (!empty($equipment['eshop_data'])) {
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        function rotateImage(degrees) {
+        if (cropper) {
+            cropper.rotate(degrees);
+        }
+    }
     </script>
 
 </body>

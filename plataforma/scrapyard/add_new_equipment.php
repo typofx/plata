@@ -481,6 +481,7 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
             <img id="cropperImage" style="max-width: 100%; height: auto; margin-bottom: 10px;" />
             <button onclick="saveCrop()">Save</button>
             <button onclick="closeCropper()">Cancel</button>
+            <button type="button" onclick="rotateImage(90)">Rotate 90°</button>
         </div>
     </div>
 
@@ -562,6 +563,12 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
             }
             cropperModal.style.display = 'none';
         }
+
+        function rotateImage(degrees) {
+        if (cropper) {
+            cropper.rotate(degrees);
+        }
+    }
     </script>
 
 </body>
