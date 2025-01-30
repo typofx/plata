@@ -1,0 +1,16 @@
+[30-Jan-2025 07:43:59 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/footer/index.php on line 48
+[30-Jan-2025 07:43:59 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home2/granna80/public_html/plataforma/painel/footer/index.php:48
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/index.php(48): mysqli_query(NULL, 'SELECT * FROM g...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/index.php on line 48
+[30-Jan-2025 07:44:02 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/footer/index.php on line 48
+[30-Jan-2025 07:44:02 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home2/granna80/public_html/plataforma/painel/footer/index.php:48
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/index.php(48): mysqli_query(NULL, 'SELECT * FROM g...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/index.php on line 48
+[30-Jan-2025 08:14:55 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/footer/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/footer/delete.php on line 15
+[30-Jan-2025 09:57:47 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/footer/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/footer/edit.php on line 21
+[30-Jan-2025 09:57:53 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/footer/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/footer/edit.php on line 21
+[30-Jan-2025 16:58:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/is_logged.php:110) in /home2/granna80/public_html/plataforma/painel/footer/add.php on line 17
