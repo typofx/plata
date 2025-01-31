@@ -19,7 +19,6 @@ include "conexao.php";
             border-collapse: collapse;
         }
         th, td {
-       
             padding: 8px;
             text-align: left;
         }
@@ -34,54 +33,89 @@ include "conexao.php";
     <h2>Plata Footer Management</h2>
     <a href="https://plata.ie/plataforma/painel/menu.php">[Back]</a>
     <a href="add.php">[Add New Item]</a>
+    <a href="add_columns.php">[Add New Column]</a>
+
+    <?php
+    $query = "SELECT fc.column_name, pf.id, pf.item_name, pf.link FROM granna80_bdlinks.plata_footer pf INNER JOIN granna80_bdlinks.plata_footer_columns fc ON pf.column_id = fc.id ORDER BY fc.column_name, pf.item_order";
+    $result = mysqli_query($conn, $query);
+
+    $columns = [];
+    
+    while ($row = mysqli_fetch_assoc($result)) {
+        $columns[$row['column_name']][] = [
+            'id' => $row['id'],
+            'name' => $row['item_name'],
+            'link' => $row['link']
+        ];
+      
+    }
+
+    $maxRows = !empty($columns) ? max(array_map('count', $columns)) : 0;
+    ?>
+
     <table id="footerTable" class="display">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Column</th>
-                <th>Item Name</th>
                 <th>Line Order</th>
-                <th>Actions</th>
+                <?php 
+                foreach (array_keys($columns) as $column_name) {
+                    echo "<th>{$column_name}</th>";
+                }
+                echo "<th>Actions</th>";
+                ?>
             </tr>
         </thead>
         <tbody>
             <?php
-            $query = "SELECT * FROM granna80_bdlinks.plata_footer ORDER BY column_name, item_order";
-            $result = mysqli_query($conn, $query);
-
             $cont = 1;
-            while ($row = mysqli_fetch_assoc($result)) {
+            for ($i = 0; $i < $maxRows; $i++) {
                 echo "<tr>";
-                echo "<td>{$cont}</td>";
-                echo "<td>{$row['column_name']}</td>";
-                
-                if (!empty($row['link'])) {
-                    echo "<td><a href='{$row['link']}'>{$row['item_name']}</a></td>";
-                } else {
-                    echo "<td>{$row['item_name']}</td>";
+                echo "<td>$cont</td>";
+
+                $item_ids = [];
+                foreach ($columns as $column_items) {
+                    if (isset($column_items[$i])) {
+                        $item = $column_items[$i];
+                        $item_name = !empty($item['link']) ? "<a href='{$item['link']}' target='_blank'>{$item['name']}</a>" : $item['name'];
+                        echo "<td>{$item_name}</td>";
+                        $item_ids[] = $item['id'];
+                    } else {
+                        echo "<td></td>";
+                    }
                 }
-                
-                echo "<td>Line {$row['item_order']}</td>";
-                echo "<td class='action-icons'>
-                        <a href='edit.php?id={$row['id']}' title='Edit'><i class='fas fa-edit'></i></a>
-                        <a href='delete.php?id={$row['id']}' title='Delete'><i class='fas fa-trash'></i></a>
-                    </td>";
+
+                echo "<td>";
+                if (!empty($item_ids)) {
+                    echo "<form class='edit-form' method='POST' action='edit.php'>";
+                    foreach ($item_ids as $item_id) {
+                        if (!empty($item_id)) {
+                            echo "<input type='hidden' name='ids[]' value='{$item_id}'>";
+                        }
+                    }
+                    echo "<button type='submit' class='edit-button'><i class='fas fa-edit'></i> Edit</button>";
+                    echo "</form>";
+                }
+                echo "</td>";
                 echo "</tr>";
                 $cont++;
-                
             }
-
             ?>
         </tbody>
     </table>
 
     <script>
-    $(document).ready(function() {
-        $('#footerTable').DataTable({
-            "pageLength": 100
+        $(document).ready(function() {
+            $('#footerTable').DataTable({
+                "pageLength": 10,
+                "ordering": false
+            });
+
+            $('.edit-button').click(function(event) {
+                event.preventDefault();
+                $(this).closest('.edit-form').submit();
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>
