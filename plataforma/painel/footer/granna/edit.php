@@ -10,7 +10,7 @@ if (!isset($_POST['ids']) || !is_array($_POST['ids'])) {
 $item_ids = array_map('intval', $_POST['ids']);
 $placeholders = implode(',', array_fill(0, count($item_ids), '?'));
 
-$query = "SELECT id, column_id, item_name, link, item_order FROM granna80_bdlinks.plata_footer WHERE id IN ($placeholders)";
+$query = "SELECT id, column_id, item_name, link, item_order FROM granna80_bdlinks.granna_footer WHERE id IN ($placeholders)";
 $stmt = mysqli_prepare($conn, $query);
 mysqli_stmt_bind_param($stmt, str_repeat('i', count($item_ids)), ...$item_ids);
 mysqli_stmt_execute($stmt);
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
         $item_order = (int)$data['item_order'];
 
         if (!empty($column_id) && !empty($item_name) && !empty($item_order)) {
-            $update_queries[] = "UPDATE granna80_bdlinks.plata_footer 
+            $update_queries[] = "UPDATE granna80_bdlinks.granna_footer 
                                  SET column_id = $column_id, item_name = '" . mysqli_real_escape_string($conn, $item_name) . "', 
                                      link = '" . mysqli_real_escape_string($conn, $item_link) . "', item_order = $item_order 
                                  WHERE id = $id";
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
 // Handle delete
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_id'])) {
     $delete_id = (int)$_POST['delete_id'];
-    $delete_query = "DELETE FROM granna80_bdlinks.plata_footer WHERE id = ?";
+    $delete_query = "DELETE FROM granna80_bdlinks.granna_footer WHERE id = ?";
     
     if ($stmt = mysqli_prepare($conn, $delete_query)) {
         mysqli_stmt_bind_param($stmt, "i", $delete_id);
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_id'])) {
 
 
 // Fetch available columns
-$columns_query = "SELECT id, column_name FROM granna80_bdlinks.plata_footer_columns ORDER BY column_name";
+$columns_query = "SELECT id, column_name FROM granna80_bdlinks.granna_footer_columns ORDER BY column_name";
 $columns_result = mysqli_query($conn, $columns_query);
 $columns = [];
 while ($row = mysqli_fetch_assoc($columns_result)) {

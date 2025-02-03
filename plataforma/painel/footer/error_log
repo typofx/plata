@@ -1,15 +1,11 @@
-[31-Jan-2025 07:19:37 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'column_name' in 'where clause' in /home2/granna80/public_html/plataforma/painel/footer/add_columns.php:51
+[03-Feb-2025 08:29:29 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/edit.php:64
 Stack trace:
-#0 /home2/granna80/public_html/plataforma/painel/footer/add_columns.php(51): mysqli_prepare(Object(mysqli), 'DELETE FROM gra...')
+#0 /home2/granna80/public_html/plataforma/painel/footer/edit.php(64): mysqli_prepare(Object(mysqli), 'DELETE FROM gra...')
 #1 {main}
-  thrown in /home2/granna80/public_html/plataforma/painel/footer/add_columns.php on line 51
-[31-Jan-2025 07:45:00 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/edit.php:60
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/edit.php on line 64
+[03-Feb-2025 08:32:47 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/edit.php:81
 Stack trace:
-#0 /home2/granna80/public_html/plataforma/painel/footer/edit.php(60): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#0 /home2/granna80/public_html/plataforma/painel/footer/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
 #1 {main}
-  thrown in /home2/granna80/public_html/plataforma/painel/footer/edit.php on line 60
-[31-Jan-2025 07:45:14 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/edit.php:60
-Stack trace:
-#0 /home2/granna80/public_html/plataforma/painel/footer/edit.php(60): mysqli_query(Object(mysqli), 'SELECT id, colu...')
-#1 {main}
-  thrown in /home2/granna80/public_html/plataforma/painel/footer/edit.php on line 60
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/edit.php on line 81
+[03-Feb-2025 08:52:52 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5

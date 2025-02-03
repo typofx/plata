@@ -8,7 +8,7 @@ include "conexao.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plata Footer Management</title>
+    <title>TypoFX Footer Management</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -45,15 +45,15 @@ include "conexao.php";
 </head>
 
 <body>
-    <h2>Plata Footer Management</h2>
+    <h2>TypoFX Footer Management</h2>
     <a href="https://plata.ie/plataforma/painel/menu.php">[Back]</a>
     <a href="add.php">[Add New Item]</a>
     <a href="add_columns.php">[Add New Column]</a>
 
     <?php
     $query = "SELECT fc.column_name, pf.id, pf.item_name, pf.link 
-              FROM granna80_bdlinks.plata_footer pf 
-              INNER JOIN granna80_bdlinks.plata_footer_columns fc 
+              FROM granna80_bdlinks.typofx_footer pf 
+              INNER JOIN granna80_bdlinks.typofx_footer_columns fc 
               ON pf.column_id = fc.id 
               ORDER BY fc.column_name, pf.item_order";
     $result = mysqli_query($conn, $query);
