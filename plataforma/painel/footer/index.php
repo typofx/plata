@@ -1,7 +1,26 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include "conexao.php";
+
+
+
+$sql = "SELECT folder_path FROM granna80_bdlinks.plata_footer_editable_items LIMIT 1";
+$result = mysqli_query($conn, $sql);
+
+
+if ($row = mysqli_fetch_assoc($result)) {
+    $folder_path = htmlspecialchars($row['folder_path']);
+} else {
+    $folder_path = "https://plata.ie/";
+}
+
+
+
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +32,7 @@ include "conexao.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 
     <style>
         table {
@@ -48,14 +68,18 @@ include "conexao.php";
     <h2>Plata Footer Management</h2>
     <a href="https://plata.ie/plataforma/painel/menu.php">[Back]</a>
     <a href="add.php">[Add New Item]</a>
-    <a href="add_columns.php">[Add New Column]</a>
+    <a href="editable_items.php">[editable items]</a>
+    <a href="add_columns.php">[Add New Column]</a><br><br>
+   <p>Folder: <?php echo $folder_path  ?></p> 
+    <br>
+    <br>
 
     <?php
     $query = "SELECT fc.column_name, pf.id, pf.item_name, pf.link 
               FROM granna80_bdlinks.plata_footer pf 
               INNER JOIN granna80_bdlinks.plata_footer_columns fc 
               ON pf.column_id = fc.id 
-              ORDER BY fc.column_name, pf.item_order";
+              ORDER BY fc.column_order, pf.item_order";
     $result = mysqli_query($conn, $query);
 
     $columns = [];

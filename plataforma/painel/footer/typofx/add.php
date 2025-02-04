@@ -4,7 +4,7 @@ include "conexao.php";
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $column_id = $_POST['column_id']; // Now using column_id instead of column_name
+    $column_id = $_POST['column_id'];
     $item_name = trim($_POST['item_name']);
     $item_link = trim($_POST['item_link']);
     $item_order = (int) $_POST['item_order'];
@@ -83,6 +83,24 @@ $columns_result = mysqli_query($conn, $columns_query);
         <input type="submit" value="Add Item">
         <a href="index.php" class="back-link"><i class="fas fa-arrow-left"></i> Back to Footer Management</a>
     </form>
+
+    <script>
+document.getElementById('column_id').addEventListener('change', function() {
+    let columnId = this.value;
+
+    if (columnId) {
+        fetch('get_next_order.php?column_id=' + columnId)
+            .then(response => response.text())
+            .then(data => {
+                let cleanValue = data.replace(/\D/g, ''); // Remove caracteres não numéricos
+                document.getElementById('item_order').value = cleanValue || 1; // Se vazio, define como 1
+            })
+            .catch(error => console.error('Error fetching next order:', error));
+    } else {
+        document.getElementById('item_order').value = '';
+    }
+});
+</script>
 
 </body>
 
