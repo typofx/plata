@@ -1,0 +1,9 @@
+[06-Feb-2025 10:46:06 America/Chicago] PHP Warning:  include(conexao): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/header/edit.php on line 2
+[06-Feb-2025 10:46:06 America/Chicago] PHP Warning:  include(): Failed opening 'conexao' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/header/edit.php on line 2
+[06-Feb-2025 10:46:06 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/header/edit.php on line 12
+[06-Feb-2025 10:46:06 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home2/granna80/public_html/plataforma/painel/header/edit.php:12
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/header/edit.php(12): mysqli_query(NULL, 'SELECT name FRO...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/header/edit.php on line 12
+[06-Feb-2025 11:06:00 America/Chicago] PHP Warning:  Undefined array key "column_id" in /home2/granna80/public_html/plataforma/painel/header/add.php on line 22
