@@ -1,9 +1,7 @@
-[06-Feb-2025 10:46:06 America/Chicago] PHP Warning:  include(conexao): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/header/edit.php on line 2
-[06-Feb-2025 10:46:06 America/Chicago] PHP Warning:  include(): Failed opening 'conexao' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/header/edit.php on line 2
-[06-Feb-2025 10:46:06 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/header/edit.php on line 12
-[06-Feb-2025 10:46:06 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home2/granna80/public_html/plataforma/painel/header/edit.php:12
+[07-Feb-2025 11:43:04 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/header/add_new_column.php:41
 Stack trace:
-#0 /home2/granna80/public_html/plataforma/painel/header/edit.php(12): mysqli_query(NULL, 'SELECT name FRO...')
+#0 /home2/granna80/public_html/plataforma/painel/header/add_new_column.php(41): mysqli_query(Object(mysqli), 'DELETE sm FROM ...')
 #1 {main}
-  thrown in /home2/granna80/public_html/plataforma/painel/header/edit.php on line 12
-[06-Feb-2025 11:06:00 America/Chicago] PHP Warning:  Undefined array key "column_id" in /home2/granna80/public_html/plataforma/painel/header/add.php on line 22
+  thrown in /home2/granna80/public_html/plataforma/painel/header/add_new_column.php on line 41
+[07-Feb-2025 12:56:47 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[07-Feb-2025 14:36:21 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5

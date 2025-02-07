@@ -1,4 +1,4 @@
-<?php
+<?php 
 include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include 'conexao.php';
 
@@ -7,6 +7,16 @@ if (!isset($_GET['column_id'])) {
 }
 
 $columnId = intval($_GET['column_id']);
+
+// Função para verificar se a data é "New" (dentro de 2 meses)
+function isNew($date) {
+    $currentDate = new DateTime(); // Data atual
+    $itemDate = new DateTime($date); // Data do item/submenu
+    $interval = $currentDate->diff($itemDate); // Diferença entre as datas
+
+    // Verifica se a diferença é menor ou igual a 2 meses
+    return ($interval->y == 0 && $interval->m <= 2 && $interval->invert == 1);
+}
 
 // Processa a exclusão de itens e submenus
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_item_id'])) {
@@ -45,9 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_item_id']) &&
         $name = mysqli_real_escape_string($conn, $item['name']);
         $url = mysqli_real_escape_string($conn, $item['url']);
         $order = intval($item['order']);
+        $isHidden = isset($item['is_hidden']) ? 1 : 0;
+        $date = mysqli_real_escape_string($conn, $item['date']);
 
         $updateItemQuery = "UPDATE granna80_bdlinks.plata_header_items 
-                            SET name = '$name', url = '$url', order_number = $order 
+                            SET name = '$name', url = '$url', order_number = $order, is_hidden = $isHidden, date = '$date'
                             WHERE id = $itemId";
         mysqli_query($conn, $updateItemQuery);
     }
@@ -57,9 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_item_id']) &&
             $submenuName = mysqli_real_escape_string($conn, $submenu['name']);
             $submenuUrl = mysqli_real_escape_string($conn, $submenu['url']);
             $submenuOrder = intval($submenu['order']);
+            $isHiddenSubmenu = isset($submenu['is_hidden']) ? 1 : 0;
+            $submenuDate = mysqli_real_escape_string($conn, $submenu['date']);
 
             $updateSubmenuQuery = "UPDATE granna80_bdlinks.plata_submenus 
-                                   SET name = '$submenuName', url = '$submenuUrl', order_number = $submenuOrder 
+                                   SET name = '$submenuName', url = '$submenuUrl', order_number = $submenuOrder, is_hidden = $isHiddenSubmenu, date = '$submenuDate'
                                    WHERE id = $submenuId";
             mysqli_query($conn, $updateSubmenuQuery);
         }
@@ -81,8 +95,8 @@ $columnName = $columnRow['name'];
 
 // Obtém os itens e submenus da coluna
 $query = "
-    SELECT hi.id AS item_id, hi.name AS item_name, hi.url AS item_url, hi.order_number AS item_order,
-           sm.id AS submenu_id, sm.name AS submenu_name, sm.url AS submenu_url, sm.order_number AS submenu_order
+    SELECT hi.id AS item_id, hi.name AS item_name, hi.url AS item_url, hi.order_number AS item_order, hi.is_hidden AS item_hidden, hi.date AS item_date,
+           sm.id AS submenu_id, sm.name AS submenu_name, sm.url AS submenu_url, sm.order_number AS submenu_order, sm.is_hidden AS submenu_hidden, sm.date AS submenu_date
     FROM granna80_bdlinks.plata_header_items hi
     LEFT JOIN granna80_bdlinks.plata_submenus sm ON hi.id = sm.parent_item_id
     WHERE hi.column_id = $columnId
@@ -98,6 +112,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             'name' => $row['item_name'],
             'url' => $row['item_url'],
             'order' => $row['item_order'],
+            'is_hidden' => $row['item_hidden'],
+            'date' => $row['item_date'],
             'submenus' => []
         ];
     }
@@ -107,7 +123,9 @@ while ($row = mysqli_fetch_assoc($result)) {
             'id' => $row['submenu_id'],
             'name' => $row['submenu_name'],
             'url' => $row['submenu_url'],
-            'order' => $row['submenu_order']
+            'order' => $row['submenu_order'],
+            'is_hidden' => $row['submenu_hidden'],
+            'date' => $row['submenu_date']
         ];
     }
 }
@@ -139,6 +157,9 @@ while ($row = mysqli_fetch_assoc($result)) {
         input[type="text"], input[type="number"] {
             width: 100px;
         }
+        input[type="datetime-local"] {
+            width: 160px;
+        }
         button {
             padding: 5px 10px;
             margin-top: 5px;
@@ -151,6 +172,11 @@ while ($row = mysqli_fetch_assoc($result)) {
         }
         .save-btn {
             background-color: green;
+        }
+        .new-label {
+            color: green;
+            font-weight: bold;
+            margin-left: 5px;
         }
     </style>
 </head>
@@ -165,8 +191,10 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <th>Order</th>
                 <th>Name</th>
                 <th>URL</th>
-                <th>Submenus (Order, Name, URL)</th>
-                <th>Açtions</th>
+                <th>Hidden</th>
+                <th>Date</th>
+                <th>Submenus (Order, Name, URL, Hidden, Date)</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -176,10 +204,24 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <td><input type="text" name="items[<?php echo $itemId; ?>][name]" value="<?php echo htmlspecialchars($item['name']); ?>"></td>
                     <td><input type="text" name="items[<?php echo $itemId; ?>][url]" value="<?php echo htmlspecialchars($item['url']); ?>"></td>
                     <td>
+                        <input type="checkbox" name="items[<?php echo $itemId; ?>][is_hidden]" value="1" <?php echo $item['is_hidden'] ? 'checked' : ''; ?>>
+                    </td>
+                    <td>
+                        <input type="datetime-local" name="items[<?php echo $itemId; ?>][date]" value="<?php echo date('Y-m-d\TH:i', strtotime($item['date'])); ?>">
+                        <?php if (isNew($item['date'])): ?>
+                            <span class="new-label">New</span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
                         <?php foreach ($item['submenus'] as $submenu): ?>
                             <input type="number" name="submenus[<?php echo $submenu['id']; ?>][order]" value="<?php echo $submenu['order']; ?>">
                             <input type="text" name="submenus[<?php echo $submenu['id']; ?>][name]" value="<?php echo htmlspecialchars($submenu['name']); ?>">
                             <input type="text" name="submenus[<?php echo $submenu['id']; ?>][url]" value="<?php echo htmlspecialchars($submenu['url']); ?>">
+                            <input type="checkbox" name="submenus[<?php echo $submenu['id']; ?>][is_hidden]" value="1" <?php echo $submenu['is_hidden'] ? 'checked' : ''; ?>>
+                            <input type="datetime-local" name="submenus[<?php echo $submenu['id']; ?>][date]" value="<?php echo date('Y-m-d\TH:i', strtotime($submenu['date'])); ?>">
+                            <?php if (isNew($submenu['date'])): ?>
+                                <span class="new-label">New</span>
+                            <?php endif; ?>
                             <button type="submit" name="delete_submenu_id" value="<?php echo $submenu['id']; ?>" class="delete-btn">Delete Submenu</button>
                             <br>
                         <?php endforeach; ?>
