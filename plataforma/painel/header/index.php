@@ -17,6 +17,8 @@ include "conexao.php";
 <body>
     <a href="https://plata.ie/plataforma/painel/menu.php">[Back]</a>
     <a href="add.php">[Add new item]</a>
+    <a href="edit_header_icons.php">[Config Icons]</a>
+    <a href="add_new_column.php">[Add new Column]</a>
     <a href="https://plata.ie/es/desktop-header-2.php">[TEST HEADER]</a>
 <table id="headerItemsTable" class="display" style="text-align: center;">
     <thead>
@@ -26,7 +28,7 @@ include "conexao.php";
             $columnResult = mysqli_query($conn, $columnQuery);
             $columns = [];
 
-            echo "<th>ID</th>";
+            echo "<th>Order</th>";
             while ($columnRow = mysqli_fetch_assoc($columnResult)) {
                 $editLink = "<a href='edit.php?column_id={$columnRow['id']}' style='margin-left:5px;'>Edit</a>";
                 echo "<th>{$columnRow['name']} {$editLink}</th>";
