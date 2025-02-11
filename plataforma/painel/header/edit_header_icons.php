@@ -2,14 +2,46 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include 'conexao.php';
 
+// Directory to store uploaded icons
+$uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/images/';
+
+// Create the upload directory if it doesn't exist
+if (!file_exists($uploadDir)) {
+    mkdir($uploadDir, 0777, true);
+}
+
 // Add new icon
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_icon'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $url = mysqli_real_escape_string($conn, $_POST['url']);
-    $iconSrc = mysqli_real_escape_string($conn, $_POST['icon_src']);
     $order = intval($_POST['order']);
     $isHidden = isset($_POST['is_hidden']) ? 1 : 0;
 
+    // Handle file upload
+    if (isset($_FILES['icon_file']) && $_FILES['icon_file']['error'] === UPLOAD_ERR_OK) {
+        $fileExtension = pathinfo($_FILES['icon_file']['name'], PATHINFO_EXTENSION);
+        $allowedExtensions = ['png', 'jpeg', 'jpg', 'svg'];
+
+        if (in_array(strtolower($fileExtension), $allowedExtensions)) {
+            $fileName = uniqid() . '.' . $fileExtension; // Generate a unique file name
+            $filePath = $uploadDir . $fileName;
+
+            if (move_uploaded_file($_FILES['icon_file']['tmp_name'], $filePath)) {
+                $iconSrc = '/images/' . $fileName; // Relative path for database
+            } else {
+                echo "<p style='color: red;'>Failed to upload icon file.</p>";
+                exit;
+            }
+        } else {
+            echo "<p style='color: red;'>Invalid file type. Only PNG, JPEG, and SVG are allowed.</p>";
+            exit;
+        }
+    } else {
+        echo "<p style='color: red;'>No icon file uploaded.</p>";
+        exit;
+    }
+
+    // Insert into database
     $insertQuery = "INSERT INTO granna80_bdlinks.plata_header_editable_items (name, url, icon_src, order_number, is_hidden) 
                     VALUES ('$name', '$url', '$iconSrc', $order, $isHidden)";
     mysqli_query($conn, $insertQuery);
@@ -22,10 +54,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_icon'])) {
     $iconId = intval($_POST['icon_id']);
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $url = mysqli_real_escape_string($conn, $_POST['url']);
-    $iconSrc = mysqli_real_escape_string($conn, $_POST['icon_src']);
     $order = intval($_POST['order']);
     $isHidden = isset($_POST['is_hidden']) ? 1 : 0;
 
+    // Handle file upload if a new file is provided
+    if (isset($_FILES['icon_file']) && $_FILES['icon_file']['error'] === UPLOAD_ERR_OK) {
+        $fileExtension = pathinfo($_FILES['icon_file']['name'], PATHINFO_EXTENSION);
+        $allowedExtensions = ['png', 'jpeg', 'jpg', 'svg'];
+
+        if (in_array(strtolower($fileExtension), $allowedExtensions)) {
+            $fileName = uniqid() . '.' . $fileExtension; // Generate a unique file name
+            $filePath = $uploadDir . $fileName;
+
+            if (move_uploaded_file($_FILES['icon_file']['tmp_name'], $filePath)) {
+                $iconSrc = '/images/' . $fileName; // Relative path for database
+            } else {
+                echo "<p style='color: red;'>Failed to upload icon file.</p>";
+                exit;
+            }
+        } else {
+            echo "<p style='color: red;'>Invalid file type. Only PNG, JPEG, and SVG are allowed.</p>";
+            exit;
+        }
+    } else {
+        // If no new file is uploaded, keep the existing icon path
+        $iconSrc = mysqli_real_escape_string($conn, $_POST['existing_icon_src']);
+    }
+
+    // Update database
     $updateQuery = "UPDATE granna80_bdlinks.plata_header_editable_items 
                     SET name = '$name', url = '$url', icon_src = '$iconSrc', order_number = $order, is_hidden = $isHidden 
                     WHERE id = $iconId";
@@ -38,6 +94,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_icon'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_icon'])) {
     $iconId = intval($_POST['icon_id']);
 
+    // Get the icon path to delete the file
+    $query = "SELECT icon_src FROM granna80_bdlinks.plata_header_editable_items WHERE id = $iconId";
+    $result = mysqli_query($conn, $query);
+    $icon = mysqli_fetch_assoc($result);
+
+    if ($icon && file_exists($_SERVER['DOCUMENT_ROOT'] . $icon['icon_src'])) {
+        unlink($_SERVER['DOCUMENT_ROOT'] . $icon['icon_src']); // Delete the file
+    }
+
+    // Delete from database
     $deleteQuery = "DELETE FROM granna80_bdlinks.plata_header_editable_items WHERE id = $iconId";
     mysqli_query($conn, $deleteQuery);
 
@@ -101,13 +167,13 @@ while ($row = mysqli_fetch_assoc($resultIcons)) {
 <body>
 
 <h2>Add New Icon</h2>
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" required>
     <label for="url">URL:</label>
     <input type="text" name="url" id="url" required>
-    <label for="icon_src">Icon Path:</label>
-    <input type="text" name="icon_src" id="icon_src" required>
+    <label for="icon_file">Icon File (PNG, JPEG, SVG):</label>
+    <input type="file" name="icon_file" id="icon_file" accept=".png, .jpeg, .jpg, .svg" required>
     <label for="order">Order:</label>
     <input type="number" name="order" id="order" required>
     <label for="is_hidden">Hidden?</label>
@@ -122,7 +188,7 @@ while ($row = mysqli_fetch_assoc($resultIcons)) {
             <th>ID</th>
             <th>Name</th>
             <th>URL</th>
-            <th>Icon Path</th>
+            <th>Icon</th>
             <th>Order</th>
             <th>Hidden?</th>
             <th>Actions</th>
@@ -134,7 +200,7 @@ while ($row = mysqli_fetch_assoc($resultIcons)) {
                 <td><?php echo $icon['id']; ?></td>
                 <td><?php echo htmlspecialchars($icon['name']); ?></td>
                 <td><?php echo htmlspecialchars($icon['url']); ?></td>
-                <td><?php echo htmlspecialchars($icon['icon_src']); ?></td>
+                <td><img src="<?php echo htmlspecialchars($icon['icon_src']); ?>" alt="Icon" style="width: 24px; height: 24px;"></td>
                 <td><?php echo $icon['order_number']; ?></td>
                 <td><?php echo $icon['is_hidden'] ? 'Yes' : 'No'; ?></td>
                 <td>
@@ -151,14 +217,15 @@ while ($row = mysqli_fetch_assoc($resultIcons)) {
 
 <!-- Edit Form (hidden by default) -->
 <h2>Edit Icon</h2>
-<form id="editForm" action="" method="POST" style="display:none;">
+<form id="editForm" action="" method="POST" enctype="multipart/form-data" style="display:none;">
     <input type="hidden" name="icon_id" id="edit_icon_id">
+    <input type="hidden" name="existing_icon_src" id="edit_existing_icon_src">
     <label for="edit_name">Name:</label>
     <input type="text" name="name" id="edit_name" required>
     <label for="edit_url">URL:</label>
     <input type="text" name="url" id="edit_url" required>
-    <label for="edit_icon_src">Icon Path:</label>
-    <input type="text" name="icon_src" id="edit_icon_src" required>
+    <label for="edit_icon_file">New Icon File (PNG, JPEG, SVG):</label>
+    <input type="file" name="icon_file" id="edit_icon_file" accept=".png, .jpeg, .jpg, .svg">
     <label for="edit_order">Order:</label>
     <input type="number" name="order" id="edit_order" required>
     <label for="edit_is_hidden">Hidden?</label>
@@ -174,7 +241,7 @@ while ($row = mysqli_fetch_assoc($resultIcons)) {
         document.getElementById('edit_icon_id').value = id;
         document.getElementById('edit_name').value = name;
         document.getElementById('edit_url').value = url;
-        document.getElementById('edit_icon_src').value = iconSrc;
+        document.getElementById('edit_existing_icon_src').value = iconSrc;
         document.getElementById('edit_order').value = order;
         document.getElementById('edit_is_hidden').checked = isHidden;
     }
@@ -184,6 +251,7 @@ while ($row = mysqli_fetch_assoc($resultIcons)) {
         document.getElementById('editForm').style.display = 'none';
     }
 </script>
+
 <a href="index.php">To go back</a>
 </body>
 </html>

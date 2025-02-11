@@ -18,6 +18,7 @@ include "conexao.php";
     <a href="https://plata.ie/plataforma/painel/menu.php">[Back]</a>
     <a href="add.php">[Add new item]</a>
     <a href="edit_header_icons.php">[Config Icons]</a>
+    <a href="edit_config_items.php">[Config Items]</a>
     <a href="add_new_column.php">[Add new Column]</a>
     <a href="https://plata.ie/es/desktop-header-2.php">[TEST HEADER]</a>
 <table id="headerItemsTable" class="display" style="text-align: center;">

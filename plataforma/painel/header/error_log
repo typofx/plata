@@ -1,7 +1,4 @@
-[07-Feb-2025 11:43:04 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/header/add_new_column.php:41
-Stack trace:
-#0 /home2/granna80/public_html/plataforma/painel/header/add_new_column.php(41): mysqli_query(Object(mysqli), 'DELETE sm FROM ...')
-#1 {main}
-  thrown in /home2/granna80/public_html/plataforma/painel/header/add_new_column.php on line 41
-[07-Feb-2025 12:56:47 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
-[07-Feb-2025 14:36:21 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[10-Feb-2025 15:07:49 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/edit_config_items.php on line 102
+[10-Feb-2025 15:07:49 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/edit_config_items.php on line 107
+[10-Feb-2025 16:39:26 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[10-Feb-2025 17:47:27 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
