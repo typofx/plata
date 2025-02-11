@@ -1,4 +1,9 @@
-[10-Feb-2025 15:07:49 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/edit_config_items.php on line 102
-[10-Feb-2025 15:07:49 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/edit_config_items.php on line 107
-[10-Feb-2025 16:39:26 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
-[10-Feb-2025 17:47:27 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[11-Feb-2025 11:36:05 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/config.php on line 136
+[11-Feb-2025 11:36:05 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/config.php on line 146
+[11-Feb-2025 11:36:05 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/config.php on line 153
+[11-Feb-2025 11:36:05 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/config.php on line 154
+[11-Feb-2025 11:36:32 America/Chicago] PHP Warning:  Undefined array key "existing_logo" in /home2/granna80/public_html/plataforma/painel/header/config.php on line 33
+[11-Feb-2025 11:36:32 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/config.php on line 136
+[11-Feb-2025 11:36:32 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/config.php on line 146
+[11-Feb-2025 11:36:32 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/config.php on line 153
+[11-Feb-2025 11:36:32 America/Chicago] PHP Warning:  Trying to access array offset on value of type null in /home2/granna80/public_html/plataforma/painel/header/config.php on line 154
