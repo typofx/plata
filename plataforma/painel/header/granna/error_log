@@ -1,0 +1,11 @@
+[11-Feb-2025 12:38:27 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/header/granna/add.php:13
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/header/granna/add.php(13): mysqli_query(Object(mysqli), 'INSERT INTO gra...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/header/granna/add.php on line 13
+[11-Feb-2025 13:14:51 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: No database selected in /home2/granna80/public_html/plataforma/painel/header/granna/edit_column.php:44
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/header/granna/edit_column.php(44): mysqli_query(Object(mysqli), 'INSERT INTO gra...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/header/granna/edit_column.php on line 44
+[11-Feb-2025 14:40:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/header/granna/conexao.php:14) in /home2/granna80/public_html/plataforma/painel/header/granna/edit_column.php on line 86
