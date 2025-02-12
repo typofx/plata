@@ -1,0 +1,15 @@
+[12-Feb-2025 12:24:57 America/Chicago] PHP Fatal error:  Uncaught ValueError: max(): Argument #1 ($value) must contain at least one element in /home2/granna80/public_html/plataforma/painel/header/typofx/index.php:129
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/header/typofx/index.php(129): max(Array)
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/header/typofx/index.php on line 129
+[12-Feb-2025 12:25:41 America/Chicago] PHP Fatal error:  Uncaught ValueError: max(): Argument #1 ($value) must contain at least one element in /home2/granna80/public_html/plataforma/painel/header/typofx/index.php:129
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/header/typofx/index.php(129): max(Array)
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/header/typofx/index.php on line 129
+[12-Feb-2025 12:27:49 America/Chicago] PHP Fatal error:  Uncaught ValueError: max(): Argument #1 ($value) must contain at least one element in /home2/granna80/public_html/plataforma/painel/header/typofx/index.php:129
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/header/typofx/index.php(129): max(Array)
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/header/typofx/index.php on line 129
