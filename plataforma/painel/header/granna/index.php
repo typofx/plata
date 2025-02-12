@@ -1,204 +1,159 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
-include 'conexao.php'; // Include your database connection file
-
-// Fetch all header items
-$queryItems = "SELECT * FROM granna80_bdlinks.granna_header_items ORDER BY order_number";
-$resultItems = mysqli_query($conn, $queryItems);
-$headerItems = [];
-
-while ($row = mysqli_fetch_assoc($resultItems)) {
-    $headerItems[] = $row;
-}
-
-// Fetch all sub-items
-$querySubitems = "SELECT * FROM granna80_bdlinks.granna_header_subitems ORDER BY order_number";
-$resultSubitems = mysqli_query($conn, $querySubitems);
-$subItems = [];
-
-while ($row = mysqli_fetch_assoc($resultSubitems)) {
-    $subItems[] = $row;
-}
+include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
+include "conexao.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Granna Header Items</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Header Items List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f9f9f9;
         }
 
         table {
-            width: 100%;
+            width: 80%;
             border-collapse: collapse;
             margin-top: 20px;
-            background: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
+            margin-left: 8%;
         }
 
-        th,
-        td {
+        th, td {
             border: 1px solid #ddd;
-            padding: 12px;
+            padding: 8px;
             text-align: left;
         }
 
         th {
-            background-color: #4bb033;
+            background-color: #f4f4f4;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-top: 5px;
+            cursor: pointer;
+            border: none;
             color: white;
-            text-align: center;
         }
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+        .delete-btn {
+            background-color: red;
         }
 
-        .column-header {
-            font-weight: bold;
+        .edit-btn {
+            background-color: orange;
         }
 
-        .subitem {
-            padding-left: 20px;
-            font-size: 14px;
-            color: #555;
+        .save-btn {
+            background-color: green;
         }
 
-        a {
-            color: #007BFF;
-            text-decoration: none;
+        .actions {
+            margin-bottom: 20px;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .actions a {
+            display: inline-block;
+      
+            margin-right: 10px;
+         
+            
+           
+         
         }
+
+      
     </style>
 </head>
 
 <body>
+    <div class="actions">
+        <a href="https://plata.ie/plataforma/painel/menu.php">[Back]</a>
+        <a href="add.php">[Add new item]</a>
+        <a href="edit_header_icons.php">[Config Icons]</a>
+        <a href="edit_config_items.php">[Config Button]</a>
+        <a href="add_new_column.php">[Config Columns]</a>
+        <a href="config.php">[Config Logo]</a>
+        <a href="http://granna.ie/desktop-header-2.php">[TEST HEADER]</a>
+    </div>
 
-    <h2>Granna Header Items</h2><br>
-
-    <a href="add.php">[Add new item] </a>
-    <a href="config.php">[Config header]</a>
-    <a href="http://granna.ie/desktop-header-2.php">[Granna header test]</a>
-    <a href="https://plata.ie/plataforma/painel/menu.php">[Main menu]</a>
-
-    <table>
+    <table id="headerItemsTable">
         <thead>
             <tr>
-                <th>#</th>
-                <?php foreach ($headerItems as $index => $item): ?>
-                    <th class="column-header">
-                        <a href="edit_column.php?id=<?php echo $item['id']; ?>" style="color: white; text-decoration: none;">
-                            <i class="fas fa-edit"></i> <?php echo htmlspecialchars($item['name']); ?>
-                        </a>
-                    </th>
-                <?php endforeach; ?>
+                <?php
+                $columnQuery = "SELECT id, name FROM granna80_bdlinks.granna_header_columns ORDER BY order_number";
+                $columnResult = mysqli_query($conn, $columnQuery);
+                $columns = [];
+
+                echo "<th>Order</th>";
+                while ($columnRow = mysqli_fetch_assoc($columnResult)) {
+                    $editLink = "<a href='edit.php?column_id={$columnRow['id']}' style='margin-left:5px;'><i class='fa-solid fa-pen-to-square'></i></a>";
+                    echo "<th>{$columnRow['name']} {$editLink}</th>";
+                    $columns[$columnRow['id']] = $columnRow['name'];
+                }
+                ?>
             </tr>
         </thead>
         <tbody>
-            <!-- First Row: Non-dropdown items and first sub-items for dropdowns -->
-            <tr>
-                <td style="text-align: center; font-weight: bold;">1</td>
-                <?php foreach ($headerItems as $item): ?>
-                    <td>
-                        <?php if (!$item['is_dropdown']): ?>
-                            <?php if (!empty($item['url'])): ?>
-                                <a href="<?php echo htmlspecialchars($item['url']); ?>">
-                                    <?php echo htmlspecialchars($item['name']); ?>
-                                </a>
-                            <?php else: ?>
-                                <?php echo htmlspecialchars($item['name']); ?>
-                            <?php endif; ?>
-                        <?php else: ?>
-                            <?php
-                            // Display the first sub-item for dropdowns
-                            $firstSubitem = null;
-                            foreach ($subItems as $subItem) {
-                                if ($subItem['parent_item_id'] == $item['id']) {
-                                    $firstSubitem = $subItem;
-                                    break;
-                                }
-                            }
-                            if ($firstSubitem): ?>
-                                <div class="subitem">
-                                    <?php if (!empty($firstSubitem['url'])): ?>
-                                        <a href="<?php echo htmlspecialchars($firstSubitem['url']); ?>">
-                                            <?php echo htmlspecialchars($firstSubitem['name']); ?>
-                                        </a>
-                                    <?php else: ?>
-                                        <?php echo htmlspecialchars($firstSubitem['name']); ?>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                    </td>
-                <?php endforeach; ?>
-            </tr>
-
-            <!-- Subsequent Rows: Remaining sub-items for dropdowns -->
             <?php
-            // Find the maximum number of sub-items for any header item
-            $maxSubitems = 0;
-            foreach ($headerItems as $item) {
-                if ($item['is_dropdown']) {
-                    $count = 0;
-                    foreach ($subItems as $subItem) {
-                        if ($subItem['parent_item_id'] == $item['id']) {
-                            $count++;
-                        }
-                    }
-                    if ($count > $maxSubitems) {
-                        $maxSubitems = $count;
-                    }
+            $items = [];
+            $query = " 
+            SELECT hi.column_id, hi.name AS item_name, hi.url AS item_url, hi.is_hidden AS item_hidden,
+                   sm.name AS submenu_name, sm.url AS submenu_url, hi.id AS item_id
+            FROM granna80_bdlinks.granna_header_items hi
+            LEFT JOIN granna80_bdlinks.granna_header_submenus sm ON hi.id = sm.parent_item_id
+            ORDER BY hi.column_id, hi.order_number, sm.order_number
+            ";
+
+            $result = mysqli_query($conn, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $items[$row['column_id']][$row['item_id']]['name'] = $row['item_name'];
+                $items[$row['column_id']][$row['item_id']]['url'] = $row['item_url'];
+                $items[$row['column_id']][$row['item_id']]['hidden'] = $row['item_hidden'];
+                if (!empty($row['submenu_name'])) {
+                    $submenuLink = !empty($row['submenu_url'])
+                        ? "<a href='{$row['submenu_url']}' target='_blank'>{$row['submenu_name']}</a>"
+                        : $row['submenu_name'];
+                    $items[$row['column_id']][$row['item_id']]['submenus'][] = $submenuLink;
                 }
             }
 
-            // Display each remaining sub-item in its own row
-            for ($i = 1; $i < $maxSubitems; $i++): ?>
-                <tr>
-                    <td style="text-align: center; font-weight: bold;"><?php echo $i + 1; ?></td>
-                    <?php foreach ($headerItems as $item): ?>
-                        <td>
-                            <?php if ($item['is_dropdown']): ?>
-                                <?php
-                                $subitemIndex = 0;
-                                foreach ($subItems as $subItem) {
-                                    if ($subItem['parent_item_id'] == $item['id']) {
-                                        if ($subitemIndex == $i) {
-                                            echo '<div class="subitem">';
-                                            if (!empty($subItem['url'])) {
-                                                echo '<a href="' . htmlspecialchars($subItem['url']) . '">';
-                                                echo htmlspecialchars($subItem['name']);
-                                                echo '</a>';
-                                            } else {
-                                                echo htmlspecialchars($subItem['name']);
-                                            }
-                                            echo '</div>';
-                                            break;
-                                        }
-                                        $subitemIndex++;
-                                    }
-                                }
-                                ?>
-                            <?php endif; ?>
-                        </td>
-                    <?php endforeach; ?>
-                </tr>
-            <?php endfor; ?>
+            $maxRows = max(array_map('count', $items));
+
+            $cont = 1;
+
+            for ($i = 0; $i < $maxRows; $i++) {
+                echo "<tr>";
+                echo "<td>$cont</td>";
+                foreach ($columns as $columnId => $columnName) {
+                    if (isset($items[$columnId])) {
+                        $item = array_values($items[$columnId])[$i] ?? null;
+                        if ($item) {
+                            $itemName = !empty($item['url']) ? "<a href='{$item['url']}' target='_blank'>{$item['name']}</a>" : $item['name'];
+                            $submenuList = !empty($item['submenus']) ? " | " . implode(" | ", $item['submenus']) : "";
+
+                            echo "<td>{$itemName}{$submenuList}</td>";
+                        } else {
+                            echo "<td></td>";
+                        }
+                    } else {
+                        echo "<td></td>";
+                    }
+                }
+                echo "</tr>";
+                $cont++;
+            }
+            ?>
         </tbody>
     </table>
-
 </body>
 
 </html>

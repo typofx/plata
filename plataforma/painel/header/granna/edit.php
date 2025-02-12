@@ -23,18 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_item_id'])) {
     $deleteItemId = intval($_POST['delete_item_id']);
 
     // Verifica se o item tem submenus
-    $checkSubmenusQuery = "SELECT COUNT(*) AS total FROM granna80_bdlinks.plata_header_submenus WHERE parent_item_id = $deleteItemId";
+    $checkSubmenusQuery = "SELECT COUNT(*) AS total FROM granna80_bdlinks.granna_header_submenus WHERE parent_item_id = $deleteItemId";
     $checkSubmenusResult = mysqli_query($conn, $checkSubmenusQuery);
     $checkSubmenusRow = mysqli_fetch_assoc($checkSubmenusResult);
 
     // Se o item tiver submenus, apaga primeiro os submenus
     if ($checkSubmenusRow['total'] > 0) {
-        $deleteSubmenusQuery = "DELETE FROM granna80_bdlinks.plata_header_submenus WHERE parent_item_id = $deleteItemId";
+        $deleteSubmenusQuery = "DELETE FROM granna80_bdlinks.granna_header_submenus WHERE parent_item_id = $deleteItemId";
         mysqli_query($conn, $deleteSubmenusQuery);
     }
 
     // Apaga o próprio item
-    $deleteItemQuery = "DELETE FROM granna80_bdlinks.plata_header_items WHERE id = $deleteItemId";
+    $deleteItemQuery = "DELETE FROM granna80_bdlinks.granna_header_items WHERE id = $deleteItemId";
     mysqli_query($conn, $deleteItemQuery);
 
     echo "<p style='color: red;'>Item excluído com sucesso!</p>";
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_item_id'])) {
 // Processa a exclusão de submenus individualmente
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_submenu_id'])) {
     $deleteSubmenuId = intval($_POST['delete_submenu_id']);
-    $deleteSubmenuQuery = "DELETE FROM granna80_bdlinks.plata_header_submenus WHERE id = $deleteSubmenuId";
+    $deleteSubmenuQuery = "DELETE FROM granna80_bdlinks.granna_header_submenus WHERE id = $deleteSubmenuId";
     mysqli_query($conn, $deleteSubmenuQuery);
 
     echo "<p style='color: red;'>Submenu excluído com sucesso!</p>";
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_item_id']) &&
         $isHidden = isset($item['is_hidden']) ? 1 : 0;
         $date = mysqli_real_escape_string($conn, $item['date']);
 
-        $updateItemQuery = "UPDATE granna80_bdlinks.plata_header_items 
+        $updateItemQuery = "UPDATE granna80_bdlinks.granna_header_items 
                             SET name = '$name', url = '$url', order_number = $order, is_hidden = $isHidden, date = '$date'
                             WHERE id = $itemId";
         mysqli_query($conn, $updateItemQuery);
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_item_id']) &&
             $isHiddenSubmenu = isset($submenu['is_hidden']) ? 1 : 0;
             $submenuDate = mysqli_real_escape_string($conn, $submenu['date']);
 
-            $updateSubmenuQuery = "UPDATE granna80_bdlinks.plata_header_submenus 
+            $updateSubmenuQuery = "UPDATE granna80_bdlinks.granna_header_submenus 
                                    SET name = '$submenuName', url = '$submenuUrl', order_number = $submenuOrder, is_hidden = $isHiddenSubmenu, date = '$submenuDate'
                                    WHERE id = $submenuId";
             mysqli_query($conn, $updateSubmenuQuery);
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_item_id']) &&
 }
 
 // Obtém o nome da coluna
-$columnQuery = "SELECT name FROM granna80_bdlinks.plata_header_columns WHERE id = $columnId";
+$columnQuery = "SELECT name FROM granna80_bdlinks.granna_header_columns WHERE id = $columnId";
 $columnResult = mysqli_query($conn, $columnQuery);
 $columnRow = mysqli_fetch_assoc($columnResult);
 
@@ -97,8 +97,8 @@ $columnName = $columnRow['name'];
 $query = "
     SELECT hi.id AS item_id, hi.name AS item_name, hi.url AS item_url, hi.order_number AS item_order, hi.is_hidden AS item_hidden, hi.date AS item_date,
            sm.id AS submenu_id, sm.name AS submenu_name, sm.url AS submenu_url, sm.order_number AS submenu_order, sm.is_hidden AS submenu_hidden, sm.date AS submenu_date
-    FROM granna80_bdlinks.plata_header_items hi
-    LEFT JOIN granna80_bdlinks.plata_header_submenus sm ON hi.id = sm.parent_item_id
+    FROM granna80_bdlinks.granna_header_items hi
+    LEFT JOIN granna80_bdlinks.granna_header_submenus sm ON hi.id = sm.parent_item_id
     WHERE hi.column_id = $columnId
     ORDER BY hi.order_number, sm.order_number
 ";

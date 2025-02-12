@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($isSubmenu) {
         // Adiciona um submenu
         $parentItemId = intval($_POST['parent_item_id']);
-        $insertSubmenuQuery = "INSERT INTO granna80_bdlinks.plata_submenus (parent_item_id, name, url, order_number) 
+        $insertSubmenuQuery = "INSERT INTO granna80_bdlinks.plata_header_submenus (parent_item_id, name, url, order_number) 
                                VALUES ($parentItemId, '$name', '$url', $order)";
         mysqli_query($conn, $insertSubmenuQuery);
     } else {

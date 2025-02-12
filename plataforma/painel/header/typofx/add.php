@@ -3,7 +3,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include 'conexao.php';
 
 // Busca todas as colunas disponíveis
-$columnQuery = "SELECT id, name FROM granna80_bdlinks.granna_header_columns ORDER BY order_number";
+$columnQuery = "SELECT id, name FROM granna80_bdlinks.typofx_header_columns ORDER BY order_number";
 $columnResult = mysqli_query($conn, $columnQuery);
 $columns = [];
 while ($columnRow = mysqli_fetch_assoc($columnResult)) {
@@ -11,7 +11,7 @@ while ($columnRow = mysqli_fetch_assoc($columnResult)) {
 }
 
 // Busca todos os itens disponíveis para associar submenus
-$itemQuery = "SELECT id, name, column_id FROM granna80_bdlinks.granna_header_items ORDER BY column_id, order_number";
+$itemQuery = "SELECT id, name, column_id FROM granna80_bdlinks.typofx_header_items ORDER BY column_id, order_number";
 $itemResult = mysqli_query($conn, $itemQuery);
 $items = [];
 while ($itemRow = mysqli_fetch_assoc($itemResult)) {
@@ -29,12 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($isSubmenu) {
         // Adiciona um submenu
         $parentItemId = intval($_POST['parent_item_id']);
-        $insertSubmenuQuery = "INSERT INTO granna80_bdlinks.granna_header_submenus (parent_item_id, name, url, order_number) 
+        $insertSubmenuQuery = "INSERT INTO granna80_bdlinks.typofx_header_submenus (parent_item_id, name, url, order_number) 
                                VALUES ($parentItemId, '$name', '$url', $order)";
         mysqli_query($conn, $insertSubmenuQuery);
     } else {
         // Adiciona um item principal
-        $insertItemQuery = "INSERT INTO granna80_bdlinks.granna_header_items (column_id, name, url, order_number) 
+        $insertItemQuery = "INSERT INTO granna80_bdlinks.typofx_header_items (column_id, name, url, order_number) 
                             VALUES ($columnId, '$name', '$url', $order)";
         mysqli_query($conn, $insertItemQuery);
     }

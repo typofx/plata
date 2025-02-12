@@ -31,17 +31,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_header'])) {
     }
 
     // Check if the record exists
-    $checkQuery = "SELECT id FROM granna80_bdlinks.granna_header_config_items WHERE id = 1";
+    $checkQuery = "SELECT id FROM granna80_bdlinks.typofx_header_config_items WHERE id = 1";
     $checkResult = mysqli_query($conn, $checkQuery);
 
     if (mysqli_num_rows($checkResult) > 0) {
         // Update the existing record
-        $updateQuery = "UPDATE granna80_bdlinks.granna_header_config_items 
+        $updateQuery = "UPDATE granna80_bdlinks.typofx_header_config_items 
                     SET logo_image = '$logoImage', logo_link = '$logoLink', background_color = '$backgroundColor' 
                     WHERE id = 1";
     } else {
         // Insert a new record
-        $updateQuery = "INSERT INTO granna80_bdlinks.granna_header_config_items 
+        $updateQuery = "INSERT INTO granna80_bdlinks.typofx_header_config_items 
                     (logo_image, logo_link, background_color) 
                     VALUES ('$logoImage', '$logoLink', '$backgroundColor')";
     }
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_header'])) {
 
 
 // Fetch current header configuration
-$query = "SELECT logo_image, logo_link, background_color FROM granna80_bdlinks.granna_header_config_items WHERE id = 1";
+$query = "SELECT logo_image, logo_link, background_color FROM granna80_bdlinks.typofx_header_config_items WHERE id = 1";
 $result = mysqli_query($conn, $query);
 $headerConfig = mysqli_fetch_assoc($result);
 

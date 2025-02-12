@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_column'])) {
     $order = intval($_POST['order']);
     $isDropdown = isset($_POST['is_dropdown']) ? 1 : 0;
 
-    $insertQuery = "INSERT INTO granna80_bdlinks.plata_header_columns (name, order_number, is_dropdown) 
+    $insertQuery = "INSERT INTO granna80_bdlinks.typofx_header_columns (name, order_number, is_dropdown) 
                     VALUES ('$name', $order, $isDropdown)";
     mysqli_query($conn, $insertQuery);
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_column'])) {
     $order = intval($_POST['order']);
     $isDropdown = isset($_POST['is_dropdown']) ? 1 : 0;
 
-    $updateQuery = "UPDATE granna80_bdlinks.plata_header_columns 
+    $updateQuery = "UPDATE granna80_bdlinks.typofx_header_columns 
                     SET name = '$name', order_number = $order, is_dropdown = $isDropdown 
                     WHERE id = $columnId";
     mysqli_query($conn, $updateQuery);
@@ -35,26 +35,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_column'])) {
     $columnId = intval($_POST['column_id']);
 
     // Exclui os submenus associados aos itens da coluna
-    $deleteSubmenusQuery = "DELETE FROM granna80_bdlinks.plata_header_submenus
+    $deleteSubmenusQuery = "DELETE FROM granna80_bdlinks.typofx_header_submenus
 WHERE parent_item_id IN (
-    SELECT id FROM granna80_bdlinks.plata_header_items WHERE column_id = $columnId
+    SELECT id FROM granna80_bdlinks.typofx_header_items WHERE column_id = $columnId
 );
 ";
     mysqli_query($conn, $deleteSubmenusQuery);
 
     // Exclui os itens da coluna
-    $deleteItemsQuery = "DELETE FROM granna80_bdlinks.plata_header_items WHERE column_id = $columnId";
+    $deleteItemsQuery = "DELETE FROM granna80_bdlinks.typofx_header_items WHERE column_id = $columnId";
     mysqli_query($conn, $deleteItemsQuery);
 
     // Exclui a coluna
-    $deleteColumnQuery = "DELETE FROM granna80_bdlinks.plata_header_columns WHERE id = $columnId";
+    $deleteColumnQuery = "DELETE FROM granna80_bdlinks.typofx_header_columns WHERE id = $columnId";
     mysqli_query($conn, $deleteColumnQuery);
 
     echo "<p style='color: red;'>Coluna e todos os registros associados excluídos com sucesso!</p>";
 }
 
 // Obtém todas as colunas existentes
-$columnsQuery = "SELECT * FROM granna80_bdlinks.plata_header_columns ORDER BY order_number";
+$columnsQuery = "SELECT * FROM granna80_bdlinks.typofx_header_columns ORDER BY order_number";
 $columnsResult = mysqli_query($conn, $columnsQuery);
 $columns = [];
 
