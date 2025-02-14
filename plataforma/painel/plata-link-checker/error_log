@@ -1,25 +1,16 @@
-[31-Oct-2024 12:31:46 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 3
-[31-Oct-2024 12:31:46 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 3
-[31-Oct-2024 12:34:07 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:34:07 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:35:51 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:35:51 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:36:16 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:36:16 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:37:44 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:37:44 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:37:44 America/Chicago] PHP Warning:  Undefined variable $conn in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 27
-[31-Oct-2024 12:37:44 America/Chicago] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php:27
+[13-Feb-2025 21:11:15 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[14-Feb-2025 09:43:47 America/Chicago] PHP Warning:  Undefined array key "external_notes" in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 48
+[14-Feb-2025 15:43:47 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'external_notes' in 'field list' in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php:60
 Stack trace:
-#0 /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php(27): mysqli_query(NULL, 'INSERT INTO gra...')
+#0 /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php(60): mysqli_prepare(Object(mysqli), 'UPDATE granna80...')
 #1 {main}
-  thrown in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 27
-[31-Oct-2024 12:37:47 America/Chicago] PHP Warning:  include(conexao.php): Failed to open stream: No such file or directory in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:37:47 America/Chicago] PHP Warning:  include(): Failed opening 'conexao.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/granna80/public_html/plataforma/painel/plata-link-checker/add.php on line 5
-[31-Oct-2024 12:50:00 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
-[31-Oct-2024 12:50:25 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
-[31-Oct-2024 12:51:14 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
-[31-Oct-2024 12:51:18 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
-[31-Oct-2024 12:52:50 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
-[31-Oct-2024 12:53:40 America/Chicago] PHP Warning:  Undefined variable $userEmail in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 6
-[09-Dec-2024 09:09:15 America/Chicago] PHP Warning:  Undefined array key "user_uuid" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 36
+  thrown in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 60
+[14-Feb-2025 09:45:03 America/Chicago] PHP Warning:  Undefined array key "external_notes" in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 28
+[14-Feb-2025 09:45:09 America/Chicago] PHP Warning:  Undefined array key "external_notes" in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 28
+[14-Feb-2025 15:45:09 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'external_notes' in 'field list' in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php:61
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php(61): mysqli_prepare(Object(mysqli), 'UPDATE granna80...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 61
+[14-Feb-2025 09:45:12 America/Chicago] PHP Warning:  Undefined array key "external_notes" in /home2/granna80/public_html/plataforma/painel/plata-link-checker/edit.php on line 28
+[14-Feb-2025 12:18:37 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
