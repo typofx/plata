@@ -6,6 +6,7 @@ include 'conexao.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@ include 'conexao.php';
             font-family: Arial, sans-serif;
             padding: 50px;
             background-color: #fff;
+           
         }
 
         table.dataTable thead th,
@@ -76,50 +78,82 @@ include 'conexao.php';
         }
     </style>
 </head>
+
 <body>
     <h2>Link Checker List</h2><br>
+    <a href="https://plata.ie/plataforma/painel/menu.php">[Back]</a>
     <a href="add.php">[ add new record ]</a>
+    <a href="https://www.plata.ie/sitemap/">[ Sitemap ]</a>
     <!-- Define table structure for displaying records -->
-    <table id="linkTable" class="display" style="width:100%">
+    <table id="linkTable" class="display" style="width:100%;  font-size: 12px;">
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Local</th>
                 <th>Name</th>
                 <th>Link</th>
                 <th>Status</th>
                 <th>Platform</th>
                 <th>Observations</th>
+                <th>External notes</th>
                 <th>Last Edited By</th>
-                <th>Last Updated Date</th>
-                <th>Created At</th>
+                <th>Last Updated</th>
+                
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <?php
             // Fetch records from the database
-            $query = "SELECT id, name, link, status, platform, obs, last_edited_by, last_updated_date, created_at FROM granna80_bdlinks.plata_link_checker";
+            $query = "SELECT * FROM granna80_bdlinks.plata_link_checker";
             $result = mysqli_query($conn, $query);
 
             // Check if there are any results and display them
+            function createAnchoredIcon($url, $iconClass, $additionalClasses = '')
+            {
+                return "<a href='{$url}' target='_blank'><i class='{$iconClass} {$additionalClasses}'></i></a>";
+            }
+
             if (mysqli_num_rows($result) > 0) {
+                $cont = 1;
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $platformIcon = $row['platform'] === 'mobile' ? "<i class='fas fa-mobile-alt icon-mobile'></i>" : "<i class='fas fa-desktop icon-desktop'></i>";
-                    echo "<tr>
-                            <td>{$row['id']}</td>
-                            <td>{$row['name']}</td>
-                            <td><a href='{$row['link']}' target='_blank'><i class='fas fa-link icon-link icon-spacing'></i>{$row['link']}</a></td>
-                            <td>{$row['status']}</td>
-                            <td>{$platformIcon}</td>
-                            <td>{$row['obs']}</td>
-                            <td>{$row['last_edited_by']}</td>
-                            <td>{$row['last_updated_date']}</td>
-                            <td>{$row['created_at']}</td>
-                            <td>
-                                <a href='edit.php?id={$row['id']}' class='icon-spacing'><i class='fas fa-edit icon-edit'></i></a>
-                                <a href='delete.php?id={$row['id']}' onclick=\"return confirm('Are you sure you want to delete this record?');\"><i class='fas fa-trash-alt icon-delete'></i></a>
-                            </td>
-                          </tr>";
+                    $platformIcon = $row['platform'] === 'mobile'
+                        ? "<i class='fas fa-mobile-alt icon-mobile'></i>"
+                        : "<i class='fas fa-desktop icon-desktop'></i>";
+
+                    // Link e ícone separados
+                    $iconLink = createAnchoredIcon($row['link'], 'fas fa-link', 'icon-link icon-spacing');
+
+                    // Lógica de exibição do link completo baseado no status
+                    if ($row['status'] === 'ok') {
+                        $linkCell = ''; // Apenas o ícone ancorado
+                    } else { // Caso 'fail' ou outro status
+                        $linkCell = "<a href='{$row['link']}' target='_blank'>{$row['link']}</a>";
+                    }
+
+                    if (!empty($row) && is_array($row)) {
+                        echo "<tr>
+                                <td>{$cont}</td>
+                                <td>" . (!empty($row['local']) ? $row['local'] : '') . "</td>
+                                <td>" . (!empty($row['name']) ? $row['name'] : '') . "</td>
+                                <td>{$linkCell}</td>
+                                <td>" . (!empty($row['status']) ? $row['status'] : '') . "</td>
+                                <td>{$iconLink} {$platformIcon}</td>
+                                <td>" . (!empty($row['obs']) ? $row['obs'] : '') . "</td>
+                               <td>" . (!empty($row['external_note']) ? (count(explode(' ', $row['external_note'])) > 4 ? implode(' ', array_slice(explode(' ', $row['external_note']), 0, 4)) . '...' : $row['external_note']) : '') . "</td>
+                                <td style='white-space: nowrap;'>" . (!empty($row['last_edited_by']) ? $row['last_edited_by'] : '') . "</td>
+                                <td style='white-space: nowrap;'>" . (!empty($row['last_updated_date']) ? $row['last_updated_date'] . ' UTC' : '') . "</td>
+                              
+                                <td>
+                                    <a href='edit.php?id={$row['id']}' class='icon-spacing'><i class='fas fa-edit icon-edit'></i></a>
+                                    <a href='delete.php?id={$row['id']}' onclick=\"return confirm('Are you sure you want to delete this record?');\"><i class='fas fa-trash-alt icon-delete'></i></a>
+                                </td>
+                              </tr>";
+                    } else {
+                        echo "<tr><td colspan='11' style='text-align:center;'>No data</td></tr>";
+                    }
+                    
+                          $cont++;
                 }
             } else {
                 echo "<tr><td colspan='10'>No records found.</td></tr>";
@@ -132,16 +166,18 @@ include 'conexao.php';
     </table>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    
+
     <script>
-    // Initialize DataTables on page load
-    $(document).ready(function() {
-        $('#linkTable').DataTable({
-            "pageLength": 100, // Set the default number of rows per page to 100
-            "lengthMenu": [100, 200, 500, 1000] // Add options for larger page sizes
+        // Initialize DataTables on page load
+        $(document).ready(function() {
+            $('#linkTable').DataTable({
+                "pageLength": 100, // Set the default number of rows per page to 100
+                "lengthMenu": [100, 200, 500, 1000] // Add options for larger page sizes
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
+
 </html>
+<a href="http://"></a>
