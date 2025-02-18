@@ -1,17 +1,18 @@
-<?php 
+<?php
+// Include necessary files
 include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include 'conexao.php';
 
-// Inicializa variáveis
+// Initialize variables
 $last_edited_by = $userEmail;
-$name = $link = $status = $obs = $notes = $platform = $local = "";
+$name = $link = $status = $obs = $notes = $platform = $local = $project = "";
 $success_message = $error_message = "";
 
-// Verifica se um ID foi passado na URL
+// Check if an ID was passed in the URL
 if (isset($_GET['id'])) {
-    $id = intval($_GET['id']); // Sanitiza o ID para garantir que seja um número inteiro
+    $id = intval($_GET['id']); // Sanitize the ID to ensure it's an integer
 
-    // Busca o registro para edição
+    // Fetch the record for editing
     $query = "SELECT * FROM granna80_bdlinks.plata_link_checker WHERE id = ?";
     $stmt = mysqli_prepare($conn, $query);
     if ($stmt) {
@@ -26,8 +27,9 @@ if (isset($_GET['id'])) {
             $status = $row['status'];
             $obs = $row['obs'];
             $notes = $row['external_note'];
-            $platform = $row['platform']; // Busca o valor da plataforma
-            $local = $row['local']; // Busca o valor do local
+            $platform = $row['platform']; // Fetch the platform value
+            $local = $row['local']; // Fetch the local value
+            $project = $row['project']; // Fetch the project value
         } else {
             $error_message = "Record not found.";
         }
@@ -39,28 +41,29 @@ if (isset($_GET['id'])) {
     $error_message = "Invalid request.";
 }
 
-// Verifica se o formulário foi enviado
+// Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
-    $id = intval($_POST['id']); // Sanitiza o ID
+    $id = intval($_POST['id']); // Sanitize the ID
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $link = mysqli_real_escape_string($conn, $_POST['link']);
     $status = mysqli_real_escape_string($conn, $_POST['status']);
     $obs = mysqli_real_escape_string($conn, $_POST['obs']);
     $notes = mysqli_real_escape_string($conn, $_POST['notes']);
-    $platform = mysqli_real_escape_string($conn, $_POST['platform']); // Captura o valor da plataforma
-    $local = mysqli_real_escape_string($conn, $_POST['local']); // Captura o valor do local
+    $platform = mysqli_real_escape_string($conn, $_POST['platform']); // Capture the platform value
+    $local = mysqli_real_escape_string($conn, $_POST['local']); // Capture the local value
+    $project = mysqli_real_escape_string($conn, $_POST['project']); // Capture the project value
 
-    // Define a data manualmente em UTC
-    date_default_timezone_set('UTC'); // Define o fuso horário para UTC
-    $currentDateTime = date('Y-m-d H:i:s'); // Obtém a data e hora atuais em UTC
+    // Set the timezone to UTC
+    date_default_timezone_set('UTC');
+    $currentDateTime = date('Y-m-d H:i:s'); // Get the current date and time in UTC
 
-    // Atualiza o registro usando prepared statements
+    // Update the record using prepared statements
     $updateQuery = "UPDATE granna80_bdlinks.plata_link_checker 
-                    SET name=?, link=?, status=?, obs=?, external_note=?, platform=?, local=?, last_edited_by=?, last_updated_date=? 
+                    SET name=?, link=?, status=?, obs=?, external_note=?, platform=?, local=?, project=?, last_edited_by=?, last_updated_date=? 
                     WHERE id=?";
     $stmt = mysqli_prepare($conn, $updateQuery);
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, 'sssssssssi', $name, $link, $status, $obs, $notes, $platform, $local, $last_edited_by, $currentDateTime, $id);
+        mysqli_stmt_bind_param($stmt, 'ssssssssssi', $name, $link, $status, $obs, $notes, $platform, $local, $project, $last_edited_by, $currentDateTime, $id);
         if (mysqli_stmt_execute($stmt)) {
             $success_message = "Record updated successfully.";
         } else {
@@ -84,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     <h2>Edit Link Record</h2>
 
     <?php
-    // Exibe mensagens de sucesso ou erro
+    // Display success or error messages
     if ($success_message) {
         echo "<p style='color:green;'>$success_message</p>";
     }
@@ -93,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     }
     ?>
 
-    <!-- Formulário de edição -->
+    <!-- Edit form -->
     <form action="edit.php?id=<?php echo $id; ?>" method="post">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
 
@@ -118,6 +121,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
             <option value="desktop" <?php if ($platform == 'desktop') echo 'selected'; ?>>Desktop</option>
         </select><br><br>
 
+        <label>Project:</label><br>
+        <select name="project" required>
+            <option value="Plata" <?php if ($project == 'Plata') echo 'selected'; ?>>Plata</option>
+            <option value="Granna" <?php if ($project == 'Granna') echo 'selected'; ?>>Granna</option>
+            <option value="TypoFX" <?php if ($project == 'TypoFX') echo 'selected'; ?>>TypoFX</option>
+        </select><br><br>
+
         <label>Observations (obs):</label><br>
         <textarea name="obs"><?php echo htmlspecialchars($obs); ?></textarea><br><br>
 
@@ -131,6 +141,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
 </html>
 
 <?php
-// Fecha a conexão com o banco de dados
+// Close the database connection
 mysqli_close($conn);
 ?>

@@ -76,6 +76,20 @@ include 'conexao.php';
         .icon-desktop {
             color: #ffc107;
         }
+
+        .filter-button {
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .filter-button.active {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
@@ -83,12 +97,20 @@ include 'conexao.php';
     <h2>Link Checker List</h2><br>
     <a href="https://plata.ie/plataforma/painel/menu.php">[Back]</a>
     <a href="add.php">[ add new record ]</a>
-    <a href="https://www.plata.ie/sitemap/">[ Sitemap ]</a>
+    <a href="https://www.plata.ie/sitemap/">[ Sitemap Plata ]</a>
+    <a href="https://www.granna.ie/sitemap/">[ Sitemap Granna ]</a>
+
+    <!-- Botões de filtro -->
+    <button class="filter-button" data-filter="all">Show All</button>
+    <button class="filter-button" data-filter="Granna">Granna</button>
+    <button class="filter-button" data-filter="Plata">Plata</button>
+
     <!-- Define table structure for displaying records -->
     <table id="linkTable" class="display" style="width:100%;  font-size: 12px;">
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Project</th>
                 <th>Local</th>
                 <th>Name</th>
                 <th>Link</th>
@@ -98,7 +120,6 @@ include 'conexao.php';
                 <th>External notes</th>
                 <th>Last Edited By</th>
                 <th>Last Updated</th>
-                
                 <th>Actions</th>
             </tr>
         </thead>
@@ -134,6 +155,7 @@ include 'conexao.php';
                     if (!empty($row) && is_array($row)) {
                         echo "<tr>
                                 <td>{$cont}</td>
+                                <td><b>" . (!empty($row['project']) ? $row['project'] : '') . "</b></td>
                                 <td>" . (!empty($row['local']) ? $row['local'] : '') . "</td>
                                 <td>" . (!empty($row['name']) ? $row['name'] : '') . "</td>
                                 <td>{$linkCell}</td>
@@ -142,7 +164,8 @@ include 'conexao.php';
                                 <td>" . (!empty($row['obs']) ? $row['obs'] : '') . "</td>
                                <td>" . (!empty($row['external_note']) ? (count(explode(' ', $row['external_note'])) > 4 ? implode(' ', array_slice(explode(' ', $row['external_note']), 0, 4)) . '...' : $row['external_note']) : '') . "</td>
                                 <td style='white-space: nowrap;'>" . (!empty($row['last_edited_by']) ? $row['last_edited_by'] : '') . "</td>
-                                <td style='white-space: nowrap;'>" . (!empty($row['last_updated_date']) ? $row['last_updated_date'] . ' UTC' : '') . "</td>
+                                <td style='white-space: nowrap;'>" . (!empty($row['last_updated_date']) ? date('d-m-Y H:i', strtotime($row['last_updated_date'])) . ' (UTC)' : '') . "</td>
+
                               
                                 <td>
                                     <a href='edit.php?id={$row['id']}' class='icon-spacing'><i class='fas fa-edit icon-edit'></i></a>
@@ -170,9 +193,23 @@ include 'conexao.php';
     <script>
         // Initialize DataTables on page load
         $(document).ready(function() {
-            $('#linkTable').DataTable({
+            var table = $('#linkTable').DataTable({
                 "pageLength": 100, // Set the default number of rows per page to 100
                 "lengthMenu": [100, 200, 500, 1000] // Add options for larger page sizes
+            });
+
+            // Add event listeners to filter buttons
+            $('.filter-button').on('click', function() {
+                var filter = $(this).data('filter');
+                if (filter === 'all') {
+                    table.columns(1).search('').draw();
+                } else {
+                    table.columns(1).search(filter).draw();
+                }
+
+                // Add active class to the clicked button
+                $('.filter-button').removeClass('active');
+                $(this).addClass('active');
             });
         });
     </script>
@@ -180,4 +217,3 @@ include 'conexao.php';
 </body>
 
 </html>
-<a href="http://"></a>
