@@ -1,33 +1,36 @@
-<?php 
+<?php
+// Include necessary files
 include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 include 'conexao.php';
 
-// Inicializa variáveis
-$name = $link = $status = $obs = $platform = $local = "";
+// Initialize variables
+$name = $link = $status = $obs = $platform = $local = $project = "";
 $success_message = $error_message = "";
 $last_edited_by = $userEmail;
 
+// Process form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Sanitiza e valida as entradas
+    // Sanitize and validate inputs
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $link = mysqli_real_escape_string($conn, $_POST['link']);
     $status = mysqli_real_escape_string($conn, $_POST['status']);
     $obs = mysqli_real_escape_string($conn, $_POST['obs']);
     $platform = mysqli_real_escape_string($conn, $_POST['platform']);
     $local = mysqli_real_escape_string($conn, $_POST['local']);
+    $project = mysqli_real_escape_string($conn, $_POST['project']); // New field
 
-    // Define a data manualmente em UTC
-    date_default_timezone_set('UTC'); // Define o fuso horário para UTC
-    $currentDateTime = date('Y-m-d H:i:s'); // Obtém a data e hora atuais em UTC
+    // Set the timezone to UTC
+    date_default_timezone_set('UTC');
+    $currentDateTime = date('Y-m-d H:i:s'); // Get the current date and time in UTC
 
-    // Insere os dados usando prepared statements
+    // Insert data using prepared statements
     $insertQuery = "INSERT INTO granna80_bdlinks.plata_link_checker 
-                    (name, link, status, obs, platform, local, last_edited_by, last_updated_date, created_at) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    
+                    (name, link, status, obs, platform, local, last_edited_by, last_updated_date, created_at, project) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Added project
+
     $stmt = mysqli_prepare($conn, $insertQuery);
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, 'sssssssss', $name, $link, $status, $obs, $platform, $local, $last_edited_by, $currentDateTime, $currentDateTime);
+        mysqli_stmt_bind_param($stmt, 'ssssssssss', $name, $link, $status, $obs, $platform, $local, $last_edited_by, $currentDateTime, $currentDateTime, $project);
         if (mysqli_stmt_execute($stmt)) {
             $success_message = "Record added successfully.";
         } else {
@@ -51,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h2>Add New Link Record</h2>
 
     <?php
+    // Display success or error messages
     if ($success_message) {
         echo "<p style='color:green;'>$success_message</p>";
     }
@@ -71,14 +75,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <label>Status:</label><br>
         <select name="status" required>
-            <option value="ok" <?php if($status == "ok") echo "selected"; ?>>Ok</option>
-            <option value="fail" <?php if($status == "fail") echo "selected"; ?>>Fail</option>
+            <option value="ok" <?php if ($status == "ok") echo "selected"; ?>>Ok</option>
+            <option value="fail" <?php if ($status == "fail") echo "selected"; ?>>Fail</option>
         </select><br><br>
 
         <label>Platform:</label><br>
         <select name="platform" required>
-            <option value="mobile" <?php if($platform == "mobile") echo "selected"; ?>>Mobile</option>
-            <option value="desktop" <?php if($platform == "desktop") echo "selected"; ?>>Desktop</option>
+            <option value="mobile" <?php if ($platform == "mobile") echo "selected"; ?>>Mobile</option>
+            <option value="desktop" <?php if ($platform == "desktop") echo "selected"; ?>>Desktop</option>
+        </select><br><br>
+
+        <label>Project:</label><br>
+        <select name="project" required>
+            <option value="Plata" <?php if ($project == "Plata") echo "selected"; ?>>Plata</option>
+            <option value="Granna" <?php if ($project == "Granna") echo "selected"; ?>>Granna</option>
+            <option value="TypoFX" <?php if ($project == "TypoFX") echo "selected"; ?>>TypoFX</option>
         </select><br><br>
 
         <label>Observations (obs):</label><br>
