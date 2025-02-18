@@ -9,7 +9,7 @@ include 'conexao.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitemap</title>
+    <title>Sitemap Plata</title>
     <!-- Include Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Include DataTables CSS and jQuery -->
@@ -89,7 +89,7 @@ include 'conexao.php';
 </head>
 
 <body>
-    <h2>Sitemap</h2><br>
+    <h2>Sitemap Plata</h2><br>
 
     <!-- Define table structure for displaying records -->
     <table id="linkTable" class="display" style="width:100%; font-size: 12px;">
@@ -98,7 +98,7 @@ include 'conexao.php';
                 <th>ID</th>
                 <th>Local</th>
                 <th>Name</th>
-                <th>Platform</th>
+            
                 <th>Info</th>
                 <th>Last Updated</th>
             </tr>
@@ -106,7 +106,7 @@ include 'conexao.php';
         <tbody>
             <?php
             // Fetch records from the database
-            $query = "SELECT * FROM `granna80_bdlinks`.`plata_link_checker` WHERE `platform` = 'desktop'";
+            $query = "SELECT * FROM `granna80_bdlinks`.`plata_link_checker` WHERE `project` = 'Plata' AND `platform` = 'desktop'";
             $result = mysqli_query($conn, $query);
 
             // Check if there are any results and display them
@@ -125,7 +125,7 @@ include 'conexao.php';
                     }
 
                  
-                    $lastUpdated = !empty($row['last_updated_date']) ? date('d/m/Y H:i', strtotime($row['last_updated_date'])) . ' (UTC)' : '';
+                    $lastUpdated = !empty($row['last_updated_date']) ? date('d-m-Y H:i', strtotime($row['last_updated_date'])) . ' (UTC)' : '';
 
                  
                     $name = !empty($row['name']) ? "<a href='{$row['link']}' target='_blank'>{$row['name']}</a>" : '';
@@ -143,7 +143,7 @@ include 'conexao.php';
                         <td>{$cont}</td>
                         <td>{$local}</td>
                         <td>{$name}</td>
-                        <td>{$platformIcon}</td>
+                       
                         <td class='external-notes' data-full-text='{$row['external_note']}'>{$externalNotes}</td>
                         <td style='white-space: nowrap;'>{$lastUpdated}</td>
                       </tr>";
@@ -161,13 +161,6 @@ include 'conexao.php';
         </tbody>
     </table>
 
-    <!-- Modal -->
-    <div id="externalNotesModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <p id="modalText"></p>
-        </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
