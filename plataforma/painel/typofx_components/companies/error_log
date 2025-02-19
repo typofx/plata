@@ -1,0 +1,10 @@
+[19-Feb-2025 14:16:50 America/Chicago] PHP Warning:  Undefined variable $mysqli in /home2/granna80/public_html/plataforma/painel/typofx_components/companies/add_item.php on line 89
+[19-Feb-2025 14:16:50 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/plataforma/painel/typofx_components/companies/add_item.php:89
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/typofx_components/companies/add_item.php on line 89
+[19-Feb-2025 14:16:52 America/Chicago] PHP Warning:  Undefined variable $mysqli in /home2/granna80/public_html/plataforma/painel/typofx_components/companies/add_item.php on line 89
+[19-Feb-2025 14:16:52 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/granna80/public_html/plataforma/painel/typofx_components/companies/add_item.php:89
+Stack trace:
+#0 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/typofx_components/companies/add_item.php on line 89
