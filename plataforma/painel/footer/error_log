@@ -64,3 +64,13 @@ Stack trace:
 #1 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/footer/index.php on line 83
 [05-Feb-2025 12:22:17 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[19-Feb-2025 22:53:29 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/edit.php:81
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/edit.php on line 81
+[19-Feb-2025 22:55:00 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/edit.php:81
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/edit.php on line 81
