@@ -55,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
     }
 }
 
-
 // Handle delete
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_id'])) {
     $delete_id = (int)$_POST['delete_id'];
@@ -74,8 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_id'])) {
     }
 }
 
-
-
 // Fetch available columns
 $columns_query = "SELECT id, column_name FROM granna80_bdlinks.typofx_footer_columns ORDER BY column_name";
 $columns_result = mysqli_query($conn, $columns_query);
@@ -92,7 +89,6 @@ if (!empty($items)) {
         $column_name = $columns[$first_column_id];
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -104,47 +100,71 @@ if (!empty($items)) {
     <title>Edit Footer Items: <?php echo htmlspecialchars($column_name); ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        label {
-            display: block;
-            margin-bottom: 8px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
         }
-
+        h2 {
+            color: #444;
+        }
         .item-container {
+            width: 20%;
             border: 1px solid #ddd;
             padding: 15px;
             margin-bottom: 15px;
             border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .back-link {
+        label {
             display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .delete-button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+        .back-link {
+            display: inline-block;
             margin-top: 20px;
             color: #007bff;
             text-decoration: none;
         }
-
         .back-link:hover {
             text-decoration: underline;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
         }
     </style>
 </head>
 
 <body>
-<h2>Edit Footer Items: <?php echo htmlspecialchars($column_name); ?></h2>
+    <h2>Edit Footer Items: <?php echo htmlspecialchars($column_name); ?></h2>
     <form method="POST">
         <?php foreach ($items as $item) : ?>
             <div class="item-container">
                 <input type="hidden" name="items[<?php echo $item['id']; ?>][id]" value="<?php echo $item['id']; ?>">
-
-         
-                <select id="column_id_<?php echo $item['id']; ?>" name="items[<?php echo $item['id']; ?>][column_id]" required style="display: none;">
-                    <option value="">Select a column</option>
-                    <?php foreach ($columns as $col_id => $col_name) : ?>
-                        <option value="<?php echo $col_id; ?>" <?php echo ($col_id == $item['column_id']) ? 'selected' : ''; ?>>
-                            <?php echo htmlspecialchars($col_name); ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
 
                 <label for="item_name_<?php echo $item['id']; ?>">Item Name:</label>
                 <input type="text" id="item_name_<?php echo $item['id']; ?>" name="items[<?php echo $item['id']; ?>][item_name]" value="<?php echo htmlspecialchars($item['item_name']); ?>" required>
@@ -155,13 +175,17 @@ if (!empty($items)) {
                 <label for="item_order_<?php echo $item['id']; ?>">Item Order:</label>
                 <input type="number" id="item_order_<?php echo $item['id']; ?>" name="items[<?php echo $item['id']; ?>][item_order]" value="<?php echo $item['item_order']; ?>" required>
 
-     
+                <div class="actions">
+                    <button type="submit" name="delete_id" value="<?php echo $item['id']; ?>" class="delete-button">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </div>
             </div>
         <?php endforeach; ?>
 
         <input type="hidden" name="ids[]" value="<?php echo implode(',', $item_ids); ?>">
         <input type="hidden" name="update" value="1">
-        <input type="submit" value="Update Items">
+        <input type="submit" value="Update Items" style="background-color: #28a745; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
         <a href="index.php" class="back-link"><i class="fas fa-arrow-left"></i> Back to Footer Management</a>
     </form>
 </body>

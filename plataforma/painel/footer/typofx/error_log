@@ -13,3 +13,48 @@ Stack trace:
 #0 /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
 #1 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 81
+[10-Feb-2025 07:06:01 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php:81
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 81
+[10-Feb-2025 07:31:52 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php:81
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 81
+[10-Feb-2025 07:50:28 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php:81
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 81
+[10-Feb-2025 07:51:55 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php:81
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 81
+[10-Feb-2025 08:01:10 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php:81
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 81
+[10-Feb-2025 08:01:40 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php:81
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 81
+[10-Feb-2025 13:36:40 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[19-Feb-2025 23:43:42 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[19-Feb-2025 23:44:36 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Commands out of sync; you can't run this command now in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php:81
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php(81): mysqli_query(Object(mysqli), 'SELECT id, colu...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 81
+[20-Feb-2025 10:30:48 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/is_logged.php:110) in /home2/granna80/public_html/plataforma/painel/footer/typofx/index.php on line 19
+[20-Feb-2025 11:07:57 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/is_logged.php:110) in /home2/granna80/public_html/plataforma/painel/footer/typofx/index.php on line 19
+[20-Feb-2025 11:08:51 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/is_logged.php:110) in /home2/granna80/public_html/plataforma/painel/footer/typofx/index.php on line 19
+[20-Feb-2025 11:42:23 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[20-Feb-2025 12:26:53 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/plataforma/painel/is_logged.php on line 5
+[20-Feb-2025 12:41:48 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/granna80/public_html/plataforma/painel/is_logged.php:110) in /home2/granna80/public_html/plataforma/painel/footer/typofx/index.php on line 22
+[20-Feb-2025 12:50:04 America/Chicago] PHP Warning:  Undefined array key "column_id" in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 35
+[20-Feb-2025 12:50:04 America/Chicago] PHP Warning:  Undefined array key "column_id" in /home2/granna80/public_html/plataforma/painel/footer/typofx/edit.php on line 35
