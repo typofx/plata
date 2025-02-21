@@ -1,0 +1,2 @@
+[21-Feb-2025 14:43:10 America/Chicago] PHP Warning:  move_uploaded_file(/images/uploads-carrousel/ewasted.jpeg): Failed to open stream: No such file or directory in /home2/granna80/public_html/website_d7042c63/plataforma/panel/typofx_components/carousell/index.php on line 16
+[21-Feb-2025 14:43:10 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move &quot;/tmp/php8gFlhC&quot; to &quot;/images/uploads-carrousel/ewasted.jpeg&quot; in /home2/granna80/public_html/website_d7042c63/plataforma/panel/typofx_components/carousell/index.php on line 16

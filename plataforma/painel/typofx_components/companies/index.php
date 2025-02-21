@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
 // Include the database connection
 include 'conexao.php';
 
@@ -177,8 +177,8 @@ file_put_contents($jsonFilePath, json_encode($items, JSON_UNESCAPED_UNICODE | JS
 
 <body>
     <h1>Manage Items: Companies</h1>
-    <a href="https://plata.ie/plataforma/painel/menu.php">[Back]</a>
-    <a target="_blank" href="https://plata.ie/plataforma/painel/typofx_components/companies/typofx_companies.json">[JSON]</a>
+    <a href="<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/main.php';?>">[Back]</a>
+    <a target="_blank" href="https://typofx.ie/plataforma/panel/typofx_components/companies/typofx_companies.json">[JSON]</a>
     <?php if (!empty($message)): ?>
         <p class="message"><?php echo htmlspecialchars($message); ?></p>
     <?php endif; ?>
