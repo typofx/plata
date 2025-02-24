@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
 include 'conexao.php';
 
 // Check if the form is submitted
