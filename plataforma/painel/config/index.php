@@ -1,18 +1,22 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
 include 'conexao.php';
 
 // Fetch all rows from the user_permissions table
 $query = "SELECT * FROM granna80_bdlinks.user_permissions";
 $result = mysqli_query($conn, $query);
 
-if (!$result) {
-    die('Query Failed: ' . mysqli_error($conn));
+// Fetch all submenus grouped by parent_id
+$submenuQuery = "SELECT * FROM granna80_bdlinks.submenus";
+$submenuResult = mysqli_query($conn, $submenuQuery);
+
+$submenus = [];
+while ($row = mysqli_fetch_assoc($submenuResult)) {
+    $submenus[$row['parent_id']][] = $row;
 }
 
-// Check if the form was submitted to update records
+// Process form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Loop through the form data to update the checkboxes
     foreach ($_POST['id'] as $id) {
         $guest = isset($_POST['guest'][$id]) ? 1 : 0;
         $trainee = isset($_POST['trainee'][$id]) ? 1 : 0;
@@ -21,21 +25,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $office = isset($_POST['office'][$id]) ? 1 : 0;
         $block = isset($_POST['block'][$id]) ? 1 : 0;
 
-        // Update the record in the database
         $updateQuery = "UPDATE granna80_bdlinks.user_permissions 
                         SET guest = $guest, trainee = $trainee, admin = $admin, root = $root, office = $office, block = $block 
                         WHERE id = $id";
         mysqli_query($conn, $updateQuery);
     }
-    
-    // Refresh the page to reload the updated data
-    header('Location: index.php');
+    echo "<script>window.location.href='index.php';</script>";
     exit();
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px;
             text-align: left;
             border: 1px solid #ddd;
@@ -105,12 +108,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         a:hover {
             text-decoration: underline;
         }
+
+        .submenu {
+            margin-left: 20px;
+            font-size: 14px;
+            color: #555;
+        }
     </style>
 </head>
+
 <body>
     <h1>User Permissions Table</h1>
-    <a href="https://plata.ie/plataforma/painel/menu.php">[ Main menu ]</a>
+    <a href="<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/main.php';?>">[Back]</a>
     <a href="add.php">[ Add new Link ]</a>
+    <a href="component-links.php">[ Main Menu link ]</a>
     <form action="index.php" method="POST">
         <table>
             <thead>
@@ -124,56 +135,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <th>Root</th>
                     <th>Office</th>
                     <th>Block</th>
-                    
                 </tr>
             </thead>
             <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <?php
+                $cont = 1;
+                while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
+                        <td>#<?php echo $cont; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><a href="<?php echo $row['link']; ?>" target="_blank"><?php echo $row['link']; ?></a></td>
-
-                        <!-- Checkboxes -->
-                        <td>
-                            <input type="checkbox" name="guest[<?php echo $row['id']; ?>]" 
-                            <?php if ($row['guest']) echo 'checked'; ?>>
-                        </td>
-                        <td>
-                            <input type="checkbox" name="trainee[<?php echo $row['id']; ?>]" 
-                            <?php if ($row['trainee']) echo 'checked'; ?>>
-                        </td>
-                        <td>
-                            <input type="checkbox" name="admin[<?php echo $row['id']; ?>]" 
-                            <?php if ($row['admin']) echo 'checked'; ?>>
-                        </td>
-                        <td>
-                            <input type="checkbox" name="root[<?php echo $row['id']; ?>]" 
-                            <?php if ($row['root']) echo 'checked'; ?>>
-                        </td>
-                        <td>
-                            <input type="checkbox" name="office[<?php echo $row['id']; ?>]" 
-                            <?php if ($row['office']) echo 'checked'; ?>>
-                        </td>
-                        <td>
-                            <input type="checkbox" name="block[<?php echo $row['id']; ?>]" 
-                            <?php if ($row['block']) echo 'checked'; ?>>
-                        </td>
-                   
+                        <td><input type="checkbox" name="guest[<?php echo $row['id']; ?>]" <?php if ($row['guest']) echo 'checked'; ?>></td>
+                        <td><input type="checkbox" name="trainee[<?php echo $row['id']; ?>]" <?php if ($row['trainee']) echo 'checked'; ?>></td>
+                        <td><input type="checkbox" name="admin[<?php echo $row['id']; ?>]" <?php if ($row['admin']) echo 'checked'; ?>></td>
+                        <td><input type="checkbox" name="root[<?php echo $row['id']; ?>]" <?php if ($row['root']) echo 'checked'; ?>></td>
+                        <td><input type="checkbox" name="office[<?php echo $row['id']; ?>]" <?php if ($row['office']) echo 'checked'; ?>></td>
+                        <td><input type="checkbox" name="block[<?php echo $row['id']; ?>]" <?php if ($row['block']) echo 'checked'; ?>></td>
                     </tr>
-
-                    <!-- Hidden input to store the ID -->
                     <input type="hidden" name="id[]" value="<?php echo $row['id']; ?>">
-                <?php } ?>
+
+                    <?php if (isset($submenus[$row['id']])) { ?>
+                        <tr>
+                            <td colspan="9">
+                                <strong>Submenus:</strong>
+                                <ul class="submenu">
+                                    <?php foreach ($submenus[$row['id']] as $submenu) { ?>
+                                        <li>
+                                            <a href="<?php echo $submenu['link']; ?>" target="_blank"><?php echo $submenu['name']; ?></a>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                                <a href="add_submenu.php?parent_id=<?php echo $row['id']; ?>">[ Add Submenu ]</a>
+                            </td>
+                        </tr>
+                    <?php } else { ?>
+                        <tr>
+                            <td colspan="9">
+                                <a href="add_submenu.php?parent_id=<?php echo $row['id']; ?>">[ Add Submenu ]</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                <?php
+                    $cont++;
+                } ?>
             </tbody>
         </table>
-
         <button type="submit">Save Changes</button>
     </form>
 </body>
+
 </html>
 
-<?php
-// Close the database connection
-mysqli_close($conn);
-?>
+<?php mysqli_close($conn); ?>
