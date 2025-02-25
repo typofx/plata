@@ -8,3 +8,4 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home2/granna80/public_html/plataforma/painel/typofx_components/companies/add_item.php on line 89
+[22-Feb-2025 23:33:58 America/Chicago] PHP Warning:  Undefined array key "user_logged_in_panel" in /home2/granna80/public_html/website_d7042c63/plataforma/panel/is_logged.php on line 5
