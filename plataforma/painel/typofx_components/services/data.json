@@ -1,0 +1,52 @@
+[
+    {
+        "id": 4,
+        "name": "Teste agora 20:37",
+        "logo": "22.png",
+        "link": "https://web3.bitget.com/en",
+        "date": "2025-02-26",
+        "created_at": "2025-02-26 11:56:49",
+        "created_by": "azulraptor27@gmail.com",
+        "visible": 0
+    },
+    {
+        "id": 5,
+        "name": "Computer Repair",
+        "logo": "repair.svg",
+        "link": "https://typofx.ie/plataforma/panel/typofx_components/services/index.php",
+        "date": "2025-02-26",
+        "created_at": "2025-02-26 13:26:25",
+        "created_by": "azulraptor27@gmail.com",
+        "visible": 1
+    },
+    {
+        "id": 7,
+        "name": "Plata Token",
+        "logo": "platatoken1kpx.png",
+        "link": "https://www.plata.ie/en/",
+        "date": "2025-02-26",
+        "created_at": "2025-02-26 14:24:23",
+        "created_by": "azulraptor27@gmail.com",
+        "visible": 1
+    },
+    {
+        "id": 8,
+        "name": "Granna",
+        "logo": "d1bda4b7a845fee36eda104c9fff51bb.jpg",
+        "link": "https://www.granna.ie",
+        "date": "2025-02-26",
+        "created_at": "2025-02-26 14:51:55",
+        "created_by": "azulraptor27@gmail.com",
+        "visible": 1
+    },
+    {
+        "id": 9,
+        "name": "Computer Parts",
+        "logo": "repair.svg",
+        "link": "https://www.typofx.ie",
+        "date": "2025-02-26",
+        "created_at": "2025-02-26 14:53:19",
+        "created_by": "azulraptor27@gmail.com",
+        "visible": 1
+    }
+]
