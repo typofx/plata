@@ -1,0 +1,7 @@
+[2025-02-26 14:35:18] Erro: O arquivo enviado não é uma imagem.
+[2025-02-26 14:37:16] Sucesso: Arquivo 22.png movido para /home2/granna80/public_html/website_d7042c63/images/uploads-services/22.png.
+[2025-02-26 14:38:46] Sucesso: Arquivo repair.svg movido para /home2/granna80/public_html/website_d7042c63/images/uploads-services/repair.svg.
+[2025-02-26 14:38:57] Sucesso: Arquivo PlataFont1.svg movido para /home2/granna80/public_html/website_d7042c63/images/uploads-services/PlataFont1.svg.
+[2025-02-26 14:39:31] Sucesso: Arquivo platatoken1kpx.png movido para /home2/granna80/public_html/website_d7042c63/images/uploads-services/platatoken1kpx.png.
+[2025-02-26 14:56:22] Sucesso: Arquivo platatoken1kpx.png movido para /home2/granna80/public_html/website_d7042c63/images/uploads-services/platatoken1kpx.png.
+[2025-02-26 14:56:36] Sucesso: Arquivo d1bda4b7a845fee36eda104c9fff51bb.jpg movido para /home2/granna80/public_html/website_d7042c63/images/uploads-services/d1bda4b7a845fee36eda104c9fff51bb.jpg.
