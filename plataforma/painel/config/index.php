@@ -135,6 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <th>Root</th>
                     <th>Office</th>
                     <th>Block</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -151,6 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <td><input type="checkbox" name="root[<?php echo $row['id']; ?>]" <?php if ($row['root']) echo 'checked'; ?>></td>
                         <td><input type="checkbox" name="office[<?php echo $row['id']; ?>]" <?php if ($row['office']) echo 'checked'; ?>></td>
                         <td><input type="checkbox" name="block[<?php echo $row['id']; ?>]" <?php if ($row['block']) echo 'checked'; ?>></td>
+                        <td><a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a></td>
                     </tr>
                     <input type="hidden" name="id[]" value="<?php echo $row['id']; ?>">
 
@@ -162,6 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <?php foreach ($submenus[$row['id']] as $submenu) { ?>
                                         <li>
                                             <a href="<?php echo $submenu['link']; ?>" target="_blank"><?php echo $submenu['name']; ?></a>
+                                           
                                         </li>
                                     <?php } ?>
                                 </ul>
