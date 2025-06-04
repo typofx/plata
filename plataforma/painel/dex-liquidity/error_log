@@ -1,1 +1,21 @@
 [21-Jun-2024 09:02:50 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 11:58:29 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'contract' in 'field list' in /home2/granna80/public_html/plataforma/painel/dex-liquidity/index.php:40
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/dex-liquidity/index.php(40): mysqli->query('SELECT id, name...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/dex-liquidity/index.php on line 40
+[28-Jun-2024 11:59:20 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'contract' in 'field list' in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php:20
+Stack trace:
+#0 /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php(20): mysqli->prepare('SELECT name, lo...')
+#1 {main}
+  thrown in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 20
+[28-Jun-2024 12:04:08 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 12:04:26 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 23:22:25 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 23:22:36 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 23:22:48 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 23:22:55 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 23:23:01 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 23:23:08 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 23:23:20 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
+[28-Jun-2024 23:23:28 America/Chicago] PHP Warning:  Undefined variable $uploadOk in /home2/granna80/public_html/plataforma/painel/dex-liquidity/edit.php on line 78
