@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +17,14 @@
 
 <body>
     <a href="liquidity_data.json" target="_blank">[JSON]</a>
-    <a href="https://plata.ie/plataforma/painel/menu.php">[Control Panel]</a>
+    <a href="<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/main.php'; ?>">[Back]</a>
     <a href="javascript:window.location.reload(true)">[Refresh]</a>
     <a href="menu.php">[Add manually]</a>
     <!-- PHP -->
 
     <?php
     ob_start();
-    include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
+    require '/home2/granna80/public_html/en/mobile/price.php';
     ob_end_clean();
 
     echo "<h2>Market Capitalization: " . $PLTmarketcap . "</h2>";
@@ -88,7 +88,7 @@
 
 
 
-    $json_url = 'https://plata.ie/plataforma/painel/lp-contracts/lp_contracts.json';
+    $json_url = 'https://typofx.ie/plataforma/panel/lp-contracts/lp_contracts.json';
 
     // Fetch JSON data from the URL
     $json_data = file_get_contents($json_url);
@@ -96,34 +96,43 @@
     // Decode JSON data into an associative array
     $data = json_decode($json_data, true);
 
-    // Process JSON data
+    // Inicializa o array de liquidez por exchange
+    $liquidity_per_exchange = [];
+
     foreach ($data as $item) {
-        if (isset($item['exchange']) && isset($item['liquidity'])) {
-            $exchange = $item['exchange'];
-            $liquidity = $item['liquidity'];
+        // Verifica se o item é visível
+        if (isset($item['visible']) && $item['visible'] === true) {
+            if (isset($item['exchange']) && isset($item['liquidity'])) {
+                $exchange = $item['exchange'];
+                $liquidity = $item['liquidity'];
 
-            // Group exchanges if needed
-            if ($exchange === 'SushiSwap V3') {
-                $exchange = 'SushiSwap';
+                // Agrupamentos por nome de exchange
+                if ($exchange === 'SushiSwap V3') {
+                    $exchange = 'SushiSwap';
+                }
+                if ($exchange === 'QuickSwap V3') {
+                    $exchange = 'QuickSwap';
+                }
+
+                if ($exchange === 'QuickSwap V2') {
+                    $exchange = 'QuickSwap';
+                }
+                if ($exchange === 'Uniswap V3') {
+                    $exchange = 'Uniswap';
+                }
+                if (!isset($liquidity_per_exchange[$exchange])) {
+                    $liquidity_per_exchange[$exchange] = 0;
+                }
+
+                $liquidity_per_exchange[$exchange] += $liquidity;
             }
-            if ($exchange === 'QuickSwap V3') {
-                $exchange = 'QuickSwap';
-            }
-            if ($exchange === 'Uniswap V3') {
-                $exchange = 'Uniswap';
-            }
-
-
-
-            if (!isset($liquidity_per_exchange[$exchange])) {
-                $liquidity_per_exchange[$exchange] = 0;
-            }
-
-            $liquidity_per_exchange[$exchange] += $liquidity;
         }
     }
 
-    $json_url = 'https://plata.ie/plataforma/painel/order-book/order_book_data.json';
+ 
+
+
+    $json_url = 'https://typofx.ie/plataforma/panel/order-book/order_book_data.json';
 
     // Fetch JSON data from the URL
     $json_data = file_get_contents($json_url);
@@ -149,7 +158,7 @@
     $cex_result = ($liquidity_float / $marketcap_float) * 100;
     $cex_liquidity_percentage = round($cex_result / 1000, 2);
 
-    // Prepare data for DataTables
+  
     $table_data = [];
     $cont = 1;
     foreach ($liquidity_per_exchange as $exchange => $liquidity) {
@@ -164,7 +173,7 @@
             'id' => $cont,
             'exchange' => $exchange,
             'liquidity' => round($liquidity, 2),
-            'percentage' =>round($dex_liquidity_percentage / 100,4),
+            'percentage' => round($dex_liquidity_percentage / 100, 4),
             'plata' => $plt
         ];
         $cont++;
@@ -175,7 +184,7 @@
     // Add row for total CEX liquidity
     $table_data[] = [
         'id' => $cont,
-        'exchange' => 'Centralized Exchanges (CEX)',
+        'exchange' => 'Centralized Exchanges',
         'liquidity' => round($total_liquidity, 2),
         'percentage' => $cex_liquidity_percentage / 100,
         'plata' => $cexplt
@@ -229,12 +238,12 @@
     echo "<br><br>";
     // Save data to JSON file
 
-    usort($table_data, function($a, $b) {
+    usort($table_data, function ($a, $b) {
         return $b['liquidity'] <=> $a['liquidity'];
     });
 
     foreach ($table_data as $index => &$entry) {
-        $entry['id'] = $index + 1; 
+        $entry['id'] = $index + 1;
     }
 
     file_put_contents('liquidity_data.json', json_encode($table_data));
