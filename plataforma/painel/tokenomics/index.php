@@ -19,7 +19,7 @@
     <a href="liquidity_data.json" target="_blank">[JSON]</a>
     <a href="<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/main.php'; ?>">[Back]</a>
     <a href="javascript:window.location.reload(true)">[Refresh]</a>
-    <a href="menu.php">[Add manually]</a>
+    <a href="menu.php">[DeFi]</a>
     <!-- PHP -->
 
     <?php
@@ -34,13 +34,16 @@
 
     include 'conexao.php';
 
-    $sql = "SELECT walletname, balance FROM granna80_bdlinks.tokenomics";
+    $sql = "SELECT walletname, balance, wallet_group FROM granna80_bdlinks.tokenomics WHERE visible = 1";
+
     $result = $conn->query($sql);
 
     // Initialize an array to store liquidity by exchange
     $liquidity_per_exchange = [];
 
     // Fetch data from the database
+
+
 
     $table_data2 = [];
     $total_liquidity = 0;
@@ -52,14 +55,19 @@
 
     while ($row = $result->fetch_assoc()) {
         $walletname = $row['walletname'];
+        $group = $row['wallet_group'];
         $plt = $row['balance'] / 10000;
         $liquidity = ($PLTUSD * $plt);
         $percentage = ($plt / $circulating_supply);
 
-        if (stripos($walletname, 'Typo FX') === 0) {
+        if ($group == 'typofx') {
             $exchange = 'Typo FX - Wallets';
-        } elseif (stripos($walletname, 'OnlyMoons') === 0) {
-            $exchange = 'OnlyMoons';
+            // } elseif (stripos($walletname, 'OnlyMoons') === 0) {
+            //  $exchange = 'OnlyMoons';
+        } elseif ($group == 'cex') {
+            $exchange = 'Centralized Exchanges';
+        } elseif ($group == 'locker') {
+            $exchange = 'Lockers';
         } else {
             continue;
         }
@@ -79,8 +87,8 @@
         $table_data2[] = [
             'id' => $cont,
             'exchange' => $exchange,
-            'liquidity' => round($data['liquidity'], 2),
-            'percentage' => round($data['percentage'], 4),
+            'liquidity' => round($data['liquidity'], 4),
+            'percentage' => round($data['percentage'], 5),
             'plata' => $data['plata']
         ];
     }
@@ -96,17 +104,17 @@
     // Decode JSON data into an associative array
     $data = json_decode($json_data, true);
 
-    // Inicializa o array de liquidez por exchange
+
     $liquidity_per_exchange = [];
 
     foreach ($data as $item) {
-        // Verifica se o item é visível
+
         if (isset($item['visible']) && $item['visible'] === true) {
             if (isset($item['exchange']) && isset($item['liquidity'])) {
                 $exchange = $item['exchange'];
                 $liquidity = $item['liquidity'];
 
-                // Agrupamentos por nome de exchange
+
                 if ($exchange === 'SushiSwap V3') {
                     $exchange = 'SushiSwap';
                 }
@@ -129,7 +137,7 @@
         }
     }
 
- 
+
 
 
     $json_url = 'https://typofx.ie/plataforma/panel/order-book/order_book_data.json';
@@ -156,24 +164,24 @@
     $marketcap_float = floatval($PLTmarketcap);
     $liquidity_float = floatval($total_liquidity);
     $cex_result = ($liquidity_float / $marketcap_float) * 100;
-    $cex_liquidity_percentage = round($cex_result / 1000, 2);
+    $cex_liquidity_percentage = round($cex_result / 1000, 5);
 
-  
+
     $table_data = [];
     $cont = 1;
     foreach ($liquidity_per_exchange as $exchange => $liquidity) {
         $marketcap_float = floatval($PLTmarketcap);
         $liquidity_float = floatval($liquidity);
         $dex_result = ($liquidity_float / $marketcap_float) * 100;
-        $dex_liquidity_percentage = round($dex_result / 1000, 2);
+        $dex_liquidity_percentage = round($dex_result / 1000, 5);
         $dex_liquidity_percentage_d = $dex_liquidity_percentage / 100;
         $plt = $circulating_supply * $dex_liquidity_percentage_d;
 
         $table_data[] = [
             'id' => $cont,
             'exchange' => $exchange,
-            'liquidity' => round($liquidity, 2),
-            'percentage' => round($dex_liquidity_percentage / 100, 4),
+            'liquidity' => round($liquidity, 4),
+            'percentage' => round($dex_liquidity_percentage / 100, 5),
             'plata' => $plt
         ];
         $cont++;
@@ -182,13 +190,13 @@
     $plt = $circulating_supply * $cex_liquidity_percentage_d;
 
     // Add row for total CEX liquidity
-    $table_data[] = [
-        'id' => $cont,
-        'exchange' => 'Centralized Exchanges',
-        'liquidity' => round($total_liquidity, 2),
-        'percentage' => $cex_liquidity_percentage / 100,
-        'plata' => $cexplt
-    ];
+    //$table_data[] = [
+    //   'id' => $cont,
+    //    'exchange' => 'Centralized Exchanges',
+    //    'liquidity' => round($total_liquidity, 2),
+    //   'percentage' => $cex_liquidity_percentage / 100,
+    //   'plata' => $cexplt
+    //  ];
 
 
 
@@ -215,7 +223,7 @@
     $table_data[] = [
         'id' => $cont,
         'exchange' => 'Others',
-        'liquidity' => round($remaining_liquidity, 2),
+        'liquidity' => round($remaining_liquidity, 4),
         'percentage' => round($remaining_percentage, 5),
         'plata' => $remaining_plt
     ];
@@ -231,7 +239,7 @@
     //  ];
     echo "<br><br>";
     echo "<br>Total: ";
-    echo  "<br>liquidity: " . round($total_liquidity_sum + $remaining_liquidity, 2);
+    echo  "<br>liquidity: " . round($total_liquidity_sum + $remaining_liquidity, 4);
     echo  "<br>percentage: " . ($total_percentage_sum + $remaining_percentage) * 100 . "%";
     echo  "<br>plata: " . $total_plata_sum + $remaining_plt;
 
@@ -246,7 +254,50 @@
         $entry['id'] = $index + 1;
     }
 
-    file_put_contents('liquidity_data.json', json_encode($table_data));
+
+    $file = fopen('liquidity_data.json', 'w');
+    fwrite($file, "[\n");
+
+
+    $others = [];
+    $regular = [];
+
+    foreach ($table_data as $item) {
+        if ($item['exchange'] === 'Others') {
+            $others[] = $item;
+        } else {
+            $regular[] = $item;
+        }
+    }
+
+
+    $ordered_data = array_merge($regular, $others);
+
+    $lastIndex = count($ordered_data) - 1;
+
+
+    foreach ($ordered_data as $i => $item) {
+        $jsonLine = "  {\n";
+        $jsonLine .= "    \"id\": {$item['id']},\n";
+        $jsonLine .= "    \"exchange\": \"" . addslashes($item['exchange']) . "\",\n";
+        $jsonLine .= "    \"liquidity\": " . number_format((float)$item['liquidity'], 4, '.', '') . ",\n";
+        $jsonLine .= "    \"percentage\": " . number_format((float)$item['percentage'], 5, '.', '') . ",\n";
+        $jsonLine .= "    \"plata\": " . number_format((float)$item['plata'], 4, '.', '') . "\n";
+        $jsonLine .= "  },\n"; 
+
+        fwrite($file, $jsonLine);
+    }
+
+ 
+$timestamp_utc_iso = gmdate('Y-m-d\TH:i:s\Z'); 
+fwrite($file, "  {\n    \"timestamp\": \"$timestamp_utc_iso\"\n  }\n");
+
+    fwrite($file, "]");
+    fclose($file);
+
+
+    echo "Timestamp: " . $timestamp_utc_iso ;
+    echo "<br>";
 
     // Display HTML table with static data
     echo "
@@ -264,30 +315,61 @@
 
     foreach ($table_data as $row) {
         echo "<tr>
-    
-        <td>{$row['exchange']}</td>
-        <td>" . number_format($row['liquidity'], 2, '.', ',') . "</td>
-        <td>{$row['percentage']}</td>
-        <td>" . number_format($row['plata'], 4, '.', ',') . "</td>
-      </tr>";
+    <td>{$row['exchange']}</td>
+    <td>" . number_format($row['liquidity'], 2, '.', ',') . "</td>
+    <td>" . number_format($row['percentage'], 5, '.', ',') . "</td>
+    <td>" . number_format($row['plata'], 4, '.', ',') . "</td>
+</tr>";
     }
 
     echo "</tbody>
 </table>";
+
+
+    function formatPercentages(array $data): array
+    {
+        foreach ($data as &$item) {
+            if (isset($item['percentage']) && is_numeric($item['percentage'])) {
+                $formatted = number_format($item['percentage'], 5, '.', '');
+                if (substr($formatted, -6) === '0000') {
+                    $item['percentage'] = (float)substr_replace($formatted, '1', -1);
+                }
+            }
+        }
+        unset($item);
+
+        return $data;
+    }
+
+
+
     ?>
 
     <script>
         $(document).ready(function() {
-            $('#liquidityTable').DataTable({
+            var table = $('#liquidityTable').DataTable({
                 "paging": true,
                 "searching": true,
                 "info": true,
                 "order": [
                     [1, 'desc']
-                ]
+                ],
+                "rowCallback": function(row, data, index) {
+                    if (data[0] === "Others") {
+                        $(row).addClass('row-others');
+                    }
+                },
+                "drawCallback": function(settings) {
+                    var api = this.api();
+                    var othersRows = api.rows('.row-others').nodes();
+                    if (othersRows.length) {
+                        $(othersRows).detach().appendTo(api.table().body());
+                    }
+                }
             });
         });
     </script>
+
 </body>
 
 </html>
