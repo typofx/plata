@@ -130,7 +130,7 @@ $conn->close();
         <label for="year_filter">Filter by Year:</label>
         <select id="year_filter" name="year_filter" onchange="this.form.submit()">
             <?php
-            // Se nenhum filtro estiver ativo, o primeiro ano da lista (o mais recente) será selecionado por padrão.
+     
             foreach ($available_years as $year): ?>
                 <option value="<?php echo $year; ?>" <?php echo ($year_filter == $year) ? 'selected' : ''; ?>>
                     <?php echo $year; ?>
@@ -139,7 +139,7 @@ $conn->close();
         </select>
         
         <?php
-        // Mostra o botão "Limpar Filtro" apenas se um ano específico estiver selecionado.
+       
         if (!empty($year_filter)): ?>
             <a href="tokenomics_history.php" class="button">Clear Filter</a>
         <?php endif; ?>
