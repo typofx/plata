@@ -20,6 +20,7 @@
     <a href="<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/main.php'; ?>">[Back]</a>
     <a href="javascript:window.location.reload(true)">[Refresh]</a>
     <a href="menu.php">[DeFi]</a>
+    <a href="tokenomics_history.php">[Tokenomics History]</a>
     <!-- PHP -->
 
     <?php
@@ -283,21 +284,116 @@
         $jsonLine .= "    \"liquidity\": " . number_format((float)$item['liquidity'], 4, '.', '') . ",\n";
         $jsonLine .= "    \"percentage\": " . number_format((float)$item['percentage'], 5, '.', '') . ",\n";
         $jsonLine .= "    \"plata\": " . number_format((float)$item['plata'], 4, '.', '') . "\n";
-        $jsonLine .= "  },\n"; 
+        $jsonLine .= "  },\n";
 
         fwrite($file, $jsonLine);
     }
 
- 
-$timestamp_utc_iso = gmdate('Y-m-d\TH:i:s\Z'); 
-fwrite($file, "  {\n    \"timestamp\": \"$timestamp_utc_iso\"\n  }\n");
+
+    $timestamp_utc_iso = gmdate('Y-m-d\TH:i:s\Z');
+    fwrite($file, "  {\n    \"timestamp\": \"$timestamp_utc_iso\"\n  }\n");
 
     fwrite($file, "]");
     fclose($file);
 
 
-    echo "Timestamp: " . $timestamp_utc_iso ;
+    echo "Timestamp: " . $timestamp_utc_iso;
     echo "<br>";
+
+
+
+$record_year = date('Y');
+$record_month = date('m');
+$current_month_str = "$record_year-$record_month";
+$historical_price_for_month = null;
+$historical_date_for_month = null;
+
+
+$check_sql = "SELECT plt_price, price_date FROM granna80_bdlinks.tokenomics_history WHERE record_year = ? AND record_month = ? AND plt_price IS NOT NULL AND plt_price > 0 AND price_date IS NOT NULL LIMIT 1";
+$stmt_check = $conn->prepare($check_sql);
+$stmt_check->bind_param("ii", $record_year, $record_month);
+$stmt_check->execute();
+$result_check = $stmt_check->get_result();
+if ($result_check->num_rows > 0) {
+    $row = $result_check->fetch_assoc();
+    $historical_price_for_month = $row['plt_price'];
+    $historical_date_for_month = $row['price_date']; 
+}
+$stmt_check->close();
+
+
+if ($historical_price_for_month === null) {
+  
+    
+    $json_url = "https://typofx.ie/plataforma/panel/token-historical-data/token_data.json";
+    $json_data = @file_get_contents($json_url);
+
+    if ($json_data) {
+        $historical_data = json_decode($json_data, true);
+        if (is_array($historical_data)) {
+            foreach ($historical_data as $record) {
+                if (isset($record['date'])) {
+                    $record_date = new DateTime($record['date']);
+                    if ($record_date->format('Y') == $record_year && $record_date->format('m') == $record_month) {
+                        $historical_price_for_month = $record['price'];
+                        $historical_date_for_month = $record['date']; 
+                    
+                        break;
+                    }
+                }
+            }
+        }
+    }
+} else {
+   
+}
+echo "<br>";
+
+
+$sql_insert = "
+    INSERT INTO granna80_bdlinks.tokenomics_history (
+        record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date -- Coluna adicionada
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?) -- Placeholder adicionado
+    ON DUPLICATE KEY UPDATE
+        liquidity = VALUES(liquidity),
+        percentage = VALUES(percentage),
+        plata = VALUES(plata),
+        plt_price = VALUES(plt_price),
+        price_date = VALUES(price_date) 
+";
+
+$stmt = $conn->prepare($sql_insert);
+
+if ($stmt === false) {
+    echo "<br>Error preparing statement: " . $conn->error;
+} else {
+
+    $stmt->bind_param("iisddsds", $record_year, $record_month, $exchange_name, $liquidity_val, $percentage_val, $plata_val, $historical_price_for_month, $historical_date_for_month);
+
+    $inserted_count = 0;
+    $updated_count = 0;
+
+    foreach ($table_data as $row) {
+        $exchange_name = $row['exchange'];
+        $liquidity_val = $row['liquidity'];
+        $percentage_val = $row['percentage'];
+        $plata_val = $row['plata'];
+        
+        $stmt->execute();
+
+        if ($stmt->affected_rows === 1) {
+            $inserted_count++;
+        } elseif ($stmt->affected_rows === 2) {
+            $updated_count++;
+        }
+    }
+    
+   
+    $stmt->close();
+}
+
+
+
 
     // Display HTML table with static data
     echo "
