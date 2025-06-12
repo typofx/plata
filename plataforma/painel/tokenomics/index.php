@@ -290,107 +290,117 @@
     }
 
 
-    $timestamp_utc_iso = gmdate('Y-m-d\TH:i:s\Z');
-    fwrite($file, "  {\n    \"timestamp\": \"$timestamp_utc_iso\"\n  }\n");
+    $timestamp_utc_iso = gmdate('d-m-Y H:i:s');
+    fwrite($file, "  {\n    \"timestamp\": \"$timestamp_utc_iso\",\n    \"pltprice\": $PLTUSD\n  }\n");
+
+
 
     fwrite($file, "]");
     fclose($file);
 
 
-    echo "Timestamp: " . $timestamp_utc_iso;
+    echo "Last update on: " . $timestamp_utc_iso ." UTC";
     echo "<br>";
 
 
 
-$record_year = date('Y');
-$record_month = date('m');
-$current_month_str = "$record_year-$record_month";
-$historical_price_for_month = null;
-$historical_date_for_month = null;
+    $record_year = date('Y');
+    $record_month = date('m');
 
-
-$check_sql = "SELECT plt_price, price_date FROM granna80_bdlinks.tokenomics_history WHERE record_year = ? AND record_month = ? AND plt_price IS NOT NULL AND plt_price > 0 AND price_date IS NOT NULL LIMIT 1";
-$stmt_check = $conn->prepare($check_sql);
-$stmt_check->bind_param("ii", $record_year, $record_month);
-$stmt_check->execute();
-$result_check = $stmt_check->get_result();
-if ($result_check->num_rows > 0) {
-    $row = $result_check->fetch_assoc();
-    $historical_price_for_month = $row['plt_price'];
-    $historical_date_for_month = $row['price_date']; 
-}
-$stmt_check->close();
-
-
-if ($historical_price_for_month === null) {
-  
-    
     $json_url = "https://typofx.ie/plataforma/panel/token-historical-data/token_data.json";
     $json_data = @file_get_contents($json_url);
+
+    $new_historical_price = null;
+    $new_historical_date = null;
 
     if ($json_data) {
         $historical_data = json_decode($json_data, true);
         if (is_array($historical_data)) {
+
             foreach ($historical_data as $record) {
-                if (isset($record['date'])) {
-                    $record_date = new DateTime($record['date']);
-                    if ($record_date->format('Y') == $record_year && $record_date->format('m') == $record_month) {
-                        $historical_price_for_month = $record['price'];
-                        $historical_date_for_month = $record['date']; 
-                    
-                        break;
+                if (isset($record['date']) && isset($record['price'])) {
+                    $record_date_obj = new DateTime($record['date']);
+
+                    if ($record_date_obj->format('Y') == $record_year && $record_date_obj->format('m') == $record_month) {
+
+                        if ($new_historical_date === null || $record_date_obj->format('Y-m-d H:i:s') > $new_historical_date) {
+                            $new_historical_price = $record['price'];
+                            $new_historical_date  = $record_date_obj->format('Y-m-d H:i:s');
+                        }
                     }
                 }
             }
         }
     }
-} else {
-   
-}
-echo "<br>";
 
 
-$sql_insert = "
-    INSERT INTO granna80_bdlinks.tokenomics_history (
-        record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date -- Coluna adicionada
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?) -- Placeholder adicionado
-    ON DUPLICATE KEY UPDATE
-        liquidity = VALUES(liquidity),
-        percentage = VALUES(percentage),
-        plata = VALUES(plata),
-        plt_price = VALUES(plt_price),
-        price_date = VALUES(price_date) 
-";
+    $db_date_for_month = null;
 
-$stmt = $conn->prepare($sql_insert);
 
-if ($stmt === false) {
-    echo "<br>Error preparing statement: " . $conn->error;
-} else {
-
-    $stmt->bind_param("iisddsds", $record_year, $record_month, $exchange_name, $liquidity_val, $percentage_val, $plata_val, $historical_price_for_month, $historical_date_for_month);
-
-    $inserted_count = 0;
-    $updated_count = 0;
-
-    foreach ($table_data as $row) {
-        $exchange_name = $row['exchange'];
-        $liquidity_val = $row['liquidity'];
-        $percentage_val = $row['percentage'];
-        $plata_val = $row['plata'];
-        
-        $stmt->execute();
-
-        if ($stmt->affected_rows === 1) {
-            $inserted_count++;
-        } elseif ($stmt->affected_rows === 2) {
-            $updated_count++;
-        }
+    $check_sql = "SELECT price_date FROM granna80_bdlinks.tokenomics_history WHERE record_year = ? AND record_month = ? ORDER BY price_date DESC LIMIT 1";
+    $stmt_check = $conn->prepare($check_sql);
+    $stmt_check->bind_param("ii", $record_year, $record_month);
+    $stmt_check->execute();
+    $result_check = $stmt_check->get_result();
+    if ($result_check->num_rows > 0) {
+        $row = $result_check->fetch_assoc();
+        $db_date_for_month = $row['price_date'];
     }
-    
-   
-    $stmt->close();
-}
+    $stmt_check->close();
+
+
+    if ($new_historical_date !== null && ($db_date_for_month === null || $new_historical_date > $db_date_for_month)) {
+
+
+
+        $sql_insert = "
+        INSERT INTO granna80_bdlinks.tokenomics_history (
+            record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        ON DUPLICATE KEY UPDATE
+            liquidity = VALUES(liquidity),
+            percentage = VALUES(percentage),
+            plata = VALUES(plata),
+            plt_price = VALUES(plt_price),
+            price_date = VALUES(price_date)";
+
+        $stmt = $conn->prepare($sql_insert);
+
+        if ($stmt === false) {
+            echo "<br>Error preparing statement: " . $conn->error;
+        } else {
+
+            $stmt->bind_param("iisddsds", $record_year, $record_month, $exchange_name, $liquidity_val, $percentage_val, $plata_val, $new_historical_price, $new_historical_date);
+
+            $inserted_count = 0;
+            $updated_count = 0;
+
+
+            foreach ($table_data as $row) {
+                $exchange_name  = $row['exchange'];
+                $liquidity_val  = $row['liquidity'];
+                $percentage_val = $row['percentage'];
+                $plata_val      = $row['plata'];
+
+                $stmt->execute();
+
+                if ($stmt->affected_rows === 1) {
+                    $inserted_count++;
+                } elseif ($stmt->affected_rows === 2) {
+
+                    $updated_count++;
+                }
+            }
+
+
+
+            $stmt->close();
+        }
+    } else {
+
+        echo "<br>";
+    }
+
 
 
 
