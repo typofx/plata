@@ -217,8 +217,8 @@
 
 
     $remaining_percentage = 1 - $total_percentage_sum;
-    $remaining_liquidity = $remaining_percentage * $marketcap_float;
     $remaining_plt = $remaining_percentage * $circulating_supply;
+    $remaining_liquidity = $remaining_plt * $PLTUSD;
 
 
     $table_data[] = [
@@ -231,13 +231,7 @@
 
     $cont++;
 
-    // $table_data[] = [
-    //     'id' => $cont, 
-    //    'exchange' => 'Total',
-    //    'liquidity' => round($total_liquidity_sum + $remaining_liquidity, 2),
-    //    'percentage' =>$total_percentage_sum + $remaining_percentage,
-    //   'plata' => $total_plata_sum + $remaining_plt
-    //  ];
+
     echo "<br><br>";
     echo "<br>Total: ";
     echo  "<br>liquidity: " . round($total_liquidity_sum + $remaining_liquidity, 4);
@@ -299,7 +293,7 @@
     fclose($file);
 
 
-    echo "Last update on: " . $timestamp_utc_iso ." UTC";
+    echo "Last update on: " . $timestamp_utc_iso . " UTC";
     echo "<br>";
 
 

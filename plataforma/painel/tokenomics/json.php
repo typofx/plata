@@ -71,14 +71,10 @@ foreach ($allObjectStrings as $objectString) {
 
         $currentObjectString = "  {\n";
         $currentObjectString .= "    \"id\": " . $id . ",\n";
-        $currentObjectString .= "    \"record_year\": " . $recordYear . ",\n";
-        $currentObjectString .= "    \"record_month\": " . $recordMonth . ",\n";
         $currentObjectString .= "    \"exchange\": \"" . addslashes($exchange) . "\",\n";
         $currentObjectString .= "    \"liquidity\": " . $liquidity . ",\n";
         $currentObjectString .= "    \"percentage\": " . $percentage . ",\n";
         $currentObjectString .= "    \"plata\": " . $plata . ",\n";
-        $currentObjectString .= "    \"plt_price\": " . $pltPrice . ",\n";
-        $currentObjectString .= "    \"price_date\": \"" . addslashes($priceDate) . "\"\n";
         $currentObjectString .= "  }";
 
         // Add the rebuilt and formatted object string to our results array.
