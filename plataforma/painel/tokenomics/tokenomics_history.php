@@ -237,80 +237,35 @@ $total_percentage = 0;
 $total_plata = 0;
 
 $records = [];
-$sql = "SELECT id, record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date FROM granna80_bdlinks.tokenomics_history $where_clause ORDER BY record_year DESC, record_month DESC, exchange ASC";
+$sql = "SELECT id, record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date, group_wallet, walletAddress FROM granna80_bdlinks.tokenomics_history $where_clause ORDER BY record_year DESC, record_month DESC, exchange ASC";
 $result = $conn->query($sql);
 
+
+$history_total_liquidity = 0;
+$history_total_percentage = 0;
+$history_total_plata = 0;
+
 if ($result && $result->num_rows > 0) {
-
     while ($row = $result->fetch_assoc()) {
-
         $records[] = $row;
 
-
-        $total_liquidity += (float)$row['liquidity'];
-        $total_percentage += (float)$row['percentage'];
-        $total_plata += (float)$row['plata'];
+        $history_total_liquidity += (float)$row['liquidity'];
+        $history_total_percentage += (float)$row['percentage'];
+        $history_total_plata += (float)$row['plata'];
     }
 }
-
-
-
-
-
 
 
 $json_file_path = 'tokenomics_history.json';
 
 
-$json_query = "SELECT id, record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date FROM granna80_bdlinks.tokenomics_history ORDER BY record_year DESC, record_month DESC, exchange ASC";
+$json_query = "SELECT id, record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date, group_wallet FROM granna80_bdlinks.tokenomics_history ORDER BY record_year DESC, record_month DESC, exchange ASC";
 $json_result = $conn->query($json_query);
 
 
 $formatted_json_objects = [];
 
 
-if ($json_result && $json_result->num_rows > 0) {
-
-    while ($json_row = $json_result->fetch_assoc()) {
-
-
-        $id           = $json_row['id'];
-        $record_year  = $json_row['record_year'];
-        $record_month = $json_row['record_month'];
-        $exchange     = $json_row['exchange'];
-        $liquidity    = $json_row['liquidity'];
-        $percentage   = $json_row['percentage'];
-        $plata        = $json_row['plata'];
-        $plt_price    = $json_row['plt_price'];
-        $price_date   = $json_row['price_date'];
-
-
-        $current_object_string  = "  {\n";
-        $current_object_string .= "    \"id\": " . $id . ",\n";
-        $current_object_string .= "    \"record_year\": " . $record_year . ",\n";
-        $current_object_string .= "    \"record_month\": " . $record_month . ",\n";
-        $current_object_string .= "    \"exchange\": \"" . addslashes($exchange) . "\",\n";
-        $current_object_string .= "    \"liquidity\": " . $liquidity . ",\n";
-        $current_object_string .= "    \"percentage\": " . $percentage . ",\n";
-        $current_object_string .= "    \"plata\": " . $plata . ",\n";
-        $current_object_string .= "    \"plt_price\": " . $plt_price . ",\n";
-        $current_object_string .= "    \"price_date\": \"" . addslashes($price_date) . "\"\n";
-        $current_object_string .= "  }";
-
-        // Store the formatted object string in the array
-        $formatted_json_objects[] = $current_object_string;
-    }
-    // Free the result memory as soon as the loop ends
-    $json_result->free();
-}
-
-
-$final_file_content = "[\n";
-$final_file_content .= implode(",\n", $formatted_json_objects);
-$final_file_content .= "\n]";
-
-
-file_put_contents($json_file_path, $final_file_content);
 
 
 
@@ -360,6 +315,7 @@ $stmt_month->close();
         <div class="nav-links">
             <a href="index.php">[Back]</a>
             <a href="javascript:window.location.reload(true)">[Refresh Page]</a>
+            <a href="https://typofx.ie/plataforma/panel/lp-contracts/index.php">[Lp Contracts]</a>
             <?php
 
             echo "<a href='json.php?year_filter={$year_filter}&month_filter={$latest_month_for_link}' target='_blank'>[JSON]</a>";
@@ -398,21 +354,27 @@ $stmt_month->close();
             Tokenomics History: <?php echo $month_name; ?> <?php echo $year_filter; ?>
 
         </h2>
-        <p>
 
+
+        <p>
             PLTUSD: $<?php echo $price_for_heading; ?><br><br>
 
-            Liquidity: <?php echo number_format($total_liquidity, 4, '.', ''); ?><br>
-            Percentage: <?php echo $total_percentage * 100; ?>%<br>
-            Plata: <?php echo number_format($total_plata, 4, '.', ''); ?>
+            Liquidity: <?php echo number_format($history_total_liquidity, 4, '.', ','); ?><br>
+            Percentage: <?php echo number_format(abs(1 - $history_total_percentage) < 0.0001 ? 100 : $history_total_percentage * 100, 4, '.', ','); ?>%<br>
+            Plata: <?php echo number_format((float) $history_total_plata, 2, '.', ''); ?>
+
+
             <br><br>
             <?php
-            $date = new DateTime($price_date_view);
-            $formatted_date = $date->format('d-m-Y H:i:s'); 
+            if (!empty($price_date_view)) {
+                $date = new DateTime($price_date_view);
+                $formatted_date = $date->format('d-m-Y H:i:s');
+                echo "Last update on: " . $formatted_date . " UTC";
+            }
             ?>
-            Last update on: <?php echo $formatted_date; ?>
-
         </p>
+        <br><br>
+
 
 
 
@@ -493,12 +455,12 @@ $stmt_month->close();
                 <tr>
                     <th>Year</th>
                     <th>Month</th>
-                    <th>Exchange</th>
+                    <th>Tag</th>
+                    <th>Group</th>
+                    <th>Wallet Adress</th>
+                    <th>Plata</th>
                     <th>Liquidity</th>
                     <th>Percentage</th>
-
-                    <th>Plata</th>
-
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -523,9 +485,23 @@ $stmt_month->close();
                         <td><?php echo $row['record_year']; ?></td>
                         <td><?php echo $row['record_month']; ?></td>
                         <td><?php echo htmlspecialchars($row['exchange']); ?></td>
-                        <td><?php echo number_format($liquidity_plata, 2, '.', ','); ?></td>
-                        <td><?php echo number_format($porcentage_tokens, 5, '.', ','); ?></td>
+                        <td> <b><?php echo $row['group_wallet']; ?></b></td>
+                        <td>
+                            <?php
+
+                            $wallet_address = $row['walletAddress'] ?? '';
+                            if (!empty($wallet_address)) {
+                                echo "<a href='https://polygonscan.com/address/{$wallet_address}' target='_blank'>"
+                                    . substr($wallet_address, 0, 6) . "..." . substr($wallet_address, -4)
+                                    . "</a>";
+                            }
+                            ?>
+                        </td>
                         <td><?php echo number_format($row['plata'], 4, '.', ','); ?></td>
+                        <td><?php echo number_format($liquidity_plata, 2, '.', ','); ?></td>
+                        <td><?php echo number_format($porcentage_tokens, 4, '.', ','); ?></td>
+
+
 
 
                         <td>
@@ -548,15 +524,20 @@ $stmt_month->close();
         $(document).ready(function() {
             var table = $('#liquidityTable').DataTable({
                 "order": [
-                    [3, 'desc'],
-                    [4, 'desc']
+                    [6, 'desc'],
+                    [7, 'desc']
                 ],
+                "pageLength": 100,
+                "lengthMenu": [
+                    [100, 200, 500, -1],
+                    [100, 200, 500, "All"]
+                ],
+
                 rowCallback: function(row, data, index) {
                     if (data[2] === "Others") {
                         $(row).addClass('row-others');
                     }
                 },
-
 
                 drawCallback: function(settings) {
                     var api = this.api();
@@ -568,8 +549,8 @@ $stmt_month->close();
                     }
                 }
             });
-
         });
+
 
 
         $('#massUpdateForm').on('submit', function(event) {
