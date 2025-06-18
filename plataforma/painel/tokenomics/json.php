@@ -1,6 +1,6 @@
 <?php
 
-$jsonFilePath = 'tokenomics_history.json';
+$jsonFilePath = 'tokenomics_history_agrupado.json';
 
 header('Content-Type: application/json; charset=utf-8');
 

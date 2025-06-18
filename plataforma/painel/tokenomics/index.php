@@ -30,7 +30,7 @@
     ob_end_clean();
 
     echo "<h2>Market Capitalization: " . $PLTmarketcap . "</h2>";
-    echo "PLTUSD: " . $PLTUSD;
+   // echo "PLTUSD: " . $PLTUSD;
 
     $circulating_supply = 11299000992;
 
@@ -106,7 +106,7 @@
     foreach ($total_data as $exchange => $data) {
         $table_data2[] = [
             'id' => $cont,
-            'exchange' => $exchange,
+            'exchange' => trim($exchange),
             'liquidity' => round($data['liquidity'], 4),
             'percentage' => round($data['percentage'], 5),
             'plata' => $data['plata']
@@ -127,6 +127,8 @@
     $plt_contract = '0xc298812164bd558268f51cc6e3b8b5daaf0b6341';
     $liquidity_per_exchange = [];
     $dex_individual_pools = [];
+    $plata_per_dex = [];
+    $percentage_per_dex = [];
 
     if (is_array($data)) {
         foreach ($data as $item) {
@@ -143,44 +145,46 @@
                     if (strtolower($plt_contract) == strtolower($contract_a)) {
                         $liquidity = $item['QtA'];
                         $plt_Price = $item['priceA'];
+                        $plt_tokens = $item['tokenBalance_A'];
                     } elseif (strtolower($plt_contract) == strtolower($contract_b)) {
                         $liquidity = $item['QtB'];
                         $plt_Price = $item['priceB'];
+                        $plt_tokens = $item['tokenBalance_B'];
                     }
 
-                    if ($plt_Price > 0) {
+                    if (isset($plt_Price) && $plt_Price > 0) {
 
-                        $plata = $liquidity / $plt_Price;
+                        $plata = $plt_tokens;
                         $percentage = ($plata / $circulating_supply);
+                        $dex_liquidity = $plata * $PLTUSD;
 
                         $dex_individual_pools[] = [
-                            'exchange'   => $item['exchange'] . " - " . $item['pair'],
-                            'group'      => 'dex',
-                            'liquidity'  => $liquidity,
-                            'percentage' => $percentage,
-                            'walletAddress' => $pool_contract_json,
-                            'plata'      => $plata
+                            'exchange'    => $item['exchange'] . " - " . $item['pair'],
+                            'group'       => 'dex',
+                            'liquidity'   => $dex_liquidity,
+                            'percentage'  => $percentage,
+                            'walletAddress' => $item['contract'],
+                            'plata'       => $plata
                         ];
 
 
-                        $exchange = $item['exchange'];
-                        if ($exchange === 'SushiSwap V3') {
-                            $exchange = 'SushiSwap';
-                        }
-                        if ($exchange === 'QuickSwap V3') {
-                            $exchange = 'QuickSwap';
-                        }
-                        if ($exchange === 'QuickSwap V2') {
-                            $exchange = 'QuickSwap';
-                        }
-                        if ($exchange === 'Uniswap V3') {
-                            $exchange = 'Uniswap';
-                        }
+                        $exchange_base_name = get_dex_base_name_from_string($item['exchange']);
 
-                        if (!isset($liquidity_per_exchange[$exchange])) {
-                            $liquidity_per_exchange[$exchange] = 0;
+
+                        if (!isset($liquidity_per_exchange[$exchange_base_name])) {
+                            $liquidity_per_exchange[$exchange_base_name] = 0;
                         }
-                        $liquidity_per_exchange[$exchange] += $liquidity;
+                        $liquidity_per_exchange[$exchange_base_name] += $dex_liquidity;
+
+                        if (!isset($plata_per_dex[$exchange_base_name])) {
+                            $plata_per_dex[$exchange_base_name] = 0;
+                        }
+                        $plata_per_dex[$exchange_base_name] += $plata;
+
+                        if (!isset($percentage_per_dex[$exchange_base_name])) {
+                            $percentage_per_dex[$exchange_base_name] = 0;
+                        }
+                        $percentage_per_dex[$exchange_base_name] += $percentage;
                     }
                 }
             }
@@ -219,18 +223,15 @@
     $table_data = [];
     $cont = 1;
     foreach ($liquidity_per_exchange as $exchange => $liquidity) {
-        $marketcap_float = floatval($PLTmarketcap);
-        $liquidity_float = floatval($liquidity);
-        $dex_result = ($liquidity_float / $marketcap_float) * 100;
-        $dex_liquidity_percentage = round($dex_result / 1000, 5);
-        $dex_liquidity_percentage_d = $dex_liquidity_percentage / 100;
-        $plt = $circulating_supply * $dex_liquidity_percentage_d;
+
+        $plt = $plata_per_dex[$exchange] ?? 0;
+        $percentage = $percentage_per_dex[$exchange] ?? 0;
 
         $table_data[] = [
             'id' => $cont,
-            'exchange' => $exchange,
+            'exchange' => trim($exchange),
             'liquidity' => round($liquidity, 4),
-            'percentage' => round($dex_liquidity_percentage / 100, 5),
+            'percentage' => $percentage,
             'plata' => $plt
         ];
         $cont++;
@@ -312,6 +313,69 @@
     });
 
 
+    $should_run = false;
+
+
+    $sql_check = "SELECT MAX(price_date) AS last_date FROM granna80_bdlinks.tokenomics_history";
+    $result_check = $conn->query($sql_check);
+    $row = $result_check->fetch_assoc();
+    $last_saved_date = $row['last_date'];
+
+    if ($last_saved_date === null) {
+
+        $should_run = true;
+        echo "<br><b>NOTICE: First run. Inserting data...</b>";
+    } else {
+
+        $last_date = new DateTime($last_saved_date);
+        $next_allowed_date = $last_date->add(new DateInterval('P1M'));
+        $today = new DateTime();
+
+
+        if ($today >= $next_allowed_date) {
+            $should_run = true;
+            $updateMonth =  "<br><b>NOTICE: A month has passed. Updating data...</b>";
+        } else {
+              $updateMonth = "<br><b>Next update on: " . $next_allowed_date->format('d/m/Y') . "</b>";
+        }
+    }
+
+
+
+
+    $monthly_totals = null;
+   
+    $latest_period_res = $conn->query("SELECT MAX(record_year) as year FROM granna80_bdlinks.tokenomics_history");
+    if ($latest_period_res && $latest_period_res->num_rows > 0) {
+        $latest_year = $latest_period_res->fetch_assoc()['year'];
+
+        if ($latest_year) {
+            $latest_month_res = $conn->query("SELECT MAX(record_month) as month FROM granna80_bdlinks.tokenomics_history WHERE record_year = $latest_year");
+            $latest_month = $latest_month_res->fetch_assoc()['month'];
+
+           
+            if ($latest_month) {
+                $totals_sql = "SELECT
+                            SUM(plata) as total_plata,
+                            SUM(liquidity) as total_liquidity,
+                            plt_price,
+                            price_date
+                           FROM granna80_bdlinks.tokenomics_history
+                           WHERE record_year = $latest_year AND record_month = $latest_month
+                           GROUP BY plt_price, price_date ORDER BY price_date DESC LIMIT 1";
+                $monthly_totals_res = $conn->query($totals_sql);
+                if ($monthly_totals_res && $monthly_totals_res->num_rows > 0) {
+                    $monthly_totals = $monthly_totals_res->fetch_assoc();
+                   
+                    if (isset($monthly_totals['total_plata'])) {
+                        $monthly_totals['total_percentage'] = $monthly_totals['total_plata'] / $circulating_supply;
+                    }
+                }
+            }
+        }
+    }
+
+
 
 
 
@@ -320,16 +384,42 @@
     $final_total_percentage = array_sum(array_column($html_table_data, 'percentage'));
     $final_total_plata = array_sum(array_column($html_table_data, 'plata'));
 
-    echo "<br><br>";
-    echo "<br>Total: ";
-    echo  "<br>liquidity: " . number_format($final_total_liquidity, 2, '.', ',');
-    echo "<br>percentage: " . number_format($final_total_percentage * 100, 2) . "%";
-    echo "<br>plata: " . number_format($final_total_plata, 2, '.', '');
-    echo "<br><br>";
+    ?>
 
-    echo "<br><br>";
+ <style>
+    .totals-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin: 20px 0; font-family: sans-serif; }
+    .total-box { border: 1px solid #ccc; border-radius: 8px; padding: 15px; width: 45%; min-width: 350px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background-color: #f9f9f9; }
+    .total-box h3 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; color: #333; }
+    .total-box p { margin: 8px 0; font-size: 1em; display: flex; justify-content: space-between; }
+    .total-box p strong { color: #555; }
+    .total-box p small { margin-top: 10px; color: #777; display: block; text-align: right; }
+</style>
 
+<div class="totals-container">
+    <div class="total-box">
+        <h3>LIVE Totals</h3>
+        <p><strong>PLTUSD:</strong> <span>$<?php echo number_format($PLTUSD, 10, '.', ','); ?></span></p>
+        <p><strong>Liquidity:</strong> <span>$<?php echo number_format($final_total_liquidity, 4, '.', ','); ?></span></p>
+        <p><strong>Percentage:</strong> <span><?php echo number_format($final_total_percentage * 100, 2, '.', ','); ?>%</span></p>
+        <p><strong>Plata:</strong> <span><?php echo number_format($final_total_plata, 4, '.', ','); ?></span></p>
+        <p><small>Last update on: <?php echo gmdate('d-m-Y H:i:s'); ?> UTC</small></p>
+    </div>
 
+    <?php if ($monthly_totals): ?>
+        <div class="total-box">
+            <h3>
+                Snapshot Totals (<?php echo date('F Y', mktime(0, 0, 0, $latest_month, 1, $latest_year)); ?>)
+            </h3>
+            <p><strong>PLTUSD:</strong> <span>$<?php echo number_format($monthly_totals['plt_price'], 10, '.', ','); ?></span></p>
+            <p><strong>Liquidity:</strong> <span>$<?php echo number_format($monthly_totals['total_liquidity'], 4, '.', ','); ?></span></p>
+            <p><strong>Percentage:</strong> <span><?php echo number_format($monthly_totals['total_percentage'] * 100, 2, '.', ','); ?>%</span></p>
+            <p><strong>Plata:</strong> <span><?php echo number_format($monthly_totals['total_plata'], 4, '.', ','); ?></span></p>
+            <p><small>Last update on: <?php echo date('d-m-Y H:i:s', strtotime($monthly_totals['price_date'])); ?> UTC        <?php echo $updateMonth ?> </small>  </p>
+        </div>
+    <?php endif; ?>
+</div>
+
+<?php
 
 
     usort($table_data, function ($a, $b) {
@@ -347,24 +437,24 @@
         }
     }
 
-    $total_percentage_sum = array_sum(array_column($table_data, 'percentage'));
+    //$total_percentage_sum = array_sum(array_column($table_data, 'percentage'));
 
 
-    if ($total_percentage_sum > 1.0) {
+    //if ($total_percentage_sum > 1.0) {
 
 
-        foreach ($table_data as &$item) {
+    // foreach ($table_data as &$item) {
 
 
-            $new_percentage = $item['percentage'] / $total_percentage_sum;
+    //   $new_percentage = $item['percentage'] / $total_percentage_sum;
 
 
-            $item['percentage'] = $new_percentage;
-            $item['plata']      = $circulating_supply * $new_percentage;
-            $item['liquidity']  = $item['plata'] * $PLTUSD;
-        }
-        unset($item);
-    }
+    //   $item['percentage'] = $new_percentage;
+    //   $item['plata']      = $circulating_supply * $new_percentage;
+    //   $item['liquidity']  = $item['plata'] * $PLTUSD;
+    //  }
+    //  unset($item);
+    //   }
 
     usort($table_data, function ($a, $b) {
         return $b['liquidity'] <=> $a['liquidity'];
@@ -440,7 +530,7 @@
 
 
 
-    echo "Last update on: " . $timestamp_utc_iso . " UTC";
+    //echo "Last update on: " . $timestamp_utc_iso . " UTC";
     echo "<br>";
 
 
@@ -494,32 +584,7 @@
 
 
 
-    $should_run = false;
 
-
-    $sql_check = "SELECT MAX(price_date) AS last_date FROM granna80_bdlinks.tokenomics_history";
-    $result_check = $conn->query($sql_check);
-    $row = $result_check->fetch_assoc();
-    $last_saved_date = $row['last_date'];
-
-    if ($last_saved_date === null) {
-       
-        $should_run = true;
-        echo "<br><b>NOTICE: First run. Inserting data...</b>";
-    } else {
-      
-        $last_date = new DateTime($last_saved_date);
-        $next_allowed_date = $last_date->add(new DateInterval('P1M')); 
-        $today = new DateTime();
-
-      
-        if ($today >= $next_allowed_date) {
-            $should_run = true;
-            echo "<br><b>NOTICE: A month has passed. Updating data...</b>";
-        } else {
-            echo "<br><b>Next update on: " . $next_allowed_date->format('d/m/Y') . "</b>";
-        }
-    }
 
     if ($should_run) {
 
@@ -674,7 +739,247 @@ INSERT INTO granna80_bdlinks.tokenomics_history (
 
 
 
-    // Display HTML table with static data
+    $grouped_by_period = [];
+
+    if (!function_exists('get_dex_base_name')) {
+        function get_dex_base_name($exchange_name)
+        {
+            $stop_words = ['V2', 'V3', 'V4', 'DEX', 'LP'];
+            $words = explode(' ', $exchange_name);
+            $last_word = end($words);
+            if (in_array(strtoupper($last_word), $stop_words)) {
+                array_pop($words);
+                return implode(' ', $words);
+            }
+            return $exchange_name;
+        }
+    }
+
+
+    foreach ($final_data_for_json as $item) {
+        $year = (int)$item['record_year'];
+        $month = (int)$item['record_month'];
+        $group_wallet = $item['group_wallet'];
+        $exchange_original = $item['exchange'];
+        $group_key = '';
+
+        switch ($group_wallet) {
+            case 'dex':
+                $group_key = get_dex_base_name($exchange_original);
+                break;
+            case 'cex':
+                $group_key = 'Centralized Exchanges';
+                break;
+            case 'typofx':
+                $group_key = 'Typo FX - Wallets';
+                break;
+            default:
+                if (!empty($group_wallet) && $group_wallet !== 'unknown') {
+                    $group_key = ucwords(str_replace('_', ' ', $group_wallet));
+                } else {
+                    $group_key = $exchange_original;
+                }
+                break;
+        }
+
+        if (!isset($grouped_by_period[$year][$month][$group_key])) {
+
+            $grouped_by_period[$year][$month][$group_key] = [
+                'liquidity' => 0.0,
+                'percentage' => 0.0,
+                'plata' => 0.0,
+                'plt_price' => 0.0,
+                'price_date' => ''
+            ];
+        }
+
+
+        $grouped_by_period[$year][$month][$group_key]['liquidity'] += (float)$item['liquidity'];
+        $grouped_by_period[$year][$month][$group_key]['percentage'] += (float)$item['percentage'];
+        $grouped_by_period[$year][$month][$group_key]['plata'] += (float)$item['plata'];
+
+
+        $stored_date = $grouped_by_period[$year][$month][$group_key]['price_date'];
+        if (empty($stored_date) || strtotime($item['price_date']) > strtotime($stored_date)) {
+            $grouped_by_period[$year][$month][$group_key]['plt_price'] = (float)$item['plt_price'];
+            $grouped_by_period[$year][$month][$group_key]['price_date'] = $item['price_date'];
+        }
+    }
+
+
+    $ordered_flat_list = [];
+    krsort($grouped_by_period);
+    foreach ($grouped_by_period as $year => $months) {
+        krsort($months);
+        foreach ($months as $month => $groups) {
+            $period_data_temp = [];
+            foreach ($groups as $exchange_name => $data) {
+
+                $period_data_temp[] = [
+                    'exchange' => $exchange_name,
+                    'liquidity' => $data['liquidity'],
+                    'percentage' => $data['percentage'],
+                    'plata' => $data['plata'],
+                    'record_year' => $year,
+                    'record_month' => $month,
+                    'plt_price' => $data['plt_price'],
+                    'price_date' => $data['price_date']
+                ];
+            }
+            usort($period_data_temp, function ($a, $b) {
+                return $b['liquidity'] <=> $a['liquidity'];
+            });
+            $ordered_flat_list = array_merge($ordered_flat_list, $period_data_temp);
+        }
+    }
+
+
+    $json_final_grouped = [];
+    $id_counter = 1;
+    foreach ($ordered_flat_list as $item) {
+
+        $json_final_grouped[] = [
+            'id' => $id_counter++,
+            'exchange' => $item['exchange'],
+            'liquidity' => $item['liquidity'],
+            'percentage' => $item['percentage'],
+            'plata' => $item['plata'],
+            'record_year' => $item['record_year'],
+            'record_month' => $item['record_month'],
+            'plt_price' => $item['plt_price'],
+            'price_date' => $item['price_date']
+        ];
+    }
+
+
+    $formatted_json_objects = [];
+    if (!empty($json_final_grouped)) {
+        foreach ($json_final_grouped as $json_row) {
+
+            $current_object_string  = "    {\n";
+            $current_object_string .= "        \"id\": " . (int)$json_row['id'] . ",\n";
+            $current_object_string .= "        \"exchange\": \"" . addslashes($json_row['exchange']) . "\",\n";
+            $current_object_string .= "        \"liquidity\": " . number_format((float)$json_row['liquidity'], 4, '.', '') . ",\n";
+            $current_object_string .= "        \"percentage\": " . number_format((float)$json_row['percentage'], 4, '.', '') . ",\n";
+            $current_object_string .= "        \"plata\": " . number_format((float)$json_row['plata'], 4, '.', '') . ",\n";
+            $current_object_string .= "        \"record_year\": " . (int)$json_row['record_year'] . ",\n";
+            $current_object_string .= "        \"record_month\": " . (int)$json_row['record_month'] . ",\n";
+            $current_object_string .= "        \"plt_price\": " . number_format((float)$json_row['plt_price'], 8, '.', '') . ",\n";
+            $current_object_string .= "        \"price_date\": \"" . addslashes($json_row['price_date']) . "\"\n";
+            $current_object_string .= "    }";
+            $formatted_json_objects[] = $current_object_string;
+        }
+    }
+
+
+    $final_file_content = "[\n" . implode(",\n", $formatted_json_objects) . "\n]";
+
+
+    file_put_contents('tokenomics_history_agrupado.json', $final_file_content);
+
+
+
+
+
+
+
+
+
+
+    function get_dex_base_name_from_string($exchange_name)
+    {
+
+        $known_dexes = [
+            'MM Finance',
+            'CurveFi',
+            'SushiSwap',
+            'QuickSwap',
+            'Uniswap'
+        ];
+
+
+        foreach ($known_dexes as $dex) {
+
+            if (stripos($exchange_name, $dex) === 0) {
+                return $dex;
+            }
+        }
+
+
+        return explode(' ', $exchange_name)[0];
+    }
+
+
+    function get_authoritative_display_name($group_name)
+    {
+        if ($group_name == 'typofx') return 'Typo FX - Wallets';
+        if ($group_name == 'cex') return 'Centralized Exchanges';
+        if ($group_name == 'locker') return 'Lockers';
+        if ($group_name == 'others') return 'Others';
+
+        return ucwords(str_replace('_', ' ', $group_name)) . ' - Wallets';
+    }
+
+
+
+    $grouped_individuals = [];
+    foreach ($html_table_data as $item) {
+        $group_key = '';
+
+        if ($item['group'] == 'dex') {
+
+            $group_key = get_dex_base_name_from_string($item['exchange']);
+        } else {
+
+            $group_key = get_authoritative_display_name($item['group']);
+        }
+
+        if (!isset($grouped_individuals[$group_key])) {
+            $grouped_individuals[$group_key] = [];
+        }
+        $grouped_individuals[$group_key][] = $item;
+    }
+
+
+    $table_render_data = [];
+    foreach ($final_ordered_data as $group_total) {
+        $group_display_name = $group_total['exchange'];
+
+        $table_render_data[] = [
+            'is_group' => true,
+            'data' => $group_total
+        ];
+
+        if (isset($grouped_individuals[$group_display_name])) {
+            usort($grouped_individuals[$group_display_name], function ($a, $b) {
+                return $b['liquidity'] <=> $a['liquidity'];
+            });
+
+            foreach ($grouped_individuals[$group_display_name] as $individual_item) {
+                $table_render_data[] = [
+                    'is_group' => false,
+                    'data' => $individual_item
+                ];
+            }
+        }
+    }
+
+    ?>
+
+    <style>
+        .group-total-row {
+            background-color: #ecf0f1;
+            font-weight: bold;
+        }
+
+        .group-total-row td {
+            border-bottom: 1px solid #bdc3c7;
+            border-top: 2px solid #95a5a6;
+        }
+    </style>
+
+    <?php
+
     echo "
 <table id='liquidityTable' class='display'>
     <thead>
@@ -689,34 +994,37 @@ INSERT INTO granna80_bdlinks.tokenomics_history (
     </thead>
     <tbody>";
 
+    foreach ($table_render_data as $row_item) {
+        $row = $row_item['data'];
+        $is_group = $row_item['is_group'];
 
-    foreach ($html_table_data as $row) {
-        echo "<tr>";
+        $row_class = $is_group ? 'group-total-row' : 'individual-row';
+        echo "<tr class='{$row_class}'>";
 
-        // 1. Tag
-        echo "<td>{$row['exchange']}</td>";
+        echo "<td>" . htmlspecialchars($row['exchange'] ?? '') . "</td>";
 
-        // 2. Wallet Adress
-        $wallet_address = $row['walletAddress'] ?? '';
         echo "<td>";
-        if (!empty($wallet_address)) {
-            echo "<a href='https://polygonscan.com/address/{$wallet_address}' target='_blank'>"
-                . substr($wallet_address, 0, 6) . "..." . substr($wallet_address, -4)
-                . "</a>";
+        if (!$is_group) {
+            $wallet_address = $row['walletAddress'] ?? '';
+            if (!empty($wallet_address)) {
+                echo "<a href='https://polygonscan.com/address/{$wallet_address}' target='_blank'>"
+                    . substr($wallet_address, 0, 6) . "..." . substr($wallet_address, -4)
+                    . "</a>";
+            }
         }
         echo "</td>";
 
-        // 3. Group
-        echo "<td><b>" . ($row['group'] ?? '') . "</b></td>";
+        echo "<td><b>";
+        if ($is_group) {
+            echo "TOTAL GROUP";
+        } else {
+            echo htmlspecialchars($row['group'] ?? '');
+        }
+        echo "</b></td>";
 
-        // 4. Plata Token (PLT)
-        echo "<td>" . number_format($row['plata'], 4, '.', ',') . "</td>";
-
-        // 5. Liquidity
-        echo "<td>" . number_format($row['liquidity'], 2, '.', ',') . "</td>";
-
-
-        echo "<td>" . number_format($row['percentage'], 4, '.', ',') . "</td>";
+        echo "<td>" . number_format($row['plata'] ?? 0, 4, '.', ',') . "</td>";
+        echo "<td>" . number_format($row['liquidity'] ?? 0, 4, '.', ',') . "</td>";
+        echo "<td>" . number_format(($row['percentage'] ?? 0) * 100, 4, '.', ',') . "%</td>";
 
         echo "</tr>";
     }
@@ -725,57 +1033,21 @@ INSERT INTO granna80_bdlinks.tokenomics_history (
 </table>";
 
 
-
-
-
-
-
-
-    function formatPercentages(array $data): array
-    {
-        foreach ($data as &$item) {
-            if (isset($item['percentage']) && is_numeric($item['percentage'])) {
-                $formatted = number_format($item['percentage'], 5, '.', '');
-                if (substr($formatted, -6) === '0000') {
-                    $item['percentage'] = (float)substr_replace($formatted, '1', -1);
-                }
-            }
-        }
-        unset($item);
-
-        return $data;
-    }
-
-
-
     ?>
 
     <script>
         $(document).ready(function() {
-            var table = $('#liquidityTable').DataTable({
+            $('#liquidityTable').DataTable({
                 "paging": true,
                 "searching": true,
                 "info": true,
-                "pageLength": 100,
+                "pageLength": -1,
                 "lengthMenu": [
                     [100, 200, 500, -1],
                     [100, 200, 500, "All"]
                 ],
-                "order": [
-                    [4, 'desc']
-                ],
-                "rowCallback": function(row, data, index) {
-                    if (data[0] === "Others") {
-                        $(row).addClass('row-others');
-                    }
-                },
-                "drawCallback": function(settings) {
-                    var api = this.api();
-                    var othersRows = api.rows('.row-others').nodes();
-                    if (othersRows.length) {
-                        $(othersRows).detach().appendTo(api.table().body());
-                    }
-                }
+
+                "order": []
             });
         });
     </script>
