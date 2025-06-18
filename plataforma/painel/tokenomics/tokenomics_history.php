@@ -2,6 +2,13 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
 
 include 'conexao.php';
+
+$groups_result = $conn->query("SELECT tag, name FROM granna80_bdlinks.finance_tools_groups ORDER BY name ASC");
+$available_groups = [];
+while ($group_row = $groups_result->fetch_assoc()) {
+    $available_groups[] = $group_row;
+}
+
 $circulating_supply = 11299000992;
 $edit_data = null;
 $action = $_REQUEST['action'] ?? '';
@@ -151,7 +158,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $record_month = intval($_POST['record_month']);
         $exchange = $_POST['exchange'];
         $plata = $_POST['plata'];
-
+        $group_wallet = $_POST['group_wallet'];
+        $walletAddress = $_POST['walletAddress'];
 
         $price_query = $conn->prepare("SELECT plt_price, price_date FROM granna80_bdlinks.tokenomics_history WHERE record_year = ? AND record_month = ? LIMIT 1");
         $price_query->bind_param("ii", $record_year, $record_month);
@@ -170,11 +178,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        $sql = "INSERT INTO granna80_bdlinks.tokenomics_history (record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO granna80_bdlinks.tokenomics_history (record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date, group_wallet, walletAddress) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
+        // bind_param atualizado
+        $stmt->bind_param("iisddddsss", $record_year, $record_month, $exchange, $liquidity, $percentage, $plata, $current_price, $current_date, $group_wallet, $walletAddress);
 
-
-        $stmt->bind_param("iisdddds", $record_year, $record_month, $exchange, $liquidity, $percentage, $plata, $current_price, $current_date);
 
         if ($stmt->execute()) {
             echo "<script>window.location.href='$redirect_url';</script>";
@@ -189,7 +197,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $record_month = intval($_POST['record_month']);
         $exchange = $_POST['exchange'];
         $plata = $_POST['plata'];
-
+        $group_wallet = $_POST['group_wallet']; // Novo campo
+        $walletAddress = $_POST['walletAddress']; // Novo campo
 
         $price_query = $conn->prepare("SELECT plt_price FROM granna80_bdlinks.tokenomics_history WHERE record_year = ? AND record_month = ? LIMIT 1");
         $price_query->bind_param("ii", $record_year, $record_month);
@@ -204,11 +213,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        $sql_single = "UPDATE granna80_bdlinks.tokenomics_history SET record_year=?, record_month=?, exchange=?, liquidity=?, percentage=?, plata=? WHERE id=?";
+        $sql_single = "UPDATE granna80_bdlinks.tokenomics_history SET record_year=?, record_month=?, exchange=?, liquidity=?, percentage=?, plata=?, group_wallet=?, walletAddress=? WHERE id=?";
         $stmt_single = $conn->prepare($sql_single);
-
-
-        $stmt_single->bind_param("iisdddi", $record_year, $record_month, $exchange, $liquidity, $percentage, $plata, $id);
+        // bind_param atualizado
+        $stmt_single->bind_param("iisdddssi", $record_year, $record_month, $exchange, $liquidity, $percentage, $plata, $group_wallet, $walletAddress, $id);
 
         if ($stmt_single->execute()) {
             echo "<script>window.location.href='$redirect_url';</script>";
@@ -360,7 +368,7 @@ $stmt_month->close();
             PLTUSD: $<?php echo $price_for_heading; ?><br><br>
 
             Liquidity: <?php echo number_format($history_total_liquidity, 4, '.', ','); ?><br>
-            Percentage: <?php echo number_format(abs(1 - $history_total_percentage) < 0.0001 ? 100 : $history_total_percentage * 100, 4, '.', ','); ?>%<br>
+            Percentage: <?php echo number_format(abs(1 - $history_total_percentage) < 0.0001 ? 100 : $history_total_percentage * 100, 2, '.', ','); ?>%<br>
             Plata: <?php echo number_format((float) $history_total_plata, 2, '.', ''); ?>
 
 
@@ -439,7 +447,19 @@ $stmt_month->close();
                 <label for="plata">Plata:</label>
                 <input type="number" step="any" id="plata" name="plata" value="<?php echo $edit_data['plata'] ?? '0'; ?>">
 
+                <label for="group_wallet">Group:</label>
+                <select id="group_wallet" name="group_wallet" required>
+                    <option value="">-- Select a group --</option>
+                    <?php foreach ($available_groups as $group): ?>
+                        <option value="<?php echo htmlspecialchars($group['tag']); ?>" <?php if (isset($edit_data) && $edit_data['group_wallet'] == $group['tag']) echo 'selected'; ?>>
+                            <?php echo htmlspecialchars($group['name']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
 
+                <label for="walletAddress">Wallet Address:</label>
+                <input type="text" id="walletAddress" name="walletAddress" value="<?php echo htmlspecialchars($edit_data['walletAddress'] ?? ''); ?>" placeholder="0x...">
+                <br><br>
 
                 <button type="submit" id="update" class="<?php echo $edit_data ? 'update' : ''; ?>">
                     <?php echo $edit_data ? 'Update Record' : 'Save Record'; ?>
