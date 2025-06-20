@@ -30,7 +30,7 @@
     ob_end_clean();
 
     echo "<h2>Market Capitalization: " . $PLTmarketcap . "</h2>";
-   // echo "PLTUSD: " . $PLTUSD;
+    // echo "PLTUSD: " . $PLTUSD;
 
     $circulating_supply = 11299000992;
 
@@ -132,7 +132,7 @@
 
     if (is_array($data)) {
         foreach ($data as $item) {
-            if (isset($item['visible']) && $item['visible'] === true) {
+            if (isset($item['visible']) && $item['visible'] === true && !empty($item['exchange'])) {
                 if (isset($item['exchange']) && isset($item['liquidity'])) {
                     $contract_a = $item['contract_a'];
                     $contract_b = $item['contract_b'];
@@ -336,7 +336,7 @@
             $should_run = true;
             $updateMonth =  "<br><b>NOTICE: A month has passed. Updating data...</b>";
         } else {
-              $updateMonth = "<br><b>Next update on: " . $next_allowed_date->format('d/m/Y') . "</b>";
+            $updateMonth = "<br><b>Next update on: " . $next_allowed_date->format('d/m/Y') . "</b>";
         }
     }
 
@@ -344,7 +344,7 @@
 
 
     $monthly_totals = null;
-   
+
     $latest_period_res = $conn->query("SELECT MAX(record_year) as year FROM granna80_bdlinks.tokenomics_history");
     if ($latest_period_res && $latest_period_res->num_rows > 0) {
         $latest_year = $latest_period_res->fetch_assoc()['year'];
@@ -353,7 +353,7 @@
             $latest_month_res = $conn->query("SELECT MAX(record_month) as month FROM granna80_bdlinks.tokenomics_history WHERE record_year = $latest_year");
             $latest_month = $latest_month_res->fetch_assoc()['month'];
 
-           
+
             if ($latest_month) {
                 $totals_sql = "SELECT
                             SUM(plata) as total_plata,
@@ -366,7 +366,7 @@
                 $monthly_totals_res = $conn->query($totals_sql);
                 if ($monthly_totals_res && $monthly_totals_res->num_rows > 0) {
                     $monthly_totals = $monthly_totals_res->fetch_assoc();
-                   
+
                     if (isset($monthly_totals['total_plata'])) {
                         $monthly_totals['total_percentage'] = $monthly_totals['total_plata'] / $circulating_supply;
                     }
@@ -386,40 +386,65 @@
 
     ?>
 
- <style>
-    .totals-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin: 20px 0; font-family: sans-serif; }
-    .total-box { border: 1px solid #ccc; border-radius: 8px; padding: 15px; width: 45%; min-width: 350px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background-color: #f9f9f9; }
-    .total-box h3 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; color: #333; }
-    .total-box p { margin: 8px 0; font-size: 1em; display: flex; justify-content: space-between; }
-    .total-box p strong { color: #555; }
-    .total-box p small { margin-top: 10px; color: #777; display: block; text-align: right; }
-</style>
+    <style>
+        .totals-container {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+            font-family: sans-serif;
+        }
 
-<div class="totals-container">
-    <div class="total-box">
-        <h3>LIVE Totals</h3>
-        <p><strong>PLTUSD:</strong> <span>$<?php echo number_format($PLTUSD, 10, '.', ','); ?></span></p>
-        <p><strong>Liquidity:</strong> <span>$<?php echo number_format($final_total_liquidity, 4, '.', ','); ?></span></p>
-        <p><strong>Percentage:</strong> <span><?php echo number_format($final_total_percentage * 100, 2, '.', ','); ?>%</span></p>
-        <p><strong>Plata:</strong> <span><?php echo number_format($final_total_plata, 4, '.', ','); ?></span></p>
-        <p><small>Last update on: <?php echo gmdate('d-m-Y H:i:s'); ?> UTC</small></p>
+        .total-box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            min-width: 350px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+
+        .total-box h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            color: #333;
+        }
+
+        .total-box p {
+            margin: 8px 0;
+            font-size: 1em;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .total-box p strong {
+            color: #555;
+        }
+
+        .total-box p small {
+            margin-top: 10px;
+            color: #777;
+            display: block;
+            text-align: right;
+        }
+    </style>
+
+    <div class="totals-container">
+        <div class="total-box">
+            <h3>LIVE Totals</h3>
+            <p><strong>PLTUSD:</strong> <span>$<?php echo number_format($PLTUSD, 10, '.', ','); ?></span></p>
+            <p><strong>Liquidity:</strong> <span>$<?php echo number_format($final_total_liquidity, 4, '.', ','); ?></span></p>
+            <p><strong>Percentage:</strong> <span><?php echo number_format($final_total_percentage * 100, 2, '.', ','); ?>%</span></p>
+            <p><strong>Plata:</strong> <span><?php echo number_format($final_total_plata, 4, '.', ','); ?></span></p>
+            <p><small>Last update on: <?php echo gmdate('d-m-Y H:i:s'); ?> UTC</small></p>
+        </div>
+
+
     </div>
 
-    <?php if ($monthly_totals): ?>
-        <div class="total-box">
-            <h3>
-                Snapshot Totals (<?php echo date('F Y', mktime(0, 0, 0, $latest_month, 1, $latest_year)); ?>)
-            </h3>
-            <p><strong>PLTUSD:</strong> <span>$<?php echo number_format($monthly_totals['plt_price'], 10, '.', ','); ?></span></p>
-            <p><strong>Liquidity:</strong> <span>$<?php echo number_format($monthly_totals['total_liquidity'], 4, '.', ','); ?></span></p>
-            <p><strong>Percentage:</strong> <span><?php echo number_format($monthly_totals['total_percentage'] * 100, 2, '.', ','); ?>%</span></p>
-            <p><strong>Plata:</strong> <span><?php echo number_format($monthly_totals['total_plata'], 4, '.', ','); ?></span></p>
-            <p><small>Last update on: <?php echo date('d-m-Y H:i:s', strtotime($monthly_totals['price_date'])); ?> UTC        <?php echo $updateMonth ?> </small>  </p>
-        </div>
-    <?php endif; ?>
-</div>
-
-<?php
+    <?php
 
 
     usort($table_data, function ($a, $b) {
