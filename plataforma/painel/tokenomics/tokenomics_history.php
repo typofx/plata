@@ -3,6 +3,39 @@ include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
 
 include 'conexao.php';
 
+ob_start();
+require '/home2/granna80/public_html/en/mobile/price.php'; 
+ob_end_clean();
+require_once 'get_live_data.php'; 
+
+
+if (!function_exists('get_dex_base_name_from_string')) {
+    function get_dex_base_name_from_string($exchange_name)
+    {
+        $known_dexes = ['MM Finance', 'CurveFi', 'SushiSwap', 'QuickSwap', 'Uniswap'];
+        foreach ($known_dexes as $dex) {
+            if (stripos($exchange_name, $dex) === 0) {
+                return $dex;
+            }
+        }
+        return explode(' ', $exchange_name)[0];
+    }
+}
+
+if (!function_exists('get_authoritative_display_name')) {
+    function get_authoritative_display_name($group_name_tag, $available_groups_map)
+    {
+        if (isset($available_groups_map[$group_name_tag])) {
+        
+            return $available_groups_map[$group_name_tag];
+        }
+        if ($group_name_tag == 'others') return 'Others';
+
+     
+        return ucwords(str_replace('_', ' ', $group_name_tag));
+    }
+}
+
 $groups_result = $conn->query("SELECT tag, name FROM granna80_bdlinks.finance_tools_groups ORDER BY name ASC");
 $available_groups = [];
 while ($group_row = $groups_result->fetch_assoc()) {
@@ -13,61 +46,27 @@ $circulating_supply = 11299000992;
 $edit_data = null;
 $action = $_REQUEST['action'] ?? '';
 
-// Get distinct years for the filter dropdown
-$years_result = $conn->query("SELECT DISTINCT record_year FROM granna80_bdlinks.tokenomics_history ORDER BY record_year DESC");
-$available_years = [];
-while ($year_row = $years_result->fetch_assoc()) {
-    $available_years[] = $year_row['record_year'];
-}
 
-// Set default filter if none is provided. If years exist, use the most recent one.
-if (isset($_GET['year_filter']) && is_numeric($_GET['year_filter'])) {
-    $year_filter = intval($_GET['year_filter']);
-} elseif (!empty($available_years)) {
-    $year_filter = $available_years[0];
-} else {
-    $year_filter = date('Y'); // Fallback to current year if no records exist
+
+$dates_result = $conn->query("SELECT DISTINCT price_date FROM granna80_bdlinks.tokenomics_history WHERE price_date IS NOT NULL ORDER BY price_date DESC");
+$available_dates = [];
+while ($date_row = $dates_result->fetch_assoc()) {
+    $available_dates[] = $date_row['price_date'];
 }
 
 
-$where_clause = ''; // Initialize the WHERE clause
-
-// First, check if the user wants to see all records.
-if (isset($_GET['show_all']) && $_GET['show_all'] == 'true') {
-    // If showing all, the where clause remains empty, showing all data from all years.
-    $where_clause = '';
-    // We'll set a default for the JSON link month just in case
-    $latest_month_for_link = date('n');
-} else {
-
-
-
-    $latest_month_in_db = null;
-    $stmt_latest_month = $conn->prepare("SELECT MAX(record_month) as latest_month FROM granna80_bdlinks.tokenomics_history WHERE record_year = ?");
-    $stmt_latest_month->bind_param("i", $year_filter);
-
-    if ($stmt_latest_month->execute()) {
-        $result_latest_month = $stmt_latest_month->get_result();
-        $row_latest_month = $result_latest_month->fetch_assoc();
-        if ($row_latest_month && $row_latest_month['latest_month'] !== null) {
-            $latest_month_in_db = (int)$row_latest_month['latest_month'];
-        }
-    }
-    $stmt_latest_month->close();
-
-
-    $latest_month_for_link = $latest_month_in_db ?? date('n'); // Use found month, or current month as fallback
-
-
-    if ($latest_month_in_db !== null) {
-        // Build the clause to filter by year AND the found latest month.
-        $where_clause = " WHERE record_year = " . $year_filter . " AND record_month = " . $latest_month_in_db;
-    } else {
-
-        $where_clause = " WHERE record_year = " . $year_filter;
-    }
+$date_filter = $_GET['date_filter'] ?? 'live';
+if (empty($date_filter)) {
+    $date_filter = 'live';
 }
 
+$where_clause = ''; 
+
+
+if (!empty($date_filter)) {
+
+    $where_clause = " WHERE price_date = '" . $conn->real_escape_string($date_filter) . "'";
+}
 
 
 
@@ -78,7 +77,8 @@ if ($action === 'delete' && isset($_GET['id'])) {
     $stmt = $conn->prepare("DELETE FROM granna80_bdlinks.tokenomics_history WHERE id = ?");
     $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
-        $redirect_url = 'tokenomics_history.php' . ($year_filter ? '?year_filter=' . $year_filter : '');
+
+        $redirect_url = 'tokenomics_history.php?date_filter=' . urlencode($date_filter);
         echo "<script>window.location.href='$redirect_url';</script>";
         exit();
     } else {
@@ -99,28 +99,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $price_date = $_POST['price_date'];
 
 
-    $redirect_url = 'tokenomics_history.php?year_filter=' . $record_year;
+
+
+
     if ($action === 'mass_update_price') {
 
-        $record_month = intval($_POST['record_month']);
         $plt_price = $_POST['plt_price'];
         $price_date = $_POST['price_date'];
+        $date_to_update = $_POST['date_to_update']; 
 
-
-        $sql_mass_update = "UPDATE granna80_bdlinks.tokenomics_history SET plt_price = ?, price_date = ? WHERE record_year = ? AND record_month = ?";
+     
+        $sql_mass_update = "UPDATE granna80_bdlinks.tokenomics_history SET plt_price = ?, price_date = ? WHERE price_date = ?";
         $stmt_mass_update = $conn->prepare($sql_mass_update);
-        $stmt_mass_update->bind_param("dsii", $plt_price, $price_date, $record_year, $record_month);
-
+        $stmt_mass_update->bind_param("dss", $plt_price, $price_date, $date_to_update);
 
         if ($stmt_mass_update->execute()) {
             $stmt_mass_update->close();
 
-
-
-
-            $sql_select_rows = "SELECT id, plata FROM granna80_bdlinks.tokenomics_history WHERE record_year = ? AND record_month = ?";
+            $sql_select_rows = "SELECT id, plata FROM granna80_bdlinks.tokenomics_history WHERE price_date = ?";
             $stmt_select = $conn->prepare($sql_select_rows);
-            $stmt_select->bind_param("ii", $record_year, $record_month);
+            $stmt_select->bind_param("s", $date_to_update);
             $stmt_select->execute();
             $result_rows = $stmt_select->get_result();
 
@@ -128,29 +126,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql_update_row = "UPDATE granna80_bdlinks.tokenomics_history SET liquidity = ?, percentage = ? WHERE id = ?";
             $stmt_update_row = $conn->prepare($sql_update_row);
 
-
-
-
             while ($row_to_update = $result_rows->fetch_assoc()) {
-
                 $new_liquidity = $plt_price * $row_to_update['plata'];
                 $new_percentage = $row_to_update['plata'] / $circulating_supply;
                 $row_id = $row_to_update['id'];
-
 
                 $stmt_update_row->bind_param("ddi", $new_liquidity, $new_percentage, $row_id);
                 $stmt_update_row->execute();
             }
 
-
             $stmt_select->close();
             $stmt_update_row->close();
 
-
-            echo "<script>alert('Success! Price, liquidity and percentage have been updated.'); window.location.href='$redirect_url';</script>";
+  
+            $redirect_url_after_update = 'tokenomics_history.php?date_filter=' . $date_to_update;
+            echo "<script>alert('Success! Price, liquidity and percentage have been updated.'); window.location.href='$redirect_url_after_update';</script>";
             exit();
         } else {
-
             echo "ERROR UPDATING PRICE: " . $stmt_mass_update->error;
         }
     } elseif ($action === 'create') {
@@ -180,12 +172,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql = "INSERT INTO granna80_bdlinks.tokenomics_history (record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date, group_wallet, walletAddress) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        // bind_param atualizado
+    
         $stmt->bind_param("iisddddsss", $record_year, $record_month, $exchange, $liquidity, $percentage, $plata, $current_price, $current_date, $group_wallet, $walletAddress);
 
 
         if ($stmt->execute()) {
-            echo "<script>window.location.href='$redirect_url';</script>";
+            $redirect_filter = $_POST['current_date_filter'] ?? 'live';
+            $correct_redirect_url = 'tokenomics_history.php?date_filter=' . urlencode($redirect_filter);
+            echo "<script>window.location.href='$correct_redirect_url';</script>";
             exit();
         } else {
             echo "Error creating record: " . $stmt->error;
@@ -197,8 +191,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $record_month = intval($_POST['record_month']);
         $exchange = $_POST['exchange'];
         $plata = $_POST['plata'];
-        $group_wallet = $_POST['group_wallet']; // Novo campo
-        $walletAddress = $_POST['walletAddress']; // Novo campo
+        $group_wallet = $_POST['group_wallet']; 
+        $walletAddress = $_POST['walletAddress']; 
 
         $price_query = $conn->prepare("SELECT plt_price FROM granna80_bdlinks.tokenomics_history WHERE record_year = ? AND record_month = ? LIMIT 1");
         $price_query->bind_param("ii", $record_year, $record_month);
@@ -219,7 +213,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_single->bind_param("iisdddssi", $record_year, $record_month, $exchange, $liquidity, $percentage, $plata, $group_wallet, $walletAddress, $id);
 
         if ($stmt_single->execute()) {
-            echo "<script>window.location.href='$redirect_url';</script>";
+            $redirect_filter = $_POST['current_date_filter'] ?? 'live';
+            $correct_redirect_url = 'tokenomics_history.php?date_filter=' . urlencode($redirect_filter);
+            echo "<script>window.location.href='$correct_redirect_url';</script>";
             exit();
         } else {
             echo "Error updating record: " . $stmt_single->error;
@@ -244,22 +240,106 @@ $total_liquidity = 0;
 $total_percentage = 0;
 $total_plata = 0;
 
-$records = [];
-$sql = "SELECT id, record_year, record_month, exchange, liquidity, percentage, plata, plt_price, price_date, group_wallet, walletAddress FROM granna80_bdlinks.tokenomics_history $where_clause ORDER BY record_year DESC, record_month DESC, exchange ASC";
-$result = $conn->query($sql);
+
+$table_render_data = [];
+$date_filter = $_GET['date_filter'] ?? 'live';
+if (empty($date_filter)) {
+    $date_filter = 'live';
+}
 
 
+$year_for_json = gmdate('Y');
+$month_for_json = gmdate('n');
+$price_for_heading = 'N/A';
+$price_date_view = '';
+$month_name_for_title = '';
+$year_for_title = '';
 $history_total_liquidity = 0;
-$history_total_percentage = 0;
 $history_total_plata = 0;
+$history_total_percentage = 0;
 
-if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $records[] = $row;
 
-        $history_total_liquidity += (float)$row['liquidity'];
-        $history_total_percentage += (float)$row['percentage'];
-        $history_total_plata += (float)$row['plata'];
+if ($date_filter === 'live') {
+
+    $table_render_data = get_live_tokenomics_data($conn, $PLTUSD);
+
+    foreach ($table_render_data as $item) {
+        if ($item['is_group']) {
+            $history_total_liquidity += $item['data']['liquidity'];
+            $history_total_plata += $item['data']['plata'];
+        }
+    }
+    if ($circulating_supply > 0) {
+        $history_total_percentage = $history_total_plata / $circulating_supply;
+    }
+
+    $price_for_heading = number_format($PLTUSD, 10, '.', ',');
+    $price_date_view = gmdate('Y-m-d H:i:s');
+    $month_name_for_title = "LIVE Data";
+} else {
+
+
+
+    $where_clause = " WHERE price_date = '" . $conn->real_escape_string($date_filter) . "'";
+    $sql = "SELECT * FROM granna80_bdlinks.tokenomics_history " . $where_clause;
+    $result = $conn->query($sql);
+
+    $records = [];
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $records[] = $row;
+        }
+    }
+
+
+    if (!empty($records)) {
+        $first_record = $records[0];
+        $price_for_heading = number_format((float)$first_record['plt_price'], 10, '.', ',');
+        $price_date_view = $first_record['price_date'];
+        $date_obj = new DateTime($first_record['price_date']);
+        $year_for_title = $date_obj->format('Y');
+        $month_name_for_title = $date_obj->format('F');
+
+        $year_for_json = $date_obj->format('Y');
+        $month_for_json = $date_obj->format('n');
+    }
+
+
+    $history_total_liquidity = array_sum(array_column($records, 'liquidity'));
+    $history_total_plata = array_sum(array_column($records, 'plata'));
+    $history_total_percentage = $history_total_plata > 0 ? $history_total_plata / $circulating_supply : 0;
+
+   
+    $groups_map = array_column($available_groups, 'name', 'tag');
+    $grouped_individuals = [];
+    $group_totals = [];
+
+    foreach ($records as $item) {
+        $group_key = ($item['group_wallet'] == 'dex')
+            ? get_dex_base_name_from_string($item['exchange'])
+            : get_authoritative_display_name($item['group_wallet'], $groups_map);
+
+        if (!isset($group_totals[$group_key])) {
+            $group_totals[$group_key] = ['exchange' => $group_key, 'liquidity' => 0, 'percentage' => 0, 'plata' => 0];
+            $grouped_individuals[$group_key] = [];
+        }
+
+        $group_totals[$group_key]['liquidity'] += (float)$item['liquidity'];
+        $group_totals[$group_key]['percentage'] += (float)$item['percentage'];
+        $group_totals[$group_key]['plata'] += (float)$item['plata'];
+        $grouped_individuals[$group_key][] = $item;
+    }
+
+    uasort($group_totals, fn($a, $b) => $b['liquidity'] <=> $a['liquidity']);
+
+    foreach ($group_totals as $group_display_name => $total_data) {
+        $table_render_data[] = ['is_group' => true, 'data' => $total_data];
+        if (isset($grouped_individuals[$group_display_name])) {
+            usort($grouped_individuals[$group_display_name], fn($a, $b) => $b['liquidity'] <=> $a['liquidity']);
+            foreach ($grouped_individuals[$group_display_name] as $individual_item) {
+                $table_render_data[] = ['is_group' => false, 'data' => $individual_item];
+            }
+        }
     }
 }
 
@@ -291,31 +371,65 @@ $formatted_json_objects = [];
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <style>
+        .group-total-row {
+            background-color: #ecf0f1 !important;
+            /* Cor de fundo cinza claro */
+            font-weight: bold;
+        }
 
+        .group-total-row td {
+            border-bottom: 1px solid #bdc3c7;
+            border-top: 2px solid #95a5a6;
+        }
+    </style>
+    <style>
+        .totals-container {
+            display: flex;
+            justify-content: flex-start; 
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+            font-family: sans-serif;
+        }
+
+        .total-box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            
+            min-width: 350px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+
+        .total-box h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            color: #333;
+        }
+
+        .total-box p {
+            margin: 8px 0;
+            font-size: 1em;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .total-box p strong {
+            color: #555;
+        }
+
+        .total-box p small {
+            margin-top: 10px;
+            color: #777;
+            display: block;
+            text-align: right;
+        }
+    </style>
 </head>
 
-<?php
-
-$latest_month_for_link = date('n');
-
-
-$stmt_month = $conn->prepare("SELECT MAX(record_month) as latest_month FROM granna80_bdlinks.tokenomics_history WHERE record_year = ?");
-$stmt_month->bind_param("i", $year_filter);
-
-if ($stmt_month->execute()) {
-    $result_month = $stmt_month->get_result();
-    if ($result_month->num_rows > 0) {
-        $row_month = $result_month->fetch_assoc();
-
-        if ($row_month['latest_month'] !== null) {
-            $latest_month_for_link = $row_month['latest_month'];
-        }
-    }
-}
-$stmt_month->close();
-
-
-?>
 
 
 <body>
@@ -326,62 +440,44 @@ $stmt_month->close();
             <a href="https://typofx.ie/plataforma/panel/lp-contracts/index.php">[Lp Contracts]</a>
             <?php
 
-            echo "<a href='json.php?year_filter={$year_filter}&month_filter={$latest_month_for_link}' target='_blank'>[JSON]</a>";
+            echo "<a href='json.php?year_filter={$year_for_json}&month_filter={$month_for_json}' target='_blank'>[JSON]</a>";
             ?>
         </div>
 
         <?php
         $month_name = date('F', mktime(0, 0, 0, $latest_month_for_link, 1));
         ?>
-        <?php
 
+        <div class="totals-container">
+            <div class="total-box">
+                <h3>
+                    <?php
+               
+                    $card_title = ($date_filter === 'live' || empty($date_filter))
+                        ? "LIVE Totals"
+                        : "Snapshot: " . $month_name_for_title . ' ' . $year_for_title;
+                    echo $card_title;
+                    ?>
+                </h3>
 
+                <p><strong>PLTUSD:</strong> <span>$<?php echo $price_for_heading; ?></span></p>
+                <p><strong>Liquidity:</strong> <span>$<?php echo number_format($history_total_liquidity, 4, '.', ','); ?></span></p>
+                <p><strong>Percentage:</strong> <span><?php echo number_format($history_total_percentage * 100, 2, '.', ','); ?>%</span></p>
+                <p><strong>Plata:</strong> <span><?php echo number_format((float)$history_total_plata, 4, '.', ','); ?></span></p>
 
-        $sql_price = "SELECT plt_price, price_date FROM granna80_bdlinks.tokenomics_history WHERE record_year = $year_filter AND record_month = $latest_month_for_link ORDER BY id DESC LIMIT 1";
-
-        $result_price = $conn->query($sql_price);
-        $row_price = $result_price->fetch_assoc();
-
-
-        $price_for_heading = $row_price ? number_format((float)$row_price['plt_price'], 10, '.', '') : 'N/A';
-
-        $price_date_view = $row_price['price_date'];
-        $month_name = date('F', mktime(0, 0, 0, $latest_month_for_link, 1));
-
-
-
-
-
-
-
-        ?>
-
-
-
-        <h2>
-            Tokenomics History: <?php echo $month_name; ?> <?php echo $year_filter; ?>
-
-        </h2>
-
-
-        <p>
-            PLTUSD: $<?php echo $price_for_heading; ?><br><br>
-
-            Liquidity: <?php echo number_format($history_total_liquidity, 4, '.', ','); ?><br>
-            Percentage: <?php echo number_format(abs(1 - $history_total_percentage) < 0.0001 ? 100 : $history_total_percentage * 100, 2, '.', ','); ?>%<br>
-            Plata: <?php echo number_format((float) $history_total_plata, 2, '.', ''); ?>
-
-
-            <br><br>
-            <?php
-            if (!empty($price_date_view)) {
-                $date = new DateTime($price_date_view);
-                $formatted_date = $date->format('d-m-Y H:i:s');
-                echo "Last update on: " . $formatted_date . " UTC";
-            }
-            ?>
-        </p>
-        <br><br>
+                <?php if (!empty($price_date_view)): ?>
+                    <p>
+                        <small>
+                            Last update on:
+                            <?php
+                            $date = new DateTime($price_date_view);
+                            echo $date->format('d-m-Y H:i:s') . ' UTC';
+                            ?>
+                        </small>
+                    </p>
+                <?php endif; ?>
+            </div>
+        </div>
 
 
 
@@ -389,86 +485,100 @@ $stmt_month->close();
 
         <div class="filter-container">
             <form method="get" action="tokenomics_history.php">
-                <label for="year_filter">Filter by Year:</label>
-                <select id="year_filter" name="year_filter" onchange="this.form.submit()">
-                    <?php foreach ($available_years as $year): ?>
-                        <option value="<?php echo $year; ?>" <?php echo ($year_filter == $year) ? 'selected' : ''; ?>>
-                            <?php echo $year; ?>
+                <label for="date_filter">Filter by:</label>
+                <select id="date_filter" name="date_filter" onchange="this.form.submit()">
+                    <option value="live" <?php if (empty($_GET['date_filter']) || $_GET['date_filter'] == 'live') echo 'selected'; ?>>--- LIVE Data (Now) ---</option>
+
+                    <?php foreach ($available_dates as $date_option): ?>
+                        <option value="<?php echo $date_option; ?>" <?php echo ($date_filter == $date_option) ? 'selected' : ''; ?>>
+                            <?php
+                            $display_date = new DateTime($date_option);
+                            echo $display_date->format('d-m-Y H:i:s');
+                            ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
-                <a href="tokenomics_history.php?show_all=true" class="button">Show All</a>
             </form>
         </div>
 
-        <div class="form-container">
+        <?php
+
+        if ($date_filter !== 'live'):
+        ?>
+
+            <div class="form-container">
 
 
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="massUpdateForm"> <input type="hidden" name="action" value="mass_update_price">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="massUpdateForm"> <input type="hidden" name="action" value="mass_update_price">
 
-                <input type="hidden" name="record_year" value="<?php echo $year_filter; ?>">
-                <input type="hidden" name="record_month" value="<?php echo $latest_month_for_link; ?>">
-                <label for="price_date">Price Date:</label>
-                <input type="datetime-local" value="<?php echo $price_date_view ?>" id="price_date" name="price_date" required>
-
-
-                <input type="hidden" id="new_plt_price" name="plt_price">
-
-                <button type="submit" id="update_price_btn">
-                    Update price
-                </button>
-            </form>
-        </div>
-
-        <div class="form-container">
+                    <input type="hidden" name="date_to_update" value="<?php echo $date_filter; ?>">
+                    <label for="price_date">Price Date:</label>
+                    <input type="datetime-local" value="<?php echo $price_date_view ?>" id="price_date" name="price_date" required>
 
 
+                    <input type="hidden" id="new_plt_price" name="plt_price">
 
-            <h3><?php echo $edit_data ? 'Edit Record' : 'Add New Record'; ?></h3>
+                    <button type="submit" id="update_price_btn">
+                        Update price
+                    </button>
+                </form>
+            </div>
+
+            <div class="form-container">
 
 
 
+                <h3><?php echo $edit_data ? 'Edit Record' : 'Add New Record'; ?></h3>
 
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <input type="hidden" name="action" value="<?php echo $edit_data ? 'update' : 'create'; ?>">
-                <?php if ($edit_data): ?>
-                    <input type="hidden" name="id" value="<?php echo $edit_data['id']; ?>">
-                <?php endif; ?>
 
-                <label for="record_year">Year:</label>
-                <input type="number" id="record_year" name="record_year" value="<?php echo $edit_data['record_year'] ?? date('Y'); ?>">
 
-                <label for="record_month">Month:</label>
-                <input type="number" id="record_month" name="record_month" min="1" max="12" value="<?php echo $edit_data['record_month'] ?? date('n'); ?>">
 
-                <label for="exchange">Exchange:</label>
-                <input type="text" id="exchange" name="exchange" value="<?php echo htmlspecialchars($edit_data['exchange'] ?? ''); ?>">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <input type="hidden" name="current_date_filter" value="<?php echo htmlspecialchars($date_filter); ?>">
+                    <input type="hidden" name="action" value="<?php echo $edit_data ? 'update' : 'create'; ?>">
+                    <?php if ($edit_data): ?>
+                        <input type="hidden" name="id" value="<?php echo $edit_data['id']; ?>">
+                    <?php endif; ?>
 
-                <label for="plata">Plata:</label>
-                <input type="number" step="any" id="plata" name="plata" value="<?php echo $edit_data['plata'] ?? '0'; ?>">
+                    <label for="record_year">Year:</label>
+                    <input type="number" id="record_year" name="record_year" value="<?php echo $edit_data['record_year'] ?? date('Y'); ?>">
 
-                <label for="group_wallet">Group:</label>
-                <select id="group_wallet" name="group_wallet" required>
-                    <option value="">-- Select a group --</option>
-                    <?php foreach ($available_groups as $group): ?>
-                        <option value="<?php echo htmlspecialchars($group['tag']); ?>" <?php if (isset($edit_data) && $edit_data['group_wallet'] == $group['tag']) echo 'selected'; ?>>
-                            <?php echo htmlspecialchars($group['name']); ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+                    <label for="record_month">Month:</label>
+                    <input type="number" id="record_month" name="record_month" min="1" max="12" value="<?php echo $edit_data['record_month'] ?? date('n'); ?>">
 
-                <label for="walletAddress">Wallet Address:</label>
-                <input type="text" id="walletAddress" name="walletAddress" value="<?php echo htmlspecialchars($edit_data['walletAddress'] ?? ''); ?>" placeholder="0x...">
-                <br><br>
+                    <label for="exchange">Exchange:</label>
+                    <input type="text" id="exchange" name="exchange" value="<?php echo htmlspecialchars($edit_data['exchange'] ?? ''); ?>">
 
-                <button type="submit" id="update" class="<?php echo $edit_data ? 'update' : ''; ?>">
-                    <?php echo $edit_data ? 'Update Record' : 'Save Record'; ?>
-                </button>
-                <?php if ($edit_data): ?>
-                    <a href="tokenomics_history.php?year_filter=<?php echo $edit_data['record_year']; ?>" class="cancel">Cancel Edit</a>
-                <?php endif; ?>
-            </form>
-        </div>
+                    <label for="plata">Plata:</label>
+                    <input type="number" step="any" id="plata" name="plata" value="<?php echo $edit_data['plata'] ?? '0'; ?>">
+
+                    <label for="group_wallet">Group:</label>
+                    <select id="group_wallet" name="group_wallet" required>
+                        <option value="">-- Select a group --</option>
+                        <?php foreach ($available_groups as $group): ?>
+                            <option value="<?php echo htmlspecialchars($group['tag']); ?>" <?php if (isset($edit_data) && $edit_data['group_wallet'] == $group['tag']) echo 'selected'; ?>>
+                                <?php echo htmlspecialchars($group['name']); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+
+                    <label for="walletAddress">Wallet Address:</label>
+                    <input type="text" id="walletAddress" name="walletAddress" value="<?php echo htmlspecialchars($edit_data['walletAddress'] ?? ''); ?>" placeholder="0x...">
+                    <br><br>
+
+                    <button type="submit" id="update" class="<?php echo $edit_data ? 'update' : ''; ?>">
+                        <?php echo $edit_data ? 'Update Record' : 'Save Record'; ?>
+                    </button>
+                    <?php if ($edit_data): ?>
+                        <a href="tokenomics_history.php?date_filter=<?php echo $date_filter; ?>" class="cancel">Cancel Edit</a>
+                    <?php endif; ?>
+                </form>
+            </div>
+
+        <?php
+        endif; 
+        ?>
+
 
         <table id="liquidityTable" class="display" style="width:100%">
             <thead>
@@ -481,61 +591,56 @@ $stmt_month->close();
                     <th>Plata</th>
                     <th>Liquidity</th>
                     <th>Percentage</th>
-                    <th>Actions</th>
+                    <?php if ($date_filter !== 'live'): ?>
+                        <th>Actions</th>
+                    <?php endif; ?>
                 </tr>
             </thead>
             <tbody>
-                <?php
+                <?php foreach ($table_render_data as $row_item): ?>
+                    <?php
+                    $row = $row_item['data'];
+                    $is_group = $row_item['is_group'];
+                    $row_class = $is_group ? 'group-total-row' : 'individual-row';
 
-                $sql_update_on_display = "UPDATE granna80_bdlinks.tokenomics_history SET liquidity = ?, percentage = ? WHERE id = ?";
-                $stmt_update = $conn->prepare($sql_update_on_display);
-
-
-                foreach ($records as $row):
-
-                    $liquidity_plata = (float)$row_price['plt_price'] * (float)$row['plata'];
-                    $porcentage_tokens = (float)$row['plata'] / $circulating_supply;
-
-
-                    $stmt_update->bind_param("ddi", $liquidity_plata, $porcentage_tokens, $row['id']);
-                    $stmt_update->execute();
-
-                ?>
-                    <tr>
+                   
+                    $liquidity_display = $row['liquidity'];
+                    $percentage_display = $row['percentage'];
+                    if (!$is_group && isset($row_price['plt_price'])) {
+                        $liquidity_display = (float)$row_price['plt_price'] * (float)$row['plata'];
+                        $percentage_display = (float)$row['plata'] / $circulating_supply;
+                    }
+                    ?>
+                    <tr class="<?php echo $row_class; ?>">
                         <td><?php echo $row['record_year']; ?></td>
                         <td><?php echo $row['record_month']; ?></td>
+
                         <td><?php echo htmlspecialchars($row['exchange']); ?></td>
-                        <td> <b><?php echo $row['group_wallet']; ?></b></td>
-                        <td>
-                            <?php
 
-                            $wallet_address = $row['walletAddress'] ?? '';
-                            if (!empty($wallet_address)) {
-                                echo "<a href='https://polygonscan.com/address/{$wallet_address}' target='_blank'>"
-                                    . substr($wallet_address, 0, 6) . "..." . substr($wallet_address, -4)
-                                    . "</a>";
-                            }
-                            ?>
-                        </td>
-                        <td><?php echo number_format($row['plata'], 4, '.', ','); ?></td>
-                        <td><?php echo number_format($liquidity_plata, 2, '.', ','); ?></td>
-                        <td><?php echo number_format($porcentage_tokens, 4, '.', ','); ?></td>
-
-
-
+                        <td><b><?php echo $is_group ? 'TOTAL GROUP' : htmlspecialchars($row['group_wallet']); ?></b></td>
 
                         <td>
-                            <a href="?action=edit&id=<?php echo $row['id']; ?>&year_filter=<?php echo $row['record_year']; ?>">Edit</a> |
-                            <a href="?action=delete&id=<?php echo $row['id']; ?>&year_filter=<?php echo $row['record_year']; ?>" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+                            <?php if (!$is_group && !empty($row['walletAddress'])): ?>
+                                <a href="https://polygonscan.com/address/<?php echo htmlspecialchars($row['walletAddress']); ?>" target="_blank">
+                                    <?php echo substr($row['walletAddress'], 0, 6) . "..." . substr($row['walletAddress'], -4); ?>
+                                </a>
+                            <?php endif; ?>
                         </td>
+
+                        <td><?php echo number_format((float)$row['plata'], 4, '.', ','); ?></td>
+                        <td><?php echo number_format((float)$liquidity_display, 2, '.', ','); ?></td>
+                        <td><?php echo number_format((float)$percentage_display * 100, 4, '.', ','); ?>%</td>
+
+                        <?php if ($date_filter !== 'live'): ?>
+                            <td>
+                                <?php if (!$is_group): ?>
+                                    <a href="?action=edit&id=<?php echo $row['id']; ?>&date_filter=<?php echo $date_filter; ?>">Edit</a> |
+                                    <a href="?action=delete&id=<?php echo $row['id']; ?>&date_filter=<?php echo $date_filter; ?>" onclick="...">Delete</a>
+                                <?php endif; ?>
+                            </td>
+                        <?php endif; ?>
                     </tr>
-
-                <?php
-                endforeach;
-
-
-                $stmt_update->close();
-                ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -543,10 +648,7 @@ $stmt_month->close();
     <script>
         $(document).ready(function() {
             var table = $('#liquidityTable').DataTable({
-                "order": [
-                    [6, 'desc'],
-                    [7, 'desc']
-                ],
+                "order": [],
                 "pageLength": 100,
                 "lengthMenu": [
                     [100, 200, 500, -1],
