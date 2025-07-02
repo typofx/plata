@@ -3,15 +3,38 @@
 include 'conexao.php';
 
 
-$query = "SELECT SUM(CAST(Price AS DECIMAL(10, 2))) AS total_price FROM granna80_bdlinks.scrapyard";
-$result = mysqli_query($conn, $query);
+$summary_query = "
+    SELECT
+        status,
+        COUNT(*) AS item_count,
+        SUM(CAST(Price AS DECIMAL(10, 2))) AS total_value
+    FROM
+        granna80_bdlinks.scrapyard
+    GROUP BY
+        status
+";
 
-if ($result) {
-    $row = mysqli_fetch_assoc($result);
-    // echo "The total sum of all prices is: " . $row['total_price'];
-} else {
-    echo "Error: " . mysqli_error($conn);
+$summary_result = $conn->query($summary_query);
+
+
+$status_summary = [
+    'Active' => ['count' => 0, 'value' => 0.00],
+    'Sold' => ['count' => 0, 'value' => 0.00]
+];
+
+
+if ($summary_result) {
+    while ($summary_row = $summary_result->fetch_assoc()) {
+        $status = $summary_row['status'];
+
+        if (isset($status_summary[$status])) {
+            $status_summary[$status]['count'] = $summary_row['item_count'];
+            $status_summary[$status]['value'] = $summary_row['total_value'];
+        }
+    }
 }
+
+
 
 // Fetch all records from the scrapyard table
 $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
@@ -97,9 +120,22 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
     <a href="add_new_equipment.php">[ Add new product ]</a>
     <a href="register_eshop.php">[ Register eShop ]</a>
     <a href="register_equipament.php">[ Register equipment ]</a>
+    <a href="register_condition.php">[ Register condition ]</a>
     <a href="<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/main.php'; ?>">[Back]</a>
     <br><br>
-    <p>Total of the Products: <?php echo $row['total_price'];  ?></p>
+
+    <div>
+        <p style="margin: 5px 0;">
+            <strong>Active Products:</strong> <?= $status_summary['Active']['count'] ?> :
+            <span style="color: green;"><?= number_format($status_summary['Active']['value'] ?? 0, 2) ?> EUR</span>
+        </p>
+        <p style="margin: 5px 0;">
+            <strong>Sold Products:</strong> <?= $status_summary['Sold']['count'] ?> :
+            <span style="color: red;"><?= number_format($status_summary['Sold']['value'] ?? 0, 2) ?> EUR</span>
+        </p>
+    </div>
+
+
     <table id="scrapyardTable" class="display">
         <thead>
             <tr>
@@ -120,9 +156,9 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                 <th>Returns</th>
                 <th>Copy</th>
                 <th>eBay</th>
-                <th>Last Updated</th>
                 <th>Last Edited By</th>
-                <th>Sold</th>
+                <th>Status</th>
+                <th>Last Updated</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -278,7 +314,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                             <?= htmlspecialchars($row['Brand']) ?>
                         <?php endif; ?>
                     </td>
-                    <td><?= htmlspecialchars($row['Model'] === 'Null' ? '' : $row['Model']) ?></td>
+                    <td><?= htmlspecialchars($row['Model'] === 'null' ? '' : $row['Model']) ?></td>
                     <td><?= htmlspecialchars($row['Config']) ?></td>
                     <td><?= htmlspecialchars($row['Code']) ?></td>
                     <td><?= htmlspecialchars($row['Description']) ?></td>
@@ -294,7 +330,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                                                 'OEM' => $row['Column_4'] === 'yes' ? 'OEM' : '',
                                                 'Equipment' => $row['equipment_name'],
                                                 'Brand' => $row['Brand'],
-                                                'Model' => $row['Model'] === 'Null' ? '' : $row['Model'],
+                                                'Model' => $row['Model'] === 'null' ? '' : $row['Model'],
                                                 'Configuration' => $row['Config'],
                                                 'Code' => $row['Code'],
                                                 'Description' => $row['Description'],
@@ -334,16 +370,20 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                     </td>
 
                     <td style="white-space: nowrap;">
-                        <?= date('d-m-Y', strtotime($row['last_updated'])) ?>
-                    </td>
-
-                    <td style="white-space: nowrap;">
                         <?= htmlspecialchars($row['last_edited_by']) ?>
                     </td>
 
+
                     <td style="white-space: nowrap;">
-                        <?= !empty($row['sold_date']) ? date('d-m-Y', strtotime($row['sold_date'])) : ' ' ?>
+                        <?= htmlspecialchars($row['status']) ?>
                     </td>
+
+                    <td style="white-space: nowrap;">
+                        <?= date('d-m-Y', strtotime($row['last_updated'])) ?>
+                    </td>
+
+
+
 
 
                     <td class="action-icons">
@@ -406,16 +446,16 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
 
 
 
-<script>
-    $(document).ready(function() {
-        $('#scrapyardTable').DataTable({
-            pageLength: 250,
-            lengthChange: true,
-            responsive: true,
-            lengthMenu: [100, 250, 500, 1000] 
+    <script>
+        $(document).ready(function() {
+            $('#scrapyardTable').DataTable({
+                pageLength: 250,
+                lengthChange: true,
+                responsive: true,
+                lengthMenu: [100, 250, 500, 1000]
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
