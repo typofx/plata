@@ -13,18 +13,62 @@ if ($id <= 0) {
     die('Invalid ID');
 }
 
-$equipment_query = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard WHERE ID = $id");
+$equipment_query = $conn->query("
+    SELECT 
+        s.*,
+        b.brand_name,
+        e.name AS equipment_name
+    FROM granna80_bdlinks.scrapyard s
+    LEFT JOIN granna80_bdlinks.scrapyard_brands b ON s.brand_id = b.brand_id
+    LEFT JOIN granna80_bdlinks.scrapyard_equipment e ON s.Equipment = e.id
+    WHERE s.ID = $id
+");
 $equipment = $equipment_query->fetch_assoc();
 
 if (!$equipment) {
     die('Equipment not found');
 }
 
+$model_display = ($equipment['Model'] === 'null') ? '' : $equipment['Model'];
+$oem_display = ($equipment['Column_4'] === 'yes') ? 'OEM' : '';
+
+
+$title_parts = array_filter([
+    $equipment['Conditions'],
+    $oem_display,
+    $equipment['equipment_name'],
+    $equipment['brand_name'],
+    $model_display,
+    $equipment['Config'],
+    $equipment['Code'],
+    $equipment['Description']
+]);
+
+
+$full_title = implode(' ', $title_parts);
+
+
+$copy_data_json = htmlspecialchars(json_encode([
+    'Condition'     => $equipment['Conditions'],
+    'OEM'           => $oem_display,
+    'Equipment'     => $equipment['equipment_name'],
+    'Brand'         => $equipment['brand_name'],
+    'Model'         => $model_display,
+    'Configuration' => $equipment['Config'],
+    'Code'          => $equipment['Code'],
+    'Description'   => $equipment['Description'],
+]));
+
+// Monta a URL do eBay
+$price_for_ebay = number_format((float)$equipment['Price'], 2);
+$ebay_url = "https://www.ebay.ie/lstng?mode=AddItem&price={$price_for_ebay}&categoryId=168061&aspects=eJyLjgUAARUAuQ%3D%3D&condition=3000&title=" . rawurlencode($full_title);
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conditions = sanitizeInput($_POST['conditions'] ?? null);
     $column_4 = sanitizeInput($_POST['column_4'] ?? null);
     $equipment_name = sanitizeInput($_POST['equipment'] ?? null);
-
+    $status = sanitizeInput($_POST['status'] ?? 'Active');
     $brand_id = intval($_POST['brand_id'] ?? 0);
     $model_id = intval($_POST['model_id'] ?? 0);
     $config = sanitizeInput($_POST['config'] ?? null);
@@ -104,15 +148,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $model_name = $model_result->fetch_assoc()['model_name'] ?? '';
     }
 
-    $sold_date_from_form = $_POST['sold_date'] ?? null;
-    $sold_date_to_db = !empty($sold_date_from_form) ? $sold_date_from_form : NULL;
+
 
     $utc_now = new DateTime('now', new DateTimeZone('UTC'));
     $last_updated_utc = $utc_now->format('Y-m-d H:i:s');
 
     $query = "UPDATE granna80_bdlinks.scrapyard 
               SET Conditions = ?, Column_4 = ?, Equipment = ?, Brand = ?, Model = ?, Config = ?, Code = ?, Description = ?, Price = ?, IRE = ?, EUR = ?, Returns = ?, brand_id = ?, model_id = ?, eshop_data = ?, image1 = ?, image2 = ?, image3 = ?, image4 = ?, image5 = ?,
-         last_updated = ?, last_edited_by = ?, sold_date = ? WHERE ID = ?";
+         last_updated = ?, last_edited_by = ?, status = ? WHERE ID = ?";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
@@ -140,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $imagePaths[4],
             $last_updated_utc,
             $userEmail,
-            $sold_date_to_db,
+            $status,
             $id
         );
 
@@ -157,10 +200,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+
+
+
 $brands = $conn->query("SELECT brand_id, brand_name FROM granna80_bdlinks.scrapyard_brands ORDER BY brand_name");
 $models = $conn->query("SELECT model_id, model_name FROM granna80_bdlinks.scrapyard_models ORDER BY model_name");
 $eshops = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_eshops ORDER BY name");
 $equipments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equipment ORDER BY name");
+$conditions_result = $conn->query("SELECT id, condition_name FROM granna80_bdlinks.scrapyard_condition ORDER BY condition_name");
 
 $current_eshop_data = [];
 if (!empty($equipment['eshop_data'])) {
@@ -179,7 +226,7 @@ if (!empty($equipment['eshop_data'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
@@ -327,7 +374,7 @@ if (!empty($equipment['eshop_data'])) {
                             id="cropped-image-<?php echo $i; ?>"
                             value="">
                         <button type="button" class="crop-button" onclick="openCropper('image-<?php echo $i; ?>', <?php echo $i; ?>)">
-                            Crop
+                            Edit
                         </button>
                     </div>
                 </div>
@@ -337,10 +384,13 @@ if (!empty($equipment['eshop_data'])) {
         <input type="hidden" name="cropped_images[]" id="cropped-images">
 
         <br><br><label for="conditions">Condition:</label>
-        <select id="conditions" name="conditions">
-            <option value="Used" <?= $equipment['Conditions'] === 'Used' ? 'selected' : '' ?>>Used</option>
-            <option value="Used Working" <?= $equipment['Conditions'] === 'Used Working' ? 'selected' : '' ?>>Used Working</option>
-            <option value="For Parts or Not Working" <?= $equipment['Conditions'] === 'Broken' ? 'selected' : '' ?>>For Parts or Not Working</option>
+        <select id="conditions" name="conditions" required>
+            <option value="" disabled <?= empty($equipment['Conditions']) ? 'selected' : '' ?>>-- Select Condition --</option>
+            <?php while ($condition = $conditions_result->fetch_assoc()): ?>
+                <option value="<?= htmlspecialchars($condition['condition_name']) ?>" <?= $equipment['Conditions'] === $condition['condition_name'] ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($condition['condition_name']) ?>
+                </option>
+            <?php endwhile; ?>
         </select><br><br>
 
         <!-- OEM -->
@@ -422,10 +472,26 @@ if (!empty($equipment['eshop_data'])) {
         <input type="text" id="returns" name="returns" value="<?= htmlspecialchars($equipment['Returns']) ?>"><br><br>
 
         <br>
-        <label for="sold_date">Date of Sale:</label><br>
-        <input type="datetime-local" id="sold_date" name="sold_date"
-            value="<?= !empty($equipment['sold_date']) ? date('Y-m-d\TH:i', strtotime($equipment['sold_date'])) : '' ?>">
+        <label for="status">Status:</label><br>
+        <select id="status" name="status">
+            <option value="Active" <?= ($equipment['status'] === 'Active') ? 'selected' : '' ?>>Active</option>
+            <option value="Sold" <?= ($equipment['status'] === 'Sold') ? 'selected' : '' ?>>Sold</option>
+        </select>
         <br><br>
+        <label for="Copy Data">Copy Data: </label><br>
+        <button type="button" class="copy-btn" data-content="<?= $copy_data_json ?>">
+            Copy Data
+        </button> <br><br>
+
+        <label for="ebay-link" style="font-size: 16px; display: block; margin-bottom: 8px;">List on eBay: </label>
+        <a id="ebay-link" href="<?= $ebay_url ?>" target="_blank" title="List on eBay"
+            style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background-color: #0064D2; color: white; font-size: 16px; text-decoration: none; border-radius: 6px; transition: background-color 0.3s;">
+            <i class="fab fa-ebay" style="font-size: 20px;"></i>
+            <span>Go to eBay</span>
+        </a>
+
+
+        </a><br><br>
 
         <button type="submit">Update Equipment</button>
         <a href="index.php">[ Back ]</a>
@@ -612,6 +678,33 @@ if (!empty($equipment['eshop_data'])) {
                 cropper.rotate(degrees);
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adiciona o listener para o novo botão de cópia
+            const copyButton = document.querySelector('.copy-btn');
+            if (copyButton) {
+                copyButton.addEventListener('click', function() {
+                    const button = this;
+                    const data = JSON.parse(button.dataset.content);
+
+                    // Formata o texto para ser copiado
+                    const contentToCopy = `${data.Condition} ${data.OEM} ${data.Equipment} ${data.Brand} ${data.Model} ${data.Configuration} ${data.Code} ${data.Description}`.replace(/\s+/g, ' ').trim();
+
+                    // Usa a API moderna de Clipboard
+                    navigator.clipboard.writeText(contentToCopy).then(() => {
+                        const originalText = button.textContent;
+                        button.textContent = 'Copied!';
+                        alert('copied successfully');
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                        }, 2000); // Volta ao texto original após 2 segundos
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                        alert('Failed to copy content.');
+                    });
+                });
+            }
+        });
     </script>
 
 </body>
