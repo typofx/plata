@@ -29,15 +29,24 @@ if (!$equipment) {
     die('Equipment not found');
 }
 
-$model_display = ($equipment['Model'] === 'null') ? '' : $equipment['Model'];
+$clean_model = trim(preg_replace('/[^\PC\s]/u', '', $equipment['Model'] ?? ''));
+
+
+if ($clean_model === '' || stripos($clean_model, 'null') !== false) {
+    $model_display = '';
+} else {
+    $model_display = $equipment['Model'];
+}
 $oem_display = ($equipment['Column_4'] === 'yes') ? 'OEM' : '';
+
+  $brand_text = (isset($equipment['brand_name']) && strtolower(trim($equipment['brand_name'])) !== 'null') ? $equipment['brand_name'] : '';
 
 
 $title_parts = array_filter([
     $equipment['Conditions'],
     $oem_display,
     $equipment['equipment_name'],
-    $equipment['brand_name'],
+    $brand_text,
     $model_display,
     $equipment['Config'],
     $equipment['Code'],
@@ -52,14 +61,14 @@ $copy_data_json = htmlspecialchars(json_encode([
     'Condition'     => $equipment['Conditions'],
     'OEM'           => $oem_display,
     'Equipment'     => $equipment['equipment_name'],
-    'Brand'         => $equipment['brand_name'],
+    'Brand'         =>  $brand_text,
     'Model'         => $model_display,
     'Configuration' => $equipment['Config'],
     'Code'          => $equipment['Code'],
     'Description'   => $equipment['Description'],
 ]));
 
-// Monta a URL do eBay
+
 $price_for_ebay = number_format((float)$equipment['Price'], 2);
 $ebay_url = "https://www.ebay.ie/lstng?mode=AddItem&price={$price_for_ebay}&categoryId=168061&aspects=eJyLjgUAARUAuQ%3D%3D&condition=3000&title=" . rawurlencode($full_title);
 
@@ -78,6 +87,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ire = sanitizeInput($_POST['ire'] ?? null);
     $eur = sanitizeInput($_POST['eur'] ?? null);
     $returns = sanitizeInput($_POST['returns'] ?? null);
+
+
+    $sold_date_input = sanitizeInput($_POST['sold_date'] ?? null);
+    $sold_date_for_db = null; // Padrão é NULL
+    if (!empty($sold_date_input) && $status === 'Sold') {
+        // Converte a data de d/m/Y para Y-m-d para o banco de dados
+        $date_obj = DateTime::createFromFormat('d/m/Y', $sold_date_input);
+        if ($date_obj) {
+            $sold_date_for_db = $date_obj->format('Y-m-d');
+        }
+    }
+
 
     $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/images/uploads-scrapyard/equipaments/';
     $imagePaths = [];
@@ -155,12 +176,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = "UPDATE granna80_bdlinks.scrapyard 
               SET Conditions = ?, Column_4 = ?, Equipment = ?, Brand = ?, Model = ?, Config = ?, Code = ?, Description = ?, Price = ?, IRE = ?, EUR = ?, Returns = ?, brand_id = ?, model_id = ?, eshop_data = ?, image1 = ?, image2 = ?, image3 = ?, image4 = ?, image5 = ?,
-         last_updated = ?, last_edited_by = ?, status = ? WHERE ID = ?";
+         last_updated = ?, last_edited_by = ?, status = ?, sold_date = ? WHERE ID = ?";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
         $stmt->bind_param(
-            "sssssssssssssssssssssssi",
+            "ssssssssssssssssssssssssi",
             $conditions,
             $column_4,
             $equipment_name,
@@ -184,12 +205,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $last_updated_utc,
             $userEmail,
             $status,
+            $sold_date_for_db,
             $id
         );
 
         if ($stmt->execute()) {
             echo "Equipment updated successfully!";
-            echo "<script>window.location.href='edit_equipment.php?id=$id';</script>";
+            echo "<script>window.location.href='index.php';</script>";
         } else {
             echo "Error updating the equipment: " . $stmt->error;
         }
@@ -383,15 +405,20 @@ if (!empty($equipment['eshop_data'])) {
 
         <input type="hidden" name="cropped_images[]" id="cropped-images">
 
-        <br><br><label for="conditions">Condition:</label>
+        <br><br>
+        <label for="conditions">Condition:</label>
         <select id="conditions" name="conditions" required>
             <option value="" disabled <?= empty($equipment['Conditions']) ? 'selected' : '' ?>>-- Select Condition --</option>
-            <?php while ($condition = $conditions_result->fetch_assoc()): ?>
-                <option value="<?= htmlspecialchars($condition['condition_name']) ?>" <?= $equipment['Conditions'] === $condition['condition_name'] ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($condition['condition_name']) ?>
-                </option>
-            <?php endwhile; ?>
-        </select><br><br>
+            <option value="New" <?= $equipment['Conditions'] === 'New' ? 'selected' : '' ?>>New</option>
+            <option value="New other" <?= $equipment['Conditions'] === 'New other' ? 'selected' : '' ?>>New other</option>
+            <option value="Seller refurbished" <?= $equipment['Conditions'] === 'Seller refurbished' ? 'selected' : '' ?>>Seller refurbished</option>
+            <option value="Used" <?= $equipment['Conditions'] === 'Used' ? 'selected' : '' ?>>Used</option>
+            <option value="For parts or not working" <?= $equipment['Conditions'] === 'For parts or not working' ? 'selected' : '' ?>>For parts or not working</option>
+          
+        </select>
+        <br><br>
+
+
 
         <!-- OEM -->
         <label for="column_4">OEM:</label>
@@ -471,13 +498,21 @@ if (!empty($equipment['eshop_data'])) {
         <label for="returns">Returns:</label>
         <input type="text" id="returns" name="returns" value="<?= htmlspecialchars($equipment['Returns']) ?>"><br><br>
 
-        <br>
+      <br>
         <label for="status">Status:</label><br>
         <select id="status" name="status">
             <option value="Active" <?= ($equipment['status'] === 'Active') ? 'selected' : '' ?>>Active</option>
             <option value="Sold" <?= ($equipment['status'] === 'Sold') ? 'selected' : '' ?>>Sold</option>
+            <option value="Test" <?= ($equipment['status'] === 'Test') ? 'selected' : '' ?>>Test</option>
         </select>
         <br><br>
+
+        <div id="sold_date_container" style="display: none;">
+            <label for="sold_date">Sold Date (d/m/Y):</label><br>
+            <input type="text" id="sold_date" name="sold_date" placeholder="dd/mm/yyyy" value="<?= !empty($equipment['sold_date']) ? date('d/m/Y', strtotime($equipment['sold_date'])) : '' ?>">
+            <br><br>
+        </div>
+
         <label for="Copy Data">Copy Data: </label><br>
         <button type="button" class="copy-btn" data-content="<?= $copy_data_json ?>">
             Copy Data
@@ -680,30 +715,52 @@ if (!empty($equipment['eshop_data'])) {
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Adiciona o listener para o novo botão de cópia
+
             const copyButton = document.querySelector('.copy-btn');
             if (copyButton) {
                 copyButton.addEventListener('click', function() {
                     const button = this;
                     const data = JSON.parse(button.dataset.content);
 
-                    // Formata o texto para ser copiado
+
                     const contentToCopy = `${data.Condition} ${data.OEM} ${data.Equipment} ${data.Brand} ${data.Model} ${data.Configuration} ${data.Code} ${data.Description}`.replace(/\s+/g, ' ').trim();
 
-                    // Usa a API moderna de Clipboard
+
                     navigator.clipboard.writeText(contentToCopy).then(() => {
                         const originalText = button.textContent;
                         button.textContent = 'Copied!';
-                        alert('copied successfully');
+
                         setTimeout(() => {
                             button.textContent = originalText;
-                        }, 2000); // Volta ao texto original após 2 segundos
+                        }, 2000);
                     }).catch(err => {
                         console.error('Failed to copy: ', err);
                         alert('Failed to copy content.');
                     });
                 });
             }
+
+            const statusSelect = document.getElementById('status');
+            const soldDateContainer = document.getElementById('sold_date_container');
+            const soldDateInput = document.getElementById('sold_date');
+
+            function toggleSoldDate() {
+                if (statusSelect.value === 'Sold') {
+                    soldDateContainer.style.display = 'block'; 
+                } else {
+                    soldDateContainer.style.display = 'none'; 
+                    soldDateInput.value = ''; 
+                }
+            }
+
+         
+            toggleSoldDate();
+
+           
+            statusSelect.addEventListener('change', toggleSoldDate);
+
+
+
         });
     </script>
 

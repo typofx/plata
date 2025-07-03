@@ -19,7 +19,8 @@ $summary_result = $conn->query($summary_query);
 
 $status_summary = [
     'Active' => ['count' => 0, 'value' => 0.00],
-    'Sold' => ['count' => 0, 'value' => 0.00]
+    'Sold' => ['count' => 0, 'value' => 0.00],
+    'Test' => ['count' => 0, 'value' => 0.00]
 ];
 
 
@@ -120,7 +121,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
     <a href="add_new_equipment.php">[ Add new product ]</a>
     <a href="register_eshop.php">[ Register eShop ]</a>
     <a href="register_equipament.php">[ Register equipment ]</a>
-    <a href="register_condition.php">[ Register condition ]</a>
+
     <a href="<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/main.php'; ?>">[Back]</a>
     <br><br>
 
@@ -132,6 +133,14 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
         <p style="margin: 5px 0;">
             <strong>Sold Products:</strong> <?= $status_summary['Sold']['count'] ?> :
             <span style="color: red;"><?= number_format($status_summary['Sold']['value'] ?? 0, 2) ?> EUR</span>
+        </p>
+        <p style="margin: 5px 0;">
+            <strong>Query products total: </strong>
+            <span id="search-total" style="color: blue; font-weight: bold;">0.00 EUR</span>
+        </p>
+        <p style="margin: 5px 0;">
+            <strong>Test Products:</strong> <?= $status_summary['Test']['count'] ?? 0 ?> :
+            <span style="color: #cccc00;"><?= number_format($status_summary['Test']['value'] ?? 0, 2) ?> EUR</span>
         </p>
     </div>
 
@@ -166,18 +175,21 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             <?php
             $uploadDir = '/images/uploads-scrapyard/';
             $query = "
-            SELECT 
-                scrapyard.*,
-                scrapyard_brands.brand_image AS brand_logo,
-                scrapyard_brands.brand_name AS brand_name,
-                scrapyard_equipment.name AS equipment_name
-            FROM granna80_bdlinks.scrapyard
-            LEFT JOIN granna80_bdlinks.scrapyard_brands 
-                ON TRIM(LOWER(scrapyard.Brand)) = TRIM(LOWER(scrapyard_brands.brand_name))
-            LEFT JOIN granna80_bdlinks.scrapyard_equipment
-                ON scrapyard.Equipment = scrapyard_equipment.id
-            ORDER BY scrapyard.ID ASC
-            ";
+    SELECT 
+        scrapyard.*,
+        scrapyard_brands.brand_image AS brand_logo,
+        scrapyard_brands.brand_name, 
+        scrapyard_equipment.name AS equipment_name,
+        scrapyard_models.model_name 
+    FROM granna80_bdlinks.scrapyard
+    LEFT JOIN granna80_bdlinks.scrapyard_brands 
+        ON scrapyard.brand_id = scrapyard_brands.brand_id 
+    LEFT JOIN granna80_bdlinks.scrapyard_equipment
+        ON scrapyard.Equipment = scrapyard_equipment.id
+    LEFT JOIN granna80_bdlinks.scrapyard_models 
+        ON scrapyard.model_id = scrapyard_models.model_id 
+    ORDER BY scrapyard.ID ASC
+";
 
             $result = $conn->query($query);
             $cont = 1;
@@ -197,8 +209,20 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                         ];
                     }
                 }
+                $brand_text = (isset($row['brand_name']) && strtolower(trim($row['brand_name'])) !== 'null') ? $row['brand_name'] : '';
+                $model_text = (isset($row['model_name']) && strtolower(trim($row['model_name'])) !== 'null') ? $row['model_name'] : '';
+
+
+                $row_style = '';
+
+          
+                if (isset($row['status']) && $row['status'] === 'Test') {
+              
+                    $row_style = 'style="background-color: #fffacd;"';
+                }
+
             ?>
-                <tr>
+               <tr <?= $row_style ?>>
                     <td><?= $cont ?></td>
                     <td>
 
@@ -302,19 +326,31 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                     <td><?= htmlspecialchars($row['Column_4'] === 'yes' ? 'OEM' : '') ?></td>
                     <td><?= htmlspecialchars($row['equipment_name']) ?></td>
                     <td>
-                        <?php if (!empty($row['brand_logo'])): ?>
-                            <img
-                                src="/images/uploads-scrapyard/brands/<?= htmlspecialchars($row['brand_logo']) ?>"
-                                alt="<?= htmlspecialchars($row['brand_name']) ?>"
-                                style="height: 30px;">
+                        <?php
 
-                            <span style="display: none;"><?= htmlspecialchars($row['brand_name']) ?></span>
+                        if (!empty($row['brand_logo'])) {
+                            echo '<img src="/images/uploads-scrapyard/brands/' . htmlspecialchars($row['brand_logo']) . '" alt="' . htmlspecialchars($row['brand_name']) . '" style="height: 30px;">';
 
-                        <?php else: ?>
-                            <?= htmlspecialchars($row['Brand']) ?>
-                        <?php endif; ?>
+
+                            echo '<span style="display: none;">' . htmlspecialchars($row['brand_name']) . '</span>';
+                        }
+
+                        ?>
                     </td>
-                    <td><?= htmlspecialchars($row['Model'] === 'null' ? '' : $row['Model']) ?></td>
+                    <td>
+                        <?php
+
+                        $model_display = $row['model_name'] ?? '';
+
+                        if (strtolower($model_display) == 'null' || strtolower($model_display) == '­null') {
+                            echo '';
+                        } else {
+                            echo htmlspecialchars($model_display);
+                        }
+                        ?>
+                    </td>
+
+
                     <td><?= htmlspecialchars($row['Config']) ?></td>
                     <td><?= htmlspecialchars($row['Code']) ?></td>
                     <td><?= htmlspecialchars($row['Description']) ?></td>
@@ -323,20 +359,46 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                     <td><?= htmlspecialchars($row['EUR']) ?></td>
                     <td><?= htmlspecialchars($row['Returns']) ?></td>
                     <td>
+                        <?php
+
+                        $text_to_copy_parts = [
+                            $row['Conditions'],
+                            $row['Column_4'] === 'yes' ? 'OEM' : '',
+                            $row['equipment_name'],
+                            $brand_text,
+                            $model_text,
+                            $row['Config'],
+                            $row['Code'],
+                            $row['Description']
+                        ];
+
+                        $full_text_to_copy = implode(' ', array_filter($text_to_copy_parts));
+
+
+                        $char_count = strlen($full_text_to_copy);
+
+
+                        $counter_color = ($char_count < 80) ? 'green' : 'red';
+                        ?>
+
                         <button
                             class="copy-btn"
                             data-content="<?= htmlspecialchars(json_encode([
                                                 'Condition' => $row['Conditions'],
                                                 'OEM' => $row['Column_4'] === 'yes' ? 'OEM' : '',
                                                 'Equipment' => $row['equipment_name'],
-                                                'Brand' => $row['Brand'],
-                                                'Model' => $row['Model'] === 'null' ? '' : $row['Model'],
+                                                'Brand' => $brand_text,
+                                                'Model' =>  $model_text,
                                                 'Configuration' => $row['Config'],
                                                 'Code' => $row['Code'],
                                                 'Description' => $row['Description'],
                                             ])) ?>">
                             Copy
                         </button>
+
+                        <div style="color: <?= $counter_color ?>; font-weight: bold; font-size: 12px; margin-top: 4px;">
+                            (<?= $char_count ?>)
+                        </div>
                     </td>
 
                     <?php
@@ -349,8 +411,8 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                         $row['Conditions'],
                         $row['Column_4'] === 'yes' ? 'OEM' : '',
                         $row['equipment_name'],
-                        $row['Brand'],
-                        $row['Model'] === 'Null' ? '' : $row['Model'],
+                        $brand_text,
+                        $model_text,
                         $row['Config'],
                         $row['Code'],
                         $row['Description']
@@ -379,7 +441,16 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                     </td>
 
                     <td style="white-space: nowrap;">
-                        <?= date('d-m-Y', strtotime($row['last_updated'])) ?>
+                        <?php
+
+                        if ($row['status'] === 'Sold' && !empty($row['sold_date'])) {
+
+                            echo '<span style="color: red;">' . date('d-m-Y', strtotime($row['sold_date'])) . '</span>';
+                        } else {
+
+                            echo date('d-m-Y', strtotime($row['last_updated']));
+                        }
+                        ?>
                     </td>
 
 
@@ -448,11 +519,47 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
 
     <script>
         $(document).ready(function() {
-            $('#scrapyardTable').DataTable({
+
+            var table = $('#scrapyardTable').DataTable({
                 pageLength: 250,
                 lengthChange: true,
                 responsive: true,
                 lengthMenu: [100, 250, 500, 1000]
+            });
+
+
+            var searchTotalElement = $('#search-total');
+
+
+            function updateSearchTotal() {
+
+                var searchTerm = table.search();
+
+
+                if (searchTerm === '') {
+                    searchTotalElement.text('0.00 EUR');
+                    return;
+                }
+
+
+                var total = 0;
+                const priceColumnIndex = 11;
+
+                table.rows({
+                    search: 'applied'
+                }).data().each(function(rowData) {
+                    var priceString = rowData[priceColumnIndex];
+                    var price = parseFloat(priceString) || 0;
+                    total += price;
+                });
+
+
+                searchTotalElement.text(total.toFixed(2) + ' EUR');
+            }
+
+
+            table.on('draw.dt', function() {
+                updateSearchTotal();
             });
         });
     </script>
