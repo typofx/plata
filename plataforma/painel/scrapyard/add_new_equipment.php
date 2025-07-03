@@ -27,6 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ire = sanitizeInput($_POST['ire'] ?? null);
     $eur = sanitizeInput($_POST['eur'] ?? null);
     $returns = sanitizeInput($_POST['returns'] ?? null);
+    $status = sanitizeInput($_POST['status'] ?? 'Active');
+    $sold_date_input = sanitizeInput($_POST['sold_date'] ?? null);
+    $sold_date_for_db = null; // Padrão é NULL
+
+
+    if (!empty($sold_date_input) && $status === 'Sold') {
+        $date_obj = DateTime::createFromFormat('d/m/Y', $sold_date_input);
+        if ($date_obj) {
+            $sold_date_for_db = $date_obj->format('Y-m-d');
+        }
+    }
+
     $eshop_ids = $_POST['eshops'] ?? [];
     $product_codes = $_POST['product_codes'] ?? [];
     $eshop_data = [];
@@ -51,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-      $utc_now = new DateTime('now', new DateTimeZone('UTC'));
+    $utc_now = new DateTime('now', new DateTimeZone('UTC'));
     $last_updated_utc = $utc_now->format('Y-m-d H:i:s');
     // Handle image uploads and cropped images
     $imagePaths = [];
@@ -114,13 +126,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insert data into scrapyard table
     $query = "INSERT INTO granna80_bdlinks.scrapyard 
-              (Conditions, Column_4, Equipment, Brand, Model, Config, Code, Description, Price, IRE, EUR, Returns, brand_id, model_id, eshop_data, image1, image2, image3, image4, image5, last_edited_by, last_updated) 
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            (Conditions, Column_4, Equipment, Brand, Model, Config, Code, Description, Price, IRE, EUR, Returns, brand_id, model_id, eshop_data, image1, image2, image3, image4, image5, last_edited_by, last_updated, status, sold_date) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
         $stmt->bind_param(
-            "ssssssssssssssssssssss",
+            "ssssssssssssssssssssssss",
             $conditions,
             $column_4,
             $equipment,
@@ -142,7 +154,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $imagePaths[3],
             $imagePaths[4],
             $userEmail,
-            $last_updated_utc
+            $last_updated_utc,
+            $status,
+            $sold_date_for_db
         );
 
         if ($stmt->execute()) {
@@ -187,7 +201,7 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-         
+
             width: 20%;
 
         }
@@ -210,7 +224,7 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
         .modal-content {
             position: relative;
             z-index: 9999;
-      
+
             margin: auto;
             padding: 20px;
 
@@ -399,10 +413,16 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
         <label for="conditions">Condition:</label>
         <select id="conditions" name="conditions">
             <option value="">Select Condition</option>
+            <option value="New">New</option>
+            <option value="New other">New other</option>
+            <option value="Seller refurbished">Seller refurbished</option>
             <option value="Used">Used</option>
-            <option value="Used Working">Used Working</option>
-            <option value="For Parts or Not Working">For Parts or Not Working</option>
-        </select><br><br>
+            <option value="For parts or not working">For parts or not working</option>
+
+        </select>
+        <br><br>
+
+
 
         <label for="column_4">OEM:</label>
         <select id="column_4" name="column_4">
@@ -412,14 +432,17 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
 
 
         <label for="equipment">Select equipment:</label><br>
-        <select id="equipment" name="equipment">
-            <option value="">-- Select an equipment --</option>
-            <?php while ($equipament = $equipaments->fetch_assoc()): ?>
-                <option value="<?= $equipament['id'] ?>" data-name="<?= htmlspecialchars($equipament['name']) ?>">
-                    <?= htmlspecialchars($equipament['name']) ?>
-                </option>
-            <?php endwhile; ?>
-        </select>
+        <div style="align-items: center; gap: 10px;">
+            <select id="equipment" name="equipment" style="flex-grow: 1;">
+                <option value="">-- Select an equipment --</option>
+                <?php while ($equipament = $equipaments->fetch_assoc()): ?>
+                    <option value="<?= $equipament['id'] ?>" data-name="<?= htmlspecialchars($equipament['name']) ?>">
+                        <?= htmlspecialchars($equipament['name']) ?>
+                    </option>
+                <?php endwhile; ?>
+            </select>
+            <a href="register_equipament.php?from=add_new" style="white-space: nowrap;">[+ Add New Equipment]</a>
+        </div>
 
 
 
@@ -472,6 +495,20 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
         <label for="returns">Returns:</label>
         <input type="text" id="returns" name="returns"><br><br>
 
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+            <option value="Active" selected>Active</option>
+            <option value="Sold">Sold</option>
+            <option value="Test">Test</option>
+        </select>
+        <br><br>
+
+        <div id="sold_date_container" style="display: none;">
+            <label for="sold_date">Sold Date (d/m/Y):</label><br>
+            <input type="text" id="sold_date" name="sold_date" placeholder="dd/mm/yyyy">
+            <br><br>
+        </div>
+
         <button type="submit">Add Equipment</button>
         <a href="index.php">[ Back ]</a>
     </form>
@@ -506,7 +543,7 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
                     preview.src = e.target.result;
                     preview.style.display = 'block';
 
-                 
+
                     openCropper(preview.id, index);
                 };
                 reader.readAsDataURL(input.files[0]);
@@ -526,7 +563,7 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
             cropperImage.src = imgElement.src;
             cropperModal.style.display = 'block';
 
-     
+
             cropper = new Cropper(cropperImage, {
                 aspectRatio: NaN,
                 viewMode: 0,
@@ -546,13 +583,13 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
             });
             const croppedDataUrl = croppedCanvas.toDataURL();
 
-           
+
             const preview = document.getElementById(currentImageId);
             const hiddenInput = document.getElementById(`cropped-image-${currentIndex}`);
             preview.src = croppedDataUrl;
             hiddenInput.value = croppedDataUrl;
 
-  
+
             closeCropper();
         }
 
@@ -570,10 +607,29 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
         }
 
         function rotateImage(degrees) {
-        if (cropper) {
-            cropper.rotate(degrees);
+            if (cropper) {
+                cropper.rotate(degrees);
+            }
         }
-    }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusSelect = document.getElementById('status');
+            const soldDateContainer = document.getElementById('sold_date_container');
+
+            function toggleSoldDate() {
+                if (statusSelect.value === 'Sold') {
+                    soldDateContainer.style.display = 'block';
+                } else {
+                    soldDateContainer.style.display = 'none';
+                }
+            }
+
+
+            if (statusSelect) {
+                statusSelect.addEventListener('change', toggleSoldDate);
+            }
+        });
     </script>
 
 </body>
