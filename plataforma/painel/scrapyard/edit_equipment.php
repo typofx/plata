@@ -39,7 +39,7 @@ if ($clean_model === '' || stripos($clean_model, 'null') !== false) {
 }
 $oem_display = ($equipment['Column_4'] === 'yes') ? 'OEM' : '';
 
-  $brand_text = (isset($equipment['brand_name']) && strtolower(trim($equipment['brand_name'])) !== 'null') ? $equipment['brand_name'] : '';
+$brand_text = (isset($equipment['brand_name']) && strtolower(trim($equipment['brand_name'])) !== 'null') ? $equipment['brand_name'] : '';
 
 
 $title_parts = array_filter([
@@ -88,6 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $eur = sanitizeInput($_POST['eur'] ?? null);
     $returns = sanitizeInput($_POST['returns'] ?? null);
 
+    $qtd = intval($_POST['qtd'] ?? 1);
+    $location = sanitizeInput($_POST['location'] ?? null);
 
     $sold_date_input = sanitizeInput($_POST['sold_date'] ?? null);
     $sold_date_for_db = null; // Padrão é NULL
@@ -176,12 +178,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = "UPDATE granna80_bdlinks.scrapyard 
               SET Conditions = ?, Column_4 = ?, Equipment = ?, Brand = ?, Model = ?, Config = ?, Code = ?, Description = ?, Price = ?, IRE = ?, EUR = ?, Returns = ?, brand_id = ?, model_id = ?, eshop_data = ?, image1 = ?, image2 = ?, image3 = ?, image4 = ?, image5 = ?,
-         last_updated = ?, last_edited_by = ?, status = ?, sold_date = ? WHERE ID = ?";
+         last_updated = ?, last_edited_by = ?, status = ?, sold_date = ?, QTD = ?, location = ?  WHERE ID = ?";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
         $stmt->bind_param(
-            "ssssssssssssssssssssssssi",
+            "ssssssssssssssssssssssssssi",
             $conditions,
             $column_4,
             $equipment_name,
@@ -206,6 +208,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userEmail,
             $status,
             $sold_date_for_db,
+            $qtd,
+            $location,
             $id
         );
 
@@ -414,7 +418,7 @@ if (!empty($equipment['eshop_data'])) {
             <option value="Seller refurbished" <?= $equipment['Conditions'] === 'Seller refurbished' ? 'selected' : '' ?>>Seller refurbished</option>
             <option value="Used" <?= $equipment['Conditions'] === 'Used' ? 'selected' : '' ?>>Used</option>
             <option value="For parts or not working" <?= $equipment['Conditions'] === 'For parts or not working' ? 'selected' : '' ?>>For parts or not working</option>
-          
+
         </select>
         <br><br>
 
@@ -486,6 +490,21 @@ if (!empty($equipment['eshop_data'])) {
         <label for="price">Price:</label>
         <input type="text" id="price" name="price" value="<?= htmlspecialchars($equipment['Price']) ?>"><br><br>
 
+        <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
+            <div style="flex-basis: 100px;">
+                <label for="qtd">QTD:</label><br>
+                <input type="number" id="qtd" name="qtd" value="<?= htmlspecialchars($equipment['QTD'] ?? 1) ?>" style="width: 80px;">
+            </div>
+            <div style="flex-basis: 150px;">
+                <label>Total:</label><br>
+                <strong id="total-display" style="font-size: 1.2em;">0.00 EUR</strong>
+            </div>
+        </div>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" value="<?= htmlspecialchars($equipment['location'] ?? '') ?>"><br><br>
+
+
         <!-- IRE -->
         <label for="ire">IRE:</label>
         <input type="text" id="ire" name="ire" value="<?= htmlspecialchars($equipment['IRE']) ?>"><br><br>
@@ -498,7 +517,7 @@ if (!empty($equipment['eshop_data'])) {
         <label for="returns">Returns:</label>
         <input type="text" id="returns" name="returns" value="<?= htmlspecialchars($equipment['Returns']) ?>"><br><br>
 
-      <br>
+        <br>
         <label for="status">Status:</label><br>
         <select id="status" name="status">
             <option value="Active" <?= ($equipment['status'] === 'Active') ? 'selected' : '' ?>>Active</option>
@@ -538,7 +557,7 @@ if (!empty($equipment['eshop_data'])) {
 
             <img id="cropperImage" style="max-width: 100%; height: auto;">
             <br><br>
-            <button onclick="saveCrop()">Crop and Save</button>
+            <!--  <button onclick="saveCrop()">Crop and Save</button> -->
             <button onclick="saveCropG()">Crop</button>
             <button onclick="closeCropper()">Cancel</button>
             <button type="button" onclick="rotateImage(90)">Rotate 90°</button>
@@ -746,18 +765,39 @@ if (!empty($equipment['eshop_data'])) {
 
             function toggleSoldDate() {
                 if (statusSelect.value === 'Sold') {
-                    soldDateContainer.style.display = 'block'; 
+                    soldDateContainer.style.display = 'block';
                 } else {
-                    soldDateContainer.style.display = 'none'; 
-                    soldDateInput.value = ''; 
+                    soldDateContainer.style.display = 'none';
+                    soldDateInput.value = '';
                 }
             }
 
-         
+
             toggleSoldDate();
 
-           
+
             statusSelect.addEventListener('change', toggleSoldDate);
+
+            const qtdInput = document.getElementById('qtd');
+            const priceInput = document.getElementById('price');
+            const totalDisplay = document.getElementById('total-display');
+
+            function calculateTotal() {
+                const quantity = parseInt(qtdInput.value, 10) || 1;
+                const price = parseFloat(priceInput.value) || 0;
+
+                const total = quantity * price;
+
+                totalDisplay.textContent = total.toFixed(2) + ' EUR';
+            }
+
+       
+            qtdInput.addEventListener('input', calculateTotal);
+            priceInput.addEventListener('input', calculateTotal);
+
+   
+            calculateTotal();
+
 
 
 
