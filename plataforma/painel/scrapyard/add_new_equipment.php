@@ -31,6 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sold_date_input = sanitizeInput($_POST['sold_date'] ?? null);
     $sold_date_for_db = null; // Padrão é NULL
 
+    $qtd = intval($_POST['qtd'] ?? 1);
+    $location = sanitizeInput($_POST['location'] ?? null);
+
 
     if (!empty($sold_date_input) && $status === 'Sold') {
         $date_obj = DateTime::createFromFormat('d/m/Y', $sold_date_input);
@@ -126,13 +129,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insert data into scrapyard table
     $query = "INSERT INTO granna80_bdlinks.scrapyard 
-            (Conditions, Column_4, Equipment, Brand, Model, Config, Code, Description, Price, IRE, EUR, Returns, brand_id, model_id, eshop_data, image1, image2, image3, image4, image5, last_edited_by, last_updated, status, sold_date) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            (Conditions, Column_4, Equipment, Brand, Model, Config, Code, Description, Price, IRE, EUR, Returns, brand_id, model_id, eshop_data, image1, image2, image3, image4, image5, last_edited_by, last_updated, status, sold_date, QTD, location) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
         $stmt->bind_param(
-            "ssssssssssssssssssssssss",
+            "ssssssssssssssssssssssssss",
             $conditions,
             $column_4,
             $equipment,
@@ -156,7 +159,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userEmail,
             $last_updated_utc,
             $status,
-            $sold_date_for_db
+            $sold_date_for_db,
+            $qtd,
+            $location
         );
 
         if ($stmt->execute()) {
@@ -486,6 +491,20 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
         <label for="price">Price:</label>
         <input type="text" id="price" name="price"><br><br>
 
+        <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
+            <div style="flex-basis: 100px;">
+                <label for="qtd">QTD:</label><br>
+                <input type="number" id="qtd" name="qtd" value="1" style="width: 80px;">
+            </div>
+            <div style="flex-basis: 150px;">
+                <label>Total:</label><br>
+                <strong id="total-display" style="font-size: 1.2em; ">0.00 EUR</strong>
+            </div>
+        </div>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" placeholder="Enter location"><br><br>
+
         <label for="ire">IRE:</label>
         <input type="text" id="ire" name="ire"><br><br>
 
@@ -629,6 +648,30 @@ $equipaments = $conn->query("SELECT id, name FROM granna80_bdlinks.scrapyard_equ
             if (statusSelect) {
                 statusSelect.addEventListener('change', toggleSoldDate);
             }
+
+            const qtdInput = document.getElementById('qtd');
+            const priceInput = document.getElementById('price');
+            const totalDisplay = document.getElementById('total-display');
+
+            function calculateTotal() {
+            
+                const quantity = parseInt(qtdInput.value, 10) || 1;
+          
+                const price = parseFloat(priceInput.value) || 0;
+
+                const total = quantity * price;
+
+             
+                totalDisplay.textContent = total.toFixed(2) + ' EUR';
+            }
+
+            qtdInput.addEventListener('input', calculateTotal);
+            priceInput.addEventListener('input', calculateTotal);
+
+  
+            calculateTotal();
+
+
         });
     </script>
 
