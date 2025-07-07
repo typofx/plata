@@ -2,11 +2,21 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
 include 'conexao.php';
 
-$return_path = 'index.php'; // Caminho padrão
-if (isset($_GET['from']) && $_GET['from'] === 'add_new') {
-    $return_path = 'add_new_equipment.php'; // Caminho se veio do "add_new"
-}
+$return_path = 'index.php'; 
 
+
+$from = $_GET['from'] ?? null;
+
+if ($from === 'add_new') {
+
+    $return_path = 'add_new_equipment.php';
+} elseif ($from === 'edit') {
+  
+    $return_id = intval($_GET['return_id'] ?? 0);
+    if ($return_id > 0) {
+        $return_path = "edit_equipment.php?id=$return_id";
+    }
+}
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = isset($_POST['name']) ? trim($_POST['name']) : '';

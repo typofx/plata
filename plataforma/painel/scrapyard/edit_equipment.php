@@ -435,36 +435,51 @@ if (!empty($equipment['eshop_data'])) {
 
 
 
-        <label for="equipment">Select Equipment:</label><br>
-        <select name="equipment" id="equipment" required>
-            <option value="">-- Select Equipment --</option>
-            <?php while ($equip_item = $equipments->fetch_assoc()): ?>
-
-                <option value="<?= $equip_item['id'] ?>" <?= $equip_item['id'] == $equipment['Equipment'] ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($equip_item['name']) ?>
-                </option>
-            <?php endwhile; ?>
-        </select>
-
-
-        <br><br> <label for="brand_id">Brand:</label>
-        <select id="brand_id" name="brand_id" required>
-            <?php while ($brand = $brands->fetch_assoc()): ?>
-                <option value="<?= $brand['brand_id'] ?>" <?= $brand['brand_id'] == $equipment['brand_id'] ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($brand['brand_name']) ?>
-                </option>
-            <?php endwhile; ?>
-        </select><br><br>
+   <label for="equipment">Select Equipment:</label><br>
+<div style=" align-items: center; gap: 10px;">
+    <select name="equipment" id="equipment" required style="flex-grow: 1;">
+        <option value="">-- Select Equipment --</option>
+        <?php mysqli_data_seek($equipments, 0); ?>
+        <?php while ($equip_item = $equipments->fetch_assoc()): ?>
+            <option value="<?= $equip_item['id'] ?>" <?= $equip_item['id'] == $equipment['Equipment'] ? 'selected' : '' ?>>
+                <?= htmlspecialchars($equip_item['name']) ?>
+            </option>
+        <?php endwhile; ?>
+    </select>
+    <a href="register_equipament.php?from=edit&return_id=<?= $id ?>" style="white-space: nowrap;">[+ Add New Equipment]</a>
+</div>
 
 
-        <label for="model_id">Model:</label>
-        <select id="model_id" name="model_id" required>
-            <?php while ($model = $models->fetch_assoc()): ?>
-                <option value="<?= $model['model_id'] ?>" <?= $model['model_id'] == $equipment['model_id'] ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($model['model_name']) ?>
-                </option>
-            <?php endwhile; ?>
-        </select><br><br>
+    <br><br>
+<label for="brand_id">Brand:</label><br>
+<div style=" align-items: center; gap: 10px;">
+    <select id="brand_id" name="brand_id" required style="flex-grow: 1;">
+        <option value="">-- Select Brand --</option>
+        <?php mysqli_data_seek($brands, 0); ?>
+        <?php while ($brand = $brands->fetch_assoc()): ?>
+            <option value="<?= $brand['brand_id'] ?>" <?= $brand['brand_id'] == $equipment['brand_id'] ? 'selected' : '' ?>>
+                <?= htmlspecialchars($brand['brand_name']) ?>
+            </option>
+        <?php endwhile; ?>
+    </select>
+    <a href="register_brands.php?from=edit&return_id=<?= $id ?>" style="white-space: nowrap;">[+ Add New Brand]</a>
+</div>
+
+<br><br>
+<label for="model_id">Model:</label><br>
+<div style=" align-items: center; gap: 10px;">
+    <select id="model_id" name="model_id" required style="flex-grow: 1;">
+        <option value="">-- Select Model --</option>
+        <?php mysqli_data_seek($models, 0); ?>
+        <?php while ($model = $models->fetch_assoc()): ?>
+            <option value="<?= $model['model_id'] ?>" <?= $model['model_id'] == $equipment['model_id'] ? 'selected' : '' ?>>
+                <?= htmlspecialchars($model['model_name']) ?>
+            </option>
+        <?php endwhile; ?>
+    </select>
+    <a href="register_models.php?from=edit&return_id=<?= $id ?>" style="white-space: nowrap;">[+ Add New Model]</a>
+</div>
+<br><br>
 
         <!-- E-shops -->
         <label>Select E-shops:</label><br>
