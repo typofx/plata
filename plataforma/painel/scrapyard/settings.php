@@ -360,7 +360,7 @@ $settings = getUserSettings($conn, $userEmail);
                     </select>
                 </div>
                 <div class="form-group"><label for="font_size">Body Font Size</label>
-                    <div class="range-slider-group"><input type="range" id="font_size" name="font_size" min="12" max="22" step="1"><span id="font_size_value"></span></div>
+                    <div class="range-slider-group"><input type="range" id="font_size" name="font_size" min="6" max="32" step="1"><span id="font_size_value"></span></div>
                 </div>
                 <div class="form-group"><label for="background_color">Screen Background</label><input type="color" id="background_color" name="background_color"><span class="color-preview" id="background_color_preview"></span></div>
                 <div class="form-group"><label for="font_color">Main Font Color</label><input type="color" id="font_color" name="font_color"><span class="color-preview" id="font_color_preview"></span></div>
@@ -369,7 +369,7 @@ $settings = getUserSettings($conn, $userEmail);
 
                 <h2>Table Styles</h2>
                 <div class="form-group"><label for="table_font_size">Table Font Size</label>
-                    <div class="range-slider-group"><input type="range" id="table_font_size" name="table_font_size" min="10" max="20" step="1"><span id="table_font_size_value"></span></div>
+                    <div class="range-slider-group"><input type="range" id="table_font_size" name="table_font_size" min="6" max="32" step="1"><span id="table_font_size_value"></span></div>
                 </div>
                 <div class="form-group"><label for="table_background_color">Table Background</label><input type="color" id="table_background_color" name="table_background_color"><span class="color-preview" id="table_background_color_preview"></span></div>
                 <div class="form-group"><label for="table_border_color">Table Border Color</label><input type="color" id="table_border_color" name="table_border_color"><span class="color-preview" id="table_border_color_preview"></span></div>
@@ -548,6 +548,8 @@ $settings = getUserSettings($conn, $userEmail);
 
             // --- Main Update Function ---
             function updatePreview() {
+
+             document.body.style.backgroundColor = controls.background_color.value;
                 // General Styles
                 previewPane.style.fontFamily = controls.font_style.value;
                 previewPane.style.fontSize = controls.font_size.value + 'px';

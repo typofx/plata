@@ -116,21 +116,21 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
     <title>Scrapyard Equipment</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,400;0,700;1,400&family=Raleway:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700&family=Work+Sans:ital,wght@0,400;0,700;1,400&family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Arvo:ital,wght@0,400;0,700;1,400&family=Lobster&family=Pacifico&family=Bebas+Neue&family=Alfa+Slab+One&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Inconsolata:wght@400;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <style id="user-settings-styles">
-       
         body {
-            background-color: <?= htmlspecialchars($settings['background_color']) ?>;
+            background-color: <?= htmlspecialchars($settings['background_color']) ?> !important;
         }
 
-      
         .theme-wrapper {
             font-family: <?= htmlspecialchars($settings['font_style']) ?>;
             font-size: <?= htmlspecialchars($settings['font_size']) ?>;
             font-weight: <?= htmlspecialchars($settings['font_weight']) ?>;
             font-style: <?= $settings['font_italic'] ? 'italic' : 'normal' ?>;
             color: <?= htmlspecialchars($settings['font_color']) ?>;
+            background-color: <?= htmlspecialchars($settings['background_color']) ?>;
+
         }
 
-     
+
         .theme-wrapper a {
             color: <?= htmlspecialchars($settings['link_color']) ?>;
         }
@@ -139,7 +139,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             color: <?= htmlspecialchars($settings['link_hover_color']) ?>;
         }
 
-  
+
         .theme-wrapper .action-icons a {
             color: inherit;
         }
@@ -178,7 +178,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             background-color: <?= htmlspecialchars($settings['row_hover_color']) ?>;
         }
 
-   
+
         .theme-wrapper .dataTables_paginate .paginate_button {
             color: <?= htmlspecialchars($settings['link_color']) ?> !important;
         }
@@ -200,12 +200,11 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+
             margin: 0;
-            padding: 20px;
+            padding: 10px;
         }
 
         h1,
@@ -217,25 +216,25 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 10px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             background-color: #fff;
-     
+
         }
 
         th,
         td {
-            padding: 8px 12px;
+            padding: 4px 6px;
             text-align: left;
             border: 1px solid #ddd;
             vertical-align: middle;
-           
+
         }
 
         th {
             background-color: #67458b;
             color: white;
-            padding: 12px;
+            padding: 6px;
         }
 
         tr:nth-child(even) {
@@ -255,7 +254,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             text-decoration: underline;
         }
 
-      
+
         .edit-icon {
             color: blue;
             cursor: pointer;
@@ -271,19 +270,19 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             gap: 10px;
             justify-content: center;
             white-space: nowrap;
-          
+
         }
 
-  
+
         .datatable-top-controls {
             display: flex;
             justify-content: space-between;
-      
+
             align-items: center;
             padding: 10px 0;
         }
 
- 
+
         .datatable-bottom-controls {
             display: flex;
             justify-content: space-between;
@@ -291,10 +290,10 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             padding: 10px 0;
         }
 
- 
+
         .dataTables_length label {
             font-weight: normal;
-  
+
             color: #333;
         }
 
@@ -395,14 +394,14 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                 flex-wrap: wrap;
                 gap: 20px;
                 margin: 20px 0;
-      
+
                 font-family: <?= htmlspecialchars($settings['font_style']) ?>;
                 font-size: <?= htmlspecialchars($settings['font_size']) ?>;
                 font-style: <?= $settings['font_italic'] ? 'italic' : 'normal' ?>;
             }
 
             .total-box {
-         
+
                 border: 1px solid <?= htmlspecialchars($settings['table_border_color']) ?>;
                 background-color: <?= htmlspecialchars($settings['table_background_color']) ?>;
                 border-radius: 8px;
@@ -413,7 +412,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
 
             .total-box h3 {
                 margin-top: 0;
-            
+
                 border-bottom: 1px solid <?= htmlspecialchars($settings['table_border_color']) ?>;
                 color: <?= htmlspecialchars($settings['font_color']) ?>;
                 padding-bottom: 10px;
@@ -428,7 +427,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
             }
 
             .total-box p strong {
-          
+
                 color: <?= htmlspecialchars($settings['font_color']) ?>;
                 opacity: 0.9;
             }
@@ -470,7 +469,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                         </p>
                     <?php endif; ?>
 
-                    <p id="query-total-container" style="display: none; border-top: 2px dashed #eee; margin-top: 10px; padding-top: 10px;">
+                    <p id="query-total-container" style="display: none; border-top: 2px dashed #eee; margin-top: 3px; padding-top: 3px;">
                         <strong>
                             <i style="color: #007bff; margin-right: 8px;"></i>
                             Query products total: <span id="search-count" style="font-weight: bold;">0</span>
@@ -490,13 +489,13 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                     <th>Images</th>
                     <th>Eshop</th>
                     <th>Condition</th>
-                    <th>OEM</th>
-                    <th>Equipment</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Configuration</th>
-                    <th>Code</th>
-                    <th>Description</th>
+                    <th></th> <!--OEM-->
+                    <th>                 Equipment                 </th>
+                    <th> </th> <!--Brand-->
+                    <th>Model                         </th>
+                    <th>   Configuration             </th>
+                    <th>Code                                          </th>
+                    <th>          Description          </th>
                     <th>Price</th>
                     <th>QTD</th>
                     <th>Total</th>
@@ -575,7 +574,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                                     ?>
                                     <?php if ($hasImage): ?>
 
-                                        <div style="position: relative; width: 30px; height: 30px;">
+                                        <div style="position: relative; width: 25px; height: 25px;">
 
                                             <img
                                                 src="<?= $imagePath ?>"
@@ -588,13 +587,13 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
 
                                             <div
                                                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: white; border-radius: 4px; pointer-events: none;">
-                                                <i class="fa-solid fa-image" style="color: green; font-size: 30px;"></i>
+                                                <i class="fa-solid fa-image" style="color: green; font-size: 25px;"></i>
                                             </div>
                                         </div>
                                     <?php else: ?>
 
                                         <div
-                                            style="width: 30px; height: 30px; background-color: #999999; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; cursor: not-allowed;"
+                                            style="width: 25px; height: 25px; background-color: #999999; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: white; cursor: not-allowed;"
                                             title="No Image Available">
                                             <i class="fa-solid fa-image"></i>
                                         </div>
@@ -644,7 +643,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                                                 <img
                                                     src="<?= htmlspecialchars($uploadDir . $eshop_logo) ?>"
                                                     alt="<?= htmlspecialchars($eshop_name) ?>"
-                                                    style="height: 30px;">
+                                                    style="height: 25px;">
                                             </a>
                                         <?php else: ?>
 
@@ -652,7 +651,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                                                 src="<?= htmlspecialchars($uploadDir . $eshop_logo) ?>"
                                                 alt="<?= htmlspecialchars($eshop_name) ?>"
                                                 title="Product code unavailable"
-                                                style="height: 30px; filter: grayscale(100%) brightness(50%) invert(75%) sepia(20%) saturate(0%); cursor: not-allowed;">
+                                                style="height: 25px; filter: grayscale(100%) brightness(50%) invert(75%) sepia(20%) saturate(0%); cursor: not-allowed;">
                                         <?php endif; ?>
                                         <div style="font-size: 12px; color: #666;"></div>
                                     </div>
@@ -683,7 +682,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
 
                             $model_display = $row['model_name'] ?? '';
 
-                            if (strtolower($model_display) == 'null' || strtolower($model_display) == '­null') {
+                            if (strtolower($model_display) == 'null' || strtolower($model_display) == '足null') {
                                 echo '';
                             } else {
                                 echo htmlspecialchars($model_display);
@@ -697,7 +696,7 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                         <td><?= htmlspecialchars($row['Description']) ?></td>
                         <td><?= number_format((float)$row['Price'], 2) ?></td>
                         <?php
-                   
+
                         $qtd = (int)($row['QTD'] ?? 1);
                         $price = (float)($row['Price'] ?? 0);
                         $total = $qtd * $price;
@@ -730,7 +729,6 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
 
                             $counter_color = ($char_count <= 80) ? 'green' : 'red';
                             ?>
-
                             <button
                                 class="copy-btn"
                                 data-content="<?= htmlspecialchars(json_encode([
@@ -743,12 +741,8 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                                                     'Code' => $row['Code'],
                                                     'Description' => $row['Description'],
                                                 ])) ?>">
-                                Copy
+                                &#x2398;
                             </button>
-
-                            <div style="color: <?= $counter_color ?>; font-weight: bold; font-size: 12px; margin-top: 4px;">
-                                (<?= $char_count ?>)
-                            </div>
                         </td>
 
                         <?php
@@ -814,6 +808,10 @@ $result = $conn->query("SELECT * FROM granna80_bdlinks.scrapyard");
                             <a href="delete_equipment.php?id=<?= $row['ID'] ?>" title="Delete" onclick="return confirm('Are you sure you want to delete this record?');">
                                 <i class="fas fa-trash delete-icon"></i>
                             </a>
+                            <div style="color: <?= $counter_color ?>; font-weight: bold; font-size: 12px; margin-top: 4px;">
+                                <?= $char_count ?>
+                            </div>
+
                         </td>
                     </tr>
                 <?php
