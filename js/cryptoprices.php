@@ -1,6 +1,6 @@
 <?php
 
-$json_url = 'https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=BTC,ETH,WBTC,WETH,BNB,XAUT,MATIC,EUR,BRL&api_key=xxxAPIKEYxxx'; // 345463f7b620b68fa2fa8fe0b0ade5d8fb18ca4e06437689fbe720395979fdcc,  7ddd13ecf0d3ea7df245a3a2bbdefff844c402c794a4b9f1e44c8bef74f85197'; //6023fb8068e6f17fe63800ce08f15fb6bd88d7b3b825600d58736973a6aafd98
+$json_url = 'https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=BTC,ETH,WBTC,WETH,BNB,XAUT,MATIC,EUR,BRL&api_key=xxxAPIKEYxxx';
 
 $json_wmatic_pool = 'https://api.etherscan.io/v2/api?module=account&chainid=137&action=tokenbalance&contractaddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&address=0x0E145c7637747CF9cfFEF81b6A0317cA3c9671a6&tag=latest&apikey=xxxAPIKEYxxx';
 $json_plata_pool = 'https://api.etherscan.io/v2/api?module=account&chainid=137&action=tokenbalance&contractaddress=0xc298812164bd558268f51cc6e3b8b5daaf0b6341&address=0x8922978912e9adfea6f259423c73baa5daebce38&tag=latest&apikey=xxxAPIKEYxxx';
