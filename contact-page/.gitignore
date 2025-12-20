@@ -1,0 +1,23 @@
+# Configurações locais com API keys
+config.js
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (caso adicione no futuro)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build (caso adicione no futuro)
+dist/
+build/

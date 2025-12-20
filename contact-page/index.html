@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Entre em contato com a TypoFX Limited. Localizado em Dublin 2, oferecemos soluções profissionais. Preencha o formulário ou ligue diretamente.">
+    
+    <!-- Content Security Policy para proteção contra XSS -->
+    <meta http-equiv="Content-Security-Policy" 
+        content="default-src 'self'; script-src 'self' https://maps.googleapis.com 'unsafe-inline'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' https://maps.gstatic.com https://maps.googleapis.com data:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://maps.googleapis.com; frame-src https://www.google.com;">
+
+    <title>Contato - TypoFX Limited</title>
+
+    <!-- Preconnect para Google Maps -->
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+
+    <!-- Font Awesome com SRI (Subresource Integrity) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+</head>
+
+<body>
+
+    <table class="main-container">
+        <tr>
+            <td colspan="2">
+                <h1>Contatos</h1>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <p>
+                    A capivara é o maior roedor do mundo e habita as margens de lagos na América do Sul.
+                    É um animal muito sociável. Elas têm membranas nas patas para nadar melhor.
+                    Passam o dia comendo plantas e descansando na lagoa para fugir do calor e de seus predadores
+                </p>
+                <p><strong>Meios de comunicação disponíveis:</strong></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <table class="contact-info-table">
+                    <tr>
+                        <td class="icon-box"><i class="fas fa-phone-alt"></i></td>
+                        <td class="info-text">
+                            <strong>Telefones:</strong>
+                            <span>000-000-00-00</span>
+                        </td>
+
+                        <td class="icon-box"><i class="fab fa-telegram"></i></td>
+                        <td class="info-text">
+                            <strong>Telegram:</strong>
+                            <span>t.me/typofx</span>
+                        </td>
+
+                        <td class="icon-box"><i class="fas fa-envelope"></i></td>
+                        <td class="info-text">
+                            <strong>E-mail:</strong>
+                            <span>support@typofx.ie</span>
+                        </td>
+
+                        <td class="icon-box"><i class="fas fa-map-marker-alt"></i></td>
+                        <td class="info-text">
+                            <strong>Endereço:</strong>
+                            <span>Typo FX Limited, Workhub Group, <br>
+                                77 Camden Street Lower, Saint Kevin's, Dublin 2, D02 XE80</span>
+                        </td>
+                    </tr>
+                </table>
+                <br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="map-column">
+                <table id="map">
+                    <tr>
+                        <td>
+                            <!-- Mapa do Google será renderizado aqui -->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+
+            <td class="form-column">
+                <table>
+                    <tr>
+                        <td>
+                            <p class="form-intro">
+                                As capivaras são animais calmos que vivem em grupos próximo da água.
+                                Elas são parentes dos porquinhos-da-índia, mas muito maiores.
+                                Se alimentam de grama e plantas aquáticas. Todo mundo gosta delas,
+                                pois são pacíficas e convivem bem com outras espécies.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form id="contactForm">
+                                <table class="form-table">
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="nome">Nome <span
+                                                    class="required">*</span></label>
+                                            <input type="text" name="nome" id="nome" class="form-input"
+                                                placeholder="Seu nome completo" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="telefone">Telefone <span
+                                                    class="required">*</span></label>
+                                            <input type="tel" name="telefone" id="telefone" class="form-input"
+                                                pattern="[0-9+\-\s()]+" title="Digite um número de telefone válido"
+                                                placeholder="Ex: +353 1 234 5678" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="form-label" for="email">E-mail <span
+                                                    class="required">*</span></label>
+                                            <input type="email" name="email" id="email" class="form-input"
+                                                placeholder="seu@email.com" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <button type="submit" class="btn-submit">ENVIAR</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="footer-note">
+                                                Nós não compartilhamos contatos com terceiros, esta informação é
+                                                necessária para entrar em contato com você.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
