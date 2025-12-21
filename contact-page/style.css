@@ -1,0 +1,239 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Container principal */
+.main-container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Estilização Geral de Tabelas para Layout */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: none;
+}
+
+td {
+    vertical-align: top;
+    padding: 5px;
+}
+
+/* Larguras específicas das colunas */
+.icon-box {
+    width: 30px;
+}
+
+.map-column {
+    width: 50%;
+}
+
+.form-column {
+    width: 50%;
+}
+
+/* Padding do formulário */
+.form-table {
+    padding: 5px;
+}
+
+/* Tipografia */
+h1 {
+    text-transform: uppercase;
+    font-size: 28px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Barra de Informações de Contato */
+.contact-info-table td {
+    padding: 15px 10px;
+}
+
+.icon-box {
+    color: #008080; 
+    font-size: 24px;
+    width: 30px;
+}
+
+.info-text {
+    font-size: 13px;
+}
+
+.info-text strong {
+    display: block;
+    color: #777;
+    font-weight: normal;
+    margin-bottom: 2px;
+}
+
+.info-text span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Formulário */
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #999;
+}
+
+.form-input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    background-color: #fcfcfc;
+}
+
+.form-input::placeholder {
+    color: #bbb;
+    font-style: italic;
+}
+
+.form-intro {
+    margin-top: 0;
+}
+
+.required {
+    color: red;
+}
+
+.footer-note {
+    font-size: 10px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* Mapa */
+#map {
+    width: 100%;
+    background-color: #eee;
+}
+
+#map td {
+    width: 100%;
+    height: 400px;
+    padding: 0;
+}
+
+.map-column {
+    padding-right: 20px;
+}
+
+/* Responsividade */
+
+/* Tablets (até 768px) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .main-container {
+        width: 100%;
+    }
+    
+    /* Tabela de informações de contato em coluna */
+    .contact-info-table tr {
+        display: block;
+    }
+    
+    .contact-info-table td {
+        display: block;
+        width: 100% !important;
+        padding: 10px 5px;
+        text-align: center;
+    }
+    
+    .icon-box {
+        margin: 0 auto;
+    }
+    
+    /* Mapa e formulário em coluna */
+    .main-container > tbody > tr:last-child > td {
+        display: block;
+        width: 100% !important;
+    }
+    
+    .map-column {
+        display: block;
+        width: 100% !important;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+    
+    #map td {
+        height: 300px;
+    }
+    
+    p {
+        font-size: 13px;
+        text-align: justify;
+    }
+}
+
+/* Celulares (até 480px) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    h1 {
+        font-size: 18px;
+    }
+    
+    .icon-box {
+        font-size: 20px;
+    }
+    
+    .info-text {
+        font-size: 12px;
+    }
+    
+    .form-input {
+        width: 90%;
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    button.btn-submit {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    #map td {
+        height: 250px;
+    }
+    
+    .footer-note {
+        font-size: 9px;
+        text-align: center;
+    }
+    
+    .contact-info-table td {
+        padding: 8px 3px;
+    }
+}
