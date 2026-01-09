@@ -1,5 +1,17 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php'; ?>
-<?php
+<?php 
+/**
+ * Team Member Registration Form
+ * 
+ * Presents a registration form for adding new team members with:
+ * - Platform credentials (email, password)
+ * - Member information (name, position, profile picture)
+ * - Social media contacts
+ * - Email recipient selection
+ */
+
+session_start();
+require '_config_form.php';
+// include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,131 +21,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Member</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h2>Add Member data</h2>
-    <form action="insert.php" method="post" enctype="multipart/form-data" onsubmit="return validarForm()">
-        <label for="profilePicture">Profile Picture:</label><br>
-        <input type="file" id="profilePicture" name="profilePicture" required><br>
+    <h2>Add Team Member</h2>
 
-        
+    <!-- Display success or error messages from previous form submission -->
+    <?php include '_messages.php'; ?>
 
-        <label for="position">Position:</label><br>
-        <input type="text" id="position" name="position" required><br>
+    <form action="insert.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
 
-        <label for="socialMedia">Whatsapp:</label><br>
-        <input type="text" id="socialMedia" name="socialMedia"><br>
+        <!-- Platform Data Section -->
+        <h3>Platform Information</h3>
 
-        <label for="socialMedia1">Instagram:</label><br>
-        <input type="text" id="socialMedia1" name="socialMedia1"><br>
+        <ul class="form-list">
+            <li>
+                <label for="name">First Name:</label>
+                <input type="text" id="name" name="name" maxlength="50" required>
+            </li>
 
-        <label for="socialMedia2">Telegram:</label><br>
-        <input type="text" id="socialMedia2" name="socialMedia2"><br>
+            <li>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" maxlength="50" required>
+            </li>
 
-        <label for="socialMedia3">Facebook:</label><br>
-        <input type="text" id="socialMedia3" name="socialMedia3"><br>
+            <li>
+                <label for="email">User Email (Login):</label>
+                <input type="email" id="email" name="email" maxlength="100" required>
+            </li>
 
-        <label for="socialMedia4">Github:</label><br>
-        <input type="text" id="socialMedia4" name="socialMedia4"><br>
+            <li>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" maxlength="50" required onkeyup="validatePassword()">
+            </li>
 
-        <label for="socialMedia5">Social Email:</label><br>
-        <input type="text" id="socialMedia5" name="socialMedia5"><br>
+            <li>
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" maxlength="50" required onkeyup="validatePassword()">
+                <span id="password_status"></span>
+            </li>
+        </ul>
 
-        <label for="socialMedia6">Twitter:</label><br>
-        <input type="text" id="socialMedia6" name="socialMedia6"><br>
+        <hr>
 
-        <label for="socialMedia7">LinkedIn:</label><br>
-        <input type="text" id="socialMedia7" name="socialMedia7"><br>
+        <!-- Member Data Section -->
+        <h3>Member Information</h3>
 
-        <label for="socialMedia8">Twitch:</label><br>
-        <input type="text" id="socialMedia8" name="socialMedia8"><br>
+        <ul class="form-list">
+            <li>
+                <label for="profilePicture">Profile Picture:</label>
+                <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required>
+            </li>
 
-        <label for="socialMedia9">Medium:</label><br>
-        <input type="text" id="socialMedia9" name="socialMedia9"><br>
+            <li>
+                <label for="position">Position:</label>
+                <select name="position" required>
+                    <option value="">Select a position</option>
+                    <?php foreach ($positions as $position): ?>
+                        <option value="<?php echo htmlspecialchars($position); ?>">
+                            <?php echo strtoupper($position); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </li>
+        </ul>
 
+        <hr>
 
-        <h2>Add Plataforma data</h2>
+        <!-- Social Networks and Contacts Section -->
+        <h3>Social Media</h3>
 
+        <ul class="form-list">
+            <?php foreach ($socialMedias as $key => $field): ?>
+                <li>
+                    <label for="<?php echo $key; ?>"><?php echo $field['label']; ?>:</label>
+                    <input 
+                        type="<?php echo $field['type'] ?? 'text'; ?>" 
+                        id="<?php echo $key; ?>" 
+                        name="<?php echo $key; ?>" 
+                        maxlength="<?php echo $field['maxlength']; ?>" 
+                        placeholder="<?php echo $field['placeholder']; ?>"
+                        <?php echo isset($field['pattern']) ? 'pattern="' . $field['pattern'] . '"' : ''; ?>
+                    >
+                </li>
+            <?php endforeach; ?>
+        </ul>
 
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br>
+        <hr>
 
-        <label for="last_name">Last Name:</label><br>
-        <input type="text" name="last_name" required><br>
+        <!-- Email Recipient Section -->
+        <h3>Email Recipient</h3>
 
-        <label for="email">User Email:</label><br>
-        <input type="email" name="email" required><br>
+        <ul class="form-list">
+            <li>
+                <label for="recipient_email">Send confirmation email to:</label>
+                <input type="email" id="recipient_email" name="recipient_email" maxlength="100" required placeholder="email@example.com">
+            </li>
+        </ul>
 
-        <label for="password">Password:</label><br>
-        <input type="password" name="password" id="password" required onkeyup="validarSenha()"><br>
-
-        <label for="confirm_password">Confirm password:</label><br>
-        <input type="password" name="confirm_password" id="confirm_password" required onkeyup="validarSenha()"><br>
-
-
-        <label for="access_level">Access Level:</label><br>
-        <select id="access_level" name="level" required><br>
-            <option value="">Select access level</option>
-            <option value="guest">Guest</option>
-            <option value="admin">Admin</option>
-            <option value="root">Root</option>
-            <option value="block">Block</option>
-
-        </select><br>
-
-
-        <label for="token">Enter Token:</label><br>
-        <input type="text" name="token" id="token" required onkeyup="validarToken()"><br>
-
-        <span id="senha_status"></span><br>
-
-
-
-
-
-
-
-        <a href="index.php">Back</a>
         <input type="submit" value="Submit">
     </form>
 
     <script>
-        function validarSenha() {
-            var password = document.getElementById("password").value;
-            var confirm_password = document.getElementById("confirm_password").value;
-            var senha_status = document.getElementById("senha_status");
+        /**
+         * Validate password strength and matching
+         * Called on keyup event for real-time feedback to user
+         * 
+         * Checks:
+         * - Password field is not empty
+         * - Password and confirm password fields match
+         * Updates visual indicator (green for match, red for mismatch)
+         */
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+            const passwordStatus = document.getElementById("password_status");
 
-            if (password === confirm_password) {
-                senha_status.innerHTML = "passwords match";
-                senha_status.style.color = "green";
+            // Clear status if password field is empty
+            if (!password) {
+                passwordStatus.innerHTML = "";
+                return;
+            }
+
+            // Show match/mismatch feedback
+            if (password === confirmPassword) {
+                passwordStatus.innerHTML = "Passwords match";
+                passwordStatus.className = "senha-status senha-match";
             } else {
-                senha_status.innerHTML = "Passwords do not match";
-                senha_status.style.color = "red";
+                passwordStatus.innerHTML = "Passwords do not match";
+                passwordStatus.className = "senha-status senha-error";
             }
         }
+        
+        /**
+         * Validate entire form before submission
+         * Server will also validate, but client-side validation provides instant feedback
+         * 
+         * Checks:
+         * - Passwords match
+         * - Password is at least 6 characters long
+         * 
+         * @returns {boolean} - True if form passes validation, false to prevent submission
+         */
+        function validateForm() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
 
-        function validarToken() {
-            var token = document.getElementById("token").value;
-            var token_status = document.getElementById("token_status");
-
-            if (token === "token_especifico") {
-                token_status.innerHTML = "valid token";
-                token_status.style.color = "green";
-            } else {
-                token_status.innerHTML = "invalid token";
-                token_status.style.color = "red";
-            }
-        }
-
-        function validarForm() {
-            var password = document.getElementById("password").value;
-            var confirm_password = document.getElementById("confirm_password").value;
-
-            if (password !== confirm_password) {
+            if (password !== confirmPassword) {
                 alert("Passwords do not match");
                 return false;
             }
+
+            // Verify minimum password length
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+
             return true;
         }
     </script>
