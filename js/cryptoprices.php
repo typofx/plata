@@ -111,6 +111,11 @@ $USDXAUT = number_format(($XAUTUSD_raw > 0 ? 1 / $XAUTUSD_raw : 0), 8, '.', ',')
 $USDMATIC = number_format(($MATICUSD_raw > 0 ? 1 / $MATICUSD_raw : 0), 8, '.', ',');
 $USDEUR = number_format(($EURUSD_raw > 0 ? 1 / $EURUSD_raw : 0), 8, '.', ',');
 $USDBRL = number_format ( ($BRLUSD_raw > 0 ? 1 / $BRLUSD_raw : 0) , 8, '.', ',' );
+$USDBRZ = number_format ( ($BRZUSD_raw > 0 ? 1 / $BRZUSD_raw : 0) , 8, '.', ',' );
+$USDUSDC = number_format ( ($USDCUSD_raw > 0 ? 1 / $USDCUSD_raw : 0) , 8, '.', ',' );
+$USDDAI = number_format ( ($DAIUSD_raw > 0 ? 1 / $DAIUSD_raw : 0) , 8, '.', ',' );
+$USDUSDT = number_format ( ($USDTUSD_raw > 0 ? 1 / $USDTUSD_raw : 0) , 8, '.', ',' );
+$USDBUSD = number_format ( ($BUSDUSD_raw > 0 ? 1 / $BUSDUSD_raw : 0) , 8, '.', ',' );
 
 
 $USDBTC_num = str_replace(',', '', $USDBTC);
@@ -122,6 +127,11 @@ $USDXAUT_num = str_replace(',', '', $USDXAUT);
 $USDMATIC_num = str_replace(',', '', $USDMATIC);
 $USDEUR_num = str_replace(',', '', $USDEUR);
 $USDBRL_num = str_replace(',', '', $USDBRL);
+$USDBRZ_num = str_replace(',', '', $USDBRZ);
+$USDUSDC_num = str_replace(',', '', $USDUSDC);
+$USDDAI_num = str_replace(',', '', $USDDAI);
+$USDUSDT_num = str_replace(',', '', $USDUSDT);
+$USDBUSD_num = str_replace(',', '', $USDBUSD);
 $BTCUSD_num = str_replace(',', '', $BTCUSD);
 $WBTCUSD_num = str_replace(',', '', $WBTCUSD);
 $WETHUSD_num = str_replace(',', '', $WETHUSD);
@@ -161,7 +171,12 @@ $json_string_manual = <<<JSON
     "USDXAUT": {$USDXAUT_num},
     "USDMATIC": {$USDMATIC_num},
     "USDEUR": {$USDEUR_num},
-    "USDBRL": {$USDBRL_num}
+    "USDBRL": {$USDBRL_num},
+    "USDBRZ": {$USDBRZ_num},
+    "USDUSDC": {$USDUSDC_num},
+    "USDDAI": {$USDDAI_num},
+    "USDUSDT": {$USDUSDT_num},
+    "USDBUSD": {$USDBUSD_num}
   },
   "usd_vs_prices": {
     "BTCUSD": {$BTCUSD_num},
