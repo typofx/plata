@@ -1,162 +1,151 @@
 <?php
 
-$json_url = 'https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=BTC,ETH,WBTC,WETH,BNB,XAUT,MATIC,EUR,BRL&api_key='; 
+$json_wmatic_pool__0x0E1_671a6 = 'https://api.etherscan.io/v2/api?module=account&chainid=137&action=tokenbalance&contractaddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&address=0x0E145c7637747CF9cfFEF81b6A0317cA3c9671a6&tag=latest&apikey=AIG6PVV6734H8V2HI8HCK6J1HACYNRHVTC';
+$json_plata_pool__0x0E1_671a6 = 'https://api.etherscan.io/v2/api?module=account&chainid=137&action=tokenbalance&contractaddress=0xc298812164bd558268f51cc6e3b8b5daaf0b6341&address=0x0E145c7637747CF9cfFEF81b6A0317cA3c9671a6&tag=latest&apikey=AIG6PVV6734H8V2HI8HCK6J1HACYNRHVTC';
 
-$json_wmatic_pool = 'https://api.etherscan.io/v2/api?module=account&chainid=137&action=tokenbalance&contractaddress=0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270&address=0x0E145c7637747CF9cfFEF81b6A0317cA3c9671a6&tag=latest&apikey=';
-$json_plata_pool = 'https://api.etherscan.io/v2/api?module=account&chainid=137&action=tokenbalance&contractaddress=0xc298812164bd558268f51cc6e3b8b5daaf0b6341&address=0x8922978912e9adfea6f259423c73baa5daebce38&tag=latest&apikey=';
-$json_weth_pool = 'https://api.etherscan.io/v2/api?module=account&chainid=137&action=tokenbalance&contractaddress=0x7ceb23fd6bc0add59e62ac25578270cff1b9f619&address=0x8922978912e9adfea6f259423c73baa5daebce38&tag=latest&apikey=';
+$json_plata_pool__0x892_bce38 = 'https://api.etherscan.io/v2/api?module=account&chainid=137&action=tokenbalance&contractaddress=0xc298812164bd558268f51cc6e3b8b5daaf0b6341&address=0x8922978912e9adfea6f259423c73baa5daebce38&tag=latest&apikey=AIG6PVV6734H8V2HI8HCK6J1HACYNRHVTC';
+$json_weth_pool__0x892_bce38 = 'https://api.etherscan.io/v2/api?module=account&chainid=137&action=tokenbalance&contractaddress=0x7ceb23fd6bc0add59e62ac25578270cff1b9f619&address=0x8922978912e9adfea6f259423c73baa5daebce38&tag=latest&apikey=AIG6PVV6734H8V2HI8HCK6J1HACYNRHVTC';
 
-$json = file_get_contents($json_url);
-$ar_data = array($json);
-$ar_data = $ar_data[0];
-$ar_data = json_decode($ar_data);
+$PLTcirculatingSupply = (11299000992); 
 
-if (!function_exists('tokenbalance')) {
+$json_btcusd = 'https://api.coinpaprika.com/v1/tickers/btc-bitcoin';
+$json_ethusd = 'https://api.coinpaprika.com/v1/tickers/eth-ethereum';
+$json_wbtcusd = 'https://api.coinpaprika.com/v1/tickers/wbtc-wrapped-bitcoin';
+$json_wethusd = 'https://api.coinpaprika.com/v1/tickers/weth-weth';
+$json_bnbusd = 'https://api.coinpaprika.com/v1/tickers/bnb-bnb';
+$json_xautusd = 'https://api.coinpaprika.com/v1/tickers/xaut-tether-gold';
+$json_maticusd = 'https://api.coinpaprika.com/v1/tickers/matic-polygon';
+$json_eurusd = 'https://api.coinpaprika.com/v1/tickers/eurs-stasis-euro/';
+$json_brlusd = 'https://api.coinpaprika.com/v1/tickers/brz-brazilian-digital-token/';
+$json_brzusd = 'https://api.coinpaprika.com/v1/tickers/brz-brazilian-digital-token/';
+$json_usdcusd = 'https://api.coinpaprika.com/v1/tickers/usdc-usd-coin/';
+$json_daiusd = 'https://api.coinpaprika.com/v1/tickers/dai-dai/';
+$json_usdtusd = 'https://api.coinpaprika.com/v1/tickers/usdt-tether/';
+$json_busdusd = 'https://api.coinpaprika.com/v1/tickers/busd-binance-usd/';
 
-    function tokenbalance($output)
-    {
+$BTCUSD_raw = json_decode(array(file_get_contents($json_btcusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$ETHUSD_raw = json_decode(array(file_get_contents($json_ethusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$WBTCUSD_raw = json_decode(array(file_get_contents($json_wbtcusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$WETHUSD_raw = json_decode(array(file_get_contents($json_wethusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$BNBUSD_raw = json_decode(array(file_get_contents($json_bnbusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$XAUTUSD_raw = json_decode(array(file_get_contents($json_xautusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$MATICUSD_raw = json_decode(array(file_get_contents($json_maticusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$EURUSD_raw = json_decode(array(file_get_contents($json_eurusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$BRLUSD_raw = json_decode(array(file_get_contents($json_brlusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$BRZUSD_raw = json_decode(array(file_get_contents($json_brzusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$USDCUSD_raw = json_decode(array(file_get_contents($json_usdcusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$DAIUSD_raw = json_decode(array(file_get_contents($json_daiusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$USDTUSD_raw = json_decode(array(file_get_contents($json_usdtusd))[0],true)['quotes']['USD']['price'] ?? 0;
+$BUSDUSD_raw = json_decode(array(file_get_contents($json_busdusd))[0],true)['quotes']['USD']['price'] ?? 0;
 
-        $requests = 300;
-        $cache_key = 'tokenbalance_' . md5($output);
-        $cached_data_json = false;
-
-        // usar APCu apenas se disponível
-        if (function_exists('apcu_fetch')) {
-            $cached_data_json = @apcu_fetch($cache_key);
-        }
-
-        if ($cached_data_json !== false) {
-            $data = json_decode($cached_data_json);
-        } else {
-            $data_from_api = @file_get_contents($output);
-            if ($data_from_api && $data_from_api[0] === '{') {
-                if (function_exists('apcu_store')) {
-                    @apcu_store($cache_key, $data_from_api, $requests);
-                }
-                $data = json_decode($data_from_api);
-            } else {
-                $data = null;
-            }
-        }
-
-        if ($data && isset($data->result) && is_numeric($data->result)) {
-            return (float)$data->result;
-        }
-
-        return 1;
+$BTCUSD = number_format($BTCUSD_raw, 5, '.', ',');
+$ETHUSD = number_format($ETHUSD_raw, 5, '.', ',');
+$WBTCUSD = number_format($WBTCUSD_raw, 5, '.', ',');
+$WETHUSD = number_format($WETHUSD_raw, 5, '.', ',');
+$BNBUSD = number_format($BNBUSD_raw, 5, '.', ',');
+$XAUTUSD = number_format($XAUTUSD_raw, 5, '.', ',');
+$MATICUSD = number_format($MATICUSD_raw, 5, '.', ',');
+$EURUSD = number_format($EURUSD_raw, 5, '.', ',');
+$BRLUSD = number_format($BRLUSD_raw, 5, '.', ',');
+$BRZUSD = number_format($BRZUSD_raw, 5, '.', ',');
+$USDCUSD = number_format($USDCUSD_raw, 5, '.', ',');
+$DAIUSD = number_format($DAIUSD_raw, 5, '.', ',');
+$USDTUSD = number_format($USDTUSD_raw, 5, '.', ',');
+$BUSDUSD = number_format($BUSDUSD_raw, 5, '.', ',');
+    if ($BTCUSD_raw == 0) {
+        
+        $BTCUSD_raw = 90000;
+        $ETHUSD_raw = 3000;
+        $WBTCUSD_raw = 90000;
+        $WETHUSD_raw = 3000;
+        $BNBUSD_raw = 800;
+        $XAUTUSD_raw = 4200;
+        $MATICUSD_raw = 0.14;
+        $EURUSD_raw = 1.16;
+        $BRLUSD_raw = 0.19;
+        $BRZUSD_raw = 0.19;
+        $USDCUSD_raw = 1.00;
+        $DAIUSD_raw = 1.00;
+        $USDTUSD_raw = 1.00;
+        $BUSDUSD_raw = 1.00;
+        
+        $BTCUSD = number_format($BTCUSD_raw, 5, '.', ',');
+        $ETHUSD = number_format($ETHUSD_raw, 5, '.', ',');
+        $WBTCUSD = number_format($WBTCUSD_raw, 5, '.', ',');
+        $WETHUSD = number_format($WETHUSD_raw, 5, '.', ',');
+        $BNBUSD = number_format($BNBUSD_raw, 5, '.', ',');
+        $XAUTUSD = number_format($XAUTUSD_raw, 5, '.', ',');
+        $MATICUSD = number_format($MATICUSD_raw, 5, '.', ',');
+        $EURUSD = number_format($EURUSD_raw, 5, '.', ',');
+        $BRLUSD = number_format($BRLUSD_raw, 5, '.', ',');
+        $BRZUSD = number_format($BRZUSD_raw, 5, '.', ',');
+        $USDCUSD = number_format($USDCUSD_raw, 5, '.', ',');
+        $DAIUSD = number_format($DAIUSD_raw, 5, '.', ',');
+        $USDTUSD = number_format($USDTUSD_raw, 5, '.', ',');
+        $BUSDUSD = number_format($BUSDUSD_raw, 5, '.', ',');
+    
     }
-}
-
-function consolelog($output, $with_script_tags = true)
-{
-    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . ');';
-    if ($with_script_tags) {
-        $js_code = '<script>' . $js_code . '</script>';
-    }
-    echo $js_code;
-}
-
-$PLTcirculatingSupply = (11299000992);
-
-// definir variáveis USD* (valor de 1 USD em cada moeda/cripto)
-$USDBTC = $ar_data->{'BTC'} ?? 0;
-$USDETH = $ar_data->{'ETH'} ?? 0;
-$USDWBTC = $ar_data->{'WBTC'} ?? 0;
-$USDWETH = $ar_data->{'WETH'} ?? 0;
-$USDBNB = $ar_data->{'BNB'} ?? 0;
-$USDXAUT = $ar_data->{'XAUT'} ?? 0;
-$USDMATIC = $ar_data->{'MATIC'} ?? 0;
-$USDEUR = $ar_data->{'EUR'} ?? 0;
-$USDBRL = $ar_data->{'BRL'} ?? 0;
-
-// calcular os valores inversos (valor de 1 unidade da moeda em USD)
-$BTCUSD = ($USDBTC != 0) ? 1 / $USDBTC : 0;
-$ETHUSD = ($USDETH != 0) ? 1 / $USDETH : 0;
-$WBTCUSD = ($USDWBTC != 0) ? 1 / $USDWBTC : 0;
-$WETHUSD = ($USDWETH != 0) ? 1 / $USDWETH : 0;
-$BNBUSD = ($USDBNB != 0) ? 1 / $USDBNB : 0;
-$XAUTUSD = ($USDXAUT != 0) ? 1 / $USDXAUT : 0;
-$MATICUSD = ($USDMATIC != 0) ? 1 / $USDMATIC : 0;
-$EURUSD = ($USDEUR != 0) ? 1 / $USDEUR : 0;
-$BRLUSD = ($USDBRL != 0) ? 1 / $USDBRL : 0;
-
-number_format($ar_data->{'BRL'} ?? 0, 4, '.', ',');
-
-$wmatic_pool = is_numeric(tokenbalance($json_wmatic_pool)) && tokenbalance($json_wmatic_pool) > 0
-    ? number_format(tokenbalance($json_wmatic_pool) / 10 ** 18, 4, '.', ',')
-    : 1;
-
-$plata_pool = is_numeric(tokenbalance($json_plata_pool)) && tokenbalance($json_plata_pool) > 0
-    ? number_format(tokenbalance($json_plata_pool) / 10 ** 2, 4, '.', ',')
-    : 1;
-
-$weth_pool = is_numeric(tokenbalance($json_weth_pool)) && tokenbalance($json_weth_pool) > 0
-    ? number_format(tokenbalance($json_weth_pool) / 10 ** 2, 4, '.', ',')
-    : 1;
-
-$MATICPLT = (is_numeric(str_replace(',', '', $plata_pool)) && is_numeric($wmatic_pool) && $wmatic_pool > 0)
-    ? number_format((floatval(str_replace(',', '', $plata_pool)) / floatval($wmatic_pool)) * 10 ** 6, 4, '.', ',')
-    : 1;
 
 
-$ETHPLT = is_numeric($plata_pool) && is_numeric($weth_pool) && $weth_pool > 0
-    ? number_format(($plata_pool / $weth_pool) * 10 ** 6, 4, '.', ',')
-    : 1;
+$qtd_wmatic_pool__0x0E1_671a6 = number_format(json_decode(array(file_get_contents($json_wmatic_pool__0x0E1_671a6))[0],true)['result'] / (10 ** 18) ?? 0 , 4, '.', ',');
+$qtd_plata_pool__0x0E1_671a6 = number_format(json_decode(array(file_get_contents($json_plata_pool__0x0E1_671a6))[0],true)['result'] / (10 ** 2) ?? 0 , 4, '.', ',');
 
-$plata_pool = floatval(str_replace(',', '.', $plata_pool));
+$PLTUSD = number_format( ($qtd_plata_pool__0x0E1_671a6 / ($qtd_wmatic_pool__0x0E1_671a6 * $MATICUSD ) ) * (10 ** 4) ?? 0 , 4, '.', ',');
+$PLTEUR = number_format( ($qtd_plata_pool__0x0E1_671a6 / ($qtd_wmatic_pool__0x0E1_671a6 * $MATICUSD * $EURUSD) ) * (10 ** 4) ?? 0 , 4, '.', ',');
+$PLTBRL = number_format( ($qtd_plata_pool__0x0E1_671a6 / ($qtd_wmatic_pool__0x0E1_671a6 * $MATICUSD * $BRLUSD) ) * (10 ** 4) ?? 0 , 4, '.', ',');
 
-$weth_pool = floatval(str_replace(',', '.', $weth_pool));
+$PLTMATIC = number_format( ($qtd_plata_pool__0x0E1_671a6 / ($qtd_wmatic_pool__0x0E1_671a6 ) ) * (10 ** 4) ?? 0 , 4, '.', ',');
+$MATICPLT = (1 / $PLTMATIC);
 
-$USDPLT = ($weth_pool > 0 && $ETHUSD > 0)
-    ? number_format(($plata_pool / ($weth_pool * $ETHUSD)) * 10 ** 7, 4, '.', '')
-    : 138888.88;
+$PLTmarketcapUSD = number_format(($PLTcirculatingSupply * $PLTUSD) / (10 ** 9) ?? 0 , 4, '.', ',');
+$PLTmarketcapEUR = number_format(($PLTcirculatingSupply * $PLTEUR) / (10 ** 9) ?? 0 , 4, '.', ',');
+$PLTmarketcapBRL = number_format(($PLTcirculatingSupply * $PLTBRL) / (10 ** 6) ?? 0 , 4, '.', ',');
 
-$PLTUSD = ($USDPLT > 0)
-    ? number_format((1 / $USDPLT) / 10, 10, '.', ',')
-    : 0.0000072;
 
-$PLTBRL = number_format(($PLTUSD * $USDBRL), 10, '.', ',');
-$PLTEUR = number_format(($PLTUSD * $USDEUR), 10, '.', ',');
+$USDBTC =  number_format ( ($BTCUSD_raw > 0 ? 1 / $BTCUSD_raw : 0) , 8, '.', ',' );
+$USDETH = number_format(($ETHUSD_raw > 0 ? 1 / $ETHUSD_raw : 0), 8, '.', ',');  
+$USDWBTC = number_format(($WBTCUSD_raw > 0 ? 1 / $WBTCUSD_raw : 0), 8, '.', ',');
+$USDWETH = number_format(($WETHUSD_raw > 0 ? 1 / $WETHUSD_raw : 0), 8, '.', ',');
+$USDBNB = number_format(($BNBUSD_raw > 0 ? 1 / $BNBUSD_raw : 0), 8, '.', ',');
+$USDXAUT = number_format(($XAUTUSD_raw > 0 ? 1 / $XAUTUSD_raw : 0), 8, '.', ',');
+$USDMATIC = number_format(($MATICUSD_raw > 0 ? 1 / $MATICUSD_raw : 0), 8, '.', ',');
+$USDEUR = number_format(($EURUSD_raw > 0 ? 1 / $EURUSD_raw : 0), 8, '.', ',');
+$USDBRL = number_format ( ($BRLUSD_raw > 0 ? 1 / $BRLUSD_raw : 0) , 8, '.', ',' );
 
-$PLTmarketcapUSD = number_format(($PLTcirculatingSupply * $PLTUSD), 4, '.', ',');
-$PLTmarketcapBRL = number_format(($PLTcirculatingSupply * $PLTBRL), 4, '.', ',');
-$PLTmarketcapEUR = number_format(($PLTcirculatingSupply * $PLTEUR), 4, '.', ',');
 
-$MATIC_PER_PLT = $PLTUSD * $USDMATIC;
-$PLT_PER_MATIC = ($MATIC_PER_PLT > 0) ? (1 / $MATIC_PER_PLT) : 0;
-
-$PLT_PER_MATIC = number_format(($PLT_PER_MATIC), 4, '.', '');
-$MATIC_PER_PLT = number_format(($MATIC_PER_PLT), 10, '.', ',');
-
-$prices_json_file = __DIR__ . '/all_prices.json';
-
-// formatar valores numericamente (sem vírgulas de milhares)
-$USDBTC_num = number_format($USDBTC, 8, '.', '');
-$USDETH_num = number_format($USDETH, 8, '.', '');
-$USDWBTC_num = number_format($USDWBTC, 8, '.', '');
-$USDWETH_num = number_format($USDWETH, 8, '.', '');
-$USDBNB_num = number_format($USDBNB, 8, '.', '');
-$USDXAUT_num = number_format($USDXAUT, 8, '.', '');
-$USDMATIC_num = number_format($USDMATIC, 4, '.', '');
-$USDEUR_num = number_format($USDEUR, 4, '.', '');
-$USDBRL_num = number_format($USDBRL, 4, '.', '');
-$BTCUSD_num = number_format($BTCUSD, 2, '.', '');
-$ETHUSD_num = number_format($ETHUSD, 2, '.', '');
-$WBTCUSD_num = number_format($WBTCUSD, 2, '.', '');
-$WETHUSD_num = number_format($WETHUSD, 2, '.', '');
-$BNBUSD_num = number_format($BNBUSD, 2, '.', '');
-$XAUTUSD_num = number_format($XAUTUSD, 2, '.', '');
-$MATICUSD_num = number_format($MATICUSD, 4, '.', '');
-$EURUSD_num = number_format($EURUSD, 4, '.', '');
-$BRLUSD_num = number_format($BRLUSD, 4, '.', '');
+$USDBTC_num = str_replace(',', '', $USDBTC);
+$USDETH_num = str_replace(',', '', $USDETH);
+$USDWBTC_num = str_replace(',', '', $USDWBTC);
+$USDWETH_num = str_replace(',', '', $USDWETH);
+$USDBNB_num = str_replace(',', '', $USDBNB);
+$USDXAUT_num = str_replace(',', '', $USDXAUT);
+$USDMATIC_num = str_replace(',', '', $USDMATIC);
+$USDEUR_num = str_replace(',', '', $USDEUR);
+$USDBRL_num = str_replace(',', '', $USDBRL);
+$BTCUSD_num = str_replace(',', '', $BTCUSD);
+$WBTCUSD_num = str_replace(',', '', $WBTCUSD);
+$WETHUSD_num = str_replace(',', '', $WETHUSD);
+$ETHUSD_num = str_replace(',', '', $ETHUSD);
+$BNBUSD_num = str_replace(',', '', $BNBUSD);
+$XAUTUSD_num = str_replace(',', '', $XAUTUSD);
+$MATICUSD_num = str_replace(',', '', $MATICUSD);
+$EURUSD_num = str_replace(',', '', $EURUSD);
+$BRZUSD_num = str_replace(',', '', $BRZUSD);
+$USDCUSD_num = str_replace(',', '', $USDCUSD);
+$DAIUSD_num = str_replace(',', '', $DAIUSD);
+$USDTUSD_num = str_replace(',', '', $USDTUSD);
+$BUSDUSD_num = str_replace(',', '', $BUSDUSD);
 $PLTUSD_num = str_replace(',', '', $PLTUSD);
 $PLTBRL_num = str_replace(',', '', $PLTBRL);
 $PLTEUR_num = str_replace(',', '', $PLTEUR);
-$PLT_PER_MATIC_num = str_replace(',', '', $PLT_PER_MATIC);
-$MATIC_PER_PLT_num = str_replace(',', '', $MATIC_PER_PLT);
+$PLTMATIC_num = str_replace(',', '', $PLTMATIC);
+$MATICPLT_num = str_replace(',', '', $MATICPLT);
 $PLTmarketcapUSD_num = str_replace(',', '', $PLTmarketcapUSD);
 $PLTmarketcapBRL_num = str_replace(',', '', $PLTmarketcapBRL);
 $PLTmarketcapEUR_num = str_replace(',', '', $PLTmarketcapEUR);
+
+
+$prices_json_file = __DIR__ . '/all_prices.json';
 
 $last_updated_at = gmdate('d-m-Y H:i:s') . ' UTC';
 
@@ -176,21 +165,26 @@ $json_string_manual = <<<JSON
   },
   "usd_vs_prices": {
     "BTCUSD": {$BTCUSD_num},
-    "ETHUSD": {$ETHUSD},
+    "ETHUSD": {$ETHUSD_num},
     "WBTCUSD": {$WBTCUSD_num},
     "WETHUSD": {$WETHUSD_num},
     "BNBUSD": {$BNBUSD_num},
     "XAUtUSD": {$XAUTUSD_num},
     "MATICUSD": {$MATICUSD_num},
     "EURUSD": {$EURUSD_num},
-     "BRLUSD": {$BRLUSD}
+    "BRLUSD": {$BRLUSD},
+    "BRZUSD": {$BRZUSD_num},
+    "USDCUSD": {$USDCUSD_num},
+    "DAIUSD": {$DAIUSD_num},
+    "USDTUSD": {$USDTUSD_num},
+    "BUSDUSD": {$BUSDUSD_num}
   },
   "plt_prices": {
     "PLTUSD": {$PLTUSD_num},
     "PLTBRL": {$PLTBRL_num},
     "PLTEUR": {$PLTEUR_num},
-    "PLTMATIC": {$PLT_PER_MATIC_num},
-    "MATICPLT": {$MATIC_PER_PLT_num}
+    "PLTMATIC": {$PLTMATIC_num},
+    "MATICPLT": {$MATICPLT_num}
   },
   "plt_marketcap": {
     "USD": {$PLTmarketcapUSD_num},
@@ -200,4 +194,7 @@ $json_string_manual = <<<JSON
 }
 JSON;
 
+
 file_put_contents($prices_json_file, $json_string_manual);
+
+?>
