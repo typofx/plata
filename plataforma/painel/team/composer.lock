@@ -14,6 +14,7 @@
                 "url": "https://github.com/sonata-project/GoogleAuthenticator.git",
                 "reference": "71a4189228f93a9662574dc8c65e77ef55061b59"
             },
+            
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sonata-project/GoogleAuthenticator/zipball/71a4189228f93a9662574dc8c65e77ef55061b59",

@@ -1,5 +1,14 @@
 {
+    "name": "plata/team-registration",
+    "description": "Team Member Registration System",
+    "type": "project",
     "require": {
-        "sonata-project/google-authenticator": "^2.3"
+        "php": ">=8.0",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Plata\\Team\\": "src/"
+        }
     }
 }
