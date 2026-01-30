@@ -64,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
                 echo "Error moving full logo file.";
                 exit();
             }
-        }
-    }
+        } 
+    } 
     $fullLogoFileName = isset($fileNameFullLogo) ? $fileNameFullLogo : '';
     
     $id = $_POST["id"];
@@ -83,14 +83,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
     $fullydilutedmkc = $_POST["fullydilutedmkc"];
     $circulatingsupply = $_POST["circulatingsupply"];
     $maxsupply = $_POST["maxsupply"];
-    $totalsupply = $_POST["totalsupply"];
+    $totalsupply = $_POST["totalsupply"]; 
     $price = $_POST["price"];
     $graph = $_POST["graph"];
     $holders = $_POST["holders"];
     $tokenlogo = $_POST["tokenlogo"] ?? '';
     $socialmedia = $_POST["socialmedia"];
     $metamaskbutton = $_POST["metamaskbutton"];
-    $obs1 = $_POST["obs1"];
+    $obs1 = $_POST["obs1"]; 
     $obs2 = $_POST["obs2"];
     $email = $_POST["zemail"];
     $telegram = $_POST["telegram"];
@@ -100,6 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
     $currentDateTime = new DateTime('now', $utcZeroTimezone);
     $currentDateTimeFormatted = $currentDateTime->format('Y-m-d H:i:s');
     $currentDateTime = $currentDateTimeFormatted;
+
+
     $sql = "UPDATE granna80_bdlinks.links SET 
         Desktop = '$desktop',
         Mobile = '$mobile',
@@ -109,12 +111,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
         Access = '$access',
         Country = '$country',
         Link = '$link',
-        Rank = '$rank',
-        MarketCap = '$marketcap',
-        Liquidity = '$liquidity',
-        FullyDilutedMKC = '$fullydilutedmkc',
-        CirculatingSupply = '$circulatingsupply',
-        MaxSupply = '$maxsupply',
         TotalSupply = '$totalsupply',
         Price = '$price',
         Graph = '$graph',
@@ -129,6 +125,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
         last_updated = '$currentDateTime',
         editedBy = '$userNameUser'";
 
+    if (($_POST["rank"]) == "NULL") { $sql .= ", Rank = NULL"; } else $sql .= ", Rank = '$rank'";
+    if (($_POST["marketcap"]) == "NULL") { $sql .= ", MarketCap = NULL"; } else $sql .= ", MarketCap = '$marketcap'";
+    if (($_POST["liquidity"]) == "NULL") { $sql .= ", Liquidity = NULL"; } else $sql .= ", Liquidity = '$liquidity'";
+    if (($_POST["fullydilutedmkc"]) == "NULL") { $sql .= ", FullyDilutedMKC = NULL"; } else $sql .= ", FullyDilutedMKC = '$fullydilutedmkc'";
+    if (($_POST["circulatingsupply"]) == "NULL") { $sql .= ", CirculatingSupply = NULL"; } else $sql .= ", CirculatingSupply = '$circulatingsupply'"; 
+    if (($_POST["maxsupply"]) == "NULL") { $sql .= ", MaxSupply = NULL"; } else $sql .= ", MaxSupply = '$maxsupply'";
 
     if (!empty($_FILES['logo']['tmp_name'])) {
         $sql .= ", logo = '$logoFileName'";
@@ -144,12 +146,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
 
 
     if ($conn->query($sql) === TRUE) {
+        //Get the action from the clicked button (defaults to 'save' if empty)
+        $action = $_POST['action'] ?? 'save';
+        // Logic: If 'save_close' was clicked -> go to index.php. Else -> stay on edit page.
+        $destino = ($action == 'save_close') ? "index.php" : "listingplatform.edit.php?id=" . $id;
         echo 'updated successfully';
         echo '<script>
         setTimeout(function() {
-            window.location.href = "listingplatform.edit.php?id=' . $id . '";
+            window.location.href = "' . $destino . '";
         }, 1000); // Redirect after 2 seconds
-    </script>';
+            </script>';
     
     } else {
         echo "Error updating record: ";

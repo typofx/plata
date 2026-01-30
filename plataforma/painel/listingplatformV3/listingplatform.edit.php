@@ -120,43 +120,32 @@ $conn->close();
                     accept=".jpg, .jpeg, .png, .ico, .svg" onchange="validateFileSize(this)">
             </div>
 
+        <div class="d-flex flex-wrap gap-4 mb-3">
+
             <div class="mb-3">
-                <label for="listed" class="form-label">Listed:</label><br>
-                <div class="form-check form-check-inline">
-                    <input type="radio" name="listed" id="listed_yes" class="form-check-input" value="1" <?php echo ($row["Listed"] == '1') ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="listed_yes">YES</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="radio" name="listed" id="listed_no" class="form-check-input" value="0" <?php echo ($row["Listed"] == '0') ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="listed_no">NO</label>
-                </div>
+                <input type="hidden" name="listed" value="0">
+                
+                <input type="checkbox" name="listed" id="listed" class="form-check-input" value="1" 
+                    <?php echo (($row["Listed"] ?? 0) == 1) ? 'checked' : ''; ?>> <!-- changed to checkbox-->
+                <label class="form-check-label" for="listed">Listed</label>
             </div>
 
             <div class="mb-3">
-                <label for="desktop" class="form-label">Desktop:</label><br>
-                <div class="form-check form-check-inline">
-                    <input type="radio" name="desktop" id="desktop_yes" class="form-check-input" value="1" <?php echo ($row["Desktop"] == 'Y') ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="desktop_yes">YES</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="radio" name="desktop" id="desktop_no" class="form-check-input" value="0" <?php echo ($row["Desktop"] == 'N') ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="desktop_no">NO</label>
-                </div>
+                <input type="hidden" name="desktop" value="0">
+                
+                <input type="checkbox" name="desktop" id="desktop" class="form-check-input" value="1" 
+                    <?php echo (($row["Desktop"] ?? 0) == 1) ? 'checked' : ''; ?>> <!-- changed to checkbox-->
+                <label class="form-check-label" for="desktop">Desktop</label>
             </div>
 
             <div class="mb-3">
-                <label for="mobile" class="form-label">Mobile:</label><br>
-                <div class="form-check form-check-inline">
-                    <input type="radio" name="mobile" id="mobile_yes" class="form-check-input" value="1" <?php echo ($row["Mobile"] == 'Y') ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="mobile_yes">YES</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="radio" name="mobile" id="mobile_no" class="form-check-input" value="0" <?php echo ($row["Mobile"] == 'N') ? 'checked' : ''; ?>>
-                    <label class="form-check-label" for="mobile_no">NO</label>
-                </div>
+                <input type="hidden" name="mobile" value="0">
+                
+                <input type="checkbox" name="mobile" id="mobile" class="form-check-input" value="1" 
+                    <?php echo (($row["Mobile"] ?? 0) == 1) ? 'checked' : ''; ?>> <!-- changed to checkbox-->
+                <label class="form-check-label" for="mobile">Mobile</label>
             </div>
-
-
+        </div>
 
             <div class="mb-3">
                 <label for="score" class="form-label">Score:</label>
@@ -219,12 +208,22 @@ $conn->close();
             </div>
 
             <div class="mb-3">
-                <label for="access" class="form-label">Access:</label>
-                <input type="text" id="access" name="access" class="form-control" value="<?php echo $row["Access"]; ?>">
+                <label for="access" class="form-label">Access:</label> <!-- changed to checkbox-->
+                <select name="access" id="access" class="form-select">
+                    <option value="0">Select...</option>
+                    <?php
+                    $options = ['1000', '10000', '100000', '1000000'];  
+                    $selectedValue = $row["Access"] ?? '';
+                    foreach ($options as $opt) {
+                        $selected = ($selectedValue == $opt) ? 'selected' : '';
+                        echo "<option value='$opt' $selected>$opt</option>";
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="mb-3">
-                <label for="country" class="form-label">Country:</label> 
+                <label for="country" class="form-label">Country:</label>
                 <select name="country" class="form-select">
                     <option value="">Select a country...</option>
                     <?php
@@ -250,43 +249,48 @@ $conn->close();
 
             <div class="mb-3">
                 <label for="rank" class="form-label">Rank:</label>
-                <input type="text" name="rank" class="form-control" value="<?php echo $row["Rank"]; ?>">
+                <select name="rank" id="rank" class="form-select">
+                    <option value="1" <? if ($row["Rank"] == true)
+                        echo "selected"; ?>>Okay</option>
+                    <option value="0" <? if ($row["Rank"] == false)
+                        echo "selected"; ?>>Wrong</option>
+                    <option value="NULL" <?php if ($row["Rank"] == "")
+                        echo "selected"; ?>>Unavailable</option>
+                </select>
             </div>
 
             <div class="mb-3">
                 <label for="marketcap" class="form-label">Market Cap:</label>
                 <select name="marketcap" id="marketcap" class="form-select">
-                    <option value="K" <?php if ($row["MarketCap"] == 'K')
+                    <option value="1" <? if ($row["MarketCap"] == true)
                         echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["MarketCap"] == 'W')
+                    <option value="0" <? if ($row["MarketCap"] == false)
                         echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["MarketCap"] != 'K' && $row["MarketCap"] != 'W')
-                        echo "selected"; ?>>
-                        Unavailable</option>
+                    <option value="NULL" <?php if ($row["MarketCap"] == NULL)
+                        echo "selected"; ?>>Unavailable</option>
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="liquidity" class="form-label">Liquidity:</label>
                 <select name="liquidity" id="liquidity" class="form-select">
-                    <option value="K" <?php if ($row["Liquidity"] == 'K')
+                    <option value="1" <?php if ($row["Liquidity"] == true)
                         echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["Liquidity"] == 'W')
+                    <option value="0" <?php if ($row["Liquidity"] == false)
                         echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["Liquidity"] != 'K' && $row["Liquidity"] != 'W')
-                        echo "selected"; ?>>
-                        Unavailable</option>
+                    <option value="NULL" <?php if ($row["Liquidity"] == NULL)
+                        echo "selected"; ?>>Unavailable</option>
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="fullydilutedmkc" class="form-label">Fully Diluted Market Cap:</label>
                 <select name="fullydilutedmkc" id="fullydilutedmkc" class="form-select">
-                    <option value="K" <?php if ($row["FullyDilutedMKC"] == 'K')
+                    <option value="1" <?php if ($row["FullyDilutedMKC"] == true)
                         echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["FullyDilutedMKC"] == 'W')
+                    <option value="0" <?php if ($row["FullyDilutedMKC"] == false)
                         echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["FullyDilutedMKC"] != 'K' && $row["FullyDilutedMKC"] != 'W')
+                    <option value="NULL" <?php if ($row["FullyDilutedMKC"] == NULL)
                         echo "selected"; ?>>Unavailable</option>
                 </select>
             </div>
@@ -294,11 +298,11 @@ $conn->close();
             <div class="mb-3">
                 <label for="circulatingsupply" class="form-label">Circulating Supply:</label>
                 <select name="circulatingsupply" id="circulatingsupply" class="form-select">
-                    <option value="K" <?php if ($row["CirculatingSupply"] == 'K')
+                    <option value="1" <?php if ($row["CirculatingSupply"] == 'true')
                         echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["CirculatingSupply"] == 'W')
+                    <option value="0" <?php if ($row["CirculatingSupply"] == 'false')
                         echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["CirculatingSupply"] != 'K' && $row["CirculatingSupply"] != 'W')
+                    <option value="NULL" <?php if ($row["CirculatingSupply"] == NULL )
                         echo "selected"; ?>>Unavailable</option>
                 </select>
             </div>
@@ -306,11 +310,11 @@ $conn->close();
             <div class="mb-3">
                 <label for="maxsupply" class="form-label">Max Supply:</label>
                 <select name="maxsupply" id="maxsupply" class="form-select">
-                    <option value="K" <?php if ($row["MaxSupply"] == 'K')
+                    <option value="1" <?php if ($row["MaxSupply"] == 'true')
                         echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["MaxSupply"] == 'W')
+                    <option value="0" <?php if ($row["MaxSupply"] == 'false')
                         echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["MaxSupply"] != 'K' && $row["MaxSupply"] != 'W')
+                    <option value="NULL" <?php if ($row["MaxSupply"] == NULL )
                         echo "selected"; ?>>
                         Unavailable</option>
                 </select>
@@ -434,8 +438,12 @@ $conn->close();
             <input type="hidden" name="last_updated"
                 value="<?php echo (new DateTime('now', new DateTimeZone('UTC')))->format('Y-m-d H:i:s'); ?>">
 
-            <button type="submit" class="btn btn-primary">Update</button>
-            <a href="index.php" class="btn btn-secondary">Back</a>
+            
+            <div class="d-flex gap-2">
+                <button type="submit" name="action" value="save" class="btn btn-primary"> Save </button> <!-- submit and redirect to edit.php?id=...-->
+                <button type="submit" name="action" value="save_close" class="btn btn-success"> Save and Close </button> <!-- submit and redirect to index.php -->
+                <a href="index.php" class="btn btn-secondary"> Cancel </a>
+            </div>
         </form>
     </div>
 
