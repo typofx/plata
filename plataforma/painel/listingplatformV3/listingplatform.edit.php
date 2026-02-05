@@ -26,44 +26,55 @@ $conn->close();
     <title>Editar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script>
+        function extractHostname(linkValue) {
+            try {
+                if (!linkValue.match(/^[a-zA-Z]+:\/\//)) {
+                    linkValue = 'http://' + linkValue;
+                }
+                var url = new URL(linkValue);
+                return url.hostname;
+            } catch (error) {
+                return null;
+            }
+        }
+
         function generateAccessLink() {
             var linkInput = document.getElementById("link");
             var accessLink = document.getElementById("accessLink");
-
             var linkValue = linkInput.value.trim();
-            var url = new URL(linkValue);
-            var formattedLink = url.hostname;
+            var hostname = extractHostname(linkValue);
 
-            var fullAccessLink = "https://pro.similarweb.com/#/digitalsuite/" + formattedLink;
+            if (hostname) {
+               var fullAccessLink = "https://pro.similarweb.com/#/digitalsuite/websiteanalysis/overview/website-performance/*/999/1m?webSource=Total&key=" + hostname;
+                accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>SIMILARWEB PRO</a>";
+            } else {
+                accessLink.innerHTML = "";
+            }
+        }
+        
+        function generateCountryLink() {
+            var linkInput = document.getElementById("link");
+            var accessLink = document.getElementById("accessCountry");
+            var linkValue = linkInput.value.trim();
 
-            accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>SIMILARWEB</a>";
+            var hostname = extractHostname(linkValue);
+
+            if (hostname) {
+                var fullAccessLink = "https://who.is/whois/" + hostname;
+                accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>WHO.IS</a>";
+            } else {
+                accessLink.innerHTML = "";
+            }
         }
 
         document.addEventListener("DOMContentLoaded", function () {
             var linkInput = document.getElementById("link");
             linkInput.addEventListener("input", generateAccessLink);
-        });
-    </script>
-
-
-
-    <script>
-        function generateCountryLink() {
-            var linkInput = document.getElementById("link");
-            var accessLink = document.getElementById("accessCountry");
-
-            var linkValue = linkInput.value.trim();
-            var url = new URL(linkValue);
-            var formattedLink = url.hostname;
-
-            var fullAccessLink = "https://who.is/whois/" + formattedLink;
-
-            accessLink.innerHTML = "<a href='" + fullAccessLink + "' target='_blank'>WHO.IS</a>";
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var linkInput = document.getElementById("link");
             linkInput.addEventListener("input", generateCountryLink);
+            
+            // Generate links on page load if link field has a value
+            generateAccessLink();
+            generateCountryLink();
         });
     </script>
 
@@ -205,18 +216,29 @@ $conn->close();
             <div class="mb-3">
                 <label for="link" class="form-label">Link:</label>
                 <input type="text" id="link" name="link" class="form-control" value="<?php echo $row["Link"]; ?>">
+
+                <div class="col">
+                    <label for="accessLink" class="form-label">[https://pro.similarweb.com/]:</label>
+                    <span id="accessLink" class="form-text"></span>
+                </div>
             </div>
 
             <div class="mb-3">
-                <label for="access" class="form-label">Access:</label> <!-- changed to checkbox-->
+                <label for="access" class="form-label">Access:</label> <!-- changed to comboBox-->
                 <select name="access" id="access" class="form-select">
                     <option value="0">Select...</option>
                     <?php
-                    $options = ['1000', '10000', '100000', '1000000'];  
+                    $options = [
+                        '1000' => '1K',
+                        '10000' => '10K',
+                        '100000' => '100K',
+                        '1000000' => '1Mil',
+                        '10000000' => '10Mil'
+                    ];
                     $selectedValue = $row["Access"] ?? '';
-                    foreach ($options as $opt) {
-                        $selected = ($selectedValue == $opt) ? 'selected' : '';
-                        echo "<option value='$opt' $selected>$opt</option>";
+                    foreach ($options as $value => $label) {
+                        $selected = ($selectedValue == $value) ? 'selected' : '';
+                        echo "<option value='$value' $selected>$label</option>";
                     }
                     ?>
                 </select>
@@ -246,166 +268,169 @@ $conn->close();
                     ?>
                 </select>
             </div>
-
-            <div class="mb-3">
-                <label for="rank" class="form-label">Rank:</label>
-                <select name="rank" id="rank" class="form-select">
-                    <option value="1" <? if ($row["Rank"] == true)
-                        echo "selected"; ?>>Okay</option>
-                    <option value="0" <? if ($row["Rank"] == false)
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="NULL" <?php if ($row["Rank"] == "")
-                        echo "selected"; ?>>Unavailable</option>
-                </select>
+            
+            <div class="col">
+                <label for="accessCountry" class="form-label">[https://who.is/]:</label>
+                <span id="accessCountry" class="form-text"></span>
             </div>
 
-            <div class="mb-3">
-                <label for="marketcap" class="form-label">Market Cap:</label>
-                <select name="marketcap" id="marketcap" class="form-select">
-                    <option value="1" <? if ($row["MarketCap"] == true)
-                        echo "selected"; ?>>Okay</option>
-                    <option value="0" <? if ($row["MarketCap"] == false)
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="NULL" <?php if ($row["MarketCap"] == NULL)
-                        echo "selected"; ?>>Unavailable</option>
-                </select>
-            </div>
+            <!-- Grid layout for fields 01-13 -->
+            <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                    <label for="rank" class="form-label">01. Rank:</label>
+                    <select name="rank" id="rank" class="form-select">
+                        <option value="1" <? if ($row["Rank"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <? if ($row["Rank"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["Rank"] == "") //
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="liquidity" class="form-label">Liquidity:</label>
-                <select name="liquidity" id="liquidity" class="form-select">
-                    <option value="1" <?php if ($row["Liquidity"] == true)
-                        echo "selected"; ?>>Okay</option>
-                    <option value="0" <?php if ($row["Liquidity"] == false)
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="NULL" <?php if ($row["Liquidity"] == NULL)
-                        echo "selected"; ?>>Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="marketcap" class="form-label">02. Market Cap:</label>
+                    <select name="marketcap" id="marketcap" class="form-select">
+                        <option value="1" <? if ($row["MarketCap"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <? if ($row["MarketCap"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["MarketCap"] == NULL)
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="fullydilutedmkc" class="form-label">Fully Diluted Market Cap:</label>
-                <select name="fullydilutedmkc" id="fullydilutedmkc" class="form-select">
-                    <option value="1" <?php if ($row["FullyDilutedMKC"] == true)
-                        echo "selected"; ?>>Okay</option>
-                    <option value="0" <?php if ($row["FullyDilutedMKC"] == false)
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="NULL" <?php if ($row["FullyDilutedMKC"] == NULL)
-                        echo "selected"; ?>>Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="liquidity" class="form-label">03. Liquidity:</label>
+                    <select name="liquidity" id="liquidity" class="form-select">
+                        <option value="1" <?php if ($row["Liquidity"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["Liquidity"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["Liquidity"] == NULL)
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="circulatingsupply" class="form-label">Circulating Supply:</label>
-                <select name="circulatingsupply" id="circulatingsupply" class="form-select">
-                    <option value="1" <?php if ($row["CirculatingSupply"] == 'true')
-                        echo "selected"; ?>>Okay</option>
-                    <option value="0" <?php if ($row["CirculatingSupply"] == 'false')
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="NULL" <?php if ($row["CirculatingSupply"] == NULL )
-                        echo "selected"; ?>>Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="fullydilutedmkc" class="form-label">04. Fully Diluted Mkt Cap:</label>
+                    <select name="fullydilutedmkc" id="fullydilutedmkc" class="form-select">
+                        <option value="1" <?php if ($row["FullyDilutedMKC"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["FullyDilutedMKC"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["FullyDilutedMKC"] == NULL)
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="maxsupply" class="form-label">Max Supply:</label>
-                <select name="maxsupply" id="maxsupply" class="form-select">
-                    <option value="1" <?php if ($row["MaxSupply"] == 'true')
-                        echo "selected"; ?>>Okay</option>
-                    <option value="0" <?php if ($row["MaxSupply"] == 'false')
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="NULL" <?php if ($row["MaxSupply"] == NULL )
-                        echo "selected"; ?>>
-                        Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="circulatingsupply" class="form-label">05. Circulating Supply:</label>
+                    <select name="circulatingsupply" id="circulatingsupply" class="form-select">
+                        <option value="1" <?php if ($row["CirculatingSupply"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["CirculatingSupply"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["CirculatingSupply"] == NULL )
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="totalsupply" class="form-label">Total Supply:</label>
-                <select name="totalsupply" id="totalsupply" class="form-select">
-                    <option value="K" <?php if ($row["TotalSupply"] == 'K')
-                        echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["TotalSupply"] == 'W')
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["TotalSupply"] != 'K' && $row["TotalSupply"] != 'W')
-                        echo "selected"; ?>>Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="maxsupply" class="form-label">06. Max Supply:</label> 
+                    <select name="maxsupply" id="maxsupply" class="form-select">
+                        <option value="1" <?php if ($row["MaxSupply"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["MaxSupply"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["MaxSupply"] == NULL )
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="price" class="form-label">Price:</label>
-                <select name="price" id="price" class="form-select">
-                    <option value="K" <?php if ($row["Price"] == 'K')
-                        echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["Price"] == 'W')
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["Price"] != 'K' && $row["Price"] != 'W')
-                        echo "selected"; ?>>
-                        Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="totalsupply" class="form-label">07. Total Supply:</label>
+                    <select name="totalsupply" id="totalsupply" class="form-select">
+                        <option value="1" <?php if ($row["TotalSupply"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["TotalSupply"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["TotalSupply"] == NULL )
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="graph" class="form-label">Graph:</label>
-                <select name="graph" id="graph" class="form-select">
-                    <option value="K" <?php if ($row["Graph"] == 'K')
-                        echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["Graph"] == 'W')
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["Graph"] != 'K' && $row["Graph"] != 'W')
-                        echo "selected"; ?>>
-                        Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="price" class="form-label">08. Price:</label>
+                    <select name="price" id="price" class="form-select">
+                        <option value="1" <?php if ($row["Price"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["Price"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["Price"] == NULL )
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="holders" class="form-label">Holders:</label>
-                <select name="holders" id="holders" class="form-select">
-                    <option value="K" <?php if ($row["Holders"] == 'K')
-                        echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["Holders"] == 'W')
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["Holders"] != 'K' && $row["Holders"] != 'W')
-                        echo "selected"; ?>>
-                        Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="graph" class="form-label">09. Graph:</label>
+                    <select name="graph" id="graph" class="form-select">
+                        <option value="1" <?php if ($row["Graph"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["Graph"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["Graph"] == NULL )
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="tokenLogo" class="form-label">Token Logo:</label>
-                <select name="tokenLogo" id="tokenLogo" class="form-select">
-                    <option value="K" <?php if ($row["TokenLogo"] == 'K')
-                        echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["TokenLogo"] == 'W')
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["TokenLogo"] != 'K' && $row["TokenLogo"] != 'W')
-                        echo "selected"; ?>>
-                        Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="holders" class="form-label">10. Holders:</label>
+                    <select name="holders" id="holders" class="form-select">
+                        <option value="1" <?php if ($row["Holders"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["Holders"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["Holders"] == NULL )
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="socialmedia" class="form-label">Social Media:</label>
-                <select name="socialmedia" id="socialmedia" class="form-select">
-                    <option value="K" <?php if ($row["SocialMedia"] == 'K')
-                        echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["SocialMedia"] == 'W')
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["SocialMedia"] != 'K' && $row["SocialMedia"] != 'W')
-                        echo "selected"; ?>>Unavailable</option>
-                </select>
-            </div>
+                <div class="col-md-4">
+                    <label for="tokenLogo" class="form-label">11. Token Logo:</label>
+                    <select name="tokenLogo" id="tokenLogo" class="form-select">
+                        <option value="1" <?php if ($row["TokenLogo"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["TokenLogo"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["TokenLogo"] == NULL )
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="metamaskbutton" class="form-label">Metamask Button:</label>
-                <select name="metamaskbutton" id="metamaskbutton" class="form-select">
-                    <option value="K" <?php if ($row["MetamaskButton"] == 'K')
-                        echo "selected"; ?>>Okay</option>
-                    <option value="W" <?php if ($row["MetamaskButton"] == 'W')
-                        echo "selected"; ?>>Wrong</option>
-                    <option value="Z" <?php if ($row["MetamaskButton"] != 'K' && $row["MetamaskButton"] != 'W')
-                        echo "selected"; ?>>Unavailable</option>
-                </select>
+                <div class="col-md-4">
+                    <label for="socialmedia" class="form-label">12. Social Media:</label>
+                    <select name="socialmedia" id="socialmedia" class="form-select">
+                        <option value="1" <?php if ($row["SocialMedia"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["SocialMedia"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["SocialMedia"] == NULL )
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="metamaskbutton" class="form-label">13. Metamask Button:</label>
+                    <select name="metamaskbutton" id="metamaskbutton" class="form-select">
+                        <option value="1" <?php if ($row["MetamaskButton"] == true)
+                            echo "selected"; ?>>Okay</option>
+                        <option value="0" <?php if ($row["MetamaskButton"] == false)
+                            echo "selected"; ?>>Wrong</option>
+                        <option value="NULL" <?php if ($row["MetamaskButton"] == NULL )
+                            echo "selected"; ?>>Unavailable</option>
+                    </select>
+                </div>
             </div>
 
             <div class="mb-3">

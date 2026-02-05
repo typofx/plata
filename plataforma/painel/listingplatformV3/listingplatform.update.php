@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
     $price = $_POST["price"];
     $graph = $_POST["graph"];
     $holders = $_POST["holders"];
-    $tokenlogo = $_POST["tokenlogo"] ?? '';
+    $tokenlogo = $_POST["tokenLogo"] ?? '';
     $socialmedia = $_POST["socialmedia"];
     $metamaskbutton = $_POST["metamaskbutton"];
     $obs1 = $_POST["obs1"]; 
@@ -111,12 +111,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
         Access = '$access',
         Country = '$country',
         Link = '$link',
-        TotalSupply = '$totalsupply',
-        Price = '$price',
-        Graph = '$graph',
-        Holders = '$holders',
-        SocialMedia = '$socialmedia',
-        MetamaskButton = '$metamaskbutton',
         Obs1 = '$obs1',
         Obs2 = '$obs2',
         Email = '$email',
@@ -131,6 +125,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
     if (($_POST["fullydilutedmkc"]) == "NULL") { $sql .= ", FullyDilutedMKC = NULL"; } else $sql .= ", FullyDilutedMKC = '$fullydilutedmkc'";
     if (($_POST["circulatingsupply"]) == "NULL") { $sql .= ", CirculatingSupply = NULL"; } else $sql .= ", CirculatingSupply = '$circulatingsupply'"; 
     if (($_POST["maxsupply"]) == "NULL") { $sql .= ", MaxSupply = NULL"; } else $sql .= ", MaxSupply = '$maxsupply'";
+    if (($_POST["totalsupply"]) == "NULL") { $sql .= ", TotalSupply = NULL"; } else $sql .= ", TotalSupply = '$totalsupply'";
+    if (($_POST["price"]) == "NULL") { $sql .= ", Price = NULL"; } else $sql .= ", Price = '$price'";
+    if (($_POST["graph"]) == "NULL") { $sql .= ", Graph = NULL"; } else $sql .= ", Graph = '$graph'";
+    if (($_POST["holders"]) == "NULL") { $sql .= ", Holders = NULL"; } else $sql .= ", Holders = '$holders'";
+    if (($_POST["tokenLogo"]) == "NULL") { $sql .= ", TokenLogo = NULL"; } else $sql .= ", TokenLogo = '$tokenlogo'";
+    if (($_POST["socialmedia"]) == "NULL") { $sql .= ", SocialMedia = NULL"; } else $sql .= ", SocialMedia = '$socialmedia'";
+    if (($_POST["metamaskbutton"]) == "NULL") { $sql .= ", MetamaskButton = NULL"; } else $sql .= ", MetamaskButton = '$metamaskbutton'";
+   
 
     if (!empty($_FILES['logo']['tmp_name'])) {
         $sql .= ", logo = '$logoFileName'";
@@ -146,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
 
 
     if ($conn->query($sql) === TRUE) {
-        //Get the action from the clicked button (defaults to 'save' if empty)
+        //Get the action from the clicked button(edit.php) (defaults to 'save' if empty)
         $action = $_POST['action'] ?? 'save';
         // Logic: If 'save_close' was clicked -> go to index.php. Else -> stay on edit page.
         $destino = ($action == 'save_close') ? "index.php" : "listingplatform.edit.php?id=" . $id;

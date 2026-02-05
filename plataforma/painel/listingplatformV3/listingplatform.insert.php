@@ -178,16 +178,25 @@ $conn->close();
                 </select>
             </div>
 
-            <div class="row mb-3">
-                <div class="col">
-                    <label for="access" class="form-label">Access:</label>
-                    <select class="form-select" name="access" id="access" required>
-                        <option value="1K" selected>1K</option>
-                        <option value="10K">10K</option>
-                        <option value="100K">100K</option>
-                        <option value="1Mill">1Mill</option>
-                    </select>
-                </div>
+            <div class="mb-3">
+                <label for="access" class="form-label">Access:</label> <!-- changed to comboBox-->
+                <select name="access" id="access" class="form-select">
+                    <option value="0">Select...</option>
+                    <?php
+                    $options = [
+                        '1000' => '1K',
+                        '10000' => '10K',
+                        '100000' => '100K',
+                        '1000000' => '1Mil',
+                        '10000000' => '10Mil'
+                    ];
+                    $selectedValue = $row["Access"] ?? '';
+                    foreach ($options as $value => $label) {
+                        $selected = ($selectedValue == $value) ? 'selected' : '';
+                        echo "<option value='$value' $selected>$label</option>";
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="row mb-3">
@@ -246,7 +255,7 @@ $conn->close();
             </div>
 
             <button type="submit" class="btn btn-primary">Add New</button>
-            <a href="index.php" class="btn btn-secondary">Back</a>
+            <a href="index.php" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 

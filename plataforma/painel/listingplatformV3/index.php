@@ -99,10 +99,9 @@
     </style>
 
     <style>
-   .hidden-column {
-    display: none;
-}
-
+        .hidden-column {
+            display: none;
+        }
     </style>
 
     <script>
@@ -157,8 +156,8 @@
     <br>
     <br>
     <br>
-<a href="listingplatform.insert.php">[Add new record]</a>
-<a href="<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/main.php';?>">[Back]</a>
+    <a href="listingplatform.insert.php">[Add new record]</a>
+    <a href="<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/main.php'; ?>">[Back]</a>
 
 
 
@@ -174,7 +173,7 @@
 
     function getTXTcolor($value)
     {
-        
+
         if ($value == NULL) {
             return 'color: gray;';
         } elseif ($value == true) {
@@ -197,14 +196,43 @@
         }
     }
 
+    function getAccessIcon($access)
+    {
+        $access = intval($access);
+        $animalIcon = '';
+        switch ($access) {
+            case 1000:
+                $animalIcon = '<img src="icon_shrimp.png">';
+                break;
+            case 10000:
+                $animalIcon = '<img src="icon_crab.png">';
+                break;
+            case 100000:
+                $animalIcon = '<img src="icon_fish.png">';
+                break;
+            case 1000000:
+                $animalIcon = '<img src="icon_shark.png">';
+                break;
+            case 10000000:
+                $animalIcon = '<img src="icon_whale.png">';
+                break;
+            default:
+                $animalIcon = '?';
+                break;
+        }
+
+        // Retorna apenas o emoji/imagem original
+        return '<span style="font-size: 20px;" title="">' . $animalIcon . '</span>';
+    }
+
     //  function verificaStatusSite($url)
     //  {
     //  $headers = @get_headers($url);
-
+    
     //  if ($headers) {
     // Extrai o código de status HTTP
     //   $statusCode = explode(' ', $headers[0])[1];
-
+    
     // Array de códigos de status que consideramos como "Online"
     //    $onlineStatusCodes = array('200', '401', '403', '500', '308');
     //
@@ -217,7 +245,7 @@
     //        return '<span style="color: red;">Failed to get headers</span>';
     //    }
     // }
-
+    
 
 
     if ($result->num_rows > 0) {
@@ -230,7 +258,7 @@
           </style>';
 
         //tabela inicio
-
+    
 
         echo '<center>
         <div>
@@ -243,21 +271,24 @@
         </div>
         <table id="example" style="width: 70%;">';
 
-    ?>
+        ?>
 
         <thead>
             <tr>
                 <th>ID</th>
-                <th><i title="Desktop">&nbsp;&nbsp;</i></th> <!-- Desktop --> 
+                <th><i title="Desktop">&nbsp;&nbsp;</i></th> 
                 <!-- <th><i title="Mobile"></i></th>  Mobile -->
 
                 <th>&nbsp;%&nbsp;</th>
                 <th>Platform</th>
-                <th></th>
+                <th class="pointer cl-country"><a onclick="hideCountry()"> </a></th> 
+
+                <!-- Gear column header - COMMENTED OUT to prevent table misalignment
+                <th style="display:none;"></th>
+                -->
+
                 <th class="pointer cl-type"><a onclick="hideType()">Type</a></th>
-                <th class="pointer cl-access"><a onclick="hideAccess()">Access</a></th>
-                <th class="pointer cl-country"><a onclick="hideCountry()"> </a></th>
-                <!-- <th class="pointer cl-rank"><a onclick="hideRank()">Rank</a></th> -->
+                <th class="pointer cl-access"><a onclick="hideAccess()">Acess</a></th>
                 <th class="no-wrap-icons">
 
                 </th>
@@ -266,7 +297,7 @@
                 <th class="obs2-column">Obs2</th>
 
 
-                <th>Last Updated</th>
+                <th>Last&nbsp;Updated&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                 <th>Last Edited By</th>
                 <th>Actions</th>
             </tr>
@@ -310,42 +341,42 @@
 
                 $update = 'Update';
                 echo '<tr>';
-                echo '<td><center>' . intval($cont) . '</center></td>'; 
+                echo '<td><center>' . intval($cont) . '</center></td>';
 
                 echo '<td class="colored-cell">';
 
                 if ($row["Listed"] == true) {
-                $colorDesktop = ($row["Desktop"] == true) ? 'green' : 'gray';
-                echo '<i class="fas fa-desktop" title="Desktop" style="color: ' . $colorDesktop . ';"></i>';
-                $colorMobile = ($row["Mobile"] == true) ? 'green' : 'gray';
-                echo '<i class="fas fa-mobile-alt" title="Mobile" style="color: ' . $colorMobile . ';"></i>';
+                    $colorDesktop = ($row["Desktop"] == true) ? 'green' : 'gray';
+                    echo '<i class="fas fa-desktop" title="Desktop" style="color: ' . $colorDesktop . ';"></i>';
+                    $colorMobile = ($row["Mobile"] == true) ? 'green' : 'gray';
+                    echo '<i class="fas fa-mobile-alt" title="Mobile" style="color: ' . $colorMobile . ';"></i>';
                 } else {
-                   echo ' ';
+                    echo ' ';
                 }
                 echo '</td>';
 
                 echo '<td class="colored-cell" style="' . setBGcolor($row["Score"] ?? "") . '"><center>' . round(floatval($row["Score"]), 4) . '</center></td>';
                 echo '<td class="colored-cell" style="' . setBGcolor($row["Score"] ?? "") . '"><center><a href="' . $row["Link"] . '" target="_blank">' . (!empty($row["Platform"]) ? $row["Platform"] : "update") . '</a></center></td>';
+                // Country flag - next to Platform
+                echo '<td class="cl-country" style="' . setBGcolor($row["Score"] ?? "") . '"><center><img src="https://www.plata.ie/images/flags/' . $row["Country"] . '.png" alt="' . $row["Country"] . '" height="20" width="20"></center></td>';
 
-                // Botão de status
-                echo '<td class="colored-cell" style="' . setBGcolor($row["Score"] ?? "") . '">
+                /* Gear status button - COMMENTED OUT to prevent table misalignment
+                echo '<td class="colored-cell" style="display:none; ' . setBGcolor($row["Score"] ?? "") . '">
                 <a href="listingplatform.new_status.php?id=' . $row["ID"] . '" target="_blank" class="status-link">
                     <i class="fa-solid fa-gear" style="color: ' .
                     (strpos($row["status"], 'green') !== false ? 'green' : 'red') . '; font-size: 16px;"></i>
                 </a>
-            </td>';
+                </td>';
+                */
 
 
 
                 echo '<td class="cl-type" style="' . setBGcolor($row["Score"] ?? "") . '"><center>' . $row["Type"] . '</center></td>';
-                echo '<td class="cl-access" style="' . setBGcolor($row["Score"] ?? "") . '"><center>' . $row["Access"] . '</center></td>';
-                echo '<td class="cl-country" style="' . setBGcolor($row["Score"] ?? "") . '"><center><img src="https://www.plata.ie/images/flags/' . $row["Country"] . '.png" alt="' . $row["Country"] . '" height="20" width="20"></center></td>';
-
-                // echo '<td class="cl-rank" style="' . setBGcolor($row["Score"] ?? "") . '"><center>' . $row["Rank"] . '</center></td>';
+                echo '<td class="cl-access" style="' . setBGcolor($row["Score"] ?? "") . '"><center>' . getAccessIcon($row["Access"]) . '</center></td>';
 
                 echo '<td class="colored-cell" style="white-space: nowrap;">';
 
-                echo '<span style="' . getTXTcolor($row["Rank"] ?? "") . '; font-size: 17px;"><i class="fas fa-trophy" title="Rank"></i></span>';
+                echo '<span style="' . getTXTcolor($row["Rank"] ?? "") . '; font-size: 17px;"><i class="fas fa-trophy" title="Rank"></i></span>'; // added Rank icon 
                 echo '<span style="' . getTXTcolor($row["MarketCap"] ?? "") . '; font-size: 17px;"><i class="fas fa-chart-line" title="Market Cap"></i></span>';
                 echo '<span style="' . getTXTcolor($row["Liquidity"] ?? "") . ';"><i class="fas fa-water" title="Liquidity"></i></span>';
                 echo '<span style="' . getTXTcolor($row["FullyDilutedMKC"] ?? "") . ';"><i class="fas fa-coins" title="Fully Diluted Market Cap"></i></span>';
@@ -385,8 +416,8 @@
         </table>
         </center>
 
-    <?php
-        $json_data = json_encode($links_data,  JSON_NUMERIC_CHECK);
+        <?php
+        $json_data = json_encode($links_data, JSON_NUMERIC_CHECK);
 
 
         $file = 'links_data.json';
@@ -420,23 +451,23 @@
             text-align: center;
         }
     </style>
-<script>
-    function toggleColumn(columnClass) {
-        const elements = document.querySelectorAll('.' + columnClass);
-        elements.forEach(element => {
-            element.style.display = (element.style.display === 'none') ? '' : 'none';
-        });
-    }
+    <script>
+        function toggleColumn(columnClass) {
+            const elements = document.querySelectorAll('.' + columnClass);
+            elements.forEach(element => {
+                element.style.display = (element.style.display === 'none') ? '' : 'none';
+            });
+        }
 
-    document.addEventListener("DOMContentLoaded", function () {
-        // Inicialmente ocultar as colunas Obs1 e Obs2
-        toggleColumn('obs1-column');
-        toggleColumn('obs2-column');
-    });
-</script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Inicialmente ocultar as colunas Obs1 e Obs2
+            toggleColumn('obs1-column');
+            toggleColumn('obs2-column');
+        });
+    </script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#example').DataTable({
                 // Configurações adicionais
                 "paging": true,
