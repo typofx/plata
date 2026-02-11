@@ -1,0 +1,5 @@
+*env.php
+*session_data
+*.log
+/cache/
+
