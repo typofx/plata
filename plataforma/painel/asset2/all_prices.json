@@ -1,0 +1,37 @@
+{
+  "last_updated_at": "27-06-2025 14:37:42 UTC",
+  "prices_vs_usd": {
+    "USDBTC": 0.00000938,
+    "USDETH": 0.00041250,
+    "USDWBTC": 0.00000938,
+    "USDWETH": 0.00071410,
+    "USDBNB": 0.00155000,
+    "USDXAUT": 0.00030530,
+    "USDMATIC": 5.7710,
+    "USDEUR": 0.8536,
+    "USDBRL": 5.5140
+  },
+  "usd_vs_prices": {
+    "BTCUSD": 106609.8081,
+    "ETHUSD": 2424.2424242424,
+    "WBTCUSD": 106609.8081,
+    "WETHUSD": 1400.3641,
+    "BNBUSD": 645.1613,
+    "XAUtUSD": 3275.4668,
+    "MATICUSD": 0.1733,
+    "EURUSD": 1.1715,
+     "BRLUSD": 0.1814
+  },
+  "plt_prices": {
+    "PLTUSD": 0.0000008609,
+    "PLTBRL": 0.0000047470,
+    "PLTEUR": 0.0000007349,
+    "PLTMATIC": 201277.9580,
+    "MATICPLT": 0.0000049683
+  },
+  "plt_marketcap": {
+    "USD": 9727.3100,
+    "BRL": 53636.3577,
+    "EUR": 8303.6358
+  }
+}
