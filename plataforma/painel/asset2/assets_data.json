@@ -1,0 +1,232 @@
+[
+    {
+        "id": 1,
+        "name": "Plata",
+        "icon": "680642ae77599_PlataTokenIconSmall.png",
+        "ticker": "PLT",
+        "contract": "0xc298812164bd558268f51cc6e3b8b5daaf0b6341",
+        "decimals": 4,
+        "network": "polygon",
+        "price": 4.5454999999999999324797918254237316659782663919031620025634765625e-6
+    },
+    {
+        "id": 2,
+        "name": "Aave Polygon WBTC",
+        "icon": "66e87c3763fc6_aave_wbtc.webp",
+        "ticker": "aWBTC",
+        "contract": "0x078f358208685046a11C85e8ad32895DED33A249",
+        "decimals": 8,
+        "network": "polygon",
+        "price": 66868.755000000004656612873077392578125
+    },
+    {
+        "id": 3,
+        "name": "Polygon Ecosystem Token",
+        "icon": "68416b9f45632_polygon-token.svg",
+        "ticker": "MATIC",
+        "contract": "0x0000000000000000000000000000000000001010",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0.10899999999999999966693309261245303787291049957275390625
+    },
+    {
+        "id": 4,
+        "name": "Wrapped Matic",
+        "icon": "66e87ca220442_wMatic_32.webp",
+        "ticker": "WMATIC",
+        "contract": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0.10899999999999999966693309261245303787291049957275390625
+    },
+    {
+        "id": 5,
+        "name": "Wrapped Ether",
+        "icon": "66e87cb174d65_wETH_32.webp",
+        "ticker": "WETH",
+        "contract": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 1
+    },
+    {
+        "id": 6,
+        "name": "BRZ Token",
+        "icon": "66e87cc03eb4f_braziliandigital_32.png",
+        "ticker": "BRZ",
+        "contract": "0x4eD141110F6EeeAbA9A1df36d8c26f684d2475Dc",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0.1933999999999999885869073068533907644450664520263671875
+    },
+    {
+        "id": 7,
+        "name": "(PoS) Wrapped BTC",
+        "icon": "67041086e9f16_wrapped-bitcoin-wbtc-seeklogo.svg",
+        "ticker": "WBTC",
+        "contract": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+        "decimals": 8,
+        "network": "polygon",
+        "price": 66685.78599999999278225004673004150390625
+    },
+    {
+        "id": 8,
+        "name": "USD Coin",
+        "icon": "66e878596b462_3408.png",
+        "ticker": "USDC",
+        "contract": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "decimals": 6,
+        "network": "polygon",
+        "price": 1.00190000000000001278976924368180334568023681640625
+    },
+    {
+        "id": 9,
+        "name": "(PoS) Tether USD",
+        "icon": "66e87d419abc0_tether_32.webp",
+        "ticker": "USDT",
+        "contract": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "decimals": 6,
+        "network": "polygon",
+        "price": 0.99719999999999997530863993233651854097843170166015625
+    },
+    {
+        "id": 10,
+        "name": "(PoS) Dai Stablecoin",
+        "icon": "66e87d56c8b70_mcdDai_32.png",
+        "ticker": "DAI",
+        "contract": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0
+    },
+    {
+        "id": 11,
+        "name": "Wrapped UST Token",
+        "icon": "66edab8b70f45_7129.png",
+        "ticker": "USTC",
+        "contract": "0x692597b009d13c4049a947cab2239b7d6517875f",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0
+    },
+    {
+        "id": 12,
+        "name": "USD Coin (PoS)",
+        "icon": "66e87d78dc231_3408.png",
+        "ticker": "USDC.e",
+        "contract": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "decimals": 6,
+        "network": "polygon",
+        "price": 0
+    },
+    {
+        "id": 13,
+        "name": "Paxos Gold",
+        "icon": "66e87de3af910_paxosgold_32.webp",
+        "ticker": "PAXG",
+        "contract": "0x553d3D295e0f695B9228246232eDF400ed3560B5",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 5184.6788999999998850398696959018707275390625
+    },
+    {
+        "id": 14,
+        "name": "(PoS) Binance USD",
+        "icon": "66ee177133c33_busd-logo.png",
+        "ticker": "BUSD",
+        "contract": "0xdAb529f40E671A1D4bF91361c21bf9f0C9712ab7",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0
+    },
+    {
+        "id": 15,
+        "name": "BNB (PoS)",
+        "icon": "",
+        "ticker": "BNB",
+        "contract": "0xecdcb5b88f8e3c15f95c720c51c71c9e2080525d",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 618.4595000000000482032191939651966094970703125
+    },
+    {
+        "id": 16,
+        "name": "STASIS EURS Token (PoS)",
+        "icon": "66f306d45bca5_stasis-euro-eurs-logo.png",
+        "ticker": "EURS",
+        "contract": "0xE111178A87A3BFf0c8d18DECBa5798827539Ae99",
+        "decimals": 2,
+        "network": "polygon",
+        "price": 1.247900000000000009237055564881302416324615478515625
+    },
+    {
+        "id": 17,
+        "name": "Aave Polygon EURS",
+        "icon": "66ef8c4cc9994_66e87e208c472_statiseuro_28.png",
+        "ticker": "aEURS",
+        "contract": "0x38d693cE1dF5AaDF7bC62595A37D667aD57922e5",
+        "decimals": 2,
+        "network": "polygon",
+        "price": 1.247900000000000009237055564881302416324615478515625
+    },
+    {
+        "id": 18,
+        "name": "Brazilian Real",
+        "icon": "66fcd3ae2c3f2_fiat-real_br.png",
+        "ticker": "BRL",
+        "contract": "",
+        "decimals": 2,
+        "network": "fiduciary coin",
+        "price": 0.1938999999999999890309965167034533806145191192626953125
+    },
+    {
+        "id": 19,
+        "name": "Euro",
+        "icon": "66fcd07278ae6_fiat-euro.png",
+        "ticker": "EUR",
+        "contract": "",
+        "decimals": 2,
+        "network": "fiduciary coin",
+        "price": 1.247900000000000009237055564881302416324615478515625
+    },
+    {
+        "id": 20,
+        "name": "United States Dollar",
+        "icon": "66fcd15fd24fa_fiat-dollar.png",
+        "ticker": "USD",
+        "contract": "",
+        "decimals": 2,
+        "network": "fiduciary coin",
+        "price": 1
+    },
+    {
+        "id": 21,
+        "name": "USD Coin",
+        "icon": "683adf1d1e45b_66e878596b462_3408.png",
+        "ticker": "USDC.e",
+        "contract": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+        "decimals": 6,
+        "network": "polygon",
+        "price": 0
+    },
+    {
+        "id": 22,
+        "name": "Monerium EUR emoney",
+        "icon": "699eff9cac2a3_eure.avif",
+        "ticker": "EURE",
+        "contract": "0x18ec0A6E18E5bc3784fDd3a3634b31245ab704F6",
+        "decimals": 18,
+        "network": "polygon",
+        "price": 0
+    },
+    {
+        "id": 23,
+        "name": "Tether Gold",
+        "icon": "699f05e2c17a5_xaut.avif",
+        "ticker": "XAUT",
+        "contract": "0xF1815bd50389c46847f0Bda824eC8da914045D14",
+        "decimals": 6,
+        "network": "polygon",
+        "price": 0
+    }
+]
