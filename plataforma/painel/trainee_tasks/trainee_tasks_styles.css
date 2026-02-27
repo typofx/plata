@@ -1,0 +1,96 @@
+body {
+    font-family: monospace;
+    padding: 2px;
+    padding-right: 2px;
+    background-color: #fff;
+}
+
+table,
+th,
+td {
+    text-align: center;
+}
+
+.pastel-yellow {
+    background-color: #fff9db !important;
+}
+
+table.dataTable.display tbody tr.odd.pastel-yellow,
+table.dataTable.display tbody tr.even.pastel-yellow {
+    background-color: #fff9db !important;
+}
+
+/* Form container (add / edit pages) */
+.form-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    font-weight: bold;
+}
+
+.form-container .btn {
+    margin-right: 10px;
+}
+
+/* Activity Table Styles */
+.activity-container {
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.activity-empty-state {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.activity-add-btn-large {
+    padding: 10px 20px;
+    /* Note: Bootstrap btn class handles most, this is specific override if needed or just rely on Bootstrap */
+    font-size: 16px;
+}
+
+.activity-table {
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+.activity-actions {
+    text-align: right;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.icon-edit {
+    color: blue;
+    margin-right: 10px;
+}
+
+.icon-delete {
+    color: red;
+}
+
+.expand-btn {
+    cursor: pointer;
+    margin-right: 10px;
+    color: green;
+}
+
+.activity-done {
+    opacity: 0.5;
+    color: #888;
+}
+
+.activity-done i {
+    opacity: 0.7;
+}
