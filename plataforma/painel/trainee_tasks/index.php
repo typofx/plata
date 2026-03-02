@@ -1,5 +1,5 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php'; ?>
 <?php
+include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
 
 include 'conexao.php';
 

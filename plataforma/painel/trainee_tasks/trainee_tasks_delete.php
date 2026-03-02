@@ -1,6 +1,5 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php'; ?>
 <?php
-
+include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
 
 // Bloqueio de acesso para não-root
 if (!in_array($_SESSION["user_level_panel"] ?? 'public', ['admin', 'root'])) {
