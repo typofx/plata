@@ -1,0 +1,13 @@
+body {
+    font-family: monospace;
+    padding: 2px;
+    padding-right: 250px;
+    background-color: #fff;
+}
+
+table, th, td { text-align: center; }
+.pastel-yellow { background-color: #fff9db !important; }
+table.dataTable.display tbody tr.odd.pastel-yellow,
+table.dataTable.display tbody tr.even.pastel-yellow {
+     background-color: #fff9db !important;
+}
