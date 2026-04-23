@@ -1,0 +1,256 @@
+/* configMenu Styles - Standardized with trainee_tasks */
+
+body {
+    font-family: monospace;
+    padding: 2px;
+    padding-right: 2px;
+    background-color: #fff;
+    color: #000;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+}
+
+h2 {
+    color: #333;
+    font-size: 18px;
+}
+
+.top-header {
+    padding: 5px;
+    font-size: 12px;
+}
+
+.top-header .session-info {
+    margin-right: 10px;
+}
+
+.top-header a {
+    margin-right: 5px;
+}
+
+.header-container {
+    padding: 10px 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.session-info {
+    display: inline;
+    font-size: 12px;
+}
+
+/* Navigation Links */
+.top-nav {
+    display: inline;
+    margin-left: 5px;
+}
+
+/* Form Container - Centered Box */
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.form-container h2, .form-container h1 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.form-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+.form-container input[type="text"], 
+.form-container input[type="url"],
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+.top-nav a, a {
+    color: #000;
+    text-decoration: none;
+}
+
+.top-nav a:hover, a:hover {
+    text-decoration: underline;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 13px;
+}
+
+th {
+    background-color: #ddd; /* Darker grey for header */
+    color: #000;
+    font-weight: bold;
+}
+
+.main-row {
+    background-color: #f2f2f2; /* Darker grey for main menus */
+}
+
+.submenu-row {
+    background-color: #fafafa; /* Lighter grey for submenus */
+}
+
+tr:hover {
+    background-color: #eee;
+}
+
+/* Form Container - Centered Box */
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.form-container h2, .form-container h1 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.form-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="text"], 
+input[type="url"],
+textarea, 
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+/* Button Styles */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button, 
+input[type="submit"],
+.btn {
+    background-color: #6a4c93;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 14px;
+    transition: background 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+button:hover, 
+input[type="submit"]:hover,
+.btn:hover {
+    background-color: #5a3d82;
+}
+
+.btn-delete {
+    background-color: #ff4d4d !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 24px !important;
+}
+
+.btn-delete:hover {
+    background-color: #e60000 !important;
+}
+
+.btn-delete-small {
+    color: #ff4d4d !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* Submenu Styling in Table */
+.submenu-cell {
+    text-align: left !important;
+    padding: 15px 20px !important;
+    background-color: transparent;
+}
+
+.submenu-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.submenu-list-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.submenu-list-items li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.submenu-list-items li:last-child {
+    border-bottom: none;
+}
+
+.submenu-list-items a {
+    color: #6a4c93;
+    text-decoration: none;
+}
+
+.submenu-list-items a:hover {
+    text-decoration: underline;
+}
+
+.add-submenu-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 12px;
+}
