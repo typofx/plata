@@ -1,16 +1,22 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
+include __DIR__ . '/bootstrap.php';
+include AUTH_FILE;
 
-// Bloqueio de acesso para não-root
+// Block non-root access
 if (!in_array($_SESSION["user_level_panel"] ?? 'public', ['admin', 'root'])) {
-    header("Location: index.php");
+    header("Location: index");
     exit();
 }
 
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    include 'conexao.php';
+// CSRF validation
+if (!isset($_POST['token']) || empty($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['token'])) {
+    die("Invalid CSRF token.");
+}
 
-    $id = $_GET['id'];
+if (isset($_POST['id']) && !empty($_POST['id'])) {
+    include DB_FILE;
+
+    $id = $_POST['id'];
 
     // Prepare the SQL query to delete the record
     $sql = "DELETE FROM granna80_bdlinks.trainee_tasks WHERE trainee_task_code = ?";
@@ -28,7 +34,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // Check if the deletion was successful
     if ($stmt->affected_rows > 0) {
         // Redirect back to the payments page
-        echo "<script>window.location.href = 'index.php';</script>";
+        echo "<script>window.location.href = 'index';</script>";
     } else {
         echo "Error deleting record.";
     }

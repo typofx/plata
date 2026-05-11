@@ -1,4 +1,4 @@
-<?php include ('/home2/granna80/%/env.php'); ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/.scr/env.php'; ?>
 
 <?php
 

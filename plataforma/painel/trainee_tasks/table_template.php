@@ -10,6 +10,16 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#traineeTasksTable').dataTable({
+                "lengthMenu": [[25, 50, 75, -1], [25, 50, 75, "All"]],
+                "pageLength": 50
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -39,16 +49,6 @@
         </tbody>
     </table>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#traineeTasksTable').dataTable({
-                "lengthMenu": [[25, 50, 75, -1], [25, 50, 75, "All"]],
-                "pageLength": 50
-            });
-        });
-    </script>
 </body>
 
 </html>

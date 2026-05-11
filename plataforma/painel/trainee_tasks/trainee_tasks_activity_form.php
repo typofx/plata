@@ -1,16 +1,17 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
+include __DIR__ . '/bootstrap.php';
+include AUTH_FILE;
 
-// Bloqueio de acesso para não-root
+// Block non-admin/root users
 if (!in_array($_SESSION["user_level_panel"] ?? 'public', ['admin', 'root'])) {
-    header("Location: index.php");
+    header("Location: index");
     exit();
 }
 
-include 'conexao.php';
+include DB_FILE;
 
-$task_code = isset($_GET['task_code']) ? $_GET['task_code'] : '';
-$activity_code = isset($_GET['activity_code']) ? $_GET['activity_code'] : '';
+$task_code = $_POST['task_code'] ?? $_GET['task_code'] ?? '';
+$activity_code = $_POST['activity_code'] ?? $_GET['activity_code'] ?? '';
 $is_edit = !empty($activity_code);
 
 if (empty($task_code)) {
@@ -20,79 +21,119 @@ if (empty($task_code)) {
 
 $success_message = '';
 $error_message = '';
+$errors = [];
 
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $trainee_task_code = $_POST['trainee_task_code'];
-    $trainee_activity_code = $_POST['trainee_activity_code'];
-    $trainee_activity = $_POST['trainee_activity'];
-    $trainee_activity_details = $_POST['trainee_activity_details'];
-    $trainee_activity_status = $_POST['trainee_activity_status'];
-    $trainee_activity_last_updated = date('Y-m-d');
+// Generate CSRF token
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 
-    if ($is_edit) {
-        $stmt = $conn->prepare("UPDATE granna80_bdlinks.trainee_activity SET trainee_activity = ?, trainee_activity_details = ?, trainee_activity_status = ?, trainee_activity_last_updated = ? WHERE trainee_task_code = ? AND trainee_activity_code = ?");
-        $stmt->bind_param("ssssss", $trainee_activity, $trainee_activity_details, $trainee_activity_status, $trainee_activity_last_updated, $trainee_task_code, $trainee_activity_code);
+$allowed_statuses = ['open', 'done', 'test', 'video', 'prod'];
 
-        if ($stmt->execute()) {
-            $_SESSION['message'] = "Activity updated successfully.";
-            echo "<script>window.location.href = 'index.php';</script>";
-            exit();
-        } else {
-            $error_message = "Error updating activity: " . $stmt->error;
-        }
-        $stmt->close();
+// Handle form submission (Only if token is present, meaning user pressed Save)
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['csrf_token'])) {
+    // CSRF validation
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        $error_message = "Invalid CSRF token.";
     } else {
-        $stmt = $conn->prepare("INSERT INTO granna80_bdlinks.trainee_activity (trainee_task_code, trainee_activity_code, trainee_activity, trainee_activity_details, trainee_activity_status, trainee_activity_last_updated) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssss", $trainee_task_code, $trainee_activity_code, $trainee_activity, $trainee_activity_details, $trainee_activity_status, $trainee_activity_last_updated);
+        $trainee_task_code = trim($_POST['trainee_task_code'] ?? '');
+        $trainee_activity_code = trim($_POST['trainee_activity_code'] ?? '');
+        $trainee_activity = trim($_POST['trainee_activity'] ?? '');
+        $trainee_activity_details = trim($_POST['trainee_activity_details'] ?? '');
+        $trainee_activity_status = trim($_POST['trainee_activity_status'] ?? '');
 
-        if ($stmt->execute()) {
-            $_SESSION['message'] = "Activity added successfully to Task: " . htmlspecialchars($trainee_task_code);
-            echo "<script>window.location.href = 'index.php';</script>";
-            exit();
+        // Verify readonly codes weren't tampered with
+        if ($trainee_task_code !== $task_code) $errors[] = "Task Code mismatch.";
+        if ($is_edit && $trainee_activity_code !== $activity_code) $errors[] = "Activity Code mismatch.";
+
+        // Server-side validation
+        if (empty($trainee_activity)) $errors[] = "Activity name is required.";
+        if (mb_strlen($trainee_activity) > 40) $errors[] = "Activity name must be 40 characters or fewer.";
+        if (empty($trainee_activity_details)) $errors[] = "Details are required.";
+        if (mb_strlen($trainee_activity_details) > 85) $errors[] = "Details must be 85 characters or fewer.";
+        if (!in_array($trainee_activity_status, $allowed_statuses, true)) $errors[] = "Invalid status.";
+
+        // Regenerate CSRF token after validation
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+        if (empty($errors)) {
+            $trainee_activity_last_updated = date('Y-m-d');
+
+            if ($is_edit) {
+                $stmt = $conn->prepare("UPDATE granna80_bdlinks.trainee_activity SET trainee_activity = ?, trainee_activity_details = ?, trainee_activity_status = ?, trainee_activity_last_updated = ? WHERE trainee_task_code = ? AND trainee_activity_code = ?");
+                $stmt->bind_param("ssssss", $trainee_activity, $trainee_activity_details, $trainee_activity_status, $trainee_activity_last_updated, $task_code, $activity_code);
+
+                if ($stmt->execute()) {
+                    $_SESSION['message'] = "Activity updated successfully.";
+                    echo "<script>window.location.href = 'index';</script>";
+                    exit();
+                } else {
+                    $error_message = "Error updating activity: " . $stmt->error;
+                }
+                $stmt->close();
+            } else {
+                $stmt = $conn->prepare("INSERT INTO granna80_bdlinks.trainee_activity (trainee_task_code, trainee_activity_code, trainee_activity, trainee_activity_details, trainee_activity_status, trainee_activity_last_updated) VALUES (?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("ssssss", $trainee_task_code, $trainee_activity_code, $trainee_activity, $trainee_activity_details, $trainee_activity_status, $trainee_activity_last_updated);
+
+                if ($stmt->execute()) {
+                    $_SESSION['message'] = "Activity added successfully to Task: " . htmlspecialchars($trainee_task_code);
+                    echo "<script>window.location.href = 'index';</script>";
+                    exit();
+                } else {
+                    $error_message = "Error adding activity: " . $stmt->error;
+                }
+                $stmt->close();
+            }
         } else {
-            $error_message = "Error adding activity: " . $stmt->error;
+            $error_message = implode('<br>', $errors);
         }
-        $stmt->close();
     }
 }
 
 // Initial Data Fetch/Setup
 if ($is_edit) {
-    $stmt = $conn->prepare("SELECT * FROM granna80_bdlinks.trainee_activity WHERE trainee_task_code = ? AND trainee_activity_code = ?");
-    $stmt->bind_param("ss", $task_code, $activity_code);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($row = $result->fetch_assoc()) {
-        $trainee_activity = $row['trainee_activity'];
-        $trainee_activity_details = $row['trainee_activity_details'];
-        $trainee_activity_status = $row['trainee_activity_status'];
-        $trainee_activity_code = $row['trainee_activity_code'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($errors)) {
+        // Preserve submitted values on validation failure
     } else {
-        echo "Activity not found.";
-        exit;
+        $stmt = $conn->prepare("SELECT * FROM granna80_bdlinks.trainee_activity WHERE trainee_task_code = ? AND trainee_activity_code = ?");
+        $stmt->bind_param("ss", $task_code, $activity_code);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $trainee_activity = $row['trainee_activity'];
+            $trainee_activity_details = $row['trainee_activity_details'];
+            $trainee_activity_status = $row['trainee_activity_status'];
+            $trainee_activity_code = $row['trainee_activity_code'];
+        } else {
+            echo "Activity not found.";
+            exit;
+        }
+        $stmt->close();
     }
-    $stmt->close();
 } else {
-    // Add mode: Calculate next activity code
-    $stmt_max = $conn->prepare("SELECT MAX(CAST(trainee_activity_code AS UNSIGNED)) as max_code FROM granna80_bdlinks.trainee_activity WHERE trainee_task_code = ?");
-    $stmt_max->bind_param("s", $task_code);
-    $stmt_max->execute();
-    $result_max = $stmt_max->get_result();
-    $row_max = $result_max->fetch_assoc();
-    $trainee_activity_code = str_pad(($row_max['max_code'] ?? 0) + 1, 3, '0', STR_PAD_LEFT);
-    $stmt_max->close();
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($errors)) {
+        // Preserve submitted values on validation failure
+    } else {
+        // Add mode: Calculate next activity code
+        $stmt_max = $conn->prepare("SELECT MAX(CAST(trainee_activity_code AS UNSIGNED)) as max_code FROM granna80_bdlinks.trainee_activity WHERE trainee_task_code = ?");
+        $stmt_max->bind_param("s", $task_code);
+        $stmt_max->execute();
+        $result_max = $stmt_max->get_result();
+        $row_max = $result_max->fetch_assoc();
+        $trainee_activity_code = str_pad(($row_max['max_code'] ?? 0) + 1, 3, '0', STR_PAD_LEFT);
+        $stmt_max->close();
 
-    $trainee_activity = '';
-    $trainee_activity_details = '';
-    $trainee_activity_status = 'open';
+        $trainee_activity = '';
+        $trainee_activity_details = '';
+        $trainee_activity_status = 'open';
+    }
 }
 
 $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -100,8 +141,29 @@ $conn->close();
     <title>
         <?php echo $is_edit ? 'Edit' : 'Add'; ?> Trainee Activity
     </title>
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="https://www.typofx.ie/.scr/bootstrap.min.css" rel="stylesheet">
+    <script src="https://www.typofx.ie/.scr/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="trainee_tasks_styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const statusSelect = document.getElementById('trainee_activity_status');
+            const nameLabel = document.getElementById('activity_name_label');
+            const nameInput = document.getElementById('trainee_activity');
+
+            function updateLabel() {
+                if (statusSelect.value === 'video') {
+                    nameLabel.textContent = 'YouTube Link (ID):';
+                    nameInput.placeholder = 'ex: VjY8_W8S00A';
+                } else {
+                    nameLabel.textContent = 'Activity Name:';
+                    nameInput.placeholder = '';
+                }
+            }
+
+            statusSelect.addEventListener('change', updateLabel);
+            updateLabel();
+        });
+    </script>
 </head>
 
 <body>
@@ -118,6 +180,8 @@ $conn->close();
         <?php endif; ?>
 
         <form method="POST" action="">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+
             <div class="mb-3">
                 <label for="trainee_task_code" class="form-label">Task Code:</label>
                 <input type="text" class="form-control" name="trainee_task_code" id="trainee_task_code"
@@ -162,32 +226,11 @@ $conn->close();
                 <button type="submit" class="btn btn-primary">
                     <?php echo $is_edit ? 'Save Changes' : 'Add Activity'; ?>
                 </button>
-                <a href="index.php" class="btn btn-secondary">Cancel</a>
+                <a href="index" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const statusSelect = document.getElementById('trainee_activity_status');
-            const nameLabel = document.getElementById('activity_name_label');
-            const nameInput = document.getElementById('trainee_activity');
-
-            function updateLabel() {
-                if (statusSelect.value === 'video') {
-                    nameLabel.textContent = 'YouTube Link (ID):';
-                    nameInput.placeholder = 'ex: VjY8_W8S00A';
-                } else {
-                    nameLabel.textContent = 'Activity Name:';
-                    nameInput.placeholder = '';
-                }
-            }
-
-            statusSelect.addEventListener('change', updateLabel);
-            updateLabel(); // Run on load
-        });
-    </script>
 </body>
 
 </html>
