@@ -112,6 +112,12 @@ table.dataTable tbody td {
     padding: 6px 4px !important; /* Significantly reduce horizontal gaps */
 }
 
+table.dataTable thead th:nth-child(9),
+table.dataTable tbody td:nth-child(9) {
+    width: 1% !important;
+    white-space: nowrap !important;
+}
+
 /* Tighten space specifically for far-right metadata clusters */
 table.dataTable thead th:nth-child(10),
 table.dataTable thead th:nth-child(11),

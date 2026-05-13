@@ -1,6 +1,12 @@
+<? include $_SERVER['DOCUMENT_ROOT']. '/plataforma/panel/is_logged.php'?>
+<? include $_SERVER['DOCUMENT_ROOT']. '/.scr/conexao.php'?>
 <?php
-include __DIR__ . '/bootstrap.php';
-include AUTH_FILE;
+// Dynamic module loader: attempts to auto-detect module from directory, falls back to 'tasks' for stability.
+$folder = file_exists(__DIR__ . '/' . basename(__DIR__) . '.language.helper.php') ? basename(__DIR__) : 'tasks';
+include __DIR__ . '/' . $folder . '.language.helper.php';
+?>
+
+<?php
 
 // Block non-root access
 if (!in_array($_SESSION["user_level_panel"] ?? 'public', ['admin', 'root'])) {
@@ -14,7 +20,6 @@ if (!isset($_POST['token']) || empty($_SESSION['csrf_token']) || !hash_equals($_
 }
 
 if (isset($_POST['id']) && !empty($_POST['id'])) {
-    include DB_FILE;
 
     $id = $_POST['id'];
 
@@ -24,7 +29,8 @@ if (isset($_POST['id']) && !empty($_POST['id'])) {
     // Prepare the statement
     $stmt = $conn->prepare($sql);
     if ($stmt === false) {
-        trigger_error($conn->error, E_USER_ERROR);
+        error_log("Tasks: Delete prepare failed: " . $conn->error);
+        die("An error occurred.");
     }
 
     // Bind parameters and execute the statement

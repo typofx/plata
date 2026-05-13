@@ -1,6 +1,12 @@
+<? include $_SERVER['DOCUMENT_ROOT']. '/plataforma/panel/is_logged.php'?>
+<? include $_SERVER['DOCUMENT_ROOT']. '/.scr/conexao.php'?>
 <?php
-include __DIR__ . '/bootstrap.php';
-include AUTH_FILE;
+// Dynamic module loader: attempts to auto-detect module from directory, falls back to 'tasks' for stability.
+$folder = file_exists(__DIR__ . '/' . basename(__DIR__) . '.language.helper.php') ? basename(__DIR__) : 'tasks';
+include __DIR__ . '/' . $folder . '.language.helper.php';
+?>
+
+<?php
 
 // Block non-root access
 if (!in_array($_SESSION["user_level_panel"] ?? 'public', ['admin', 'root'])) {
@@ -13,7 +19,6 @@ if (!isset($_POST['token']) || empty($_SESSION['csrf_token']) || !hash_equals($_
     die("Invalid CSRF token.");
 }
 
-include DB_FILE;
 
 $task_code = $_POST['task_code'] ?? '';
 $activity_code = $_POST['activity_code'] ?? '';
@@ -29,7 +34,8 @@ $stmt->bind_param("ss", $task_code, $activity_code);
 if ($stmt->execute()) {
     $_SESSION['message'] = "Activity deleted successfully.";
 } else {
-    $_SESSION['message'] = "Error deleting activity: " . $stmt->error;
+    error_log("Tasks: Error deleting activity: " . $stmt->error);
+    $_SESSION['message'] = "An error occurred. Please try again.";
 }
 
 $stmt->close();

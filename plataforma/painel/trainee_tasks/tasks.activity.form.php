@@ -1,6 +1,9 @@
+<? include $_SERVER['DOCUMENT_ROOT']. '/plataforma/panel/is_logged.php'?>
+<? include $_SERVER['DOCUMENT_ROOT']. '/.scr/conexao.php'?>
 <?php
-include __DIR__ . '/bootstrap.php';
-include AUTH_FILE;
+// Dynamic module loader: attempts to auto-detect module from directory, falls back to 'tasks' for stability.
+$folder = file_exists(__DIR__ . '/' . basename(__DIR__) . '.language.helper.php') ? basename(__DIR__) : 'tasks';
+include __DIR__ . '/' . $folder . '.language.helper.php';
 
 // Block non-admin/root users
 if (!in_array($_SESSION["user_level_panel"] ?? 'public', ['admin', 'root'])) {
@@ -8,9 +11,7 @@ if (!in_array($_SESSION["user_level_panel"] ?? 'public', ['admin', 'root'])) {
     exit();
 }
 
-include DB_FILE;
-
-$task_code = $_POST['task_code'] ?? $_GET['task_code'] ?? '';
+$task_code = $_POST['task_code'] ?? $_POST['trainee_task_code'] ?? $_GET['task_code'] ?? '';
 $activity_code = $_POST['activity_code'] ?? $_GET['activity_code'] ?? '';
 $is_edit = !empty($activity_code);
 
@@ -68,7 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['csrf_token'])) {
                     echo "<script>window.location.href = 'index';</script>";
                     exit();
                 } else {
-                    $error_message = "Error updating activity: " . $stmt->error;
+                    error_log("Tasks: Error updating activity: " . $stmt->error);
+                    $error_message = "An error occurred. Please try again.";
                 }
                 $stmt->close();
             } else {
@@ -80,7 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['csrf_token'])) {
                     echo "<script>window.location.href = 'index';</script>";
                     exit();
                 } else {
-                    $error_message = "Error adding activity: " . $stmt->error;
+                    error_log("Tasks: Error adding activity: " . $stmt->error);
+                    $error_message = "An error occurred. Please try again.";
                 }
                 $stmt->close();
             }
@@ -143,7 +146,7 @@ $conn->close();
     </title>
     <link href="https://www.typofx.ie/.scr/bootstrap.min.css" rel="stylesheet">
     <script src="https://www.typofx.ie/.scr/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="trainee_tasks_styles.css">
+    <link rel="stylesheet" href="<?php echo $folder; ?>.styles.css">
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const statusSelect = document.getElementById('trainee_activity_status');

@@ -1,11 +1,12 @@
+<? include $_SERVER['DOCUMENT_ROOT']. '/.scr/conexao.php'?>
 <?php
+// Dynamic module loader: attempts to auto-detect module from directory, falls back to 'tasks' for stability.
+$folder = file_exists(__DIR__ . '/' . basename(__DIR__) . '.language.helper.php') ? basename(__DIR__) : 'tasks';
+include __DIR__ . '/' . $folder . '.language.helper.php';
+?>
 
-include __DIR__ . '/bootstrap.php';
-include DB_FILE;
-include __DIR__ . '/trainee_tasks_language_helper.php';
-
+<?php
 $pageTitle = 'Sirka';
-
 
 date_default_timezone_set('UTC');
 
@@ -13,7 +14,7 @@ $query = "SELECT *,
     DATE_FORMAT(deployed, '%d/%m/%y') as deployed_formatted,
     DATE_FORMAT(last_updated, '%d/%m/%y') as last_updated_formatted 
     FROM granna80_bdlinks.trainee_tasks 
-    WHERE last_updated >= DATE_SUB(CURDATE(), INTERVAL 14 DAY)
+    WHERE deployed >= DATE_SUB(CURDATE(), INTERVAL 15 DAY)
     ORDER BY trainee_task_code DESC";
 $result = $conn->query($query);
 
@@ -78,20 +79,20 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sirka</title>
+    <title><?php echo htmlspecialchars($pageTitle); ?></title>
 
     <link rel="stylesheet" href="https://www.typofx.ie/.scr/dataTables.min.css">
     <link rel="stylesheet" href="https://www.typofx.ie/.scr/all.min.css">
-    <link rel="stylesheet" href="trainee_tasks_styles.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $folder; ?>.styles.css?v=<?php echo time(); ?>">
     <script src="https://www.typofx.ie/.scr/jquery.min.js"></script>
     <script src="https://www.typofx.ie/.scr/jquery.dataTables.min.js"></script>
-    <script src="trainee_tasks.js?v=<?php echo time(); ?>"></script>
+    <script src="<?php echo $folder; ?>.js?v=<?php echo time(); ?>"></script>
 </head>
 
 <body>
 
-    <h1><?php echo $pageTitle; ?></h1>
-    <table id="traineeTasksTable" class="display" style="width:100%" data-public="1">
+    <h1><?php echo htmlspecialchars($pageTitle); ?></h1>
+    <table id="traineeTasksTable" class="display" style="width:100%; display:none;" data-public="1" data-folder="<?php echo $folder; ?>">
         <thead>
             <tr>
                 <th>#</th>
@@ -102,17 +103,17 @@ $conn->close();
                 <th>Person</th>
                 <th>Type</th>
                 <th>Data Links</th>
-                <th>Language</th>
+                <th>Languages</th>
                 <th>Updated</th>
                 <th>HRS</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <?php echo $htmlRows; ?>
         </tbody>
     </table>
-    <center>v 0.1.0 <!--23/02/2026)--></center>
+    <center>v 0.2.0 <!--23/02/2026)--></center>
 </body>
 
 </html>

@@ -1,14 +1,15 @@
+<? include $_SERVER['DOCUMENT_ROOT']. '/plataforma/panel/is_logged.php'?>
+<? include $_SERVER['DOCUMENT_ROOT']. '/.scr/conexao.php'?>
 <?php
-include __DIR__ . '/bootstrap.php';
-include AUTH_FILE;
+// Dynamic module loader: attempts to auto-detect module from directory, falls back to 'tasks' for stability.
+$folder = file_exists(__DIR__ . '/' . basename(__DIR__) . '.language.helper.php') ? basename(__DIR__) : 'tasks';
+include __DIR__ . '/' . $folder . '.language.helper.php';
 
 // Block non-admin/root users
 if (!in_array($_SESSION["user_level_panel"] ?? 'public', ['admin', 'root'])) {
     header("Location: index");
     exit();
 }
-
-include DB_FILE;
 
 $id = $_POST['id'] ?? $_GET['id'] ?? '';
 $is_edit = !empty($id);
@@ -22,8 +23,8 @@ if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-// Load available languages from JSON
-$langs_json_path = __DIR__ . '/tasks.programming.languages.json';
+// Load available languages from JSON dynamically
+$langs_json_path = __DIR__ . '/' . $folder . '.programming.languages.json';
 $available_langs = [];
 if (file_exists($langs_json_path)) {
     $json_data = json_decode(file_get_contents($langs_json_path), true);
@@ -111,7 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['csrf_token'])) {
                             exit();
                         }
                     } else {
-                        $error_message = "Error updating task: " . $stmt->error;
+                        error_log("Tasks: Error updating task: " . $stmt->error);
+                        $error_message = "An error occurred. Please try again.";
                     }
                     $stmt->close();
                 }
@@ -130,7 +132,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['csrf_token'])) {
                         echo "<script>window.location.href = 'index';</script>";
                         exit();
                     } else {
-                        $error_message = "Error creating task: " . $stmt->error;
+                        error_log("Tasks: Error creating task: " . $stmt->error);
+                        $error_message = "An error occurred. Please try again.";
                     }
                     $stmt->close();
                 }
@@ -210,7 +213,7 @@ $conn->close();
     <title>
         <?php echo $is_edit ? 'Edit' : 'Add'; ?> Trainee Task
     </title>
-    <link rel="stylesheet" href="trainee_tasks_styles.css">
+    <link rel="stylesheet" href="<?php echo $folder; ?>.styles.css">
     <script>
     function toggleSection(id, headerElement) {
         const content = document.getElementById(id);
@@ -235,7 +238,7 @@ $conn->close();
 
         <?php if ($success_message): ?>
             <div class="alert alert-success">
-                <?php echo $success_message; ?>
+                <?php echo htmlspecialchars($success_message); ?>
             </div>
         <?php endif; ?>
         <?php if ($error_message): ?>
@@ -399,7 +402,7 @@ $conn->close();
             <?php if ($is_edit): ?>
                 <div class="mb-3">
                     <label class="form-label">Last Updated:
-                        <?php echo $last_updated_val; ?>
+                        <?php echo htmlspecialchars($last_updated_val); ?>
                     </label>
                 </div>
             <?php endif; ?>

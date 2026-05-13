@@ -1,7 +1,10 @@
-<? include __DIR__ . '/bootstrap.php';?>
-<? include AUTH_FILE;?>
-<? include DB_FILE;?>
-<? include __DIR__ . '/trainee_tasks_language_helper.php';?>
+<? include $_SERVER['DOCUMENT_ROOT']. '/plataforma/panel/is_logged.php'?>
+<? include $_SERVER['DOCUMENT_ROOT']. '/.scr/conexao.php'?>
+<?php
+// Dynamic module loader: attempts to auto-detect module from directory, falls back to 'tasks' for stability.
+$folder = file_exists(__DIR__ . '/' . basename(__DIR__) . '.language.helper.php') ? basename(__DIR__) : 'tasks';
+include __DIR__ . '/' . $folder . '.language.helper.php';
+?>
 
 <?
 // Determine user level from session
@@ -24,7 +27,7 @@ $query = "SELECT *,
     DATE_FORMAT(deployed, '%d/%m/%y') as deployed_formatted,
     DATE_FORMAT(last_updated, '%d/%m/%y') as last_updated_formatted 
     FROM granna80_bdlinks.trainee_tasks 
-    WHERE last_updated >= DATE_SUB(CURDATE(), INTERVAL 14 DAY)
+    WHERE last_updated >= DATE_SUB(CURDATE(), INTERVAL 15 DAY)
     ORDER BY trainee_task_code DESC";
 $result = $conn->query($query);
 
@@ -57,11 +60,11 @@ if ($result && $result->num_rows > 0) {
 
         $actions = "<td><i class='fa-solid fa-plus expand-btn' data-task-code='{$trainee_task_code}' title='Expand/Collapse Activities'></i>";
         if ($canEdit) {
-            $actions .= " <form action='trainee_tasks_form' method='POST' class='action-form'>
+            $actions .= " <form action='{$folder}.form' method='POST' class='action-form'>
                             <input type='hidden' name='id' value='{$trainee_task_code}'>
                             <button type='submit' title='Edit Task'><i class='fa-solid fa-pen-to-square'></i></button>
                           </form> 
-                          <form action='trainee_tasks_delete' method='POST' class='action-form' onsubmit='return confirm(\"Are you sure?\")'>
+                          <form action='{$folder}.delete' method='POST' class='action-form' onsubmit='return confirm(\"Are you sure?\")'>
                             <input type='hidden' name='id' value='{$trainee_task_code}'>
                             <input type='hidden' name='token' value='{$token}'>
                             <button type='submit' title='Delete Task' style='color: red;'><i class='fa-solid fa-trash'></i></button>
@@ -101,29 +104,20 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle; ?></title>
+    <title><?php echo htmlspecialchars($pageTitle); ?></title>
     <link rel="stylesheet" href="https://www.typofx.ie/.scr/dataTables.min.css">
     <link rel="stylesheet" href="https://www.typofx.ie/.scr/all.min.css">
-    <link rel="stylesheet" href="trainee_tasks_styles.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo $folder; ?>.styles.css?v=<?php echo time(); ?>">
     <script src="https://www.typofx.ie/.scr/jquery.min.js"></script>
     <script src="https://www.typofx.ie/.scr/jquery.dataTables.min.js"></script>
-    <script src="trainee_tasks.js?v=<?php echo time(); ?>"></script>
+    <script src="<?php echo $folder; ?>.js?v=<?php echo time(); ?>"></script>
 </head>
 
 <body>
-    <?php if ($showTopBar): ?>
-        <a href="https://www.typofx.ie/plataforma/panel/">[Control Panel]</a>
-        <a href="javascript:window.location.reload(true)">[Refresh]</a>
-        <?php if ($canEdit): ?>
-            <a href="trainee_tasks_form">[Add New Record]</a>
-        <?php else: ?>
-            <span style="color: gray; cursor: not-allowed; text-decoration: none;" title="Restricted Access">[Add New
-                Record]</span>
-        <?php endif; ?>
-    <?php endif; ?>
+    <?php echo renderTopBar($showTopBar, $canEdit); ?>
 
-    <h1><?php echo $pageTitle; ?></h1>
-    <table id="traineeTasksTable" class="display" style="width:100%" data-can-edit="<?php echo $canEdit ? 'true' : 'false'; ?>">
+    <h1><?php echo htmlspecialchars($pageTitle); ?></h1>
+    <table id="traineeTasksTable" class="display" style="width:100%; display:none;" data-can-edit="<?php echo $canEdit ? 'true' : 'false'; ?>" data-folder="<?php echo $folder; ?>">
         <thead>
             <tr>
                 <th>#</th>
@@ -134,10 +128,10 @@ $conn->close();
                 <th>Person</th>
                 <th>Type</th>
                 <th>Data Links</th>
-                <th>Language</th>
+                <th>Languages</th>
                 <th>Updated</th>
                 <th>HRS</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>

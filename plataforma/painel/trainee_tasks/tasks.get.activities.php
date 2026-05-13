@@ -1,11 +1,10 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 header('Content-Type: text/html; charset=UTF-8');
 
-include __DIR__ . '/bootstrap.php';
+// Dynamic module loader: attempts to auto-detect module from directory, falls back to 'tasks' for stability.
+$folder = file_exists(__DIR__ . '/' . basename(__DIR__) . '.language.helper.php') ? basename(__DIR__) : 'tasks';
+include_once __DIR__ . '/' . $folder . '.language.helper.php';
+
 
 try {
     $is_public = isset($_GET['is_public']) ? $_GET['is_public'] : '0';
@@ -13,7 +12,7 @@ try {
 
     if ($is_public !== '1') {
         ob_start();
-        include AUTH_FILE;
+        include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php';
         ob_end_clean();
 
         $userLevel = $_SESSION["user_level_panel"] ?? '';
@@ -21,7 +20,7 @@ try {
 
     $canEdit = ($userLevel === 'admin' || $userLevel === 'root');
 
-    include DB_FILE;
+    include $_SERVER['DOCUMENT_ROOT'] . '/.scr/conexao.php';
 
     $task_code = isset($_GET['task_code']) ? $_GET['task_code'] : '';
 
@@ -47,12 +46,14 @@ try {
 
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
-        throw new Exception("Prepare failed: " . $conn->error);
+        error_log("Tasks: Prepare failed: " . $conn->error);
+        throw new Exception("An error occurred.");
     }
 
     $stmt->bind_param("s", $task_code);
     if (!$stmt->execute()) {
-        throw new Exception("Execute failed: " . $stmt->error);
+        error_log("Tasks: Execute failed: " . $stmt->error);
+        throw new Exception("An error occurred.");
     }
 
     $result = $stmt->get_result();
@@ -69,10 +70,7 @@ try {
         echo '<div class="activity-empty-state">';
         echo '<p class="text-muted">No pending activities found.</p>';
         if ($canEdit) {
-            echo '<form action="trainee_tasks_activity_form" method="POST" class="action-form">
-                    <input type="hidden" name="task_code" value="' . htmlspecialchars($task_code) . '">
-                    <button type="submit">+ Add Activity</button>
-                  </form>';
+            echo '<a href="' . $folder . '.activity.form?task_code=' . urlencode($task_code) . '" class="btn-add-activity" style="color: #0056b3; text-decoration: none; font-weight: bold;">+ Add Activity</a>';
         }
         echo '</div>';
         exit;
@@ -109,16 +107,13 @@ try {
         if ($canEdit) {
             $token = $_SESSION['csrf_token'] ?? '';
             
-            echo '<form action="trainee_tasks_activity_form" method="POST" class="action-form">
-                    <input type="hidden" name="task_code" value="' . htmlspecialchars($activity['task_code']) . '">
-                    <input type="hidden" name="activity_code" value="' . htmlspecialchars($activity['code']) . '">
-                    <button type="submit" title="Edit"><i class="fa-solid fa-pen-to-square icon-edit"></i></button>
-                  </form>';
-            echo ' <form action="trainee_tasks_activity_delete" method="POST" class="action-form" onsubmit="return confirm(\'Are you sure you want to delete this activity?\')">
+            echo '<a href="' . $folder . '.activity.form?task_code=' . urlencode($activity['task_code']) . '&activity_code=' . urlencode($activity['code']) . '" title="Edit" style="color: #0056b3; margin: 0 5px; text-decoration: none;"><i class="fa-solid fa-pen-to-square icon-edit"></i></a>';
+            
+            echo ' <form action="' . $folder . '.activity.delete" method="POST" class="action-form" onsubmit="return confirm(\'Are you sure you want to delete this activity?\')" style="display: inline;">
                     <input type="hidden" name="task_code" value="' . htmlspecialchars($activity['task_code']) . '">
                     <input type="hidden" name="activity_code" value="' . htmlspecialchars($activity['code']) . '">
                     <input type="hidden" name="token" value="' . htmlspecialchars($token) . '">
-                    <button type="submit" title="Delete"><i class="fa-solid fa-trash icon-delete"></i></button>
+                    <button type="submit" title="Delete" style="background: none; border: none; color: #d9534f; cursor: pointer; padding: 0;"><i class="fa-solid fa-trash icon-delete"></i></button>
                   </form>';
         }
         echo '</td>';
@@ -129,10 +124,7 @@ try {
 
     if ($canEdit) {
         echo '<div class="activity-actions">';
-        echo '<form action="trainee_tasks_activity_form" method="POST" class="action-form">
-                <input type="hidden" name="task_code" value="' . htmlspecialchars($task_code) . '">
-                <button type="submit">+ Add Activity</button>
-              </form>';
+        echo '<a href="' . $folder . '.activity.form?task_code=' . urlencode($task_code) . '" class="btn-add-activity" style="color: #0056b3; text-decoration: none; font-weight: bold;">+ Add Activity</a>';
         echo '</div>';
     }
 

@@ -4,8 +4,11 @@
  * Uses tasks.programming.languages.json for the master index.
  */
 
+
 function getLanguagesFromConfig() {
-    $jsonFile = __DIR__ . '/tasks.programming.languages.json';
+    // Detect module prefix dynamically from this file's own name for maximum component portability.
+    $prefix = explode('.', basename(__FILE__))[0];
+    $jsonFile = __DIR__ . '/' . $prefix . '.programming.languages.json';
     if (!file_exists($jsonFile)) {
         return [];
     }
@@ -75,14 +78,38 @@ function renderLanguagesHtml($binaryString) {
     $len = strlen($binaryString);
     
     foreach ($masterList as $index => $langName) {
+        if ($index >= $len || $binaryString[$index] !== '1') {
+            continue;
+        }
         $cleanName = strtolower($langName);
-        $isActive = ($index < $len && $binaryString[$index] === '1');
         $iconClass = $iconMap[$cleanName] ?? 'fa-solid fa-code';
-        $stateClass = $isActive ? 'lang-active' : 'lang-inactive';
-        
-        $html .= '<i class="' . $iconClass . ' ' . $stateClass . ' lang-icon-' . $cleanName . '" title="' . strtoupper($langName) . '"></i> ';
+        $html .= '<i class="' . $iconClass . ' lang-active lang-icon-' . $cleanName . '" title="' . strtoupper($langName) . '"></i> ';
     }
     $html .= '</div>';
     
     return $html;
 }
+
+/**
+ * Generates the Top Navigation Bar used by system admin pages.
+ */
+function renderTopBar($visible, $canEdit) {
+    if (!$visible) {
+        return '';
+    }
+    
+    $items = [];
+    $items[] = '<a href="https://www.typofx.ie/plataforma/panel/">[Control Panel]</a>';
+    $items[] = '<a href="javascript:window.location.reload(true)">[Refresh]</a>';
+    
+    if ($canEdit) {
+        // Direct link creation based on current module prefix.
+        $prefix = explode('.', basename(__FILE__))[0];
+        $items[] = '<a href="' . $prefix . '.form">[Add New Record]</a>';
+    } else {
+        $items[] = '<span style="color: gray; cursor: not-allowed; text-decoration: none;" title="Restricted Access">[Add New Record]</span>';
+    }
+    
+    return implode(' ', $items);
+}
+

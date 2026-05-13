@@ -19,6 +19,10 @@ $(document).ready(function () {
         ]
     });
 
+    // Show table once DataTables handles layout (Prevents Flash of Unfiltered Content)
+    $('#traineeTasksTable').show();
+    table.columns.adjust().draw(false);
+
     // Event delegation: Handles clicks on expand row button (+)
     $('#traineeTasksTable tbody').on('click', '.expand-btn', function () {
         var tr = $(this).closest('tr');
@@ -40,12 +44,13 @@ $(document).ready(function () {
                 tr.addClass('shown');
                 icon.removeClass('fa-plus').addClass('fa-minus');
             } else {
-                // Check if table is in public mode
+                // Dynamically detect endpoint based on folder attribute (Smart Fallback Loader)
+                var folder = $('#traineeTasksTable').data('folder') || 'tasks';
                 var isPublic = $('#traineeTasksTable').data('public') || '0';
 
                 // Fetch ready HTML via AJAX from server (PHP First)
                 $.ajax({
-                    url: 'trainee_tasks_get_activities',
+                    url: folder + '.get.activities',
                     method: 'GET',
                     data: { task_code: taskCode, is_public: isPublic },
                     dataType: 'html',
