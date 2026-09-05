@@ -1,0 +1,336 @@
+body {
+    font-family: monospace;
+    padding: 2px;
+    padding-right: 2px;
+    background-color: #fff;
+}
+
+table,
+th,
+td {
+    text-align: center;
+}
+
+.pastel-yellow {
+    background-color: #fff9db !important;
+}
+
+table.dataTable.display tbody tr.odd.pastel-yellow,
+table.dataTable.display tbody tr.even.pastel-yellow {
+    background-color: #fff9db !important;
+}
+
+/* Form container (add / edit pages) */
+.form-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    font-weight: bold;
+}
+
+.form-container .btn {
+    margin-right: 10px;
+}
+
+/* Activity Table Styles */
+.activity-container {
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.activity-empty-state {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.activity-add-btn-large {
+    padding: 10px 20px;
+    /* Note: Bootstrap btn class handles most, this is specific override if needed or just rely on Bootstrap */
+    font-size: 16px;
+}
+
+.activity-table {
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+.activity-actions {
+    text-align: right;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.icon-edit {
+    color: blue;
+    margin-right: 10px;
+}
+
+.icon-delete {
+    color: red;
+}
+
+.expand-btn {
+    cursor: pointer;
+    margin-right: 10px;
+    color: green;
+}
+
+.activity-done {
+    opacity: 0.5;
+    color: #888;
+}
+
+.activity-done i {
+    opacity: 0.7;
+}
+
+.links-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px; /* Compact gap like languages */
+}
+.links-wrapper a {
+    text-decoration: none;
+    color: #0056b3; /* Standard icon color override if desired, optional */
+}
+
+/* General Table Tightening */
+table.dataTable thead th,
+table.dataTable tbody td {
+    padding: 6px 4px !important; /* Significantly reduce horizontal gaps */
+}
+
+table.dataTable thead th:nth-child(9),
+table.dataTable tbody td:nth-child(9) {
+    width: 1% !important;
+    white-space: nowrap !important;
+}
+
+/* Tighten space specifically for far-right metadata clusters */
+table.dataTable thead th:nth-child(10),
+table.dataTable thead th:nth-child(11),
+table.dataTable thead th:nth-child(12),
+table.dataTable tbody td:nth-child(10),
+table.dataTable tbody td:nth-child(11),
+table.dataTable tbody td:nth-child(12) {
+    width: 1% !important;
+    white-space: nowrap !important;
+    padding-left: 15px !important; /* Add breathable horizontal gap between columns */
+    padding-right: 15px !important;
+}
+
+
+/* Languages Display */
+.languages-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+}
+
+.badge-lang {
+    background-color: #e9ecef;
+    color: #495057;
+    font-family: sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: 1px solid #ced4da;
+    white-space: nowrap;
+}
+
+/* --- New Custom Styles to replace Bootstrap --- */
+
+/* Utilities */
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.m-0 { margin: 0 !important; }
+.p-2 { padding: 0.5rem !important; }
+.bg-light { background-color: #f8f9fa !important; }
+.bg-white { background-color: #ffffff !important; }
+.border { border: 1px solid #dee2e6 !important; }
+.border-bottom { border-bottom: 1px solid #dee2e6 !important; }
+.rounded { border-radius: 0.25rem !important; }
+.d-flex { display: flex !important; }
+.d-block { display: block !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.justify-content-between { justify-content: space-between !important; }
+.align-items-center { align-items: center !important; }
+.gap-2 { gap: 0.5rem !important; }
+.gap-3 { gap: 1rem !important; }
+.small { font-size: 0.875em !important; }
+.text-muted { color: #6c757d !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+/* Alert System */
+.alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+/* Form elements */
+.form-label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+.form-control, .form-select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+}
+.form-control[readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+}
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.125rem;
+}
+.form-check-input {
+    margin-right: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+.btn-success {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+}
+.btn-success:hover {
+    background-color: #157347;
+    border-color: #146c43;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.btn-secondary:hover {
+    background-color: #5c636a;
+    border-color: #565e64;
+}
+
+/* Custom Collapse Logic for vanilla JS */
+.collapse {
+    display: none;
+}
+.collapse.show {
+    display: block;
+}
+.collapsible-header {
+    cursor: pointer;
+    user-select: none;
+}
+.collapsible-header:hover {
+    opacity: 0.8;
+}
+.collapsible-header h5 {
+    font-size: 1.25rem;
+    padding: 0.75rem 1rem !important;
+    margin: 0;
+}
+.collapse-icon {
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+}
+.collapsed .collapse-icon {
+    transform: rotate(-90deg);
+}
+
+/* --- Language Icons Styling --- */
+.lang-icons-wrapper {
+    display: flex;
+    gap: 1px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.lang-inactive {
+    color: #e0e0e0 !important;
+    opacity: 0.4 !important;
+}
+
+/* Active Unified Color */
+.lang-active { color: #198754 !important; }
+
+/* --- Inline Form Reset for Action Buttons --- */
+.action-form {
+    display: inline;
+    margin: 0 2px;
+}
+.action-form button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: #0056b3;
+    transition: opacity 0.2s;
+    text-decoration: none;
+}
+.action-form button:hover {
+    opacity: 0.7;
+}
