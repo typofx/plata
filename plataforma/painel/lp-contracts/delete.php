@@ -1,13 +1,5 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
-ini_set('session.gc_maxlifetime', 28800);
-session_set_cookie_params(28800);
-
-session_start();
-
-if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    header("Location: ../index.php");
-    exit();
-}
 
 include 'conexao.php';
 
@@ -38,3 +30,21 @@ if (isset($_GET['id'])) {
 
 $conn->close();
 ?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+   <script>
+      function redirect () {
+         setTimeout(myURL, 2000);
+         var result = document.getElementById("result");
+         result.innerHTML = "<b> The page will redirect after delay of 2 seconds";
+      }
+
+      function myURL() {
+         document.location.href = 'https://plata.ie/plataforma/painel/lp-contracts/';
+      }
+   </script>
+</body>
+</html>

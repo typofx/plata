@@ -1,38 +1,38 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/panel/is_logged.php'; ?>
 <?php
+include 'search.php';
 
-ini_set('session.gc_maxlifetime', 28800);
-session_set_cookie_params(28800);
-
-session_start();
-
-if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    header("Location: ../index.php");
-    exit();
+$prices = [];
+foreach (json_decode(file_get_contents('prices.json'), true) as $asset) {
+    $prices[strtolower($asset['contract'])] = $asset['price'];
 }
+$PLTUSD = (float) json_decode(file_get_contents('https://www.typofx.ie/.scr/library/json/plata.token/USD.json'), true)['pc'];
+$prices['0xc298812164bd558268f51cc6e3b8b5daaf0b6341'] = $PLTUSD;
+
+$POLUSD = (float) json_decode(file_get_contents('https://www.typofx.ie/.scr/library/json/polygon/USD.json'), true)['pc'];
+$prices['0x0000000000000000000000000000000000001010'] = $POLUSD;
+
+$WPOLUSD = (float) json_decode(file_get_contents('https://www.typofx.ie/.scr/library/json/polygon/USD.json'), true)['pc'];
+$prices['0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270'] = $WPOLUSD;
+
 ?>
 
-<?php
-ob_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/en/mobile/price.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/lp-contracts/assets.php';
-ob_end_clean();
-
-include 'search.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <style>
     body {
-        font-family: 'Courier New', monospace;
-        font-size: 14px;
+        font-family: monospace;
+        padding: 2px;
+        padding-right: 250px;
+        background-color: #fff;
     }
 </style>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payments</title>
-    <!-- DataTables CSS -->
+    <title>LPC - Liquidity Pools Contracts</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <style>
@@ -48,8 +48,7 @@ include 'search.php'; ?>
             padding: 2px 4px;
             border-radius: 3px;
         }
-    </style>
-    <style>
+
         .container {
             display: flex;
             align-items: center;
@@ -62,180 +61,180 @@ include 'search.php'; ?>
     <h1>LP Contracts</h1>
 
     <div class="container">
-        <a href="https://plata.ie/plataforma/painel/menu.php">[Main Menu]</a>
+        <a href="/plataforma/panel/">[Back]</a>
+        <a href="https://typofx.ie/plataforma/panel/lp-contracts/chain/">[Chains]</a>
+        <a href="https://typofx.ie/plataforma/panel/dex-liquidity/">[Dex]</a>
         <a href="javascript:window.location.reload(true)">[Refresh]</a>
         <a href="add.php">[Add New Record]</a>
-        <?php echo 'MATIC/USDT ' . number_format($MATICUSD, 5, '.', ',') . ' USD⠀⠀⠀⠀' ?>
 
-        <?php echo 'PLT/USDT ' . number_format($PLTUSD, 10, '.', ',') . ' USD⠀⠀⠀⠀' ?>
-        <?php
-        function format_currency($value)
-        {
-            $value = str_replace(',', '', $value);
-            return number_format((float)$value, 3);
-        }
-
-        echo '<br>';
-        echo 'WBTC/USDT ' . format_currency($BTCUSD) . ' USD⠀⠀⠀⠀';
-        echo 'WETH/USDT ' . format_currency($ETHUSD) . ' USD⠀⠀⠀⠀';
-        ?>
+        <?php echo 'POLUSD ' . number_format($POLUSD, 8, '.', ',') . '   '?>
+        <?php echo 'PLTUSD ' . number_format($PLTUSD, 8, '.', ',') . '    '?>
     </div>
     <?php
     include 'conexao.php';
     $totalFinalBalance = 0;
-    // SQL query to get data from the `payments` table
-    $sql = "SELECT id, name, contract, asset_a, asset_b, contract_asset_a, contract_asset_b, liquidity, exchange FROM granna80_bdlinks.lp_contracts";
+    $calculatedValues = [];
+
+    $dexs_sql = "SELECT id, name, router_address FROM granna80_bdlinks.dex_liquidity WHERE type = 'dex'";
+    $dexs_result = $conn->query($dexs_sql);
+    $dexs = [];
+    if ($dexs_result->num_rows > 0) {
+        while ($dex_row = $dexs_result->fetch_assoc()) {
+            $dexs[$dex_row['id']] = [
+                'name' => $dex_row['name'],
+                'router' => $dex_row['router_address']
+            ];
+        }
+    }
+
+    $sql = "SELECT id, name, contract, asset_a, asset_b, contract_asset_a, contract_asset_b, liquidity, exchange, router, chain, visibletopublic FROM granna80_bdlinks.lp_contracts";
 
     $result = $conn->query($sql);
 
+    $chainsSql = "SELECT id, networkName, rpcUrl FROM granna80_bdlinks.networks";
+    $chainsResult = $conn->query($chainsSql);
+    $chains = array();
+
+    if ($chainsResult->num_rows > 0) {
+        while ($chainRow = $chainsResult->fetch_assoc()) {
+            $chains[$chainRow['id']] = $chainRow['networkName'];
+            $chainsUrl[$chainRow['id']] = $chainRow['rpcUrl'];
+        }
+    }
+
     if ($result->num_rows > 0) {
-        // Start HTML table 
         echo "<table id='example' class='display'>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Pair</th>
-                        <th>Contract</th>
-                        <th>Exchange</th>
-                        <th>Asset A</th>
-                        <th>Price A</th>
-                        <th>qtA</th>
-                         <th>Asset B</th>
-                        <th>Price B</th>
-                        <th>qtB</th>
-                      
-                         <th>Liquidity</th>
-                       
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>";
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Pair</th>
+                <th>Contract</th>
+                <th>&nbsp;&nbsp;Exchange&nbsp;&nbsp;</th>
+                <th>Visible</th>
+                <th>Asset A</th>
+                <th>Rate A</th>
+                <th>qtA</th>
+                <th>Asset B</th>
+                <th>Rate B</th>
+                <th>qtB</th>
+                <th>Liquidity&nbsp;($)</th>
+                <th>Opt</th>
+            </tr>
+        </thead>
+        <tbody>";
 
-        // Iterate over results and fill the table
-        while ($row = $result->fetch_assoc()) {
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+        $tokenInfos = getTokenInfos($rows);
+        $lpV2 = [];
 
-            $walletAddress =  $row["contract"];
-            $tokenContract_A = $row["contract_asset_a"];
-            $tokenContract_B = $row["contract_asset_b"];
+        foreach ($rows as $row) {
+
+            $chainId = $row["chain"];
+            $chainName = isset($chains[$chainId]) ? $chains[$chainId] : '';
+            $chainRpc = $chainsUrl[$chainId] ?? '';
+
+            $exchangeName = '';
+            $routerAddress = '';
+            if (!empty($row["exchange"]) && isset($dexs[$row["exchange"]])) {
+                $exchangeName = $dexs[$row["exchange"]]['name'];
+                $routerAddress = $dexs[$row["exchange"]]['router'];
+            }
+            if (!empty($routerAddress)) {
+                $updateStmt = $conn->prepare("UPDATE granna80_bdlinks.lp_contracts SET router = ? WHERE id = ?");
+                $updateStmt->bind_param("si", $routerAddress, $row["id"]);
+                $updateStmt->execute();
+            }
 
             echo "<tr>
             <td>" . $row["id"] . "</td>
             <td>" . $row["asset_a"] . "/" . $row["asset_b"] . "</td>
-             <td><a href='https://polygonscan.com/address/" . $row["contract"] . "'>" . substr($row["contract"], 0, 6) . "..." . substr($row["contract"], -4) . "</a></td>
-            <td>" . $row["exchange"] . "</td>";
+            <td><a href='https://polygonscan.com/address/" . $row["contract"] . "' target='_blank'>" . substr($row["contract"], 0, 6) . "..." . substr($row["contract"], -4) . "</a></td>
+            <td>" . htmlspecialchars($exchangeName) . "</td>
+            <td>" . ($row["visibletopublic"] ? 'Yes' : 'No') . "</td>";
 
-            getTokenInfo($web3, $walletAddress, $tokenContract_A, $tokenBalance_A, $tokenDecimals);
+            [$tokenBalance_A, $tokenADecimal, $tokenBalance_B, $tokenBDecimal] = $tokenInfos[$row['id']];
+            $rpcOk = !in_array(null, $tokenInfos[$row['id']], true);
 
-            $tokenBalance_A  = floatval(htmlspecialchars($tokenBalance_A));
-            $tokenADecimal = intval(htmlspecialchars($tokenDecimals));
+            if ($rpcOk && in_array(trim($exchangeName), ['QuickSwap V2', 'CurveFi'])) {
+                $lpV2[strtolower($row['contract'])]['assets'] = [
+                    ['contract' => strtolower($row['contract_asset_a']), 'ticker' => $row['asset_a'], 'decimals' => (int)$tokenADecimal],
+                    ['contract' => strtolower($row['contract_asset_b']), 'ticker' => $row['asset_b'], 'decimals' => (int)$tokenBDecimal],
+                ];
+            }
+
+            $tokenBalance_A  = floatval($tokenBalance_A);
+            $tokenADecimal = intval($tokenADecimal);
             $tokenBalance_A_unformated = $tokenBalance_A / (10 ** $tokenADecimal);
             if ($tokenADecimal > 8) $tokenADecimal = 8;
             $tokenBalance_A = number_format($tokenBalance_A_unformated, $tokenADecimal, '.', ',');
 
-            getTokenInfo($web3, $walletAddress, $tokenContract_B, $tokenBalance_B, $tokenDecimals);
-
-            $tokenBalance_B  = floatval(htmlspecialchars($tokenBalance_B));
-            $tokenBDecimal = intval(htmlspecialchars($tokenDecimals));
+            $tokenBalance_B  = floatval($tokenBalance_B);
+            $tokenBDecimal = intval($tokenBDecimal);
             $tokenBalance_B_unformated = $tokenBalance_B / (10 ** $tokenBDecimal);
 
             if ($tokenBDecimal > 8) $tokenBDecimal = 8;
             $tokenBalance_B = number_format($tokenBalance_B_unformated, $tokenBDecimal, '.', ',');
 
-            sleep(1);
-
             echo "    <td style='text-align: right;'>" . $tokenBalance_A . " </td>";
-            // echo "    <td>" . $row["asset_a"] . " </td>";
-
 
             echo "<td>";
 
             $contract_asset_a_lower = strtolower($row["contract_asset_a"]);
 
-            // Loop through prices
-            $prices_lower = array_change_key_case($prices, CASE_LOWER);
-
-            // Check if it is present in the prices
-            if (isset($prices_lower[$contract_asset_a_lower])) {
-                $contract_price_a = $prices_lower[$contract_asset_a_lower];
-
-                if ($contract_asset_a_lower === '0xc298812164bd558268f51cc6e3b8b5daaf0b6341') {
-                    // Format the number to display with 10 decimal places for this specific contract
-                    echo number_format($contract_price_a, 10, '.', '') . '';
-                } else {
-                    // Displays the number normally with 2 decimal places for other contracts
-                    echo number_format($contract_price_a, 2, '.', ',') . '';
-                }
+            if (isset($prices[$contract_asset_a_lower])) {
+                $contract_price_a = $prices[$contract_asset_a_lower];
+                echo number_format($contract_price_a, 8, '.', ',');
             } else {
-                echo '0'; // If there is no match, display 0
+                $contract_price_a = 0;
+                echo '0';
             }
 
             echo "</td>";
 
-           
-
             $qtA = $tokenBalance_A_unformated * $contract_price_a;
 
-            echo "<td>" . number_format($qtA, 2, '.', ',') . '' .  "</td>";
-
-            /////////////////////////////////B////////////////////////////
+            echo "<td>" . number_format($qtA, 4, '.', ',') . "</td>";
 
             echo "    <td style='text-align: right;'>" . $tokenBalance_B . " </td>";
-            // echo "    <td>" . $row["asset_b"] . " </td>";
-
 
             echo "<td>";
             $contract_asset_b_lower = strtolower($row["contract_asset_b"]);
 
-            // Loop through prices
-            $prices_lower_b = array_change_key_case($prices, CASE_LOWER);
-
-            // Check if it is present in the prices
-            if (isset($prices_lower_b[$contract_asset_b_lower])) {
-                $contract_price_b = $prices_lower_b[$contract_asset_b_lower];
-
-                if ($contract_asset_b_lower === '0xc298812164bd558268f51cc6e3b8b5daaf0b6341') {
-                    // Format the number to display with 10 decimal places for this specific contract
-                    echo number_format($contract_price_b, 10, '.', '') . '';
-                } else {
-                    // Displays the number normally with 2 decimal places for other contracts
-                    echo number_format($contract_price_b, 2, '.', ',') . '';
-                }
+            if (isset($prices[$contract_asset_b_lower])) {
+                $contract_price_b = $prices[$contract_asset_b_lower];
+                echo number_format($contract_price_b, 8, '.', ',');
             } else {
-                echo '0'; // If there is no match, display 0
+                $contract_price_b = 0;
+                echo '0';
             }
 
             echo "</td>";
 
             $qtB = $tokenBalance_B_unformated * $contract_price_b;
 
+            echo "<td>" .  number_format($qtB, 4, '.', ',')  .  "</td>";
 
-            echo "<td>" .  number_format($qtB, 2, '.', ',')  .  "</td>";
+            $calculatedValues[$row['id']] = [
+                'tokenBalance_A' => $tokenBalance_A_unformated,
+                'tokenBalance_B' => $tokenBalance_B_unformated,
+                'priceA' => $contract_price_a,
+                'priceB' => $contract_price_b,
+                'qtA' => $qtA,
+                'qtB' => $qtB
+            ];
 
-
-/////////////////////////////////////////////////////////////////////
-
-            if ($tokenBalance_A !== null && $tokenDecimals !== null) {
+            if ($rpcOk) {
 
                 $FinalBalance = (($tokenBalance_A_unformated * $contract_price_a) + ($tokenBalance_B_unformated * $contract_price_b));
-                echo '<td style="text-align: right;"><b>' . number_format($FinalBalance, 2, '.', ',') . ' USD</b></td>';
+                echo '<td style="text-align: right;"><b>' . number_format($FinalBalance, 2, '.', ',') . '</b></td>';
                 $sqlInsert = "UPDATE granna80_bdlinks.lp_contracts SET liquidity = '$FinalBalance' WHERE id = " . $row['id'];
 
-                if ($conn->query($sqlInsert) === TRUE) {
-                   // echo "Liquidity updated successfully";
-                } else {
-                   // echo "Error updating liquidity: " . $conn->error;
-                }
+                $conn->query($sqlInsert);
 
                 $totalFinalBalance += $FinalBalance;
             } else {
-                echo '<p>Token balance or decimals not available.</p>';
+                echo '<td>-</td>';
             }
-
-
-
-           //echo "<td>" . number_format($liquidityFinal, 2, '.', ',') . ' USD' . "</td>";
-
-            //////////////////////////////
 
             echo "   <td>
                 <a href='edit.php?id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a>
@@ -245,11 +244,9 @@ include 'search.php'; ?>
         }
 
         echo "</tbody></table>";
-        echo "<tr> ⠀⠀⠀⠀</tr>";
-        echo "<tr>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</tr>";
+        file_put_contents('lp.v2.json', json_encode($lpV2, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         echo "<tr><h3> Total : " . number_format($totalFinalBalance, 4, '.', ',') . " USD</h3></tr>";
         echo "Timestamp: " . gmdate("Y-m-d\TH:i:s\Z");
-        echo "<tr>⠀⠀⠀⠀ </tr>";
     } else {
         echo "0 results";
     }
@@ -258,64 +255,84 @@ include 'search.php'; ?>
     ?>
 
     <?php
-    // Include the connection file
     include 'conexao.php';
 
-    // Path to the JSON file
     $jsonFilePath = 'lp_contracts.json';
 
-    // Call the function to generate the JSON file
-    generateJsonFile($jsonFilePath);
+    generateJsonFile($jsonFilePath, $calculatedValues);
 
-    // Function to generate the JSON file
-  
-    
-    function generateJsonFile($filePath) {
-        // Initialize an empty array for liquidity contracts
-        $lpContracts = array();
-    
-        // SQL to get data from the `lp_contracts` table
-        global $conn; // Making the connection available inside the function
-        $sql = "SELECT id, name, contract, asset_a, asset_b, contract_asset_a, contract_asset_b, liquidity, exchange FROM granna80_bdlinks.lp_contracts";
+    function generateJsonFile($filePath, $calculatedValues)
+    {
+        global $conn;
+        $sql = "SELECT 
+                        lc.id, 
+                        lc.name, 
+                        lc.contract, 
+                        lc.asset_a, 
+                        lc.asset_b, 
+                        lc.contract_asset_a, 
+                        lc.contract_asset_b, 
+                        lc.liquidity, 
+                        dl.name AS exchange,               
+                        dl.router_address AS router,        
+                        CONCAT(n.networkName, ',', n.rpcUrl) AS chain, 
+                        lc.visibletopublic 
+                    FROM granna80_bdlinks.lp_contracts lc
+                    LEFT JOIN granna80_bdlinks.networks n ON lc.chain = n.id
+                    LEFT JOIN granna80_bdlinks.dex_liquidity dl ON lc.exchange = dl.id AND dl.type = 'dex'
+                    ORDER BY lc.id ASC";
         $result = $conn->query($sql);
         $totalLiquidity = 0;
+
         if ($result->num_rows > 0) {
-    
+            $lpContracts = array();
+
             while ($row = $result->fetch_assoc()) {
-                // Check if values are empty and set to 0 if they are
-                $id = !empty($row["id"]) ? (int)$row["id"] : 0;
-                $pair = !empty($row["asset_a"]) && !empty($row["asset_b"]) ? $row["asset_a"] . "/" . $row["asset_b"] : "0/0";
-                $contract = !empty($row["contract"]) ? $row["contract"] : "0";
-                $exchange = !empty($row["exchange"]) ? $row["exchange"] : "0";
-                $liquidity = !empty($row["liquidity"]) ?  $row["liquidity"] : 0.0;
-                $liquidity = (float)$liquidity;
-                $liquidity =  round($liquidity,5);
-    
-                // Add each liquidity contract to the array
+                $isVisible = isset($row["visibletopublic"]) ? (bool)$row["visibletopublic"] : false;
+
+                $qtA = isset($calculatedValues[$row['id']]['qtA']) ? round($calculatedValues[$row['id']]['qtA'], 2) : null;
+                $qtB = isset($calculatedValues[$row['id']]['qtB']) ? round($calculatedValues[$row['id']]['qtB'], 2) : null;
+
+                $priceA = isset($calculatedValues[$row['id']]['priceA']) ? $calculatedValues[$row['id']]['priceA'] : null;
+                $priceB = isset($calculatedValues[$row['id']]['priceB']) ? $calculatedValues[$row['id']]['priceB'] : null;
+
+                $tokenBalance_A  = isset($calculatedValues[$row['id']]['tokenBalance_A']) ? $calculatedValues[$row['id']]['tokenBalance_A'] : null;
+                $tokenBalance_B  = isset($calculatedValues[$row['id']]['tokenBalance_B']) ? $calculatedValues[$row['id']]['tokenBalance_B'] : null;
+
                 $lpContracts[] = array(
-                    "id" => $id,
-                    "pair" => $pair,
-                    "contract" => $contract,
-                    "exchange" => $exchange,
-                    "liquidity" => $liquidity
+                    "id" => !empty($row["id"]) ? (int)$row["id"] : null,
+                    "name" => !empty($row["name"]) ? $row["name"] : null,
+                    "pair" => (!empty($row["asset_a"]) && !empty($row["asset_b"])) ?
+                        $row["asset_a"] . "/" . $row["asset_b"] : null,
+                    "contract_a" => !empty($row["contract_asset_a"]) ? $row["contract_asset_a"] : null,
+                    "contract_b" => !empty($row["contract_asset_b"]) ? $row["contract_asset_b"] : null,
+                    "contract" => !empty($row["contract"]) ? $row["contract"] : null,
+                    "exchange" => !empty($row["exchange"]) ? $row["exchange"] : null,
+                    "router" => (isset($row["router"]) && trim($row["router"]) !== '') ? trim($row["router"]) : null,
+                    "chain" => !empty($row["chain"]) ? $row["chain"] : null,
+                    "visible" => $isVisible,
+                    "tokenBalance_A" => $tokenBalance_A,
+                    "tokenBalance_B" => $tokenBalance_B,
+                    "priceA" => $priceA,
+                    "priceB" => $priceB,
+                    "QtA" => $qtA,
+                    "QtB" => $qtB,
+                    "liquidity" => isset($row["liquidity"]) ? round((float)$row["liquidity"], 5) : null
                 );
-                $totalLiquidity += $liquidity;
+
+                if ($isVisible && isset($row["liquidity"])) {
+                    $totalLiquidity += (float)$row["liquidity"];
+                }
             }
-     
-         
-    
+
             $lpContracts[] = array(
                 "total_liquidity" => $totalLiquidity,
-                "timestamp" => gmdate("Y-m-d\TH:i:s\Z")
+                "timestamp" => time()
             );
-    
-            // Convert the array to JSON with numbers correctly handled
+
             $json_data = json_encode($lpContracts);
-    
-            // Replace escaped slashes with normal slashes
             $json_data = str_replace("\\/", "/", $json_data);
-    
-            // Save the JSON to a file
+
             if (file_put_contents($filePath, $json_data)) {
                 echo "JSON file updated successfully.";
             } else {
@@ -324,8 +341,7 @@ include 'search.php'; ?>
         } else {
             echo "No records found.";
         }
-    
-        // Close the database connection
+
         $conn->close();
     }
     ?>
@@ -341,9 +357,7 @@ include 'search.php'; ?>
         }
     </script>
 
-    <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!-- DataTables JS -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/numeric-comma.js"></script>
     <script>
@@ -373,15 +387,14 @@ include 'search.php'; ?>
                 "pageLength": 50,
                 "columnDefs": [{
                     "type": "numeric-comma",
-                    "targets": [10,9,8,7,6,5,4]
+                    "targets": [12, 10, 9, 8, 7, 6, 5, 4]
                 }],
                 "order": [
-                    [10, "desc"]
+                    [12, "desc"]
                 ]
             });
         });
     </script>
-
 
 </body>
 

@@ -1,0 +1,16 @@
+[
+    { "ticker": "USDT", "contract": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f", "price": 0.0001 },
+    { "ticker": "USDC", "contract": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359", "price": 0.0001 },
+    { "ticker": "USDC.e", "contract": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", "price": 0.0001 },
+    { "ticker": "DAI", "contract": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063", "price": 0.0001 },
+    { "ticker": "POL", "contract": "0x0000000000000000000000000000000000001010", "price": 0.0001 },
+    { "ticker": "WPOL", "contract": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", "price": 0.0001 },
+    { "ticker": "WBTC", "contract": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6", "price": 0.0001 },
+    { "ticker": "WETH", "contract": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619", "price": 0.0001 },
+    { "ticker": "BRZ", "contract": "0x4ed141110f6eeeaba9a1df36d8c26f684d2475dc", "price": 0.0001 },
+    { "ticker": "UST", "contract": "0x692597b009d13c4049a947cab2239b7d6517875f", "price": 0.0001 },
+    { "ticker": "aWBTC", "contract": "0x078f358208685046a11c85e8ad32895ded33a249", "price": 0.0001 },
+    { "ticker": "PAXG", "contract": "0x553d3d295e0f695b9228246232edf400ed3560b5", "price": 0.0001 },
+    { "ticker": "aEURS", "contract": "0x38d693ce1df5aadf7bc62595a37d667ad57922e5", "price": 0.0001 },
+    { "ticker": "EURS", "contract": "0xe111178a87a3bff0c8d18decba5798827539ae99", "price": 0.0001 }
+]
