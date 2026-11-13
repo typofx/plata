@@ -1,36 +1,42 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/plataforma/painel/is_logged.php';?>
 <?php
-ini_set('session.gc_maxlifetime', 28800);
-session_set_cookie_params(28800);
 
-session_start();
+include 'conexao.php'; 
 
-if (!isset($_SESSION["user_logged_in"]) || $_SESSION["user_logged_in"] !== true) {
-    header("Location: ../index.php");
-    exit();
+$chains_sql = "SELECT id, networkName FROM granna80_bdlinks.networks WHERE isActive = 1";
+$chains_result = $conn->query($chains_sql);
+$chains = [];
+if ($chains_result->num_rows > 0) {
+    while($chain_row = $chains_result->fetch_assoc()) {
+        $chains[$chain_row['id']] = $chain_row['networkName'];
+    }
 }
-
-include 'conexao.php'; // Assuming 'conexao.php' includes your database connection
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
+    $name = $_POST['name'];
     $contract = $_POST['contract'];
     $asset_a = $_POST['asset_a'];
-    $tokenContract_A = $_POST["contract_asset_a"];
     $asset_b = $_POST['asset_b'];
+    $liquidity = $_POST['liquidity'];
+    $tokenContract_A = $_POST["contract_asset_a"];
     $tokenContract_B = $_POST["contract_asset_b"];
     $exchange = $_POST["exchange"];
-  
+    $router = $_POST["router"];
+    $chain = $_POST["chain"];
+    $visibletopublic = isset($_POST["visibletopublic"]) ? 1 : 0;
 
-    // Inserting new record into database
-    $sql = "INSERT INTO granna80_bdlinks.lp_contracts ( contract, asset_a, asset_b,contract_asset_a, exchange) VALUES (?, ?, ?, ?, ?)";
+    
+    $sql = "INSERT INTO granna80_bdlinks.lp_contracts 
+            (name, contract, asset_a, asset_b, liquidity, contract_asset_a, contract_asset_b, exchange, router, chain, visibletopublic) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if ($stmt === false) {
         die("Error preparing statement: " . $conn->error);
     }
 
-    // Bind parameters to the prepared statement
-    $stmt->bind_param("sssss",  $contract, $asset_a, $asset_b, $tokenContract_A, $exchange);
+    $stmt->bind_param("ssssssssssi", $name, $contract, $asset_a, $asset_b, $liquidity, $tokenContract_A, $tokenContract_B, $exchange, $router, $chain, $visibletopublic);
 
     if ($stmt->execute()) {
         echo "New record created successfully";
@@ -38,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error creating record: " . $stmt->error;
     }
 
-    // Close statement
+  
     $stmt->close();
 }
 ?>
@@ -53,19 +59,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <h2>Add Contract</h2>
     <form method="POST" action="">
- 
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" maxlength="20" required><br>
+        
         <label for="contract">Contract:</label><br>
-        <input type="text" id="contract" name="contract" size="42" required><br>
+        <input type="text" id="contract" name="contract" size="42" maxlength="42" required><br>
+        
         <label for="asset_a">Asset A:</label><br>
-        <input type="text" id="asset_a" name="asset_a" required><br>
+        <input type="text" id="asset_a" name="asset_a" maxlength="22" required><br>
+        
         <label for="contract_asset_a">Contract Asset A:</label><br>
-        <input type="text" id="contract_asset_a" name="contract_asset_a" required><br>
+        <input type="text" id="contract_asset_a" name="contract_asset_a" maxlength="42" required><br>
+        
         <label for="asset_b">Asset B:</label><br>
-        <input type="text" id="asset_b" name="asset_b" required><br>
-        <label for="contract_asset_a">Contract Asset B:</label><br>
-        <input type="text" id="contract_asset_b" name="contract_asset_b" required><br>
+        <input type="text" id="asset_b" name="asset_b" maxlength="22" required><br>
+        
+        <label for="contract_asset_b">Contract Asset B:</label><br>
+        <input type="text" id="contract_asset_b" name="contract_asset_b" maxlength="42" required><br>
+        
+        <label for="liquidity">Liquidity:</label><br>
+        <input type="text" id="liquidity" name="liquidity"><br>
+        
         <label for="exchange">Exchange:</label><br>
-        <input type="text" id="exchange" name="exchange" ><br>
+        <input type="text" id="exchange" name="exchange"><br>
+        
+        <label for="router">Router:</label><br>
+        <input type="text" id="router" name="router"><br>
+        
+        <label for="chain">Chain:</label><br>
+        <select id="chain" name="chain" required>
+            <option value="">Select a chain</option>
+            <?php foreach ($chains as $id => $networkName): ?>
+                <option value="<?php echo $id; ?>">
+                    <?php echo $networkName; ?>
+                </option>
+            <?php endforeach; ?>
+        </select><br>
+        
+        <label for="visibletopublic">Visible to Public:</label>
+        <input type="checkbox" id="visibletopublic" name="visibletopublic" value="1"><br>
     
         <input type="submit" value="Add">
     </form>
