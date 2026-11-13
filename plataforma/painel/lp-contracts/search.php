@@ -1,73 +1,49 @@
 <?php
 
-require 'vendor/autoload.php'; // Load Composer's autoloader
+$rpcUrl = getenv('INFURA_POLYGON_URL') ?: trim(file_get_contents(__DIR__ . '/infura.url'));
 
-use Web3\Web3;
-use Web3\Providers\HttpProvider;
-use Web3\Contract;
-use Web3\Utils;
+// Reads balanceOf(pool) and decimals of both tokens of every pool in one Multicall3 tryAggregate call.
+// One RPC request per read hits Infura's rate limit (429).
+// Returns [pool id => [balance A, decimals A, balance B, decimals B]], null where a read failed.
+function getTokenInfos($rows)
+{
+    global $rpcUrl;
+    $word = fn($hex) => str_pad($hex, 64, '0', STR_PAD_LEFT);
+    $address = fn($a) => preg_match('/^0x[0-9a-f]{40}$/i', trim($a)) ? substr(trim($a), 2) : '';
 
-// Configure Polygon (Matic) RPC URL using Infura
-
-
-$web3 = new Web3(new HttpProvider($rpcUrl));
-
-$tokenBalance = null;
-$tokenDecimals = null;
-
-// Function to get ERC20 token balance and decimals
-function getTokenInfo($web3, $walletAddress, $tokenContract, &$tokenBalance, &$tokenDecimals) {
-    // ERC20 contract ABI
-    $erc20Abi = json_decode('[{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"}]', true);
-
-    $contract = new Contract($web3->provider, $erc20Abi);
-
-    // Get token balance
-    $contract->at($tokenContract)->call('balanceOf', $walletAddress, function ($err, $balance) use ($walletAddress, $tokenContract, &$tokenBalance) {
-        if ($err !== null) {
-            echo 'Error getting token balance ' . $tokenContract . ' for wallet ' . $walletAddress . ': ' . $err->getMessage() . PHP_EOL;
-            return;
+    $calls = [];
+    foreach ($rows as $row) {
+        foreach ([$row['contract_asset_a'], $row['contract_asset_b']] as $token) {
+            $calls[] = [$address($token), '70a08231' . $word($address($row['contract']))];
+            $calls[] = [$address($token), '313ce567'];
         }
+    }
 
-        if (is_array($balance) && isset($balance['balance'])) {
-            $balance = $balance['balance'];
-        } else {
-            echo 'Token balance not available. Contract response:' . PHP_EOL;
-            var_dump($balance);
-            return;
-        }
+    $offsets = '';
+    $tuples = '';
+    foreach ($calls as [$target, $data]) {
+        $offsets .= $word(dechex(32 * count($calls) + strlen($tuples) / 2));
+        $tuples .= $word($target) . $word('40') . $word(dechex(strlen($data) / 2)) . str_pad($data, ceil(strlen($data) / 64) * 64, '0');
+    }
+    $callData = '0xbce38bd7' . $word('0') . $word('40') . $word(dechex(count($calls))) . $offsets . $tuples;
 
-        try {
-            $balanceBn = Utils::toBn($balance);
-            $tokenBalance = $balanceBn->toString();
-        } catch (Exception $e) {
-            echo 'Error converting balance to BigNumber: ' . $e->getMessage() . PHP_EOL;
-        }
-    });
+    $response = file_get_contents($rpcUrl, false, stream_context_create(['http' => [
+        'method' => 'POST',
+        'header' => 'Content-Type: application/json',
+        'content' => json_encode(['jsonrpc' => '2.0', 'id' => 1, 'method' => 'eth_call', 'params' => [['to' => '0xcA11bde05977b3631167028862bE2a173976CA11', 'data' => $callData], 'latest']]),
+    ]]));
+    $result = substr(json_decode($response, true)['result'] ?? '', 2);
+    $at = fn($i) => hexdec(substr($result, $i * 64, 64));
 
-    // Get token decimals
-    $contract->at($tokenContract)->call('decimals', [], function ($err, $decimals) use ($tokenContract, &$tokenDecimals) {
-        if ($err !== null) {
-            echo 'Error getting token decimals ' . $tokenContract . ': ' . $err->getMessage() . PHP_EOL;
-            return;
-        }
+    $values = [];
+    foreach ($calls as $i => $call) {
+        $pos = 2 + $at(2 + $i) / 32;
+        $values[] = $at($pos) && $at($pos + 2) == 32 ? $at($pos + 3) : null;
+    }
 
-        if (is_array($decimals) && isset($decimals[0])) {
-            $decimals = $decimals[0];
-        } else {
-            echo 'Token decimals not available. Contract response:' . PHP_EOL;
-            var_dump($decimals);
-            return;
-        }
-
-        $tokenDecimals = $decimals;
-    });
+    $infos = [];
+    foreach ($rows as $i => $row) {
+        $infos[$row['id']] = array_slice($values, $i * 4, 4);
+    }
+    return $infos;
 }
-
-// Check if form was submitted
-
-  
-
-?>
-
-
