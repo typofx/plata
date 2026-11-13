@@ -2,33 +2,12 @@
 <? require_once '/home2/granna80/public_html/_www-typofx/.scr/library/api.etherscan.php'; ?>
 <? require_once '/home2/granna80/public_html/_www-typofx/.scr/library/cryptoprices.extract.php'; ?>
 <? require_once '/home2/granna80/public_html/_www-typofx/.scr/library/cryptoprices.helpers.php'; ?>
-<? require_once '/home2/granna80/public_html/_www-typofx/.scr/library/json.helper.php'; ?>
+<? //require_once '/home2/granna80/public_html/_www-typofx/.scr/library/json.helper.php'; // producao ?>
+<? require_once __DIR__ . '/json.helper.php'; // teste: grava em ./json ?>
 <? //require_once 'json.helper-addon.php'; ?>
 <? require_once '/home2/granna80/public_html/_www-typofx/.scr/library/plata.math.php'; ?>
 <pre>
 <?php
-
-function save_json_token_output($source_name, $_ticker, $_prices, $_token_name)
-{
-    $json_dir = __DIR__ . '/json/' . $_token_name . '/' . gmdate('Y/m/d/H') . 'H';
-    if (!is_dir($json_dir))
-        mkdir($json_dir, 0755, true);
-
-    $output = [
-        'last_updated_at' => gmdate('d-m-Y H:i:s') . ' UTC',
-        'id' => $source_name . ' v3',
-        'prices' => $_prices
-    ];
-
-    $filename = $json_dir . '/' . $_ticker . '.' . gmdate('Y-m-d@H:i:s:') . 'UTC.json';
-
-    file_put_contents(
-        $filename,
-        json_encode($output, JSON_PRETTY_PRINT | JSON_PRESERVE_ZERO_FRACTION)
-    );
-
-    return $filename;
-}
 
 //if (file_exists('error_log')) unlink('error_log');
 
@@ -89,7 +68,7 @@ foreach ($fiats as $fiat) {
 
 $plata_values = deploy_plata_rates($POLUSD, $POLEUR, $POLBRL, $qtd_plata_pool__0x0E1_671a6, $qtd_wmatic_pool__0x0E1_671a6, $PLT_circulating_supply);
 
-    save_json_plt_output($api_company, $plata_values); 
+    save_json_token_output($api_company, 'PLT', ['plt_prices' => $plata_values['plt_prices'], 'plt_marketcap' => $plata_values['plt_marketcap']], 'plata.token');
     
     foreach ([$cryptocurrency, 'W' . $cryptocurrency] as $ticker) {
         $token_prices = [];
@@ -97,7 +76,37 @@ $plata_values = deploy_plata_rates($POLUSD, $POLEUR, $POLBRL, $qtd_plata_pool__0
             $token_prices[$ticker . $fiat] = ${$cryptocurrency . $fiat};
             $token_prices[$fiat . $ticker] = ${$fiat . $cryptocurrency};
         }
-        save_json_token_output($api_company, $ticker, $token_prices, 'polygon');
+        save_json_token_output($api_company, $ticker, ['prices' => $token_prices], 'polygon');
+    }
+
+    foreach ($fiats as $fiat) {
+        $fiat_history = [];
+        foreach ($fiats as $fiat_i) {
+            if ($fiat_i == $fiat) continue;
+            // $fiats_prices['USDBRL'] = 1 BRL em USD; no historico a chave segue AB = preco de A em B
+            $fiat_history[$fiat . $fiat_i] = $fiats_prices[$fiat_i . $fiat];
+            $fiat_history[$fiat_i . $fiat] = $fiats_prices[$fiat . $fiat_i];
+        }
+        $fiat_history[$fiat . $cryptocurrency] = ${$fiat . $cryptocurrency};
+        $fiat_history[$cryptocurrency . $fiat] = ${$cryptocurrency . $fiat};
+        save_json_token_output($api_company, $fiat, ['prices' => $fiat_history], $fiat_info[$fiat]['nmid']);
+    }
+
+    // tokens do exmachina: o preco vem do execInfoLP, que grava <nmid>/<FIAT>.json (pc = token em fiat, ft = inverso)
+    $contracts = json_decode(file_get_contents('https://www.typofx.ie/sirka/murilofurtado/assets/json-exm.json'), true)['chain']['polygon'];
+    $info = json_decode(file_get_contents('https://www.typofx.ie/sirka/murilofurtado/assets/json-new.json'), true)['chain']['polygon'];
+    foreach (array_keys($contracts) as $contract) {
+        $token = $info[$contract];
+        if (in_array($token['nmid'], ['plata.token', 'polygon'])) continue; // ja gravados acima
+
+        $prices = [];
+        foreach ($fiats as $fiat) {
+            $rate = json_decode(@file_get_contents('https://www.typofx.ie/.scr/library/json/' . $token['nmid'] . '/' . $fiat . '.json'), true);
+            if (!$rate) continue 2;
+            $prices[$token['ticker'] . $fiat] = (float) $rate['pc'];
+            $prices[$fiat . $token['ticker']] = (float) $rate['ft'];
+        }
+        save_json_token_output('execInfoLP', $token['ticker'], ['prices' => $prices], $token['nmid']);
     }
 
     foreach ($fiats as $fiat) {
