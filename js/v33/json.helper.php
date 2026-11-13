@@ -1,14 +1,5 @@
 <?php
 
-/**
- * Salva a saída JSON no diretório json/
- * 
- * @param string $source_name Nome da fonte (ex: 'coinmarketcap', 'moralis', etc)
- * @param array $prices_vs_usd Array de preços vs USD
- * @param array $usd_vs_prices Array de USD vs preços
- * @param array $plata_values Array com plt_prices e plt_marketcap
- * @return string Caminho do arquivo salvo
- */
 function save_json_output($source_name, $prices_vs_usd, $usd_vs_prices, $plata_values)
 {
     $json_dir = __DIR__ . '/json';
@@ -99,18 +90,27 @@ function save_json($_file_name, $_items)
 
 }
 
-function save_json_plt_output($source_name, $plata_values, $_ticker = 'PLT', $_token_name = 'plata.token')
+function save_json_token_output($source_name, $_ticker, $_data, $_token_name)
 {
     $json_dir = __DIR__ . '/json/' . $_token_name . '/' . gmdate('Y/m/d/H') . 'H';
+
     if (!is_dir($json_dir))
         mkdir($json_dir, 0755, true);
 
+    if (isset($_data['prices'])) {
+        $first = $last = [];
+        foreach ($_data['prices'] as $pair => $price) {
+            if ($pair == $_ticker . $_ticker) continue;
+            if (str_starts_with($pair, $_ticker)) $first[$pair] = $price;
+            elseif (str_ends_with($pair, $_ticker)) $last[$pair] = $price;
+        }
+        $_data['prices'] = $first + $last;
+    }
+
     $output = [
         'last_updated_at' => gmdate('d-m-Y H:i:s') . ' UTC',
-        'id' => $source_name . ' v3',
-        'plt_prices' => $plata_values['plt_prices'],
-        'plt_marketcap' => $plata_values['plt_marketcap']
-    ];
+        'id' => $source_name . ' v3'
+    ] + $_data;
 
     $filename = $json_dir . '/' . $_ticker . '.' . gmdate('Y-m-d@H:i:s:') . 'UTC.json';
 
